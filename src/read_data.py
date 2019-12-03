@@ -1,7 +1,7 @@
 from pip._vendor.pep517.compat import FileNotFoundError
 
 import config
-from MeshAlg.DT_prim import DT_algo
+from MeshAlg.DT_prim import dt_algo
 from MeshObjects.GeObjects import *
 
 
@@ -21,7 +21,7 @@ def read_file(meshfile):
                 line = f.readline()
                 n_line += 1
             f.close()
-            DT_algo(config.gmesh)
+            dt_algo(config.gmesh)
     except (FileNotFoundError, PermissionError) as e:
         print("unexpected error: Maybe the file", meshfile, " does not exist or the permissions should be modified")
 
