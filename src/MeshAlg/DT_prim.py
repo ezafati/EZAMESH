@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def DT_algo(mesh):
-    #mesh.add_grid("rand")
     plist = mesh.point_list[:]
     boundary = mesh.boundary[:]
     Nl = len(plist)
