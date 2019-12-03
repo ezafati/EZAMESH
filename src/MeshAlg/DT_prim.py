@@ -12,7 +12,6 @@ def DT_algo(mesh):
     ymax = max([ plist[p].y for p in range(Nl)])
     ymin = min([ plist[p].y for p in range(Nl)])
     dmax = max ((xmax-xmin),(ymax-ymin))
-    #print xmin, ymin, dmax
     plist = [ plist[p].prescale(xmin,ymin,dmax) for p in range(Nl)]
     plist.append(point(-0.5,-0.5))
     plist.append(point(1.5,-0.5))
