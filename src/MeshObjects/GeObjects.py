@@ -1,9 +1,7 @@
 from __future__ import division
-import math, sys
-from math import sqrt
-import random
-import itertools
+
 import matplotlib.pyplot as plt
+
 from utils import *
 
 
