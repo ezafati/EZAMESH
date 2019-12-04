@@ -1,7 +1,7 @@
 from pip._vendor.pep517.compat import FileNotFoundError
 from pkg_resources import PermissionError
 
-import config
+import config, os.path
 from MeshAlg.DT_prim import dt_algo
 from MeshObjects.GeObjects import *
 
@@ -24,7 +24,7 @@ def read_file(meshfile):
             f.close()
             dt_algo(config.gmesh)
     except (FileNotFoundError, PermissionError) as e:
-        print("unexpected error: Maybe the file", meshfile, " does not exist or the permissions should be modified")
+        print("Error File: ", os.path.abspath(meshfile), " Not Found  or Permission Error")
 
 
 def switcher_demo(fields, n_line):
