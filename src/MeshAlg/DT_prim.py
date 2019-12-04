@@ -1,7 +1,9 @@
-from MeshObjects.GeObjects import *
-import math, sys
+import sys
+
 import matplotlib.pyplot as plt
 import numpy as np
+
+from MeshObjects.GeObjects import *
 
 
 def dt_algo(vmesh):
@@ -36,7 +38,7 @@ def dt_algo(vmesh):
             triangle_list_final[p] = triangle_list[p]
     boundary_enforc(plist, triangle_list, triangle_list_final, boundary)
     '''add point routine '''
-    '''while not terminate:
+    '''while not vmesh.terminate:
         add_point()
         Nel = find_triangle(plist[p], plist, triangle_list)
         k = insert_point(p, plist, Nel, Nt, triangle_list)
@@ -58,7 +60,7 @@ def dt_algo(vmesh):
                 set_point_tmp[el[k]] = n
                 n += 1
             el[k] = set_point_tmp[el[k]]
-    """to use correctly the 2 following  commads the previous renumerotation code should be commented"""
+    """to use correctly the 2 following  commands the previous renumerotation code should be commented"""
 
     plot_mesh(vmesh.point_list, vmesh.triangle_list)
 
@@ -270,13 +272,13 @@ def check_in_triangle(p, trian):
     u1 = vector(A.y - B.y, B.x - A.x)
     u2 = vector(A.y - C.y, C.x - A.x)
     u3 = vector(C.y - B.y, B.x - C.x)
-    if (C.x * u1.x + C.y * u1.y > A.x * u1.x + A.y * u1.y):
+    if C.x * u1.x + C.y * u1.y > A.x * u1.x + A.y * u1.y:
         u1.x = -1 * u1.x
         u1.y = -1 * u1.y
-    if (B.x * u2.x + B.y * u2.y > A.x * u2.x + A.y * u2.y):
+    if B.x * u2.x + B.y * u2.y > A.x * u2.x + A.y * u2.y:
         u2.x = -1 * u2.x
         u2.y = -1 * u2.y
-    if (A.x * u3.x + A.y * u3.y > B.x * u3.x + B.y * u3.y):
+    if A.x * u3.x + A.y * u3.y > B.x * u3.x + B.y * u3.y:
         u3.x = -1 * u3.x
         u3.y = -1 * u3.y
     # print "vectors",  u1.x, u1.y, u2.x, u2.y,  u3.x, u3.y

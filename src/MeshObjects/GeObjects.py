@@ -44,7 +44,7 @@ class segment(object):
 
 
 class mesh(object):
-    def __init__(self, x=[], y=0, slabel=[], nnodes=0, polist=[], llist={}, size=[], ltri=[]):
+    def __init__(self, x=[], y=0, slabel=[], nnodes=0, polist=[], llist={}, size=[], ltri=[], terminate=0):
         self.boundary = x
         self.nboseg = y
         self.seglab = slabel
@@ -53,6 +53,7 @@ class mesh(object):
         self.label_list = llist
         self.triangle_list = ltri
         self.asize = size
+        self.terminate = terminate
 
     def add_bound_seg(self, fields, n_line):
         try:
@@ -69,7 +70,7 @@ class mesh(object):
             ifpart = math.modf(NN)
             if ifpart[1] == 0 or (ifpart[1] == 1 and ifpart[0] <= 0.5):
                 self.nboseg += 1
-                self.boundary.append(set([NA - 1, NB - 1]))
+                self.boundary.append({NA - 1, NB - 1})
             else:
                 if ifpart[0] <= 0.5:
                     NN = ifpart[1]
@@ -83,16 +84,16 @@ class mesh(object):
                     self.point_list.append(C)
                     if k == 1:
                         self.nboseg += 1
-                        self.boundary.append(set([NA - 1, self.nnodes - 1]))
+                        self.boundary.append({NA - 1, self.nnodes - 1})
                     if k == NN - 1:
                         self.nboseg += 1
-                        self.boundary.append(set([self.nnodes - 1, NB - 1]))
+                        self.boundary.append({self.nnodes - 1, NB - 1})
                         if k != 1:
                             self.nboseg += 1
-                            self.boundary.append(set([(self.nnodes - 1) - 1, self.nnodes - 1]))
+                            self.boundary.append({(self.nnodes - 1) - 1, self.nnodes - 1})
                     if (k != 1) and (k != NN - 1):
                         self.nboseg += 1
-                        self.boundary.append(set([(self.nnodes - 1) - 1, self.nnodes - 1]))
+                        self.boundary.append({(self.nnodes - 1) - 1, self.nnodes - 1})
                     k += 1
         except Exception as err:
             print('exit for the error in line ', n_line, ': ', err)
