@@ -24,7 +24,7 @@ def read_file(meshfile):
             f.close()
             dt_algo(config.gmesh)
     except (FileNotFoundError, PermissionError) as e:
-        print("Error File: ", os.path.abspath(meshfile), " Not Found  or Permission Error")
+        print("Error File: ", os.path.abspath(meshfile), "Not Found  or Permission Error")
 
 
 def switcher_demo(fields, n_line):
