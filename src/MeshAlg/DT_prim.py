@@ -35,13 +35,16 @@ def dt_algo(vmesh):
         if not triangle_list[p].childs:
             triangle_list_final[p] = triangle_list[p]
     boundary_enforc(plist, triangle_list, triangle_list_final, boundary)
+    '''add point routine '''
+    '''while not terminate:
+        add_point()'''
     triangle_list_elim(triangle_list_final, boundary, Nl, Ntot)
     # plot_DT(plist, triangle_list)
     for k in triangle_list_final.keys():
         if -1 not in triangle_list_final[k].childs:
             vmesh.triangle_list.append(triangle_list_final[k].points)
     plist = [plist[p].inv_prescale(xmin, ymin, dmax) for p in range(Nl)]
-    """Renumerotation code: list points and related numerotations are updated """
+    """numerotation code: list points and related numerations are updated """
     set_point_tmp = {}
     vmesh.point_list = []
     n = 0

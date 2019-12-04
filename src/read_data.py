@@ -1,4 +1,5 @@
 from pip._vendor.pep517.compat import FileNotFoundError
+from pkg_resources import PermissionError
 
 import config
 from MeshAlg.DT_prim import dt_algo
