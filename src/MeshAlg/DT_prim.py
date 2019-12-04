@@ -37,7 +37,10 @@ def dt_algo(vmesh):
     boundary_enforc(plist, triangle_list, triangle_list_final, boundary)
     '''add point routine '''
     '''while not terminate:
-        add_point()'''
+        add_point()
+        Nel = find_triangle(plist[p], plist, triangle_list)
+        k = insert_point(p, plist, Nel, Nt, triangle_list)
+        Nt = Nt + k'''
     triangle_list_elim(triangle_list_final, boundary, Nl, Ntot)
     # plot_DT(plist, triangle_list)
     for k in triangle_list_final.keys():
@@ -66,7 +69,7 @@ def triangle_list_elim(triangle_list_final, boundary, Nl, Ntot):
             break
     triangle_list_final[p].childs.append(-1)
     adjacent = triangle_list_final[p].adjacent[:]
-    while adjacent != []:
+    while adjacent:
         Ntmp = adjacent[0]
         del adjacent[0]
         for l in triangle_list_final[Ntmp].adjacent:
