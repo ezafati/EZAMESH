@@ -1,4 +1,4 @@
 from MeshObjects.GeObjects import *
 
-gmesh =  mesh()
-#vmesh = voronoi_mesh()
+gmesh = mesh()
+# vmesh = voronoi_mesh()
