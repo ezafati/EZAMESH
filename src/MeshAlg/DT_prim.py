@@ -85,7 +85,7 @@ def boundary_enforc(plist, triangle_list, triangle_list_final,  boundary):
                      break
  
         if len(points_set) ==1:
-           print "the following boundary element is enforced", l 
+           print("the following boundary elemCent is enforced", l) 
            n2 = n1
            while  l != set(triangle_list[n1].points).intersection(set(triangle_list[n2].points)):
                   #print triangle_list[n1].points, triangle_list[n2].points
