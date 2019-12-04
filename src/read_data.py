@@ -1,7 +1,8 @@
 from pip._vendor.pep517.compat import FileNotFoundError
 from pkg_resources import PermissionError
 
-import config, os.path
+import globalvar
+import os.path
 from MeshAlg.DT_prim import dt_algo
 from MeshObjects.GeObjects import *
 
@@ -22,16 +23,16 @@ def read_file(meshfile):
                 line = f.readline()
                 n_line += 1
             f.close()
-            dt_algo(config.gmesh)
+            dt_algo(globalvar.gmesh)
     except (FileNotFoundError, PermissionError) as e:
         print("Error File: ", os.path.abspath(meshfile), "Not Found  or Permission Error")
 
 
 def switcher_demo(fields, n_line):
     switcher = {
-        'P': lambda fields: config.gmesh.add_point(fields),
-        'D': lambda fields: config.gmesh.add_bound_seg(fields, n_line),
-        'AS': lambda fields: config.gmesh.asize.append(float(fields[3]))
+        'P': lambda fields: globalvar.gmesh.add_point(fields),
+        'D': lambda fields: globalvar.gmesh.add_bound_seg(fields, n_line),
+        'AS': lambda fields: globalvar.gmesh.asize.append(float(fields[3]))
     }
     func = switcher.get(fields[2], 'INVALID')
     if func == 'INVALID':

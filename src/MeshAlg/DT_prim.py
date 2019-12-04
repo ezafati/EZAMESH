@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from MeshObjects.GeObjects import *
+from insert_point_algorithms import add_point
 
 
 def dt_algo(vmesh):
