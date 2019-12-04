@@ -249,7 +249,6 @@ def find_triangle(p, plist, triangle_list):
         while test and (k <= len(childs) - 1):
             # print [[plist[triangle_list[childs[k]].points[l]].x, plist[triangle_list[childs[k]].points[l]].y]  for l in range(3)]
             if check_in_triangle(p, [plist[l] for l in triangle_list[childs[k]].points]):
-                # print [[plist[triangle_list[childs[k]].points[l]].x, plist[triangle_list[childs[k]].points[l]].y]  for l in range(3)]
                 test = 0
                 Nel = childs[k]
                 print("triangle found with reference and points:", Nel, triangle_list[Nel].points)
