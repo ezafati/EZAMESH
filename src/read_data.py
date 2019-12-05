@@ -1,5 +1,5 @@
-from pip._vendor.pep517.compat import FileNotFoundError
-from pkg_resources import PermissionError
+#from pip._vendor.pep517.compat import FileNotFoundError
+#from pkg_resources import PermissionError
 
 import globalvar
 import os.path
@@ -36,6 +36,6 @@ def switcher_demo(fields, n_line):
     }
     func = switcher.get(fields[2], 'INVALID')
     if func == 'INVALID':
-        print 'error: line ', n_line, 'see details below'
+        print('error: line ', n_line, 'see details below')
         sys.exit("error: the object is unknown ... ")
     switcher.get(fields[2])(fields)

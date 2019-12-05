@@ -21,7 +21,7 @@ class point(object):
         self.y = (self.y - y) / d
         return self
 
-    def inv_prescale(self, x, y, d):
+    def postscale(self, x, y, d):
         self.x = d * self.x + x
         self.y = d * self.y + y
         return self

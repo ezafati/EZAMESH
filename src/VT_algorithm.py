@@ -44,7 +44,7 @@ def VT_algo(mesh, vmesh):
     boundary_enforc(plist, triangle_list, triangle_list_final, boundary)
     #print plist[0].x, plist[0].y
     #print xmin, xmax, dmax
-    plist = [ plist[p].inv_prescale(xmin,ymin,dmax) for p in range(Ntot)]
+    plist = [plist[p].postscale(xmin, ymin, dmax) for p in range(Ntot)]
     triangle_vertex = {}
     l = 0
     # add vertices for each point 

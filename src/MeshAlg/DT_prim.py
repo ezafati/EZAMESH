@@ -1,11 +1,13 @@
 import sys
-
+import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
 from MeshObjects.GeObjects import *
-from insert_point_algorithms import add_point
+from MeshAlg.insert_point_algorithms import add_point
 
+matplotlib.use("TkAgg")
+import tkinter as tk
 
 def dt_algo(vmesh):
     plist = vmesh.point_list[:]
@@ -28,7 +30,7 @@ def dt_algo(vmesh):
     triangle_list.append(triangle([Nl + 2, Nl + 3, Nl], [], [0]))
     Nt = 2
     for p in range(Nl):
-        print "point", p, "is inserted"
+        print("point", p, "is inserted")
         Nel = find_triangle(plist[p], plist, triangle_list)
         k = insert_point(p, plist, Nel, Nt, triangle_list)
         Nt = Nt + k
@@ -49,7 +51,7 @@ def dt_algo(vmesh):
     for k in triangle_list_final.keys():
         if -1 not in triangle_list_final[k].childs:
             vmesh.triangle_list.append(triangle_list_final[k].points)
-    plist = [plist[p].inv_prescale(xmin, ymin, dmax) for p in range(Nl)]
+    plist = [plist[p].postscale(xmin, ymin, dmax) for p in range(Nl)]
     """numerotation code: list points and related numerations are updated """
     set_point_tmp = {}
     vmesh.point_list = []
@@ -94,7 +96,7 @@ def boundary_enforc(plist, triangle_list, triangle_list_final, boundary):
                 break
 
         if len(points_set) == 1:
-            print "the following boundary element is enforced", l
+            print("the following boundary element is enforced", l)
             n2 = n1
             while l != set(triangle_list[n1].points).intersection(set(triangle_list[n2].points)):
                 # print triangle_list[n1].points, triangle_list[n2].points
@@ -145,7 +147,8 @@ def insert_point(p, plist, Nel, Nt, triangle_list):
         triangle([p, triangle_list[Nel].points[0], triangle_list[Nel].points[1]], [], [Nt + 1, Nt + 2]))
     triangle_list.append(triangle([p, triangle_list[Nel].points[0], triangle_list[Nel].points[2]], [], [Nt, Nt + 2]))
     triangle_list.append(triangle([p, triangle_list[Nel].points[1], triangle_list[Nel].points[2]], [], [Nt, Nt + 1]))
-    print "triangle with reference ", Nel, " generate 3 triangles", [triangle_list[l].points for l in range(Nt, Nt + 3)]
+    print("triangle with reference ", Nel, " generate 3 triangles",
+          [triangle_list[l].points for l in range(Nt, Nt + 3)])
     k = 3
     list_del.append(Nel)
     for l in triangle_list[Nel].adjacent:
@@ -157,23 +160,23 @@ def insert_point(p, plist, Nel, Nt, triangle_list):
                 triangle_list[l].adjacent.append(t)
                 break
     list_adja = triangle_list[Nel].adjacent[:]
-    print "list of adjacent triangle before loop while", list_adja
+    print("list of adjacent triangle before loop while", list_adja)
     triangle_list[Nel].adjacent = []
     while list_adja:
-        print "list adjacent triangle after loop while", list_adja
+        print("list adjacent triangle after loop while", list_adja)
         Ntmp = list_adja[0]
         del list_adja[0]
-        print "one triangle is deleted"
+        print("one triangle is deleted")
         if check_in_circle(plist[p], [plist[l] for l in triangle_list[Ntmp].points]):
             list_del.append(Ntmp)
-            print "reference of the triangle deleted with satisfied condition", Ntmp
+            print("reference of the triangle deleted with satisfied condition", Ntmp)
             k += 1
             triangle_list.append(
                 triangle(triangle_list[Ntmp].points, triangle_list[Ntmp].childs, triangle_list[Ntmp].adjacent))
             list_adja = list(set(list_adja).union(
                 set([m for m in triangle_list[Ntmp].adjacent if p not in triangle_list[m].points])))
-            print len([m for m in triangle_list[Ntmp].adjacent if
-                       p not in triangle_list[m].points]), "new triangles added to list adj"
+            # print len([m for m in triangle_list[Ntmp].adjacent if
+            #          p not in triangle_list[m].points]), "new triangles added to list adj"
             Np = [m for m in triangle_list[Ntmp].adjacent if p in triangle_list[m].points][0]
             triangle_list[Ntmp].adjacent = []
             # print "adjac Nt+k-1", triangle_list[Nt+k-1].adjacent
@@ -181,9 +184,9 @@ def insert_point(p, plist, Nel, Nt, triangle_list):
                 # print "Nt+k-1", Nt+k-1
                 triangle_list[l].adjacent.remove(Ntmp)
                 triangle_list[l].adjacent.append(Nt + k - 1)
-            print "triangles before swapping", [triangle_list[l].points for l in [Np, Nt + k - 1]]
+            print("triangles before swapping", [triangle_list[l].points for l in [Np, Nt + k - 1]])
             swapping_triangles(triangle_list, Nt + k - 1, Np)
-            print "triangles after swapped", triangle_list[Nt + k - 1].points, triangle_list[Np].points
+            print("triangles after swapped", triangle_list[Nt + k - 1].points, triangle_list[Np].points)
     for n in list_del:
         # print "element elimine", n
         triangle_list[n].childs = range(Nt, Nt + k)
@@ -256,9 +259,9 @@ def find_triangle(p, plist, triangle_list):
                 childs = triangle_list[Nel].childs
             k += 1
         if test == 1:
-            print childs
-            print " point not found", p.x, p.y
-            plot_point_DT(p, plist, [triangle_list[m] for m in childs])
+            print(childs)
+            print(" point not found", p.x, p.y)
+            # plot_point_DT(p, plist, [triangle_list[m] for m in childs])
             sys.exit("error: mesh fails to be created: the error should be reported")
     return Nel
 
