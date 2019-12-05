@@ -1,0 +1,15 @@
+
+A = P 0 0
+B = P 4  0
+C = P 4 4
+D = P 0 4
+
+
+L1 = D A B 0.5
+L2 = D B C 0.5
+L3 = D C D 0.5
+L4 = D D A 0.5
+
+els = AS 0.5
+
+
