@@ -106,6 +106,31 @@ class Triangle(object):
         self.childs = y
         self.adjacent = z
 
+    def point_in(self, pt, plist):
+        eps = 1e-10
+        A = plist[self.points[0]]
+        B = plist[self.points[1]]
+        C = plist[self.points[2]]
+        u1 = Vector(A.y - B.y, B.x - A.x)
+        u2 = Vector(A.y - C.y, C.x - A.x)
+        u3 = Vector(C.y - B.y, B.x - C.x)
+        if C.x * u1.x + C.y * u1.y > A.x * u1.x + A.y * u1.y:
+            u1.x = -1 * u1.x
+            u1.y = -1 * u1.y
+        if B.x * u2.x + B.y * u2.y > A.x * u2.x + A.y * u2.y:
+            u2.x = -1 * u2.x
+            u2.y = -1 * u2.y
+        if A.x * u3.x + A.y * u3.y > B.x * u3.x + B.y * u3.y:
+            u3.x = -1 * u3.x
+            u3.y = -1 * u3.y
+        # print "vectors",  u1.x, u1.y, u2.x, u2.y,  u3.x, u3.y
+        if (pt.x * u1.x + pt.y * u1.y <= A.x * u1.x + A.y * u1.y + eps) and (
+                pt.x * u2.x + pt.y * u2.y <= A.x * u2.x + A.y * u2.y + eps) and (
+                pt.x * u3.x + pt.y * u3.y <= B.x * u3.x + B.y * u3.y + eps):
+            return 1
+        else:
+            return 0
+
 
 class Segment(object):
     def __init__(self, x=0, y=0, dens=0):
