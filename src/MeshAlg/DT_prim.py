@@ -19,15 +19,15 @@ def dt_algo(vmesh):
     ymin = min([plist[p].y for p in range(Nl)])
     dmax = max((xmax - xmin), (ymax - ymin))
     plist = [plist[p].prescale(xmin, ymin, dmax) for p in range(Nl)]
-    plist.append(point(-0.5, -0.5))
-    plist.append(point(1.5, -0.5))
-    plist.append(point(1.5, 1.5))
-    plist.append(point(-0.5, 1.5))
+    plist.append(Point(-0.5, -0.5))
+    plist.append(Point(1.5, -0.5))
+    plist.append(Point(1.5, 1.5))
+    plist.append(Point(-0.5, 1.5))
     Ntot = Nl + 4
     triangle_list = []
     # Creation des super triangles
-    triangle_list.append(triangle([Nl, Nl + 1, Nl + 2], [], [1]))
-    triangle_list.append(triangle([Nl + 2, Nl + 3, Nl], [], [0]))
+    triangle_list.append(Triangle([Nl, Nl + 1, Nl + 2], [], [1]))
+    triangle_list.append(Triangle([Nl + 2, Nl + 3, Nl], [], [0]))
     Nt = 2
     for p in range(Nl):
         print("point", p, "is inserted")
@@ -144,9 +144,9 @@ def insert_point(p, plist, Nel, Nt, triangle_list):
     list_del = []
     # initialization of the first triangles in the triangle with index Nel
     triangle_list.append(
-        triangle([p, triangle_list[Nel].points[0], triangle_list[Nel].points[1]], [], [Nt + 1, Nt + 2]))
-    triangle_list.append(triangle([p, triangle_list[Nel].points[0], triangle_list[Nel].points[2]], [], [Nt, Nt + 2]))
-    triangle_list.append(triangle([p, triangle_list[Nel].points[1], triangle_list[Nel].points[2]], [], [Nt, Nt + 1]))
+        Triangle([p, triangle_list[Nel].points[0], triangle_list[Nel].points[1]], [], [Nt + 1, Nt + 2]))
+    triangle_list.append(Triangle([p, triangle_list[Nel].points[0], triangle_list[Nel].points[2]], [], [Nt, Nt + 2]))
+    triangle_list.append(Triangle([p, triangle_list[Nel].points[1], triangle_list[Nel].points[2]], [], [Nt, Nt + 1]))
     print("triangle with reference ", Nel, " generate 3 triangles",
           [triangle_list[l].points for l in range(Nt, Nt + 3)])
     k = 3
@@ -172,7 +172,7 @@ def insert_point(p, plist, Nel, Nt, triangle_list):
             print("reference of the triangle deleted with satisfied condition", Ntmp)
             k += 1
             triangle_list.append(
-                triangle(triangle_list[Ntmp].points, triangle_list[Ntmp].childs, triangle_list[Ntmp].adjacent))
+                Triangle(triangle_list[Ntmp].points, triangle_list[Ntmp].childs, triangle_list[Ntmp].adjacent))
             list_adja = list(set(list_adja).union(
                 set([m for m in triangle_list[Ntmp].adjacent if p not in triangle_list[m].points])))
             # print len([m for m in triangle_list[Ntmp].adjacent if
@@ -272,9 +272,9 @@ def check_in_triangle(p, trian):
     B = trian[1]
     C = trian[2]
     # print A.x, A.y, B.x, B.y, C.x, C.y
-    u1 = vector(A.y - B.y, B.x - A.x)
-    u2 = vector(A.y - C.y, C.x - A.x)
-    u3 = vector(C.y - B.y, B.x - C.x)
+    u1 = Vector(A.y - B.y, B.x - A.x)
+    u2 = Vector(A.y - C.y, C.x - A.x)
+    u3 = Vector(C.y - B.y, B.x - C.x)
     if C.x * u1.x + C.y * u1.y > A.x * u1.x + A.y * u1.y:
         u1.x = -1 * u1.x
         u1.y = -1 * u1.y

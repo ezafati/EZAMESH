@@ -1,17 +1,90 @@
 from __future__ import division
 
 import matplotlib.pyplot as plt
+import numpy as np
 
 from utils import *
 
 
-class vector(object):
+def check_in_disc(pt, lpt):
+    A = lpt[0]
+    B = lpt[1]
+    C = lpt[2]
+    a = np.array(([B.x - A.x, C.x - A.x], [B.y - A.y, C.y - A.y]))
+    array1 = [A.x - pt.x, A.y - pt.y, pow(A.x - pt.x, 2) + pow(A.y - pt.y, 2)]
+    array2 = [B.x - pt.x, B.y - pt.y, pow(B.x - pt.x, 2) + pow(B.y - pt.y, 2)]
+    array3 = [C.x - pt.x, C.y - pt.y, pow(C.x - pt.x, 2) + pow(C.y - pt.y, 2)]
+    b = np.array((array1, array2, array3))
+    if np.linalg.slogdet(a)[0] * np.linalg.slogdet(b)[0] > 0:
+        return 1
+    else:
+        return 0
+
+
+def remove_triangle(tr1, tr2):
+    l = 0
+    for adj in tr1.adjacent:
+        if set(adj.points) == set(tr2.points):
+            tr1.adjacent.remove(l)
+            break
+        l += 1
+
+
+class TriangleTree:
+    def __init__(self, root=None):
+        self.root = root
+
+    def search_triangle(self, pt, plist):
+        for child in self.root.childs:
+            check = self.check_in_triangle(child, pt, plist)
+            if check:
+                return check
+            else:
+                continue
+
+    def check_in_triangle(self, tr, pt, plist):
+        if tr.point_in(pt, plist):
+            if not tr.childs:
+                return tr
+            else:
+                for child in tr.childs:
+                    self.check_in_triangle(child, pt, plist)
+        else:
+            pass
+
+    def insert_point(self, p, plist):
+        pt = plist[p]
+        tr = self.search_triangle(pt, plist)
+        t1 = Triangle([p, tr.points[0], tr.points[1]])
+        t2 = Triangle([p, tr.points[2], tr.points[0]])
+        t3 = Triangle([p, tr.points[1], tr.points[2]])
+        tr.childs.append(t1)
+        tr.childs.append(t2)
+        tr.childs.append(t3)
+        t1.adjacent = t1.adjacent + [t2, t3]
+        t2.adjacent = t2.adjacent + [t1, t3]
+        t3.adjacent = t3.adjacent + [t2, t1]
+        for adj in tr.adjacent:
+            remove_triangle(adj, tr)
+            for child in tr.childs:
+                if len(set(child.points).intersection(set(adj.points))) > 1:
+                    child.adjacent.append(adj)
+                    adj.adjacent.append(child)
+                    break
+        list_tmp = tr.adjacent
+        while list_tmp:
+            tr_tmp = list_tmp.pop(0)
+            if check_in_disc(pt, [plist[m] for m in tr_tmp.points]):
+                pass
+
+
+class Vector(object):
     def __init__(self, x=0, y=0):
         self.x = x
         self.y = y
 
 
-class point(object):
+class Point(object):
     def __init__(self, x=0, y=0):
         self.x = x
         self.y = y
@@ -27,21 +100,21 @@ class point(object):
         return self
 
 
-class triangle(object):
+class Triangle(object):
     def __init__(self, x=[], y=[], z=[]):
         self.points = x
         self.childs = y
         self.adjacent = z
 
 
-class segment(object):
+class Segment(object):
     def __init__(self, x=0, y=0, dens=0):
         self.extrA = x
         self.extrB = y
         self.dens = dens
 
 
-class mesh(object):
+class Mesh(object):
     def __init__(self, x=[], y=0, slabel=[], nnodes=0, polist=[], llist={}, size=[], ltri=[], terminate=0):
         self.boundary = x
         self.nboseg = y
@@ -76,7 +149,7 @@ class mesh(object):
                     NN = ifpart[1] + 1
                 while 0 < k < NN:
                     self.nnodes += 1
-                    C = point()
+                    C = Point()
                     C.x = (1 - (k / NN)) * A.x + (k / NN) * B.x
                     C.y = (1 - (k / NN)) * A.y + (k / NN) * B.y
                     self.point_list.append(C)
@@ -109,8 +182,8 @@ class mesh(object):
     def add_point(self, fields):
         if len(fields) == 2:
             self.nnodes += 1
-            self.point_list.append(point(fields[0], fields[1]))
+            self.point_list.append(Point(fields[0], fields[1]))
         else:
             self.nnodes += 1
-            self.point_list.append(point(float(fields[3]), float(fields[4])))
+            self.point_list.append(Point(float(fields[3]), float(fields[4])))
             self.label_list[fields[0]] = self.nnodes
