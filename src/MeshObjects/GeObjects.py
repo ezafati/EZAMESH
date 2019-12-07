@@ -22,12 +22,10 @@ def check_in_disc(pt, lpt):
 
 
 def remove_triangle(tr1, tr2):
-    l = 0
     for adj in tr1.adjacent:
         if set(adj.points) == set(tr2.points):
-            tr1.adjacent.remove(l)
+            tr1.adjacent.remove(tr2)
             break
-        l += 1
 
 
 def swap_tr(tr1, tr2):
@@ -59,10 +57,14 @@ def swap_tr(tr1, tr2):
 
 def plot_triangle(tr, plist, ax):
     if not tr.childs:
-        vertx = tr.points + tr.points[0]
+        vertx = tr.points
+        vertx.append(tr.points[0])
         coordx = [plist[p].x for p in vertx]
         coordy = [plist[p].y for p in vertx]
         ax.plot(coordx, coordy, 'k-*')
+    else:
+        for child in tr.childs:
+            plot_triangle(child, plist, ax)
 
 
 class TriangleTree:
@@ -86,21 +88,24 @@ class TriangleTree:
                 continue
 
     def check_in_triangle(self, tr, pt, plist):
-        if tr.point_in(pt, plist):
-            if not tr.childs:
-                return tr
-            else:
-                for child in tr.childs:
-                    self.check_in_triangle(child, pt, plist)
+        if tr.childs:
+            for child in tr.childs:
+                check = self.check_in_triangle(child, pt, plist)
+                if check:
+                    return check
+                else:
+                    continue
+        elif tr.point_in(pt, plist):
+            return tr
         else:
             pass
 
     def insert_point(self, p, plist):
         pt = plist[p]
         tr = self.search_triangle(pt, plist)
-        t1 = Triangle([p, tr.points[0], tr.points[1]])
-        t2 = Triangle([p, tr.points[2], tr.points[0]])
-        t3 = Triangle([p, tr.points[1], tr.points[2]])
+        t1 = Triangle([p, tr.points[0], tr.points[1]], [], [])
+        t2 = Triangle([p, tr.points[2], tr.points[0]], [], [])
+        t3 = Triangle([p, tr.points[1], tr.points[2]], [], [])
         tr.childs.append(t1)
         tr.childs.append(t2)
         tr.childs.append(t3)

@@ -3,7 +3,8 @@
 
 import globalvar
 import os.path
-from MeshAlg.DT_prim import dt_algo
+#from MeshAlg.DT_prim import dt_algo
+from MeshAlg.initial_DT import dt_initial
 from MeshObjects.GeObjects import *
 
 
@@ -23,7 +24,7 @@ def read_file(meshfile):
                 line = f.readline()
                 n_line += 1
             f.close()
-            dt_algo(globalvar.gmesh)
+            dt_initial(globalvar.gmesh)
     except (FileNotFoundError, PermissionError) as e:
         print("Error File: ", os.path.abspath(meshfile), "Not Found  or Permission Error")
 

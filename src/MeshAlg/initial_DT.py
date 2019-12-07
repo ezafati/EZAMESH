@@ -23,8 +23,8 @@ def dt_initial(vmesh):
     plist.append(Point(1.5, -0.5))
     plist.append(Point(1.5, 1.5))
     plist.append(Point(-0.5, 1.5))
-    T1 = Triangle([Nl, Nl + 1, Nl + 2])
-    T2 = Triangle([Nl + 2, Nl + 3, Nl])
+    T1 = Triangle([Nl, Nl + 1, Nl + 2], [], [])
+    T2 = Triangle([Nl + 2, Nl + 3, Nl], [], [])
     T1.adjacent.append(T2)
     T2.adjacent.append(T1)
     # initialize Tree
