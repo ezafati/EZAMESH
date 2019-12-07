@@ -32,17 +32,4 @@ def dt_initial(vmesh):
     Tree.root.childs = Tree.root.childs + [T1, T2]
     for p in range(Nl):
         Tree.insert_point(p, plist)
-
-    plot_mesh(plist, Tree)
-
-
-def plot_mesh(plist, tree):
-    fig = plt.figure()  # create figure object
-    ax = fig.add_subplot(1, 1, 1)  # create an axes object
-    plt.gca().set_aspect('equal', adjustable='box')
-    for triangle in triangle_list:
-        triangle = triangle + [triangle[0]]
-        coordx = [plist[p].x for p in triangle]
-        coordy = [plist[p].y for p in triangle]
-        ax.plot(coordx, coordy, 'k-*')
-    plt.show()
+    Tree.plot_mesh(plist)

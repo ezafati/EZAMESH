@@ -57,9 +57,25 @@ def swap_tr(tr1, tr2):
             break
 
 
+def plot_triangle(tr, plist, ax):
+    if not tr.childs:
+        vertx = tr.points + tr.points[0]
+        coordx = [plist[p].x for p in vertx]
+        coordy = [plist[p].y for p in vertx]
+        ax.plot(coordx, coordy, 'k-*')
+
+
 class TriangleTree:
     def __init__(self, root=None):
         self.root = root
+
+    def plot_mesh(self, plist):
+        fig = plt.figure()  # create figure object
+        ax = fig.add_subplot(1, 1, 1)  # create an axes object
+        plt.gca().set_aspect('equal', adjustable='box')
+        for child in self.root.childs:
+            plot_triangle(child, plist, ax)
+        plt.show()
 
     def search_triangle(self, pt, plist):
         for child in self.root.childs:
