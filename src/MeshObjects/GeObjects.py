@@ -30,6 +30,33 @@ def remove_triangle(tr1, tr2):
         l += 1
 
 
+def swap_tr(tr1, tr2):
+    inter = list(set(tr1.points).intersection(set(tr2.points)))
+    diff = list(set(tr1.points).symmetric_difference(set(tr2.points)))
+    tr1.points = tr1.points + diff
+    tr2.points = tr2.points + diff
+    tr1.points.append(inter[0])
+    tr2.points.append(inter[1])
+    del tr1.points[0:3]
+    del tr2.points[0:3]
+    for adj1 in tr1.adjacent:
+        if len(set(adj1.points).intersection(set(tr1.points))) < 2:
+            tr2.adjacent.append(adj1)
+            tr1.adjacent.remove(adj1)
+            adj1.adjacent.remove(tr1)
+            adj1.adjacent.append(tr2)
+            # print n1, l, triangle_list[l].adjacent
+            break
+    for adj2 in tr2.adjacent:
+        if len(set(adj2.points).intersection(set(tr2.points))) < 2:
+            tr1.adjacent.append(adj2)
+            tr2.adjacent.remove(adj2)
+            adj2.adjacent.remove(tr2)
+            adj2.adjacent.append(tr1)
+            # print n2, l, triangle_list[l].adjacent
+            break
+
+
 class TriangleTree:
     def __init__(self, root=None):
         self.root = root
@@ -71,11 +98,13 @@ class TriangleTree:
                     child.adjacent.append(adj)
                     adj.adjacent.append(child)
                     break
-        list_tmp = tr.adjacent
+        list_tmp = set(tr.adjacent)
         while list_tmp:
-            tr_tmp = list_tmp.pop(0)
+            tr_tmp = list_tmp.pop()
             if check_in_disc(pt, [plist[m] for m in tr_tmp.points]):
-                pass
+                list_tmp = list_tmp.union(set(tr_tmp.adjacent))
+                tr_to_swap = [m for m in tr_tmp.adjacent if p in m.points][0]
+                swap_tr(tr_tmp, tr_to_swap)
 
 
 class Vector(object):
