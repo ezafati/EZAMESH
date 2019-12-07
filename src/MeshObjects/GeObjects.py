@@ -6,6 +6,37 @@ import numpy as np
 from utils import *
 
 
+def check_intersection(plist, seg1, seg2):
+    seg1 = list(seg1)
+    seg2 = list(seg2)
+    A = plist[seg1[0]]
+    B = plist[seg1[1]]
+    C = plist[seg2[0]]
+    D = plist[seg2[1]]
+    det = (A.x - B.x) * (D.y - C.y) - (D.x - C.x) * (A.y - B.y)
+    h1 = (B.y - C.y) * (D.x - C.x) - (B.x - C.x) * (D.y - C.y)
+    h2 = (C.x - B.x) * (A.y - B.y) - (A.x - B.x) * (C.y - B.y)
+    if abs(det) < 1e-15:
+        return 0
+    t1 = h1 / det
+    t2 = h2 / det
+    if (0 < t1 < 1) and (0 < t2 < 1):
+        return 1
+    else:
+        return 0
+
+
+def bound_condition(tr, bound, plist):
+    inter_pt = bound.intersection(set(tr.points))
+    seg = set(tr.points).difference(inter_pt)
+    if len(inter_pt) == 1 and check_intersection(plist, bound, seg):
+        return 1
+    else:
+        return 0
+
+    pass
+
+
 def point_in(tr, pt, plist):
     eps = 1e-10
     A = plist[tr.points[0]]
@@ -125,6 +156,18 @@ class TriangleTree:
             return tr
         else:
             pass
+
+    def enforce_boundary(self, boundary, plist):
+        for bound in boundary:
+            tr1 = self.search_triangle(bound_condition, bound, plist)
+            if tr1:
+                pt = set(tr1.points).intersection(bound)
+                tr2 = tr1
+                while bound != set(tr1.points).intersection(set(tr2.points)):
+                    seg = set(tr1.points).difference(pt)
+                    tr2 = [tr for tr in tr1.adjacent if len(seg.intersection(set(tr.points))) > 1][0]
+
+        pass
 
     def insert_point(self, p, plist):
         pt = plist[p]
