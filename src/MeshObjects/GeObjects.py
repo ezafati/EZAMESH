@@ -6,6 +6,32 @@ import numpy as np
 from utils import *
 
 
+def point_in(tr, pt, plist):
+    eps = 1e-10
+    A = plist[tr.points[0]]
+    B = plist[tr.points[1]]
+    C = plist[tr.points[2]]
+    u1 = Vector(A.y - B.y, B.x - A.x)
+    u2 = Vector(A.y - C.y, C.x - A.x)
+    u3 = Vector(C.y - B.y, B.x - C.x)
+    if C.x * u1.x + C.y * u1.y > A.x * u1.x + A.y * u1.y:
+        u1.x = -1 * u1.x
+        u1.y = -1 * u1.y
+    if B.x * u2.x + B.y * u2.y > A.x * u2.x + A.y * u2.y:
+        u2.x = -1 * u2.x
+        u2.y = -1 * u2.y
+    if A.x * u3.x + A.y * u3.y > B.x * u3.x + B.y * u3.y:
+        u3.x = -1 * u3.x
+        u3.y = -1 * u3.y
+    # print "vectors",  u1.x, u1.y, u2.x, u2.y,  u3.x, u3.y
+    if (pt.x * u1.x + pt.y * u1.y <= A.x * u1.x + A.y * u1.y + eps) and (
+            pt.x * u2.x + pt.y * u2.y <= A.x * u2.x + A.y * u2.y + eps) and (
+            pt.x * u3.x + pt.y * u3.y <= B.x * u3.x + B.y * u3.y + eps):
+        return 1
+    else:
+        return 0
+
+
 def check_in_disc(pt, lpt):
     A = lpt[0]
     B = lpt[1]
@@ -79,30 +105,30 @@ class TriangleTree:
             plot_triangle(child, plist, ax)
         plt.show()
 
-    def search_triangle(self, pt, plist):
+    def search_triangle(self, fcond, *args):
         for child in self.root.childs:
-            check = self.check_in_triangle(child, pt, plist)
+            check = self.check_in_triangle(child, fcond, *args)
             if check:
                 return check
             else:
                 continue
 
-    def check_in_triangle(self, tr, pt, plist):
+    def check_in_triangle(self, tr, fcond, *args):
         if tr.childs:
             for child in tr.childs:
-                check = self.check_in_triangle(child, pt, plist)
+                check = self.check_in_triangle(child, fcond, *args)
                 if check:
                     return check
                 else:
                     continue
-        elif tr.point_in(pt, plist):
+        elif fcond(tr, *args):
             return tr
         else:
             pass
 
     def insert_point(self, p, plist):
         pt = plist[p]
-        tr = self.search_triangle(pt, plist)
+        tr = self.search_triangle(point_in, pt, plist)
         t1 = Triangle([p, tr.points[0], tr.points[1]], [], [])
         t2 = Triangle([p, tr.points[2], tr.points[0]], [], [])
         t3 = Triangle([p, tr.points[1], tr.points[2]], [], [])
@@ -155,31 +181,6 @@ class Triangle(object):
         self.points = x
         self.childs = y
         self.adjacent = z
-
-    def point_in(self, pt, plist):
-        eps = 1e-10
-        A = plist[self.points[0]]
-        B = plist[self.points[1]]
-        C = plist[self.points[2]]
-        u1 = Vector(A.y - B.y, B.x - A.x)
-        u2 = Vector(A.y - C.y, C.x - A.x)
-        u3 = Vector(C.y - B.y, B.x - C.x)
-        if C.x * u1.x + C.y * u1.y > A.x * u1.x + A.y * u1.y:
-            u1.x = -1 * u1.x
-            u1.y = -1 * u1.y
-        if B.x * u2.x + B.y * u2.y > A.x * u2.x + A.y * u2.y:
-            u2.x = -1 * u2.x
-            u2.y = -1 * u2.y
-        if A.x * u3.x + A.y * u3.y > B.x * u3.x + B.y * u3.y:
-            u3.x = -1 * u3.x
-            u3.y = -1 * u3.y
-        # print "vectors",  u1.x, u1.y, u2.x, u2.y,  u3.x, u3.y
-        if (pt.x * u1.x + pt.y * u1.y <= A.x * u1.x + A.y * u1.y + eps) and (
-                pt.x * u2.x + pt.y * u2.y <= A.x * u2.x + A.y * u2.y + eps) and (
-                pt.x * u3.x + pt.y * u3.y <= B.x * u3.x + B.y * u3.y + eps):
-            return 1
-        else:
-            return 0
 
 
 class Segment(object):

@@ -12,6 +12,7 @@ import tkinter as tk
 
 def dt_initial(vmesh):
     plist = vmesh.point_list
+    boundary = vmesh.boundary
     Nl = len(plist)
     xmax = max([plist[p].x for p in range(Nl)])
     xmin = min([plist[p].x for p in range(Nl)])
