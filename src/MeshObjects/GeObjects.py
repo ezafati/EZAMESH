@@ -85,12 +85,12 @@ def remove_triangle(tr1, tr2):
 
 
 def swap_tr(tr1, tr2):
-    inter = list(set(tr1.points).intersection(set(tr2.points)))
-    diff = list(set(tr1.points).symmetric_difference(set(tr2.points)))
-    tr1.points = tr1.points + diff
-    tr2.points = tr2.points + diff
-    tr1.points.append(inter[0])
-    tr2.points.append(inter[1])
+    inter = set(tr1.points).intersection(set(tr2.points))
+    diff = set(tr1.points).symmetric_difference(set(tr2.points))
+    tr1.points = tr1.points + [pt for pt in diff]
+    tr2.points = tr2.points + [pt for pt in diff]
+    tr1.points.append(inter.pop())
+    tr2.points.append(inter.pop())
     del tr1.points[0:3]
     del tr2.points[0:3]
     for adj1 in tr1.adjacent:
