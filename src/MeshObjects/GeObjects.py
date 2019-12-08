@@ -26,6 +26,14 @@ def check_intersection(plist, seg1, seg2):
         return 0
 
 
+def out_domain(tr, n):
+    list_tmp = [p for p in tr.points if p >= n]
+    if list_tmp:
+        return 1
+    else:
+        return 0
+
+
 def bound_condition(tr, bound, plist):
     inter_pt = bound.intersection(set(tr.points))
     seg = set(tr.points).difference(inter_pt)
@@ -33,8 +41,6 @@ def bound_condition(tr, bound, plist):
         return 1
     else:
         return 0
-
-    pass
 
 
 def point_in(tr, pt, plist):
@@ -118,7 +124,8 @@ def plot_triangle(tr, plist, ax):
         ax.plot(coordx, coordy, 'k-*')
     else:
         for child in tr.childs:
-            plot_triangle(child, plist, ax)
+            if isinstance(child, Triangle):
+                plot_triangle(child, plist, ax)
 
 
 class TriangleTree:
@@ -154,6 +161,22 @@ class TriangleTree:
         else:
             pass
 
+    def get_initial_constrained_mesh(self, boundary, plist, n):
+        for p in range(n):
+            self.insert_point(p, plist)
+        self.enforce_boundary(boundary, plist)
+        tr = self.search_triangle(out_domain, n)
+        tr.childs.append(-1)
+        list_tmp = tr.adjacent
+        while list_tmp:
+            tr_tmp = list_tmp.pop()
+            for adj in tr_tmp.adjacent:
+                seg = set(tr_tmp.points).intersection(set(adj.points))
+                if -1 in adj.childs and seg not in boundary:
+                    tr_tmp.childs.append(-1)
+                    list_tmp = list_tmp.union({m for m in tr_tmp.adjacent if -1 not in m.childs})
+                    break
+
     def enforce_boundary(self, boundary, plist):
         for bound in boundary:
             tr1 = self.search_triangle(bound_condition, bound, plist)
@@ -161,10 +184,15 @@ class TriangleTree:
                 pt = set(tr1.points).intersection(bound)
                 tr2 = tr1
                 while bound != set(tr1.points).intersection(set(tr2.points)):
-                    seg = set(tr1.points).difference(pt)
-                    tr2 = [tr for tr in tr1.adjacent if len(seg.intersection(set(tr.points))) > 1][0]
-
-        pass
+                    seg1 = set(tr1.points).difference(pt)
+                    seg2 = set(tr2.points).difference(pt)
+                    if check_intersection(plist, bound, seg1):
+                        tr2 = [tr for tr in tr1.adjacent if len(seg1.intersection(set(tr.points))) > 1][0]
+                    elif check_intersection(plist, bound, seg2):
+                        tr1 = [tr for tr in tr2.adjacent if len(seg2.intersection(set(tr.points))) > 1][0]
+                    else:
+                        sys.exit('FATAL ERROR!')
+                    swap_tr(tr1, tr2)
 
     def insert_point(self, p, plist):
         pt = plist[p]

@@ -13,24 +13,23 @@ import tkinter as tk
 def dt_initial(vmesh):
     plist = vmesh.point_list
     boundary = vmesh.boundary
-    Nl = len(plist)
-    xmax = max([plist[p].x for p in range(Nl)])
-    xmin = min([plist[p].x for p in range(Nl)])
-    ymax = max([plist[p].y for p in range(Nl)])
-    ymin = min([plist[p].y for p in range(Nl)])
+    nl = len(plist)
+    xmax = max([plist[p].x for p in range(nl)])
+    xmin = min([plist[p].x for p in range(nl)])
+    ymax = max([plist[p].y for p in range(nl)])
+    ymin = min([plist[p].y for p in range(nl)])
     dmax = max((xmax - xmin), (ymax - ymin))
-    plist = [plist[p].prescale(xmin, ymin, dmax) for p in range(Nl)]
+    plist = [plist[p].prescale(xmin, ymin, dmax) for p in range(nl)]
     plist.append(Point(-0.5, -0.5))
     plist.append(Point(1.5, -0.5))
     plist.append(Point(1.5, 1.5))
     plist.append(Point(-0.5, 1.5))
-    T1 = Triangle([Nl, Nl + 1, Nl + 2])
-    T2 = Triangle([Nl + 2, Nl + 3, Nl])
+    T1 = Triangle([nl, nl + 1, nl + 2])
+    T2 = Triangle([nl + 2, nl + 3, nl])
     T1.adjacent.add(T2)
     T2.adjacent.add(T1)
     # initialize Tree
     Tree = TriangleTree(Triangle())
     Tree.root.childs = Tree.root.childs + [T1, T2]
-    for p in range(Nl):
-        Tree.insert_point(p, plist)
+    Tree.get_initial_constrained_mesh(boundary, plist, nl)
     Tree.plot_mesh(plist)
