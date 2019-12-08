@@ -80,7 +80,7 @@ def check_in_disc(pt, lpt):
 
 def remove_triangle(tr1, tr2):
     for adj in tr1.adjacent:
-        if set(adj.points) == set(tr2.points):
+        if adj.points == tr2.points:
             tr1.adjacent.remove(tr2)
             break
 
@@ -96,18 +96,18 @@ def swap_tr(tr1, tr2):
     del tr2.points[0:3]
     for adj1 in tr1.adjacent:
         if len(set(adj1.points).intersection(set(tr1.points))) < 2:
-            tr2.adjacent.append(adj1)
+            tr2.adjacent.add(adj1)
             tr1.adjacent.remove(adj1)
             adj1.adjacent.remove(tr1)
-            adj1.adjacent.append(tr2)
+            adj1.adjacent.add(tr2)
             # print n1, l, triangle_list[l].adjacent
             break
     for adj2 in tr2.adjacent:
         if len(set(adj2.points).intersection(set(tr2.points))) < 2:
-            tr1.adjacent.append(adj2)
+            tr1.adjacent.add(adj2)
             tr2.adjacent.remove(adj2)
             adj2.adjacent.remove(tr2)
-            adj2.adjacent.append(tr1)
+            adj2.adjacent.add(tr1)
             # print n2, l, triangle_list[l].adjacent
             break
 
@@ -172,27 +172,27 @@ class TriangleTree:
     def insert_point(self, p, plist):
         pt = plist[p]
         tr = self.search_triangle(point_in, pt, plist)
-        t1 = Triangle([p, tr.points[0], tr.points[1]], [], [])
-        t2 = Triangle([p, tr.points[2], tr.points[0]], [], [])
-        t3 = Triangle([p, tr.points[1], tr.points[2]], [], [])
+        t1 = Triangle([p, tr.points[0], tr.points[1]], [], set())
+        t2 = Triangle([p, tr.points[2], tr.points[0]], [], set())
+        t3 = Triangle([p, tr.points[1], tr.points[2]], [], set())
         tr.childs.append(t1)
         tr.childs.append(t2)
         tr.childs.append(t3)
-        t1.adjacent = t1.adjacent + [t2, t3]
-        t2.adjacent = t2.adjacent + [t1, t3]
-        t3.adjacent = t3.adjacent + [t2, t1]
+        t1.adjacent = {t2, t3}
+        t2.adjacent = {t1, t3}
+        t3.adjacent = {t2, t1}
         for adj in tr.adjacent:
             remove_triangle(adj, tr)
             for child in tr.childs:
                 if len(set(child.points).intersection(set(adj.points))) > 1:
-                    child.adjacent.append(adj)
-                    adj.adjacent.append(child)
+                    child.adjacent.add(adj)
+                    adj.adjacent.add(child)
                     break
-        list_tmp = set(tr.adjacent)
+        list_tmp = tr.adjacent
         while list_tmp:
             tr_tmp = list_tmp.pop()
             if check_in_disc(pt, [plist[m] for m in tr_tmp.points]):
-                list_tmp = list_tmp.union(set(tr_tmp.adjacent))
+                list_tmp = list_tmp.union(tr_tmp.adjacent)
                 tr_to_swap = [m for m in tr_tmp.adjacent if p in m.points][0]
                 swap_tr(tr_tmp, tr_to_swap)
 
@@ -220,7 +220,7 @@ class Point(object):
 
 
 class Triangle(object):
-    def __init__(self, x=[], y=[], z=[]):
+    def __init__(self, x=[], y=[], z=set()):
         self.points = x
         self.childs = y
         self.adjacent = z
