@@ -54,7 +54,6 @@ def point_in(tr, pt, plist):
     if A.x * u3.x + A.y * u3.y > B.x * u3.x + B.y * u3.y:
         u3.x = -1 * u3.x
         u3.y = -1 * u3.y
-    # print "vectors",  u1.x, u1.y, u2.x, u2.y,  u3.x, u3.y
     if (pt.x * u1.x + pt.y * u1.y <= A.x * u1.x + A.y * u1.y + eps) and (
             pt.x * u2.x + pt.y * u2.y <= A.x * u2.x + A.y * u2.y + eps) and (
             pt.x * u3.x + pt.y * u3.y <= B.x * u3.x + B.y * u3.y + eps):
@@ -100,7 +99,6 @@ def swap_tr(tr1, tr2):
             tr1.adjacent.remove(adj1)
             adj1.adjacent.remove(tr1)
             adj1.adjacent.add(tr2)
-            # print n1, l, triangle_list[l].adjacent
             break
     for adj2 in tr2.adjacent:
         if len(set(adj2.points).intersection(set(tr2.points))) < 2:
@@ -108,7 +106,6 @@ def swap_tr(tr1, tr2):
             tr2.adjacent.remove(adj2)
             adj2.adjacent.remove(tr2)
             adj2.adjacent.add(tr1)
-            # print n2, l, triangle_list[l].adjacent
             break
 
 
@@ -172,9 +169,9 @@ class TriangleTree:
     def insert_point(self, p, plist):
         pt = plist[p]
         tr = self.search_triangle(point_in, pt, plist)
-        t1 = Triangle([p, tr.points[0], tr.points[1]], [], set())
-        t2 = Triangle([p, tr.points[2], tr.points[0]], [], set())
-        t3 = Triangle([p, tr.points[1], tr.points[2]], [], set())
+        t1 = Triangle([p, tr.points[0], tr.points[1]])
+        t2 = Triangle([p, tr.points[2], tr.points[0]])
+        t3 = Triangle([p, tr.points[1], tr.points[2]])
         tr.childs.append(t1)
         tr.childs.append(t2)
         tr.childs.append(t3)
@@ -198,13 +195,13 @@ class TriangleTree:
 
 
 class Vector(object):
-    def __init__(self, x=0, y=0):
+    def __init__(self, x=None, y=None):
         self.x = x
         self.y = y
 
 
 class Point(object):
-    def __init__(self, x=0, y=0):
+    def __init__(self, x=None, y=None):
         self.x = x
         self.y = y
 
@@ -220,7 +217,13 @@ class Point(object):
 
 
 class Triangle(object):
-    def __init__(self, x=[], y=[], z=set()):
+    def __init__(self, x=None, y=None, z=None):
+        if x is None:
+            x = []
+        if y is None:
+            y = []
+        if z is None:
+            z = set()
         self.points = x
         self.childs = y
         self.adjacent = z
@@ -234,7 +237,19 @@ class Segment(object):
 
 
 class Mesh(object):
-    def __init__(self, x=[], y=0, slabel=[], nnodes=0, polist=[], llist={}, size=[], ltri=[], terminate=0):
+    def __init__(self, x=None, y=0, slabel=None, nnodes=0, polist=None, llist=None, size=None, ltri=None, terminate=0):
+        if ltri is None:
+            ltri = []
+        if size is None:
+            size = []
+        if llist is None:
+            llist = {}
+        if polist is None:
+            polist = []
+        if slabel is None:
+            slabel = []
+        if x is None:
+            x = []
         self.boundary = x
         self.nboseg = y
         self.seglab = slabel
