@@ -6,6 +6,10 @@ import numpy as np
 from utils import *
 
 
+def is_poor_quality():
+    pass
+
+
 def check_intersection(plist, seg1, seg2):
     seg1 = list(seg1)
     seg2 = list(seg2)
@@ -134,7 +138,18 @@ class TriangleTree:
 
     @classmethod
     def triangle_tree_refinement(cls, tree):
-        pass
+        tree_tmp = cls(Triangle())
+        for child in tree.root.childs:
+            tree_tmp.add_child(child)
+        return tree_tmp
+
+    def add_child(self, tr):
+        if tr.childs:
+            for child in tr.childs:
+                if isinstance(child, Triangle):
+                    self.add_child(child)
+        else:
+            self.root.childs.append(tr)
 
     def plot_mesh(self, plist):
         fig = plt.figure()  # create figure object
