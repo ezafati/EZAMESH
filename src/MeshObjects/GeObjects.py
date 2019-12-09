@@ -215,12 +215,11 @@ class TriangleTree:
                 while bound != set(tr1.points).intersection(set(tr2.points)):
                     seg1 = set(tr1.points).difference(pt)
                     seg2 = set(tr2.points).difference(pt)
-                    if check_intersection(plist, bound, seg1):
-                        tr2 = [tr for tr in tr1.adjacent if len(seg1.intersection(set(tr.points))) > 1][0]
-                    elif check_intersection(plist, bound, seg2):
-                        tr1 = [tr for tr in tr2.adjacent if len(seg2.intersection(set(tr.points))) > 1][0]
+                    if check_intersection(plist, bound, seg2):
+                        tr1, tr2 = tr2, tr1
                     else:
                         sys.exit('FATAL ERROR!')
+                    tr2 = [tr for tr in tr1.adjacent if len(seg1.intersection(set(tr.points))) > 1][0]
                     swap_tr(tr1, tr2)
 
     def insert_point(self, p, plist):
