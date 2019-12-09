@@ -132,6 +132,10 @@ class TriangleTree:
     def __init__(self, root=None):
         self.root = root
 
+    @classmethod
+    def triangle_tree_refinement(cls, tree):
+        pass
+
     def plot_mesh(self, plist):
         fig = plt.figure()  # create figure object
         ax = fig.add_subplot(1, 1, 1)  # create an axes object
@@ -167,7 +171,7 @@ class TriangleTree:
         self.enforce_boundary(boundary, plist)
         tr = self.search_triangle(out_domain, n)
         tr.childs.append(-1)
-        list_tmp = tr.adjacent
+        list_tmp = tr.adjacent.copy()
         while list_tmp:
             tr_tmp = list_tmp.pop()
             for adj in tr_tmp.adjacent:
@@ -176,6 +180,16 @@ class TriangleTree:
                     tr_tmp.childs.append(-1)
                     list_tmp = list_tmp.union({m for m in tr_tmp.adjacent if -1 not in m.childs})
                     break
+        self.eliminate_extra_triangles(self.root)
+
+    def eliminate_extra_triangles(self, tr):
+        if tr.childs:
+            for child in tr.childs:
+                if isinstance(child, Triangle):
+                    self.eliminate_extra_triangles(child)
+                else:
+                    for adj in tr.adjacent:
+                        adj.adjacent.remove(tr)
 
     def enforce_boundary(self, boundary, plist):
         for bound in boundary:
