@@ -1,13 +1,8 @@
-import sys
 import matplotlib
-import matplotlib.pyplot as plt
-import numpy as np
 
 from MeshObjects.GeObjects import *
-from MeshAlg.insert_point_algorithms import add_point
 
 matplotlib.use("TkAgg")
-import tkinter as tk
 
 
 def dt_initial(vmesh):
