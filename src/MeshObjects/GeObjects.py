@@ -6,10 +6,6 @@ import numpy as np
 from utils import *
 
 
-def is_poor_quality():
-    pass
-
-
 def check_intersection(plist, seg1, seg2):
     seg1 = list(seg1)
     seg2 = list(seg2)
