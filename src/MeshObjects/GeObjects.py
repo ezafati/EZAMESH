@@ -13,10 +13,8 @@ def is_poor_quality():
 def check_intersection(plist, seg1, seg2):
     seg1 = list(seg1)
     seg2 = list(seg2)
-    A = plist[seg1[0]]
-    B = plist[seg1[1]]
-    C = plist[seg2[0]]
-    D = plist[seg2[1]]
+    A, B = [plist[p] for p in seg1]
+    C, D = [plist[p] for p in seg2]
     det = (A.x - B.x) * (D.y - C.y) - (D.x - C.x) * (A.y - B.y)
     h1 = (B.y - C.y) * (D.x - C.x) - (B.x - C.x) * (D.y - C.y)
     h2 = (C.x - B.x) * (A.y - B.y) - (A.x - B.x) * (C.y - B.y)
@@ -49,9 +47,7 @@ def bound_condition(tr, bound, plist):
 
 def point_in(tr, pt, plist):
     eps = 1e-10
-    A = plist[tr.points[0]]
-    B = plist[tr.points[1]]
-    C = plist[tr.points[2]]
+    A, B, C = [plist[p] for p in tr.points]
     u1 = Vector(A.y - B.y, B.x - A.x)
     u2 = Vector(A.y - C.y, C.x - A.x)
     u3 = Vector(C.y - B.y, B.x - C.x)
@@ -73,9 +69,7 @@ def point_in(tr, pt, plist):
 
 
 def check_in_disc(pt, lpt):
-    A = lpt[0]
-    B = lpt[1]
-    C = lpt[2]
+    A, B, C = lpt
     a = np.array(([B.x - A.x, C.x - A.x], [B.y - A.y, C.y - A.y]))
     array1 = [A.x - pt.x, A.y - pt.y, pow(A.x - pt.x, 2) + pow(A.y - pt.y, 2)]
     array2 = [B.x - pt.x, B.y - pt.y, pow(B.x - pt.x, 2) + pow(B.y - pt.y, 2)]
@@ -213,13 +207,12 @@ class TriangleTree:
                 pt = set(tr1.points).intersection(bound)
                 tr2 = tr1
                 while bound != set(tr1.points).intersection(set(tr2.points)):
-                    seg1 = set(tr1.points).difference(pt)
-                    seg2 = set(tr2.points).difference(pt)
-                    if check_intersection(plist, bound, seg2):
+                    seg = set(tr2.points).difference(pt)
+                    if check_intersection(plist, bound, seg):
                         tr1, tr2 = tr2, tr1
                     else:
                         sys.exit('FATAL ERROR!')
-                    tr2 = [tr for tr in tr1.adjacent if len(seg1.intersection(set(tr.points))) > 1][0]
+                    tr2 = [tr for tr in tr1.adjacent if len(seg.intersection(set(tr.points))) > 1][0]
                     swap_tr(tr1, tr2)
 
     def insert_point(self, p, plist):
