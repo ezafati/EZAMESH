@@ -24,7 +24,7 @@ def circumcircle_radius(tr, plist):
     try:
         radius = num / dom
     except ZeroDivisionError as e:
-        print('Fatal error while computing the radius: ', e)
+        print('Fatal error while computing the radius of the circumcirle: ', e)
         sys.exit()
     return radius
 
