@@ -23,10 +23,10 @@ def circumcircle_radius(tr, plist):
     dom = sqrt((l1 + l2 + l3) * (l2 + l3 - l1) * (l3 + l1 - l2) * (l1 + l2 - l3))
     try:
         radius = num / dom
+        return radius
     except ZeroDivisionError as e:
-        print('Fatal error while computing the radius of the circumcirle: ', e)
-        sys.exit()
-    return radius
+        print('Find a very skin triangle: ', e)
+        return None
 
 
 def is_poor_quality(tr, plist):
@@ -37,8 +37,11 @@ def is_poor_quality(tr, plist):
     l3 = length_segment(A, C)
     lmin = min(l1, l2, l3)
     radius = circumcircle_radius(tr, plist)
-    test_ratio = radius / lmin
-    if test_ratio >= cst:
+    try:
+        test_ratio = radius / lmin
+        if test_ratio >= cst:
+            return 1
+        else:
+            return 0
+    except TypeError:
         return 1
-    else:
-        return 0
