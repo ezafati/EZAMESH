@@ -26,19 +26,13 @@ def check_intersection(plist, seg1, seg2):
 
 def out_domain(tr, n):
     list_tmp = [p for p in tr.points if p >= n]
-    if list_tmp:
-        return 1
-    else:
-        return 0
+    return bool(list_tmp)
 
 
 def bound_condition(tr, bound, plist):
     inter_pt = bound.intersection(set(tr.points))
     seg = set(tr.points).difference(inter_pt)
-    if len(inter_pt) == 1 and check_intersection(plist, bound, seg):
-        return 1
-    else:
-        return 0
+    return len(inter_pt) == 1 and check_intersection(plist, bound, seg)
 
 
 def point_in(tr, pt, plist):
@@ -56,12 +50,9 @@ def point_in(tr, pt, plist):
     if A.x * u3.x + A.y * u3.y > B.x * u3.x + B.y * u3.y:
         u3.x = -1 * u3.x
         u3.y = -1 * u3.y
-    if (pt.x * u1.x + pt.y * u1.y <= A.x * u1.x + A.y * u1.y + eps) and (
+    return (pt.x * u1.x + pt.y * u1.y <= A.x * u1.x + A.y * u1.y + eps) and (
             pt.x * u2.x + pt.y * u2.y <= A.x * u2.x + A.y * u2.y + eps) and (
-            pt.x * u3.x + pt.y * u3.y <= B.x * u3.x + B.y * u3.y + eps):
-        return 1
-    else:
-        return 0
+                   pt.x * u3.x + pt.y * u3.y <= B.x * u3.x + B.y * u3.y + eps)
 
 
 def check_in_disc(pt, lpt):
@@ -71,10 +62,7 @@ def check_in_disc(pt, lpt):
     array2 = [B.x - pt.x, B.y - pt.y, pow(B.x - pt.x, 2) + pow(B.y - pt.y, 2)]
     array3 = [C.x - pt.x, C.y - pt.y, pow(C.x - pt.x, 2) + pow(C.y - pt.y, 2)]
     b = np.array((array1, array2, array3))
-    if np.linalg.slogdet(a)[0] * np.linalg.slogdet(b)[0] > 0:
-        return 1
-    else:
-        return 0
+    return np.linalg.slogdet(a)[0] * np.linalg.slogdet(b)[0] > 0
 
 
 def remove_triangle(tr1, tr2):

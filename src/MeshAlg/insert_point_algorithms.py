@@ -12,7 +12,7 @@ def chew_add_point(tree, plist):
 
 def collect_points(tr1, seg, r, pm, plist, n):
     tr2 = [tr for tr in tr1.adjacent if len(seg.intersection(set(tr1.points))) > 1][0]
-    ps = [set(tr.points).difference(seg) for tr in (tr1, tr2)]
+    ps = [set(tr.points).difference(seg).pop() for tr in (tr1, tr2)]
     list_points = [p for p in ps if length_segment(plist[p], pm) < r and p >= n]
     adj = tr1.adjacent.union(tr2.adjacent)
     while adj:
@@ -66,9 +66,6 @@ def is_poor_quality(tr, plist):
     radius = circumcircle_radius(tr, plist)
     try:
         test_ratio = radius / lmin
-        if test_ratio >= cst:
-            return 1
-        else:
-            return 0
+        return test_ratio >= cst
     except TypeError:
         return 1
