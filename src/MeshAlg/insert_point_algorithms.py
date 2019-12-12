@@ -11,7 +11,7 @@ def chew_add_point(tree, plist):
 
 
 def collect_points(tr1, seg, r, pm, plist, n):
-    tr2 = [tr for tr in tr1.adjacent if len(seg.intersection(set(tr1.points))) > 1][0]
+    tr2, = filter(lambda tr: len(seg.intersection(set(tr.points))) > 1, tuple(tr1.adjacent))
     ps = [set(tr.points).difference(seg).pop() for tr in (tr1, tr2)]
     list_points = [p for p in ps if length_segment(plist[p], pm) < r and p >= n]
     adj = tr1.adjacent.union(tr2.adjacent)
