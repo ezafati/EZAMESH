@@ -7,8 +7,21 @@ def add_point():
     pass
 
 
-def chew_add_point(tree, plist):
+def chew_add_point(tree, plist, nl):
     tr = tree.search_triangle(is_poor_quality, plist)
+    pt = pt = circumcircle_center(tr, plist)
+    if not point_in_adjacent(tr, pt, plist):
+        seg, tr1 = find_segment(tr, pt, plist)
+        pm = Point()
+        plist.append(pm)
+        seg = tuple(seg)
+        p1 = plist[seg[0]]
+        pm.x = 1 / 2 * reduce(lambda l, m: plist[l].x + plist[m].x, seg)
+        pm.y = 1 / 2 * reduce(lambda l, m: plist[l].y + plist[m].y, seg)
+        radius = length_segment(pm, p1)
+        list_tmp = collect_points(tr, seg, radius, pm, plist, nl)
+    else:
+        pass
     pass
 
 
@@ -29,6 +42,7 @@ def collect_points(tr1, seg, r, pm, plist, n):
         if length_segment(plist[p], pm) < r and p >= n:
             list_points.append(p)
             adj = adj.union(tr.adjacent)
+    return list_points
 
 
 def find_segment(tr, pt, plist):
@@ -83,14 +97,13 @@ def circumcircle_radius(tr, plist):
 
 def is_poor_quality(tr, plist):
     cst = sqrt(2)
-    A, B, C = [plist[p] for p in tr.points]
-    l1 = length_segment(A, B)
-    l2 = length_segment(B, C)
-    l3 = length_segment(A, C)
-    lmin = min(l1, l2, l3)
+    list_tmp = [plist[p] for p in tr.points]
+    lmin = min([length_segment(p, q) for p, q in itertools.combinations(list_tmp, 2)])
     radius = circumcircle_radius(tr, plist)
     try:
         test_ratio = radius / lmin
-        return test_ratio >= cst
+        pt = circumcircle_center(tr, plist)
+        booli = find_segment(tr, pt, plist) or point_in_adjacent(tr, pt, plist)
+        return test_ratio >= cst and booli
     except TypeError:
         return 1

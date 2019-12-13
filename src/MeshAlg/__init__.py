@@ -1,3 +1,3 @@
-from . import insert_point_algorithms, initial_DT
+from . import chew_insert_algorithms, initial_DT
 
-__all__ = [insert_point_algorithms, initial_DT]
+__all__ = [chew_insert_algorithms, initial_DT]

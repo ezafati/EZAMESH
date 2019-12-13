@@ -110,6 +110,33 @@ def plot_triangle(tr, plist, ax):
                 plot_triangle(child, plist, ax)
 
 
+def insert_point(p, plist, tr):
+    pt = plist[p]
+    t1 = Triangle([p, tr.points[0], tr.points[1]])
+    t2 = Triangle([p, tr.points[2], tr.points[0]])
+    t3 = Triangle([p, tr.points[1], tr.points[2]])
+    tr.childs.append(t1)
+    tr.childs.append(t2)
+    tr.childs.append(t3)
+    t1.adjacent = {t2, t3}
+    t2.adjacent = {t1, t3}
+    t3.adjacent = {t2, t1}
+    for adj in tr.adjacent:
+        remove_triangle(adj, tr)
+        for child in tr.childs:
+            if len(set(child.points).intersection(set(adj.points))) > 1:
+                child.adjacent.add(adj)
+                adj.adjacent.add(child)
+                break
+    list_tmp = tr.adjacent
+    while list_tmp:
+        tr_tmp = list_tmp.pop()
+        if check_in_disc(pt, [plist[m] for m in tr_tmp.points]):
+            list_tmp = list_tmp.union(tr_tmp.adjacent)
+            tr_to_swap = [m for m in tr_tmp.adjacent if p in m.points][0]
+            swap_tr(tr_tmp, tr_to_swap)
+
+
 class TriangleTree:
     def __init__(self, root=None):
         self.root = root
@@ -160,7 +187,9 @@ class TriangleTree:
 
     def get_initial_constrained_mesh(self, boundary, plist, n):
         for p in range(n):
-            self.insert_point(p, plist)
+            pt = plist[p]
+            tr = self.search_triangle(point_in, pt, plist)
+            insert_point(p, plist, tr)
         self.enforce_boundary(boundary, plist)
         tr = self.search_triangle(out_domain, n)
         tr.childs.append(-1)
@@ -200,33 +229,6 @@ class TriangleTree:
                         sys.exit('FATAL ERROR!')
                     tr2 = [tr for tr in tr1.adjacent if len(seg.intersection(set(tr.points))) > 1][0]
                     swap_tr(tr1, tr2)
-
-    def insert_point(self, p, plist):
-        pt = plist[p]
-        tr = self.search_triangle(point_in, pt, plist)
-        t1 = Triangle([p, tr.points[0], tr.points[1]])
-        t2 = Triangle([p, tr.points[2], tr.points[0]])
-        t3 = Triangle([p, tr.points[1], tr.points[2]])
-        tr.childs.append(t1)
-        tr.childs.append(t2)
-        tr.childs.append(t3)
-        t1.adjacent = {t2, t3}
-        t2.adjacent = {t1, t3}
-        t3.adjacent = {t2, t1}
-        for adj in tr.adjacent:
-            remove_triangle(adj, tr)
-            for child in tr.childs:
-                if len(set(child.points).intersection(set(adj.points))) > 1:
-                    child.adjacent.add(adj)
-                    adj.adjacent.add(child)
-                    break
-        list_tmp = tr.adjacent
-        while list_tmp:
-            tr_tmp = list_tmp.pop()
-            if check_in_disc(pt, [plist[m] for m in tr_tmp.points]):
-                list_tmp = list_tmp.union(tr_tmp.adjacent)
-                tr_to_swap = [m for m in tr_tmp.adjacent if p in m.points][0]
-                swap_tr(tr_tmp, tr_to_swap)
 
 
 class Vector(object):

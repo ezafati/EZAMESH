@@ -1,5 +1,5 @@
 from MeshObjects.GeObjects import *
-from MeshAlg.insert_point_algorithms import chew_add_point
+from MeshAlg.chew_insert_algorithms import chew_add_point
 
 
 gmesh = Mesh()
