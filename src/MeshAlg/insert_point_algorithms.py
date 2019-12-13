@@ -1,4 +1,6 @@
 from globalvar import *
+from functools import reduce
+import itertools
 
 
 def add_point():
@@ -21,6 +23,20 @@ def collect_points(tr1, seg, r, pm, plist, n):
         if length_segment(plist[p], pm) < r and p >= n:
             list_points.append(p)
             adj = adj.union(tr.adjacent)
+
+
+def find_segment(tr, pt, plist):
+    mass_cent = Point()
+    mass_cent.x = 1 / 3 * reduce(lambda l, m: plist[l].x + plist[m].x, tr.points)
+    mass_cent.y = 1 / 3 * reduce(lambda l, m: plist[l].y + plist[m].y, tr.points)
+    segt = [mass_cent, pt]
+    for adj in tr.adjacent:
+        pts = [plist[p] for p in adj.points]
+        try:
+            check, = filter(lambda seg: check_intersection(seg, segt), itertools.combinations(pts, 2))
+            return check
+        except ValueError:
+            pass
 
 
 def length_segment(a, b):
