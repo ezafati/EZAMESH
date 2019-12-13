@@ -12,6 +12,12 @@ def chew_add_point(tree, plist):
     pass
 
 
+def point_in_adjacent(tr, pt, plist):
+    for adj in tr.adjacent:
+        if point_in(adj, pt, plist):
+            return adj
+
+
 def collect_points(tr1, seg, r, pm, plist, n):
     tr2, = filter(lambda tr: len(seg.intersection(set(tr.points))) > 1, tuple(tr1.adjacent))
     ps = [set(tr.points).difference(seg).pop() for tr in (tr1, tr2)]
@@ -31,10 +37,13 @@ def find_segment(tr, pt, plist):
     mass_cent.y = 1 / 3 * reduce(lambda l, m: plist[l].y + plist[m].y, tr.points)
     segt = [mass_cent, pt]
     for adj in tr.adjacent:
-        pts = [plist[p] for p in adj.points]
         try:
-            check, = filter(lambda seg: check_intersection(seg, segt), itertools.combinations(pts, 2))
-            return check
+            seg_tmp, = filter(lambda seg: check_intersection((seg[0], seg[1]), segt),
+                              itertools.combinations(adj.points, 2))
+            if len(set(tr.points).intersection(set(seg_tmp))) > 1:
+                pass
+            else:
+                return seg_tmp, adj
         except ValueError:
             pass
 
