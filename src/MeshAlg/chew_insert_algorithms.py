@@ -22,7 +22,6 @@ def chew_add_point(tree, plist, nl):
         list_tmp = collect_points(tr, seg, radius, pm, plist, nl)
     else:
         pass
-    pass
 
 
 def point_in_adjacent(tr, pt, plist):
