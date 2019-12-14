@@ -8,6 +8,7 @@ def insert_midpoint(p, tr, seg):
     list_tr = list(list_tr)
     tr.childs.extend(list_tr)
     for tri in list_tr:
+        tri.parent = tr
         tri.adjacent, = [set(l) for l in itertools.combinations(list_tr, 2) if tri not in l]
     for adj in tr.adjacent:
         remove_triangle(adj, tr)
@@ -32,8 +33,8 @@ def seek_triangle(tr, seg, plist):
             seek_triangle(adj, seg, plist)
 
 
-def enforce_segment(tr, pm, p, plist):
-    seg = {p, pm}
+def enforce_segment(tr, index, p, plist):
+    seg = {p, index}
     tr1 = False
     for child in tr.childs:
         if bound_condition(child, seg, plist):
@@ -62,13 +63,13 @@ def enforce_segment(tr, pm, p, plist):
         sys.exit('FATAL ERROR ! Maybe the triangle has an empty child list')
 
 
-def replace_vertex(p, pm, tr, list_tr):
+def replace_vertex(p, index, tr, list_tr):
     for adj in tr.adjacent:
         if p in adj.points:
             list_tr.add(adj)
             tr.points.remove(p)
-            tr.points.append(pm)
-            replace_vertex(p, pm, adj)
+            tr.points.append(index)
+            replace_vertex(p, index, adj)
 
 
 def chew_add_point(tree, plist, nl):
@@ -82,30 +83,33 @@ def chew_add_point(tree, plist, nl):
             seg = set(seg)
             p1, *_ = [plist[p] for p in seg]
             pm.x = 1 / 2 * reduce(lambda l, m: l + m, [plist[q].x for q in seg])
-            pm.y = 1 / 2 * reduce(lambda l, m: l + m, [plist[q].x for q in seg])
+            pm.y = 1 / 2 * reduce(lambda l, m: l + m, [plist[q].y for q in seg])
+            print([(plist[pp].x, plist[pp].y) for pp in seg])
+            print('nouveau point', len(plist), pm.x, pm.y)
             radius = length_segment(pm, p1)
             list_tmp = collect_points(tr, seg, radius, pm, plist, nl)
-            insert_midpoint(len(plist), tr1, seg)
-            index = len(plist)-1
+            index = len(plist) - 1
+            insert_midpoint(index, tr1, seg)
             if list_tmp:
                 for p in list_tmp:
                     list_new_tris = set()
-                    list_tri_elim = enforce_segment(tr, index, p, plist)
+                    print(tr.childs, tr)
+                    list_tri_elim = enforce_segment(tr1, index, p, plist)
                     for tri in list_tri_elim:
-                        replace_vertex(p, pm, tri, list_new_tris)
+                        replace_vertex(p, index, tri, list_new_tris)
                     for tri in list_tri_elim:
                         tri.parent.child.remove(tri)
                         for adj in tri.adjacent:
                             adj.adjacent.remove(tri)
                     adj_triangles = [pl for pl in itertools.combinations(list_new_tris, 2) if
                                      len(set(pl[0].points).intersection(pl[1].points)) > 1]
-                    for tr1, tr2 in adj_triangles:
-                        if tr1 not in tr2.adjacent:
-                            tr2.adjacent.add(tr1)
-                            tr1.adjacent.add(tr2)
+                    for trk, trj in adj_triangles:
+                        if trk not in trj.adjacent:
+                            trk.adjacent.add(trj)
+                            trj.adjacent.add(trk)
         else:
-            print('je suis la', pt.x, pt.y)
             plist.append(pt)
+            print('nouveau point sans', len(plist))
             adj = point_in_adjacent(tr, pt, plist)
             insert_point(len(plist) - 1, plist, adj)
     else:
@@ -131,8 +135,8 @@ def collect_points(tr1, seg, r, pm, plist, n):
         print(set(tr.points).difference(seg))
         p = set(tr.points).difference(seg)
         for pt in p:
-            if length_segment(plist[pt], pm) < r and pt >= n:
-                list_points.union({p})
+            if length_segment(plist[pt], pm) < r and pt >= n and pt not in list_points:
+                list_points.add(pt)
                 adj = adj.union(tr.adjacent)
     return list_points
 
@@ -144,8 +148,6 @@ def find_segment(tr, pt, plist):
     segt = [mass_cent, pt]
     for adj in tr.adjacent:
         try:
-            print(list(itertools.combinations(adj.points, 2)))
-            print(len(plist))
             seg_tmp, = filter(lambda seg: check_intersection((plist[seg[0]], plist[seg[1]]), segt),
                               itertools.combinations(adj.points, 2))
             if len(set(tr.points).intersection(set(seg_tmp))) > 1:

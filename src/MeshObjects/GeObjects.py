@@ -153,6 +153,7 @@ class TriangleTree:
                     self.add_child(child)
         else:
             self.root.childs.append(tr)
+            tr.parent = self.root
 
     def plot_mesh(self, plist):
         fig = plt.figure()  # create figure object
@@ -252,7 +253,7 @@ class Point(object):
 
 
 class Triangle(object):
-    def __init__(self, x=None, y=None, z=None):
+    def __init__(self, x=None, y=None, z=None, par=None):
         if x is None:
             x = []
         if y is None:
@@ -262,6 +263,7 @@ class Triangle(object):
         self.points = x
         self.childs = y
         self.adjacent = z
+        self.parent = par
 
 
 class Segment(object):

@@ -3,7 +3,7 @@ B = P 1 0
 C = P 1 1
 D = P 0 1
 
-L1 = D A B 1
-L2 = D B C 1
+L1 = D A B 0.1
+L2 = D B C 0.1
 L3 = D C D 1
 L4 = D D A 1

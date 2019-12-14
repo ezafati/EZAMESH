@@ -7,7 +7,7 @@ from read_data import *
  
 #PP= point(0,1) 
 
-read_file("maillage3.txt")
+read_file("maillage2.txt")
 
 #read_file("vt_mesh.txt")
 #print "nnodes = ", config.nnodes
