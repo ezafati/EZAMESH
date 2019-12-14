@@ -8,15 +8,11 @@ def add_point():
 
 
 def insert_midpoint(p,  tr, seg):
-    t1 = Triangle([p, tr.points[0], tr.points[1]])
-    t2 = Triangle([p, tr.points[2], tr.points[0]])
-    t3 = Triangle([p, tr.points[1], tr.points[2]])
-    tr.childs.append(t1)
-    tr.childs.append(t2)
-    tr.childs.append(t3)
-    t1.adjacent = {t2, t3}
-    t2.adjacent = {t1, t3}
-    t3.adjacent = {t2, t1}
+    list_tr = map(lambda l: Triangle([p, l[0], l[1]]), itertools.combinations(tr.points, 2))
+    list_tr = list(list_tr)
+    tr.childs.extend(list_tr)
+    for tri in list_tr:
+        tri.adjacent, = [set(l) for l in itertools.combinations(list_tr, 2) if tri not in l]
     for adj in tr.adjacent:
         remove_triangle(adj, tr)
         for child in tr.childs:
