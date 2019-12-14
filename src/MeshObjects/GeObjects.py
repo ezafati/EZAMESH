@@ -133,7 +133,7 @@ def insert_point(p, plist, tr):
         tr_tmp = list_tmp.pop()
         if check_in_disc(pt, [plist[m] for m in tr_tmp.points]):
             list_tmp = list_tmp.union(tr_tmp.adjacent)
-            tr_to_swap = [m for m in tr_tmp.adjacent if p in m.points][0]
+            tr_to_swap, = [m for m in tr_tmp.adjacent if p in m.points]
             swap_tr(tr_tmp, tr_to_swap)
 
 
@@ -227,7 +227,7 @@ class TriangleTree:
                         tr1, tr2 = tr2, tr1
                     else:
                         sys.exit('FATAL ERROR!')
-                    tr2 = [tr for tr in tr1.adjacent if len(seg.intersection(set(tr.points))) > 1][0]
+                    tr2, = [tr for tr in tr1.adjacent if len(seg.intersection(set(tr.points))) > 1]
                     swap_tr(tr1, tr2)
 
 

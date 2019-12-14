@@ -7,21 +7,51 @@ def add_point():
     pass
 
 
+def insert_midpoint(p,  tr, seg):
+    t1 = Triangle([p, tr.points[0], tr.points[1]])
+    t2 = Triangle([p, tr.points[2], tr.points[0]])
+    t3 = Triangle([p, tr.points[1], tr.points[2]])
+    tr.childs.append(t1)
+    tr.childs.append(t2)
+    tr.childs.append(t3)
+    t1.adjacent = {t2, t3}
+    t2.adjacent = {t1, t3}
+    t3.adjacent = {t2, t1}
+    for adj in tr.adjacent:
+        remove_triangle(adj, tr)
+        for child in tr.childs:
+            if len(set(child.points).intersection(set(adj.points))) > 1:
+                child.adjacent.add(adj)
+                adj.adjacent.add(child)
+                break
+    for adj in tr.adjacent:
+        try:
+            tr_to_swap, = [p for p in adj.adjacent if seg.issubset(set(p.points))]
+            swap_tr(adj, tr_to_swap)
+        except ValueError:
+            pass
+
+
 def chew_add_point(tree, plist, nl):
     tr = tree.search_triangle(is_poor_quality, plist)
-    pt = pt = circumcircle_center(tr, plist)
+    pt = circumcircle_center(tr, plist)
     if not point_in_adjacent(tr, pt, plist):
         seg, tr1 = find_segment(tr, pt, plist)
         pm = Point()
         plist.append(pm)
-        seg = tuple(seg)
-        p1 = plist[seg[0]]
+        seg = set(seg)
+        p1, *_ = [plist[p] for p in seg]
         pm.x = 1 / 2 * reduce(lambda l, m: plist[l].x + plist[m].x, seg)
         pm.y = 1 / 2 * reduce(lambda l, m: plist[l].y + plist[m].y, seg)
         radius = length_segment(pm, p1)
         list_tmp = collect_points(tr, seg, radius, pm, plist, nl)
+        insert_midpoint(len(plist), tr1, seg)
+        if list_tmp:
+            for p in list_tmp:
+                pass
     else:
-        pass
+        adj = point_in_adjacent(tr, pt, plist)
+        insert_point(pt, plist, adj)
 
 
 def point_in_adjacent(tr, pt, plist):
