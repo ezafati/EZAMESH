@@ -1,13 +1,13 @@
 #!/usr/bin/env python  
 import sys 
 
-sys.path.insert(0,'/home/ezafati/mesh_project/src/')
+sys.path.append('/home/ezafati/mesh_project/src/')
 
 from read_data import *
  
 #PP= point(0,1) 
 
-read_file("maillage.txt")
+read_file("maillage3.txt")
 
 #read_file("vt_mesh.txt")
 #print "nnodes = ", config.nnodes

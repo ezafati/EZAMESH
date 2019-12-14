@@ -1,7 +1,7 @@
 import matplotlib
 
 from MeshObjects.GeObjects import *
-
+from MeshAlg.chew_insert_algorithms import *
 matplotlib.use("TkAgg")
 
 
@@ -27,6 +27,9 @@ def dt_initial(vmesh):
     Tree = TriangleTree(Triangle())
     Tree.root.childs = Tree.root.childs + [T1, T2]
     Tree.get_initial_constrained_mesh(boundary, plist, nl)
+    del plist[nl:]
     TreeRefinement = TriangleTree().triangle_tree_refinement(Tree)
-    TreeRefinement.plot_mesh(plist)
     Tree = None
+    for _ in range(20):
+        chew_add_point(TreeRefinement, plist, nl)
+    TreeRefinement.plot_mesh(plist)
