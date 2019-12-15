@@ -275,11 +275,9 @@ class Segment(object):
 
 
 class Mesh(object):
-    def __init__(self, x=None, y=0, slabel=None, nnodes=0, polist=None, llist=None, size=None, ltri=None, terminate=0):
+    def __init__(self, x=None,  slabel=None, nnodes=0, polist=None, llist=None,  ltri=None):
         if ltri is None:
             ltri = []
-        if size is None:
-            size = []
         if llist is None:
             llist = {}
         if polist is None:
@@ -289,14 +287,11 @@ class Mesh(object):
         if x is None:
             x = []
         self.boundary = x
-        self.nboseg = y
         self.seglab = slabel
         self.nnodes = nnodes
         self.point_list = polist
         self.label_list = llist
         self.triangle_list = ltri
-        self.asize = size
-        self.terminate = terminate
 
     def add_bound_seg(self, fields, n_line):
         try:
@@ -306,13 +301,14 @@ class Mesh(object):
             l = float(fields[5])
             A = self.point_list[NA - 1]
             B = self.point_list[NB - 1]
+            A.size = l
+            B.size = l
             dist = pow(A.x - B.x, 2) + pow(A.y - B.y, 2)
             dist = sqrt(dist)
             NN = dist / l
             k = 1
             ifpart = math.modf(NN)
             if ifpart[1] == 0 or (ifpart[1] == 1 and ifpart[0] <= 0.5):
-                self.nboseg += 1
                 self.boundary.append({NA - 1, NB - 1})
             else:
                 if ifpart[0] <= 0.5:
@@ -324,18 +320,15 @@ class Mesh(object):
                     C = Point()
                     C.x = (1 - (k / NN)) * A.x + (k / NN) * B.x
                     C.y = (1 - (k / NN)) * A.y + (k / NN) * B.y
+                    C.size = l
                     self.point_list.append(C)
                     if k == 1:
-                        self.nboseg += 1
                         self.boundary.append({NA - 1, self.nnodes - 1})
                     if k == NN - 1:
-                        self.nboseg += 1
                         self.boundary.append({self.nnodes - 1, NB - 1})
                         if k != 1:
-                            self.nboseg += 1
                             self.boundary.append({(self.nnodes - 1) - 1, self.nnodes - 1})
                     if (k != 1) and (k != NN - 1):
-                        self.nboseg += 1
                         self.boundary.append({(self.nnodes - 1) - 1, self.nnodes - 1})
                     k += 1
         except Exception as err:

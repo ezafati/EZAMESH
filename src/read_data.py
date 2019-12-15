@@ -32,8 +32,7 @@ def read_file(meshfile):
 def switcher_demo(fields, n_line):
     switcher = {
         'P': lambda fields: globalvar.gmesh.add_point(fields),
-        'D': lambda fields: globalvar.gmesh.add_bound_seg(fields, n_line),
-        'AS': lambda fields: globalvar.gmesh.asize.append(float(fields[3]))
+        'D': lambda fields: globalvar.gmesh.add_bound_seg(fields, n_line)
     }
     func = switcher.get(fields[2], 'INVALID')
     if func == 'INVALID':
