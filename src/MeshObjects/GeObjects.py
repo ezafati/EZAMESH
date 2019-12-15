@@ -287,7 +287,7 @@ class Mesh(object):
         if x is None:
             x = []
         self.boundary = x
-        self.seglab = slabel
+        self.segment_label = slabel
         self.nnodes = nnodes
         self.point_list = polist
         self.label_list = llist
@@ -295,7 +295,7 @@ class Mesh(object):
 
     def add_bound_seg(self, fields, n_line):
         try:
-            self.seglab.append(fields[0])
+            self.segment_label.append(fields[0])
             NA = self.label_list[fields[3]]
             NB = self.label_list[fields[4]]
             l = float(fields[5])
