@@ -29,7 +29,8 @@ def dt_initial(vmesh):
     Tree.get_initial_constrained_mesh(boundary, plist, nl)
     del plist[nl:]
     TreeRefinement = TriangleTree().triangle_tree_refinement(Tree)
+    plist = [plist[p].postscale(xmin, ymin, dmax) for p in range(nl)]
     Tree = None
-    for _ in range(60):
+    for _ in range(50):
         chew_add_point(TreeRefinement, plist, nl)
     TreeRefinement.plot_mesh(plist)

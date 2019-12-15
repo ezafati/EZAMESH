@@ -247,9 +247,9 @@ class Point(object):
         self.y = (self.y - y) / d
         return self
 
-    def postscale(self, x, y, d):
-        self.x = d * self.x + x
-        self.y = d * self.y + y
+    def postscale(self, xmin, ymin, dmax):
+        self.x = dmax * self.x + xmin
+        self.y = dmax * self.y + ymin
         return self
 
 

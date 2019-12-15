@@ -82,6 +82,9 @@ def chew_add_point(tree, plist, nl):
     l_tr = [0, 0]
     tree.search_triangle(is_poor_quality, plist, l_tr)
     tr = l_tr[1]
+    if not tr:
+        tree.search_triangle(is_well_sized, plist, l_tr, nl)
+        tr = l_tr[1]
     if tr:
         pt = circumcircle_center(tr, plist)
         if not point_in_adjacent(tr, pt, plist):
@@ -212,6 +215,20 @@ def is_poor_quality(tr, plist, l_tr):
         pass
 
 
+def is_well_sized(tr, plist, l_tr, nl):
+    radius = circumcircle_radius(tr, plist)
+    pt = circumcircle_center(tr, plist)
+    h = size_function(pt, plist, nl)
+    try:
+        booli = find_segment(tr, pt, plist) or point_in_adjacent(tr, pt, plist)
+        ratio = radius/h
+        if radius > h and booli and ratio > l_tr[0]:
+            l_tr[0], l_tr[1] = ratio, tr
+    except TypeError:
+        pass
+
+
 def size_function(pt, plist, nl):
-    size = min([length_segment(pt, plist[l]) for l in range(nl)])
+    g = 0.
+    size = min([plist[l].size + g * length_segment(pt, plist[l]) for l in range(nl)])
     return size
