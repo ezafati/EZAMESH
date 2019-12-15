@@ -25,39 +25,45 @@ def insert_midpoint(p, tr, seg):
             pass
 
 
-def seek_triangle(tr, seg, plist):
+def seek_triangle(tr, seg, plist, list_check):
     for adj in tr.adjacent:
-        if bound_condition(adj, seg, plist):
-            return seg
-        else:
-            seek_triangle(adj, seg, plist)
+        if adj not in list_check:
+            list_check.append(adj)
+            if bound_condition(adj, seg, plist) or seg.issubset(set(adj.points)):
+                return seg
+            else:
+                seek_triangle(adj, seg, plist, list_check)
 
 
 def enforce_segment(tr, index, p, plist):
     seg = {p, index}
     tr1 = False
     for child in tr.childs:
-        if bound_condition(child, seg, plist):
+        if bound_condition(child, seg, plist) or seg.issubset(set(child.points)):
             tr1 = child
             break
     if not tr1:
+        list_check = list()
         for child in tr.childs:
-            check = seek_triangle(child, seg, plist)
+            check = seek_triangle(child, seg, plist, list_check)
             if check:
                 tr1 = check
     try:
         pt = set(tr1.points).intersection(seg)
-        tr2 = tr1
-        seg_coord = [plist[p] for p in seg]
-        while seg != set(tr1.points).intersection(set(tr2.points)):
-            seg2 = set(tr2.points).difference(pt)
-            seg2_coord = [plist[p] for p in seg2]
-            if check_intersection(seg_coord, seg2_coord):
-                tr1, tr2 = tr2, tr1
-            else:
-                sys.exit('FATAL ERROR!')
-            tr2, = [tr for tr in tr1.adjacent if len(seg2.intersection(set(tr.points))) > 1]
-            swap_tr(tr1, tr2)
+        if len(pt) == 1:
+            tr2 = tr1
+            seg_coord = [plist[p] for p in seg]
+            while seg != set(tr1.points).intersection(set(tr2.points)):
+                seg2 = set(tr2.points).difference(pt)
+                seg2_coord = [plist[p] for p in seg2]
+                if check_intersection(seg_coord, seg2_coord):
+                    tr1, tr2 = tr2, tr1
+                else:
+                    sys.exit('FATAL ERROR!')
+                tr2, = [tri for tri in tr1.adjacent if len(seg2.intersection(set(tri.points))) > 1]
+                swap_tr(tr1, tr2)
+        else:
+            tr2, = [tri for tri in tr1.adjacent if len(seg.intersection(set(tri.points))) > 1]
         return tr1, tr2
     except AttributeError:
         sys.exit('FATAL ERROR ! Maybe the triangle has an empty child list')
@@ -67,13 +73,15 @@ def replace_vertex(p, index, tr, list_tr):
     for adj in tr.adjacent:
         if p in adj.points:
             list_tr.add(adj)
-            tr.points.remove(p)
-            tr.points.append(index)
-            replace_vertex(p, index, adj)
+            adj.points.remove(p)
+            adj.points.append(index)
+            replace_vertex(p, index, adj, list_tr)
 
 
 def chew_add_point(tree, plist, nl):
-    tr = tree.search_triangle(is_poor_quality, plist)
+    l_tr = [0, 0]
+    tree.search_triangle(is_poor_quality, plist, l_tr)
+    tr = l_tr[1]
     if tr:
         pt = circumcircle_center(tr, plist)
         if not point_in_adjacent(tr, pt, plist):
@@ -84,8 +92,9 @@ def chew_add_point(tree, plist, nl):
             p1, *_ = [plist[p] for p in seg]
             pm.x = 1 / 2 * reduce(lambda l, m: l + m, [plist[q].x for q in seg])
             pm.y = 1 / 2 * reduce(lambda l, m: l + m, [plist[q].y for q in seg])
+            print([(plist[pp].x, plist[pp].y) for pp in tr.points])
             print([(plist[pp].x, plist[pp].y) for pp in seg])
-            print('nouveau point', len(plist), pm.x, pm.y)
+            print('nouveau point', len(plist) - 1, pm.x, pm.y)
             radius = length_segment(pm, p1)
             list_tmp = collect_points(tr, seg, radius, pm, plist, nl)
             index = len(plist) - 1
@@ -93,12 +102,11 @@ def chew_add_point(tree, plist, nl):
             if list_tmp:
                 for p in list_tmp:
                     list_new_tris = set()
-                    print(tr.childs, tr)
                     list_tri_elim = enforce_segment(tr1, index, p, plist)
                     for tri in list_tri_elim:
                         replace_vertex(p, index, tri, list_new_tris)
                     for tri in list_tri_elim:
-                        tri.parent.child.remove(tri)
+                        tri.parent.childs.remove(tri)
                         for adj in tri.adjacent:
                             adj.adjacent.remove(tri)
                     adj_triangles = [pl for pl in itertools.combinations(list_new_tris, 2) if
@@ -109,7 +117,6 @@ def chew_add_point(tree, plist, nl):
                             trj.adjacent.add(trk)
         else:
             plist.append(pt)
-            print('nouveau point sans', len(plist))
             adj = point_in_adjacent(tr, pt, plist)
             insert_point(len(plist) - 1, plist, adj)
     else:
@@ -132,7 +139,6 @@ def collect_points(tr1, seg, r, pm, plist, n):
     adj = tr1.adjacent.union(tr2.adjacent).difference({tr1, tr2})
     while adj:
         tr = adj.pop()
-        print(set(tr.points).difference(seg))
         p = set(tr.points).difference(seg)
         for pt in p:
             if length_segment(plist[pt], pm) < r and pt >= n and pt not in list_points:
@@ -191,8 +197,8 @@ def circumcircle_radius(tr, plist):
         return None
 
 
-def is_poor_quality(tr, plist):
-    cst = 1.2 * sqrt(2)
+def is_poor_quality(tr, plist, l_tr):
+    cst = 1 * sqrt(2)
     list_tmp = [plist[p] for p in tr.points]
     lmin = min([length_segment(p, q) for p, q in itertools.combinations(list_tmp, 2)])
     radius = circumcircle_radius(tr, plist)
@@ -200,6 +206,12 @@ def is_poor_quality(tr, plist):
         test_ratio = radius / lmin
         pt = circumcircle_center(tr, plist)
         booli = find_segment(tr, pt, plist) or point_in_adjacent(tr, pt, plist)
-        return test_ratio >= cst and booli
+        if test_ratio >= cst and booli and radius > l_tr[0]:
+            l_tr[0], l_tr[1] = radius, tr
     except TypeError:
-        return 1
+        pass
+
+
+def size_function(pt, plist, nl):
+    size = min([length_segment(pt, plist[l]) for l in range(nl)])
+    return size

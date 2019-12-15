@@ -237,9 +237,10 @@ class Vector(object):
 
 
 class Point(object):
-    def __init__(self, x=None, y=None):
+    def __init__(self, x=None, y=None, size=None):
         self.x = x
         self.y = y
+        self.size = size
 
     def prescale(self, x, y, d):
         self.x = (self.x - x) / d
@@ -340,15 +341,6 @@ class Mesh(object):
         except Exception as err:
             print('exit for the error in line ', n_line, ': ', err)
             sys.exit()
-
-    def plot_bound(self):
-        fig = plt.figure()  # create figure object
-        ax = fig.add_subplot(1, 1, 1)  # create an axes object
-        for l in self.boundary:
-            l = list(l)
-            coord = [[self.point_list[p].x for p in l], [self.point_list[p].y for p in l]]
-            ax.plot(coord[0], coord[1], 'k-*')
-        plt.show()
 
     def add_point(self, fields):
         if len(fields) == 2:

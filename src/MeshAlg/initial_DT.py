@@ -30,6 +30,6 @@ def dt_initial(vmesh):
     del plist[nl:]
     TreeRefinement = TriangleTree().triangle_tree_refinement(Tree)
     Tree = None
-    for _ in range(20):
+    for _ in range(60):
         chew_add_point(TreeRefinement, plist, nl)
     TreeRefinement.plot_mesh(plist)
