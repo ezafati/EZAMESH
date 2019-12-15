@@ -141,7 +141,6 @@ def point_in_adjacent(tr, pt, plist):
             return adj
 
 
-# CETTE FONCTON CONTIENT UN BUG A LA LIGNE 129
 def collect_points(tr1, seg, r, pm, plist, n):
     """Collect the set of points seen from
     the circumcenter added as the midpoint"""
@@ -236,7 +235,7 @@ def is_well_sized(tr, plist, ratio_tr, nl):
     h = size_function(pt, plist, nl)
     try:
         booli = find_segment(tr, pt, plist) or point_in_adjacent(tr, pt, plist)
-        ratio = radius/h
+        ratio = radius / h
         if radius > h and booli and ratio > ratio_tr[0]:
             ratio_tr[0], ratio_tr[1] = ratio, tr
     except TypeError:
