@@ -1,7 +1,7 @@
 import matplotlib
 
-from MeshObjects.GeObjects import *
 from MeshAlg.chew_insert_algorithms import *
+
 matplotlib.use("TkAgg")
 
 
