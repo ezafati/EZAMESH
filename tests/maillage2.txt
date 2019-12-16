@@ -1,9 +1,9 @@
-A = P 0 0
-B = P 1 0
-C = P 1 1
-D = P 0 1
+A = POINT 0 0
+B = POINT 1 0
+C = POINT 1 1
+D = POINT 0 1
 
-L1 = D A B 0.1
-L2 = D B C 0.1
-L3 = D C D 0.1
-L4 = D D A 0.1
+L1 = LINE A B 0.1
+L2 = LINE B C 0.1
+L3 = LINE C D 0.1
+L4 = LINE D A 0.1

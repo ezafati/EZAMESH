@@ -1,9 +1,5 @@
-#from pip._vendor.pep517.compat import FileNotFoundError
-#from pkg_resources import PermissionError
-
 import globalvar
 import os.path
-#from MeshAlg.DT_prim import dt_algo
 from MeshAlg.initial_DT import dt_initial
 from MeshObjects.GeObjects import *
 
@@ -31,11 +27,10 @@ def read_file(meshfile):
 
 def switcher_demo(fields, n_line):
     switcher = {
-        'P': lambda fields: globalvar.gmesh.add_point(fields),
-        'D': lambda fields: globalvar.gmesh.add_bound_seg(fields, n_line)
+        'POINT': lambda fields: globalvar.gmesh.add_point(fields),
+        'LINE': lambda fields: globalvar.gmesh.add_bound_seg(fields, n_line)
     }
-    func = switcher.get(fields[2], 'INVALID')
-    if func == 'INVALID':
+    if switcher.get(fields[2], 'INVALID') == 'INVALID':
         print('error: line ', n_line, 'see details below')
         sys.exit("error: the object is unknown ... ")
     switcher.get(fields[2])(fields)
