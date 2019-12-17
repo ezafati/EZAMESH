@@ -320,6 +320,38 @@ class Mesh(object):
 
         pass
 
+    def add_line(self, fields, n_line):
+        self.segment_label.append(fields[0])
+        NA, NB = [self.label_list[fields[p]] for p in (3, 4)]
+        l1, l2 = [float(fields[p]) for p in (5, 6)]
+        if l1 > l2:
+            NA, NB = NB, NA
+            l1, l2 = l2, l1
+        A, B = [self.point_list[p - 1] for p in (NA, NB)]
+        A.size, B.size = l1, l2
+        slen = sqrt(pow(A.x - B.x, 2) + pow(A.y - B.y, 2))
+        ratio = slen / (l1 + (l2 - l1) / 2)
+        nsteps = math.modf(ratio)
+        step = (l2 - l1) / nsteps[1]
+        if nsteps[1] <= 1:
+            raise ValueError(f"The densities specified in {n_line} are too large for the boundary length {slen}")
+        count = 1
+        while count < nsteps[1]:
+            self.nnodes += 1
+            C = Point()
+            C.x = A.x + (B.x - A.x) / slen * (count * l1 + count * (count - 1) * step / 2)
+            C.y = A.y + (B.y - A.y) / slen * (count * l1 + count * (count - 1) * step / 2)
+            C.size = l1 + (count - 1) * step
+            self.point_list.append(C)
+            if count == 1:
+                self.boundary.append({NA - 1, self.nnodes - 1})
+            elif count == nsteps[1] - 1:
+                self.boundary.append({self.nnodes - 1, NB - 1})
+                self.boundary.append({(self.nnodes - 1) - 1, self.nnodes - 1})
+            else:
+                self.boundary.append({(self.nnodes - 1) - 1, self.nnodes - 1})
+            count += 1
+
     def add_bound_seg(self, fields, n_line):
         try:
             self.segment_label.append(fields[0])
