@@ -8,6 +8,11 @@ import numpy as np
 from utils import *
 
 
+def get_center(seg, radius):
+    A, B = seg
+    pass
+
+
 def check_intersection(seg1, seg2):
     A, B = [p for p in seg1]
     C, D = [p for p in seg2]
@@ -105,7 +110,7 @@ def plot_triangle(tr, plist, ax):
         vertx.append(tr.points[0])
         coordx = [plist[p].x for p in vertx]
         coordy = [plist[p].y for p in vertx]
-        ax.plot(coordx, coordy, 'k-*')
+        ax.plot(coordx, coordy, 'k-')
     else:
         for child in tr.childs:
             if isinstance(child, Triangle):
@@ -138,6 +143,7 @@ def insert_point(p, plist, tr):
 class TriangleTree:
     def __init__(self, root=None):
         self.root = root
+        self.terminate = False
 
     @classmethod
     def triangle_tree_refinement(cls, tree):
@@ -293,31 +299,9 @@ class Mesh(object):
         self.label_list = llist
         self.triangle_list = ltri
 
-    def add_line(self, fields, n_line):
+    def add_arc(self, fields, nline):
         self.segment_label.append(fields[0])
         NA, NB = [self.label_list[fields[p]] for p in (3, 4)]
-        l1, l2 = [self.label_list[fields[p]] for p in (5, 6)]
-        if l1 <= l2:
-            A, B = [self.point_list[p - 1] for p in (NA, NB)]
-        else:
-            l1, l2 = l2, l1
-            A, B = [self.point_list[p - 1] for p in (NB, NA)]
-        A.size, B.size = l1, l2
-        slen = sqrt(pow(A.x - B.x, 2) + pow(A.y - B.y, 2))
-        ratio = slen / (l1 + (l2 - l1) / 2)
-        nsteps = math.modf(ratio)
-        step = (l2 - l1) / nsteps
-        if nsteps[1] <= 1:
-            raise ValueError(f"The densities specified in {n_line} are too large for the boundary length {slen}")
-        count = 1
-        while count < nsteps:
-            self.nnodes += 1
-            C = Point()
-            C.x = A.x + (B.x - A.x) / slen * (count * l1 + count * (count - 1) * step / 2)
-            C.y = A.y + (B.y - A.y) / slen * (count * l1 + count * (count - 1) * step / 2)
-            C.size = l1 + (count - 1) * step
-            self.point_list.append(C)
-
         pass
 
     def add_line(self, fields, n_line):
@@ -351,48 +335,6 @@ class Mesh(object):
             else:
                 self.boundary.append({(self.nnodes - 1) - 1, self.nnodes - 1})
             count += 1
-
-    def add_bound_seg(self, fields, n_line):
-        try:
-            self.segment_label.append(fields[0])
-            NA = self.label_list[fields[3]]
-            NB = self.label_list[fields[4]]
-            l = float(fields[5])
-            A = self.point_list[NA - 1]
-            B = self.point_list[NB - 1]
-            A.size = l
-            B.size = l
-            dist = pow(A.x - B.x, 2) + pow(A.y - B.y, 2)
-            dist = sqrt(dist)
-            NN = dist / l
-            k = 1
-            ifpart = math.modf(NN)
-            if ifpart[1] == 0 or (ifpart[1] == 1 and ifpart[0] <= 0.5):
-                self.boundary.append({NA - 1, NB - 1})
-            else:
-                if ifpart[0] <= 0.5:
-                    NN = ifpart[1]
-                else:
-                    NN = ifpart[1] + 1
-                while 0 < k < NN:
-                    self.nnodes += 1
-                    C = Point()
-                    C.x = (1 - (k / NN)) * A.x + (k / NN) * B.x
-                    C.y = (1 - (k / NN)) * A.y + (k / NN) * B.y
-                    C.size = l
-                    self.point_list.append(C)
-                    if k == 1:
-                        self.boundary.append({NA - 1, self.nnodes - 1})
-                    if k == NN - 1:
-                        self.boundary.append({self.nnodes - 1, NB - 1})
-                        if k != 1:
-                            self.boundary.append({(self.nnodes - 1) - 1, self.nnodes - 1})
-                    if (k != 1) and (k != NN - 1):
-                        self.boundary.append({(self.nnodes - 1) - 1, self.nnodes - 1})
-                    k += 1
-        except Exception as err:
-            print('exit for the error in line ', n_line, ': ', err)
-            sys.exit()
 
     def add_point(self, fields):
         if len(fields) == 2:

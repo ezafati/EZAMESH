@@ -128,7 +128,8 @@ def chew_add_point(tree, plist, nl):
             adj = point_in_adjacent(tr, pt, plist)
             insert_point(len(plist) - 1, plist, adj)
     else:
-        print('NO SKINNY TRIANGLE IS FOUND')
+        tree.terminate = True
+        print('NO MORE SKINNY TRIANGLE IS FOUND')
 
 
 def point_in_adjacent(tr, pt, plist):
@@ -244,6 +245,6 @@ def is_well_sized(tr, plist, ratio_tr, nl):
 
 def size_function(pt, plist, nl):
     """evaluate the size function at the point pt"""
-    g = 0.1
+    g = 0.07
     size = min([plist[l].size + g * length_segment(pt, plist[l]) for l in range(nl)])
     return size
