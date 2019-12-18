@@ -10,7 +10,27 @@ from utils import *
 
 def get_center(seg, radius):
     A, B = seg
-    pass
+    H = Point(1 / 2 * (A.x + B.x), 1 / 2 * (A.y + B.y))
+    dist2 = (A.x - B.x) ** 2 + (A.y - B.y) ** 2
+    alpha = abs(radius ** 2 - dist2 / 4)
+    center = Point()
+    try:
+        ratio = (A.y - B.y) / (A.x - B.x)
+        beta = 1 + ratio ** 2
+        if B.x > A.x:
+            center.y = H.y + sqrt(alpha / beta)
+        else:
+            center.y = H.y - sqrt(alpha / beta)
+        center.x = H.x - (center.y - H.y) * ratio
+    except ZeroDivisionError:
+        ratio = (A.x - B.x) / (A.y - B.y)
+        beta = 1 + ratio ** 2
+        if B.y > A.y:
+            center.x = H.x - sqrt(alpha / beta)
+        else:
+            center.x = H.x + sqrt(alpha / beta)
+        center.y = H.y - (center.x - H.x) * ratio
+    return center
 
 
 def check_intersection(seg1, seg2):
@@ -299,10 +319,47 @@ class Mesh(object):
         self.label_list = llist
         self.triangle_list = ltri
 
+    def close_check(self):
+        pass
+
     def add_arc(self, fields, nline):
         self.segment_label.append(fields[0])
         NA, NB = [self.label_list[fields[p]] for p in (3, 4)]
-        pass
+        l1, l2 = [float(fields[p]) for p in (5, 6)]
+        A, B = [self.point_list[p - 1] for p in (NA, NB)]
+        point_list = [A, B]
+        radius = float(fields[7])
+        center = get_center(point_list, radius)
+        scalar_product = (A.x - center.x) * (B.x - center.x) + (A.y - center.y) * (B.y - center.y)
+        theta = math.acos((scalar_product / radius ** 2))
+        slen = radius * theta
+        if l1 > l2:
+            l1, l2 = l2, l1
+            A, B = B, A
+            NA, NB = NB, NA
+            theta = -1 * theta
+        ratio = slen / (l1 + (l2 - l1) / 2)
+        nsteps = math.modf(ratio)
+        step = (l2 - l1) / nsteps[1]
+        if nsteps[1] <= 1:
+            raise ValueError(f"The densities specified in {n_line} are too large for the boundary length {slen}")
+        count = 1
+        while count < nsteps[1]:
+            self.nnodes += 1
+            C = Point()
+            theta_M = (count * l1 + count * (count - 1) * step / 2) / radius * math.copysign(1, theta)
+            C.x = center.x + math.cos(theta_M) * (A.x - center.x) - math.sin(theta_M) * (A.y - center.y)
+            C.y = center.y + math.sin(theta_M) * (A.x - center.x) + math.cos(theta_M) * (A.y - center.y)
+            C.size = l1 + (count - 1) * step
+            self.point_list.append(C)
+            if count == 1:
+                self.boundary.append({NA - 1, self.nnodes - 1})
+            elif count == nsteps[1] - 1:
+                self.boundary.append({self.nnodes - 1, NB - 1})
+                self.boundary.append({(self.nnodes - 1) - 1, self.nnodes - 1})
+            else:
+                self.boundary.append({(self.nnodes - 1) - 1, self.nnodes - 1})
+            count += 1
 
     def add_line(self, fields, n_line):
         self.segment_label.append(fields[0])

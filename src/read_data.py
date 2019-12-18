@@ -28,7 +28,9 @@ def read_file(meshfile):
 def switch_case(fields, n_line):
     switcher = {
         'POINT': lambda fields: globalvar.gmesh.add_point(fields),
-        'LINE': lambda fields: globalvar.gmesh.add_line(fields, n_line)
+        'LINE': lambda fields: globalvar.gmesh.add_line(fields, n_line),
+        'ARC': lambda fields: globalvar.gmesh.add_arc(fields, n_line),
+        'PART': lambda fields: globalvar.gmesh.close_check(fields, n_line)
     }
     if switcher.get(fields[2], 'INVALID') == 'INVALID':
         print('error: line ', n_line, 'see details below')
