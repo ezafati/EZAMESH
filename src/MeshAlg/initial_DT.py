@@ -1,6 +1,7 @@
 import matplotlib
 
 from MeshAlg.chew_insert_algorithms import *
+from MeshObjects.GeObjects import Point, Triangle, TriangleTree
 
 matplotlib.use("TkAgg")
 

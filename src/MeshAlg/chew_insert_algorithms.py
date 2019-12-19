@@ -1,6 +1,6 @@
-from globalvar import *
-from functools import reduce
 import itertools
+from functools import reduce
+from MeshObjects.GeObjects import *
 
 
 def insert_midpoint(p, tr, seg):
