@@ -1,6 +1,7 @@
 import itertools
 from functools import reduce
 from MeshObjects.GeObjects import *
+import logging
 
 
 def insert_midpoint(p, tr, seg):
@@ -71,7 +72,8 @@ def enforce_segment(tr, index, p, plist):
             tr2, = [tri for tri in tr1.adjacent if len(seg.intersection(set(tri.points))) > 1]
         return tr1, tr2
     except AttributeError:
-        sys.exit('FATAL ERROR ! Maybe the triangle has an empty child list')
+        logging.error('FATAL ERROR ! Maybe the triangle has an empty child list')
+        sys.exit('EXIT WITH ERROR: SEE THE LOG FILE')
 
 
 def replace_vertex(p, index, tr, list_tr):
@@ -129,7 +131,7 @@ def chew_add_point(tree, plist, nl):
             insert_point(len(plist) - 1, plist, adj)
     else:
         tree.terminate = True
-        print('NO MORE SKINNY TRIANGLE IS FOUND')
+        logging.info('PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE')
 
 
 def point_in_adjacent(tr, pt, plist):

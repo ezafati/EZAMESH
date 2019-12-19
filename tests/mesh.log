@@ -1,0 +1,21 @@
+2019-12-19 18:57:29,353 ERROR  IN FILE /home/ezafati/mesh_project/meshproject/tests/maillage7.txt: Not Found  or Permission Error [Errno 2] No such file or directory: 'maillage7.txt'
+2019-12-19 18:58:22,275 ERROR  IN FILE /home/ezafati/mesh_project/meshproject/tests/maillage7.txt:  [Errno 2] No such file or directory: 'maillage7.txt'
+2019-12-19 19:03:54,215 ERROR  IN FILE /home/ezafati/mesh_project/meshproject/tests/maillage7.txt:  [Errno 2] No such file or directory: 'maillage7.txt'
+2019-12-19 19:04:11,813 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-19 19:04:11,813 INFO ############### BEGIN PROCESS ###########################
+2019-12-19 19:04:11,813 INFO DOMAIN WITH 53 POINTS IN BOUNDARY
+2019-12-19 19:04:18,071 INFO NO MORE SKINNY TRIANGLE IS FOUND
+2019-12-19 19:04:18,071 INFO MESH GENERATED WITH 152 POINTS
+2019-12-19 19:04:18,072 INFO ######################## END PROCESS: SUCCESS ##################
+2019-12-19 19:06:58,369 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-19 19:06:58,369 INFO ############### BEGIN PROCESS ###########################
+2019-12-19 19:06:58,370 INFO DOMAIN WITH 53 POINTS IN BOUNDARY
+2019-12-19 19:07:02,767 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-19 19:07:02,768 INFO MESH GENERATED WITH 152 POINTS
+2019-12-19 19:07:02,768 INFO ######################## END PROCESS: SUCCESS ##################
+2019-12-19 23:01:31,964 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-19 23:01:31,964 INFO ############### BEGIN PROCESS ###########################
+2019-12-19 23:01:31,964 INFO DOMAIN WITH 53 POINTS IN BOUNDARY
+2019-12-19 23:01:36,261 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-19 23:01:36,262 INFO MESH GENERATED WITH 152 POINTS
+2019-12-19 23:01:36,262 INFO ######################## END PROCESS: SUCCESS ##################

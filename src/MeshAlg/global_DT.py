@@ -2,7 +2,7 @@ import matplotlib
 import importlib
 from MeshObjects.GeObjects import Point, Triangle, TriangleTree
 from module_var import dispatcher
-
+import logging
 
 matplotlib.use("TkAgg")
 
@@ -13,6 +13,7 @@ def dt_global(vmesh):
     plist = vmesh.point_list
     boundary = vmesh.boundary
     nl = len(plist)
+    logging.info(f'DOMAIN WITH {nl} POINTS IN BOUNDARY')
     xmax = max([plist[p].x for p in range(nl)])
     xmin = min([plist[p].x for p in range(nl)])
     ymax = max([plist[p].y for p in range(nl)])
@@ -37,4 +38,6 @@ def dt_global(vmesh):
     del Tree
     while not TreeRefinement.terminate:
         refinement_method(TreeRefinement, plist, nl)
+    logging.info(f'MESH GENERATED WITH {len(plist)} POINTS')
+    logging.info('######################## END PROCESS: SUCCESS ##################')
     #TreeRefinement.plot_mesh(plist)

@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from math import sqrt, acos, modf, sin, cos, copysign
 import sys
+import logging
 
 
 def get_center(seg, radius):
@@ -251,6 +252,7 @@ class TriangleTree:
                     if check_intersection(bound_coord, seg_coord):
                         tr1, tr2 = tr2, tr1
                     else:
+                        logging.error('EXIT WITH ERROR IN BOUNDARY')
                         sys.exit('FATAL ERROR!')
                     tr2, = [tr for tr in tr1.adjacent if len(seg.intersection(set(tr.points))) > 1]
                     swap_tr(tr1, tr2)
@@ -343,7 +345,8 @@ class Mesh(object):
         nsteps = modf(ratio)
         step = (l2 - l1) / nsteps[1]
         if nsteps[1] <= 1:
-            raise ValueError(f"The densities specified in {nline} are too large for the boundary length {slen}")
+            logging.error(f"The densities specified in {nline} are too large for the boundary length {slen}")
+            raise ValueError()
         count = 1
         while count < nsteps[1]:
             self.nnodes += 1
