@@ -4,8 +4,8 @@ import itertools
 
 import matplotlib.pyplot as plt
 import numpy as np
-
-from utils import *
+from math import sqrt, acos, modf, sin, cos, copysign
+import sys
 
 
 def get_center(seg, radius):
@@ -301,7 +301,7 @@ class Segment(object):
 
 
 class Mesh(object):
-    def __init__(self, x=None, slabel=None, nnodes=0, polist=None, llist=None, ltri=None):
+    def __init__(self, x=None, slabel=None, nnodes=0, polist=None, llist=None, ltri=None, strat='default'):
         if ltri is None:
             ltri = []
         if llist is None:
@@ -318,6 +318,7 @@ class Mesh(object):
         self.point_list = polist
         self.label_list = llist
         self.triangle_list = ltri
+        self.meshstrategy = strat
 
     def close_check(self):
         pass
@@ -331,7 +332,7 @@ class Mesh(object):
         radius = float(fields[7])
         center = get_center(point_list, radius)
         scalar_product = (A.x - center.x) * (B.x - center.x) + (A.y - center.y) * (B.y - center.y)
-        theta = math.acos((scalar_product / radius ** 2))
+        theta = acos((scalar_product / radius ** 2))
         slen = radius * theta
         if l1 > l2:
             l1, l2 = l2, l1
@@ -339,17 +340,17 @@ class Mesh(object):
             NA, NB = NB, NA
             theta = -1 * theta
         ratio = slen / (l1 + (l2 - l1) / 2)
-        nsteps = math.modf(ratio)
+        nsteps = modf(ratio)
         step = (l2 - l1) / nsteps[1]
         if nsteps[1] <= 1:
-            raise ValueError(f"The densities specified in {n_line} are too large for the boundary length {slen}")
+            raise ValueError(f"The densities specified in {nline} are too large for the boundary length {slen}")
         count = 1
         while count < nsteps[1]:
             self.nnodes += 1
             C = Point()
-            theta_M = (count * l1 + count * (count - 1) * step / 2) / radius * math.copysign(1, theta)
-            C.x = center.x + math.cos(theta_M) * (A.x - center.x) - math.sin(theta_M) * (A.y - center.y)
-            C.y = center.y + math.sin(theta_M) * (A.x - center.x) + math.cos(theta_M) * (A.y - center.y)
+            theta_M = (count * l1 + count * (count - 1) * step / 2) / radius * copysign(1, theta)
+            C.x = center.x + cos(theta_M) * (A.x - center.x) - sin(theta_M) * (A.y - center.y)
+            C.y = center.y + sin(theta_M) * (A.x - center.x) + cos(theta_M) * (A.y - center.y)
             C.size = l1 + (count - 1) * step
             self.point_list.append(C)
             if count == 1:
@@ -372,7 +373,7 @@ class Mesh(object):
         A.size, B.size = l1, l2
         slen = sqrt(pow(A.x - B.x, 2) + pow(A.y - B.y, 2))
         ratio = slen / (l1 + (l2 - l1) / 2)
-        nsteps = math.modf(ratio)
+        nsteps = modf(ratio)
         step = (l2 - l1) / nsteps[1]
         if nsteps[1] <= 1:
             raise ValueError(f"The densities specified in {n_line} are too large for the boundary length {slen}")

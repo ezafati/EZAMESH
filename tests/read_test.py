@@ -1,7 +1,7 @@
 #!/usr/bin/env python  
 import sys 
 
-sys.path.append('/home/ezafati/mesh_project/src/')
+#sys.path.append('/home/ezafati/mesh_project/src/')
 
 from read_data import *
  

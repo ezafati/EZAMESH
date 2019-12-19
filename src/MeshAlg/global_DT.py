@@ -1,12 +1,15 @@
 import matplotlib
-
-from MeshAlg.chew_insert_algorithms import *
+import importlib
 from MeshObjects.GeObjects import Point, Triangle, TriangleTree
+from module_var import dispatcher
+
 
 matplotlib.use("TkAgg")
 
 
-def dt_initial(vmesh):
+def dt_global(vmesh):
+    _module = importlib.import_module(f"MeshAlg.{dispatcher[vmesh.meshstrategy][0]}")
+    refinement_method = _module.__dict__[dispatcher[vmesh.meshstrategy][1]]
     plist = vmesh.point_list
     boundary = vmesh.boundary
     nl = len(plist)
@@ -31,7 +34,7 @@ def dt_initial(vmesh):
     del plist[nl:]
     TreeRefinement = TriangleTree().triangle_tree_refinement(Tree)
     plist = [plist[p].postscale(xmin, ymin, dmax) for p in range(nl)]
-    Tree = None
+    del Tree
     while not TreeRefinement.terminate:
-        chew_add_point(TreeRefinement, plist, nl)
-    TreeRefinement.plot_mesh(plist)
+        refinement_method(TreeRefinement, plist, nl)
+    #TreeRefinement.plot_mesh(plist)
