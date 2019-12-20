@@ -9,5 +9,5 @@ setup(
     license='',
     author='ezafati',
     author_email='',
-    description='', install_requires=['numpy', 'matplotlib']
+    description='', install_requires=['numpy', 'matplotlib', 'scipy']
 )

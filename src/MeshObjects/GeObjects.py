@@ -8,6 +8,24 @@ from math import sqrt, acos, modf, sin, cos, copysign
 import sys
 import logging
 
+import scipy.integrate
+import scipy.optimize
+
+
+def prim_spline(A, B, C):
+    v1 = Vector(C.x - A.x, C.y - A.y)
+    v2 = Vector(B.x - C.x, B.y - C.y)
+    nv1 = v1.x * v1.x + v1.y * v1.y
+    nv2 = v2.x * v2.x + v2.y * v2.y
+    dtv1v2 = v1.x * v2.x + v1.y * v2.y
+    return lambda x: 2*sqrt((1 - x)**2 * nv1 + x**2 * nv2 + 2 * x * (1 - x) * dtv1v2)
+
+
+def len_spline(t, a, b, c):
+    func = np.vectorize(prim_spline(a, b, c))
+    result, *_ = scipy.integrate.fixed_quad(lambda x: func(x), 0, t, n=3)
+    return result
+
 
 def get_center(seg, radius):
     A, B = seg
@@ -345,7 +363,7 @@ class Mesh(object):
         nsteps = modf(ratio)
         step = (l2 - l1) / nsteps[1]
         if nsteps[1] <= 1:
-            logging.error(f"The densities specified in {nline} are too large for the boundary length {slen}")
+            logging.error(f"The densities specified in {n_line} are too large for the boundary length {slen}")
             raise ValueError()
         count = 1
         while count < nsteps[1]:
@@ -386,6 +404,43 @@ class Mesh(object):
             C = Point()
             C.x = A.x + (B.x - A.x) / slen * (count * l1 + count * (count - 1) * step / 2)
             C.y = A.y + (B.y - A.y) / slen * (count * l1 + count * (count - 1) * step / 2)
+            C.size = l1 + (count - 1) * step
+            self.point_list.append(C)
+            if count == 1:
+                self.boundary.append({NA - 1, self.nnodes - 1})
+            elif count == nsteps[1] - 1:
+                self.boundary.append({self.nnodes - 1, NB - 1})
+                self.boundary.append({(self.nnodes - 1) - 1, self.nnodes - 1})
+            else:
+                self.boundary.append({(self.nnodes - 1) - 1, self.nnodes - 1})
+            count += 1
+
+    def add_spline(self, fields, n_line):
+        self.segment_label.append(fields[0])
+        NA, NB = [self.label_list[fields[p]] for p in (3, 4)]
+        l1, l2 = [float(fields[p]) for p in (5, 6)]
+        cpt = Point()
+        cpt.x, cpt.y = [float(fields[p]) for p in (7, 8)]
+        A, B = [self.point_list[p - 1] for p in (NA, NB)]
+        A.size, B.size = l1, l2
+        slen = len_spline(1, A, B, cpt)
+        _fprim = prim_spline(A, B, cpt)
+        ratio = slen / (l1 + (l2 - l1) / 2)
+        nsteps = modf(ratio)
+        step = (l2 - l1) / nsteps[1]
+        if nsteps[1] <= 1:
+            logging.error(f"The densities specified in {n_line} are too large for the boundary length {slen}")
+            raise ValueError()
+        count = 1
+        while count < nsteps[1]:
+            self.nnodes += 1
+            C = Point()
+            target = (count * l1 + count * (count - 1) * step / 2)
+            rt = scipy.optimize.newton(lambda x: len_spline(x, A, B, cpt) - target, 0, fprime=_fprim)
+            p11 = Point((1 - rt) * A.x + rt * cpt.x, (1 - rt) * A.y + rt * cpt.y)
+            p21 = Point((1 - rt) * cpt.x + rt * B.x, (1 - rt) * cpt.y + rt * B.y)
+            C.x = (1 - rt) * p11.x + rt * p21.x
+            C.y = (1 - rt) * p11.y + rt * p21.y
             C.size = l1 + (count - 1) * step
             self.point_list.append(C)
             if count == 1:

@@ -40,4 +40,4 @@ def dt_global(vmesh):
         refinement_method(TreeRefinement, plist, nl)
     logging.info(f'MESH GENERATED WITH {len(plist)} POINTS')
     logging.info('######################## END PROCESS: SUCCESS ##################')
-    #TreeRefinement.plot_mesh(plist)
+    TreeRefinement.plot_mesh(plist)

@@ -42,6 +42,7 @@ def switch_case(fields, n_line, meshfile):
         'POINT': lambda fields: module_var.gmesh.add_point(fields),
         'LINE': lambda fields: module_var.gmesh.add_line(fields, n_line),
         'ARC': lambda fields: module_var.gmesh.add_arc(fields, n_line),
+        'SPLINE': lambda fields: module_var.gmesh.add_spline(fields, n_line),
         'PART': lambda fields: module_var.gmesh.close_check(fields, n_line)
     }
     if switcher.get(fields[2], 'INVALID') == 'INVALID':
