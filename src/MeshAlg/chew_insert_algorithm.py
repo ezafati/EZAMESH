@@ -247,6 +247,6 @@ def is_well_sized(tr, plist, ratio_tr, nl):
 
 def size_function(pt, plist, nl):
     """evaluate the size function at the point pt"""
-    g = 0.07
+    g = 0.1
     size = min([plist[l].size + g * length_segment(pt, plist[l]) for l in range(nl)])
     return size

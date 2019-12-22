@@ -1,18 +1,19 @@
 import module_var
 import os.path
 import os
+
+try:
+    import psutil
+except ImportError:
+    pass
+
 import sys
+
 import logging
 from MeshAlg.global_DT import dt_global
 
-FILE_LOG_PATH = 'mesh.log'
-try:
-    logging.basicConfig(filename=FILE_LOG_PATH, level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
-except FileNotFoundError:
-    sys.exit(f'FILE {FILE_LOG_PATH} NOT FOUND')
 
-
-def read_file(meshfile):
+def read_file(meshfile, process):
     try:
         with open(meshfile, 'r') as f:
             if f.readline() == "":
@@ -33,8 +34,7 @@ def read_file(meshfile):
         sys.exit()
     except StopIteration as e:
         logging.info("############### END READ MESH FILE WITH SUCCESS   ###########################")
-        logging.info("############### BEGIN PROCESS ###########################")
-        dt_global(module_var.gmesh)
+        dt_global(module_var.gmesh, process)
 
 
 def switch_case(fields, n_line, meshfile):
@@ -46,6 +46,7 @@ def switch_case(fields, n_line, meshfile):
         'PART': lambda fields: module_var.gmesh.close_check(fields, n_line)
     }
     if switcher.get(fields[2], 'INVALID') == 'INVALID':
-        logging.error(f'IN LINE {n_line} IN FILE {os.path.abspath(meshfile)}: THE OPTION ({fields[2]}) IS NOT EXPECTED ')
+        logging.error(
+            f'IN LINE {n_line} IN FILE {os.path.abspath(meshfile)}: THE OPTION ({fields[2]}) IS NOT EXPECTED ')
         sys.exit(f'SEE LOG FILE {os.path.abspath(FILE_LOG_PATH)}')
     switcher.get(fields[2])(fields)

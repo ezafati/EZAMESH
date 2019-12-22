@@ -188,14 +188,14 @@ class TriangleTree:
     def triangle_tree_refinement(cls, tree):
         tree_tmp = cls(Triangle())
         for child in tree.root.childs:
-            tree_tmp.add_child(child)
+            tree_tmp._add_child(child)
         return tree_tmp
 
-    def add_child(self, tr):
+    def _add_child(self, tr):
         if tr.childs:
             for child in tr.childs:
                 if isinstance(child, Triangle):
-                    self.add_child(child)
+                    self._add_child(child)
         else:
             self.root.childs.append(tr)
             tr.parent = self.root
@@ -229,7 +229,7 @@ class TriangleTree:
         else:
             pass
 
-    def get_initial_constrained_mesh(self, boundary, plist, n):
+    def get_initial_constrained_mesh(self, boundary, plist, n, process):
         for p in range(n):
             pt = plist[p]
             tr = self.search_triangle(point_in, pt, plist)
@@ -333,21 +333,21 @@ class Mesh(object):
         if x is None:
             x = []
         self.boundary = x
-        self.segment_label = slabel
+        self.boundarylabels = slabel
         self.nnodes = nnodes
-        self.point_list = polist
-        self.label_list = llist
+        self.listpoint = polist
+        self.pointlabel = llist
         self.triangle_list = ltri
         self.meshstrategy = strat
 
     def close_check(self):
         pass
 
-    def add_arc(self, fields, nline):
-        self.segment_label.append(fields[0])
-        NA, NB = [self.label_list[fields[p]] for p in (3, 4)]
+    def add_arc(self, fields, n_line):
+        self.boundarylabels.append(fields[0])
+        NA, NB = [self.pointlabel[fields[p]] for p in (3, 4)]
         l1, l2 = [float(fields[p]) for p in (5, 6)]
-        A, B = [self.point_list[p - 1] for p in (NA, NB)]
+        A, B = [self.listpoint[p - 1] for p in (NA, NB)]
         point_list = [A, B]
         radius = float(fields[7])
         center = get_center(point_list, radius)
@@ -373,7 +373,7 @@ class Mesh(object):
             C.x = center.x + cos(theta_M) * (A.x - center.x) - sin(theta_M) * (A.y - center.y)
             C.y = center.y + sin(theta_M) * (A.x - center.x) + cos(theta_M) * (A.y - center.y)
             C.size = l1 + (count - 1) * step
-            self.point_list.append(C)
+            self.listpoint.append(C)
             if count == 1:
                 self.boundary.append({NA - 1, self.nnodes - 1})
             elif count == nsteps[1] - 1:
@@ -384,13 +384,13 @@ class Mesh(object):
             count += 1
 
     def add_line(self, fields, n_line):
-        self.segment_label.append(fields[0])
-        NA, NB = [self.label_list[fields[p]] for p in (3, 4)]
+        self.boundarylabels.append(fields[0])
+        NA, NB = [self.pointlabel[fields[p]] for p in (3, 4)]
         l1, l2 = [float(fields[p]) for p in (5, 6)]
         if l1 > l2:
             NA, NB = NB, NA
             l1, l2 = l2, l1
-        A, B = [self.point_list[p - 1] for p in (NA, NB)]
+        A, B = [self.listpoint[p - 1] for p in (NA, NB)]
         A.size, B.size = l1, l2
         slen = sqrt(pow(A.x - B.x, 2) + pow(A.y - B.y, 2))
         ratio = slen / (l1 + (l2 - l1) / 2)
@@ -405,7 +405,7 @@ class Mesh(object):
             C.x = A.x + (B.x - A.x) / slen * (count * l1 + count * (count - 1) * step / 2)
             C.y = A.y + (B.y - A.y) / slen * (count * l1 + count * (count - 1) * step / 2)
             C.size = l1 + (count - 1) * step
-            self.point_list.append(C)
+            self.listpoint.append(C)
             if count == 1:
                 self.boundary.append({NA - 1, self.nnodes - 1})
             elif count == nsteps[1] - 1:
@@ -416,15 +416,19 @@ class Mesh(object):
             count += 1
 
     def add_spline(self, fields, n_line):
-        self.segment_label.append(fields[0])
-        NA, NB = [self.label_list[fields[p]] for p in (3, 4)]
+        self.boundarylabels.append(fields[0])
+        NA, NB = [self.pointlabel[fields[p]] for p in (3, 4)]
         l1, l2 = [float(fields[p]) for p in (5, 6)]
         cpt = Point()
         cpt.x, cpt.y = [float(fields[p]) for p in (7, 8)]
-        A, B = [self.point_list[p - 1] for p in (NA, NB)]
+        A, B = [self.listpoint[p - 1] for p in (NA, NB)]
         A.size, B.size = l1, l2
+        if l2 < l1:
+            NA, NB = NB, NA
+            A, B = B, A
+            l1, l2 = l2, l1
         slen = len_spline(1, A, B, cpt)
-        _fprim = prim_spline(A, B, cpt)
+        fprim = prim_spline(A, B, cpt)
         ratio = slen / (l1 + (l2 - l1) / 2)
         nsteps = modf(ratio)
         step = (l2 - l1) / nsteps[1]
@@ -436,13 +440,13 @@ class Mesh(object):
             self.nnodes += 1
             C = Point()
             target = (count * l1 + count * (count - 1) * step / 2)
-            rt = scipy.optimize.newton(lambda x: len_spline(x, A, B, cpt) - target, 0, fprime=_fprim)
+            rt = scipy.optimize.newton(lambda x: len_spline(x, A, B, cpt) - target, 0, fprime=fprim)
             p11 = Point((1 - rt) * A.x + rt * cpt.x, (1 - rt) * A.y + rt * cpt.y)
             p21 = Point((1 - rt) * cpt.x + rt * B.x, (1 - rt) * cpt.y + rt * B.y)
             C.x = (1 - rt) * p11.x + rt * p21.x
             C.y = (1 - rt) * p11.y + rt * p21.y
             C.size = l1 + (count - 1) * step
-            self.point_list.append(C)
+            self.listpoint.append(C)
             if count == 1:
                 self.boundary.append({NA - 1, self.nnodes - 1})
             elif count == nsteps[1] - 1:
@@ -455,8 +459,8 @@ class Mesh(object):
     def add_point(self, fields):
         if len(fields) == 2:
             self.nnodes += 1
-            self.point_list.append(Point(fields[0], fields[1]))
+            self.listpoint.append(Point(fields[0], fields[1]))
         else:
             self.nnodes += 1
-            self.point_list.append(Point(float(fields[3]), float(fields[4])))
-            self.label_list[fields[0]] = self.nnodes
+            self.listpoint.append(Point(float(fields[3]), float(fields[4])))
+            self.pointlabel[fields[0]] = self.nnodes

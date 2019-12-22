@@ -7,10 +7,10 @@ import logging
 matplotlib.use("TkAgg")
 
 
-def dt_global(vmesh):
+def dt_global(vmesh, process):
     _module = importlib.import_module(f"MeshAlg.{dispatcher[vmesh.meshstrategy][0]}")
     refinement_method = _module.__dict__[dispatcher[vmesh.meshstrategy][1]]
-    plist = vmesh.point_list
+    plist = vmesh.listpoint
     boundary = vmesh.boundary
     nl = len(plist)
     logging.info(f'DOMAIN WITH {nl} POINTS IN BOUNDARY')
@@ -31,13 +31,18 @@ def dt_global(vmesh):
     # initialize Tree
     Tree = TriangleTree(Triangle())
     Tree.root.childs = Tree.root.childs + [T1, T2]
-    Tree.get_initial_constrained_mesh(boundary, plist, nl)
+    Tree.get_initial_constrained_mesh(boundary, plist, nl, process)
     del plist[nl:]
     TreeRefinement = TriangleTree().triangle_tree_refinement(Tree)
     plist = [plist[p].postscale(xmin, ymin, dmax) for p in range(nl)]
     del Tree
+    count = 0
     while not TreeRefinement.terminate:
+        if count % 10 == 0:
+            #logging.info(f'Memory infos: {process.memory_info()}')
+            #logging.info(f'CPU used percentage: {process.cpu_percent()}')
+            pass
         refinement_method(TreeRefinement, plist, nl)
+        count += 1
     logging.info(f'MESH GENERATED WITH {len(plist)} POINTS')
-    logging.info('######################## END PROCESS: SUCCESS ##################')
     TreeRefinement.plot_mesh(plist)
