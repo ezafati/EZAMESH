@@ -1,41 +1,52 @@
-#from pip._vendor.pep517.compat import FileNotFoundError
-#from pkg_resources import PermissionError
-
-import globalvar
+import module_var
 import os.path
-from MeshAlg.DT_prim import dt_algo
-from MeshObjects.GeObjects import *
+import os
+
+try:
+    import psutil
+except ImportError:
+    pass
+
+import sys
+
+import logging
+from MeshAlg.global_DT import dt_global
 
 
-def read_file(meshfile):
+def read_file(meshfile, process):
     try:
-        f = open(meshfile, 'r')
-        if f.readline() == "":
-            sys.exit("error: mesh file is empty")
-        else:
-            f.seek(0, 0)
-            line = f.readline()
-            n_line = 1
-            while line != "":
-                if line.strip():
-                    fields = line.split()
-                    switcher_demo(fields, n_line)
-                line = f.readline()
-                n_line += 1
-            f.close()
-            dt_algo(globalvar.gmesh)
+        with open(meshfile, 'r') as f:
+            if f.readline() == "":
+                logging.error(f'FILE {os.path.abspath(meshfile)} EMPTY')
+                sys.exit(f'SEE LOG FILE {os.path.abspath(FILE_LOG_PATH)}')
+            else:
+                f.seek(0, 0)
+                line = next(f)
+                n_line = 1
+                while line != "":
+                    if line.strip():
+                        fields = line.split()
+                        switch_case(fields, n_line, meshfile)
+                    line = next(f)
+                    n_line += 1
     except (FileNotFoundError, PermissionError) as e:
-        print("Error File: ", os.path.abspath(meshfile), "Not Found  or Permission Error")
+        logging.error(f" IN FILE {os.path.abspath(meshfile)}:  {e}")
+        sys.exit()
+    except StopIteration as e:
+        logging.info("############### END READ MESH FILE WITH SUCCESS   ###########################")
+        dt_global(module_var.gmesh, process)
 
 
-def switcher_demo(fields, n_line):
+def switch_case(fields, n_line, meshfile):
     switcher = {
-        'P': lambda fields: globalvar.gmesh.add_point(fields),
-        'D': lambda fields: globalvar.gmesh.add_bound_seg(fields, n_line),
-        'AS': lambda fields: globalvar.gmesh.asize.append(float(fields[3]))
+        'POINT': lambda fields: module_var.gmesh.add_point(fields),
+        'LINE': lambda fields: module_var.gmesh.add_line(fields, n_line),
+        'ARC': lambda fields: module_var.gmesh.add_arc(fields, n_line),
+        'SPLINE': lambda fields: module_var.gmesh.add_spline(fields, n_line),
+        'PART': lambda fields: module_var.gmesh.close_check(fields, n_line)
     }
-    func = switcher.get(fields[2], 'INVALID')
-    if func == 'INVALID':
-        print('error: line ', n_line, 'see details below')
-        sys.exit("error: the object is unknown ... ")
+    if switcher.get(fields[2], 'INVALID') == 'INVALID':
+        logging.error(
+            f'IN LINE {n_line} IN FILE {os.path.abspath(meshfile)}: THE OPTION ({fields[2]}) IS NOT EXPECTED ')
+        sys.exit(f'SEE LOG FILE {os.path.abspath(FILE_LOG_PATH)}')
     switcher.get(fields[2])(fields)

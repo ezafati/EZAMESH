@@ -1,0 +1,675 @@
+2019-12-22 17:51:54,987 INFO Current Process with pid 2987 with status running launched by the user ezafati
+2019-12-22 17:51:56,801 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-22 17:51:56,802 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
+2019-12-22 17:52:29,231 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-22 17:52:29,232 INFO MESH GENERATED WITH 234 POINTS
+2019-12-22 17:52:29,233 INFO  Process  2987  terminates: user CPU time 31.12, system cpu time 0.58
+2019-12-22 17:57:52,764 INFO Current Process with pid 3093 with status running launched by the user ezafati
+2019-12-22 17:57:54,125 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-22 17:57:54,126 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
+2019-12-22 17:57:54,726 INFO Memory infos: pmem(rss=72716288, vms=475787264, shared=29872128, text=3883008, lib=0, data=121036800, dirty=0)
+2019-12-22 17:57:54,989 INFO Memory infos: pmem(rss=72716288, vms=475787264, shared=29872128, text=3883008, lib=0, data=121036800, dirty=0)
+2019-12-22 17:57:55,376 INFO Memory infos: pmem(rss=72765440, vms=476049408, shared=29872128, text=3883008, lib=0, data=121298944, dirty=0)
+2019-12-22 17:57:55,763 INFO Memory infos: pmem(rss=72765440, vms=476049408, shared=29872128, text=3883008, lib=0, data=121298944, dirty=0)
+2019-12-22 17:57:56,228 INFO Memory infos: pmem(rss=72765440, vms=476049408, shared=29872128, text=3883008, lib=0, data=121298944, dirty=0)
+2019-12-22 17:57:56,805 INFO Memory infos: pmem(rss=72765440, vms=476049408, shared=29872128, text=3883008, lib=0, data=121298944, dirty=0)
+2019-12-22 17:57:59,545 INFO Memory infos: pmem(rss=72765440, vms=476049408, shared=29872128, text=3883008, lib=0, data=121298944, dirty=0)
+2019-12-22 17:58:02,062 INFO Memory infos: pmem(rss=72765440, vms=476049408, shared=29872128, text=3883008, lib=0, data=121298944, dirty=0)
+2019-12-22 17:58:04,723 INFO Memory infos: pmem(rss=72765440, vms=476049408, shared=29872128, text=3883008, lib=0, data=121298944, dirty=0)
+2019-12-22 17:58:07,799 INFO Memory infos: pmem(rss=72765440, vms=476049408, shared=29872128, text=3883008, lib=0, data=121298944, dirty=0)
+2019-12-22 17:58:11,989 INFO Memory infos: pmem(rss=72765440, vms=476049408, shared=29872128, text=3883008, lib=0, data=121298944, dirty=0)
+2019-12-22 17:58:16,545 INFO Memory infos: pmem(rss=73027584, vms=476311552, shared=29872128, text=3883008, lib=0, data=121561088, dirty=0)
+2019-12-22 17:58:20,644 INFO Memory infos: pmem(rss=73027584, vms=476311552, shared=29872128, text=3883008, lib=0, data=121561088, dirty=0)
+2019-12-22 17:58:27,147 INFO Memory infos: pmem(rss=73027584, vms=476311552, shared=29872128, text=3883008, lib=0, data=121561088, dirty=0)
+2019-12-22 17:58:31,376 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-22 17:58:31,376 INFO MESH GENERATED WITH 234 POINTS
+2019-12-22 17:58:31,377 INFO  Process  3093  terminates: user CPU time 32.5, system cpu time 0.68
+2019-12-22 17:59:30,645 INFO Current Process with pid 3125 with status running launched by the user ezafati
+2019-12-22 17:59:55,047 INFO Current Process with pid 3144 with status running launched by the user ezafati
+2019-12-22 17:59:56,225 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-22 17:59:56,225 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
+2019-12-22 18:00:29,115 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-22 18:00:29,115 INFO MESH GENERATED WITH 234 POINTS
+2019-12-22 18:00:29,116 INFO  Process  3144  terminates: user CPU time 31.85, system cpu time 0.52
+2019-12-22 18:04:27,919 INFO Current Process with pid 3211 with status running launched by the user ezafati
+2019-12-22 18:04:29,079 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-22 18:04:29,080 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
+2019-12-22 18:04:29,645 INFO Memory infos: pmem(rss=72335360, vms=475701248, shared=29499392, text=3883008, lib=0, data=120950784, dirty=0)
+2019-12-22 18:04:29,645 INFO CPU used percentage: 0.0
+2019-12-22 18:04:29,907 INFO Memory infos: pmem(rss=72388608, vms=475701248, shared=29499392, text=3883008, lib=0, data=120950784, dirty=0)
+2019-12-22 18:04:29,908 INFO CPU used percentage: 102.8
+2019-12-22 18:04:30,234 INFO Memory infos: pmem(rss=72388608, vms=475963392, shared=29499392, text=3883008, lib=0, data=121212928, dirty=0)
+2019-12-22 18:04:30,234 INFO CPU used percentage: 98.0
+2019-12-22 18:04:30,606 INFO Memory infos: pmem(rss=72388608, vms=475963392, shared=29499392, text=3883008, lib=0, data=121212928, dirty=0)
+2019-12-22 18:04:30,607 INFO CPU used percentage: 99.3
+2019-12-22 18:04:31,043 INFO Memory infos: pmem(rss=72388608, vms=475963392, shared=29499392, text=3883008, lib=0, data=121212928, dirty=0)
+2019-12-22 18:04:31,044 INFO CPU used percentage: 100.8
+2019-12-22 18:04:31,551 INFO Memory infos: pmem(rss=72388608, vms=475963392, shared=29499392, text=3883008, lib=0, data=121212928, dirty=0)
+2019-12-22 18:04:31,551 INFO CPU used percentage: 98.5
+2019-12-22 18:04:33,613 INFO Memory infos: pmem(rss=72388608, vms=475963392, shared=29499392, text=3883008, lib=0, data=121212928, dirty=0)
+2019-12-22 18:04:33,613 INFO CPU used percentage: 96.0
+2019-12-22 18:04:36,833 INFO Memory infos: pmem(rss=72388608, vms=475963392, shared=29499392, text=3883008, lib=0, data=121212928, dirty=0)
+2019-12-22 18:04:36,833 INFO CPU used percentage: 96.9
+2019-12-22 18:04:40,852 INFO Memory infos: pmem(rss=72388608, vms=475963392, shared=29499392, text=3883008, lib=0, data=121212928, dirty=0)
+2019-12-22 18:04:40,853 INFO CPU used percentage: 99.0
+2019-12-22 18:04:45,495 INFO Memory infos: pmem(rss=72388608, vms=475963392, shared=29499392, text=3883008, lib=0, data=121212928, dirty=0)
+2019-12-22 18:04:45,496 INFO CPU used percentage: 98.0
+2019-12-22 18:04:49,792 INFO Memory infos: pmem(rss=72388608, vms=475963392, shared=29499392, text=3883008, lib=0, data=121212928, dirty=0)
+2019-12-22 18:04:49,792 INFO CPU used percentage: 98.7
+2019-12-22 18:04:53,430 INFO Memory infos: pmem(rss=72654848, vms=476225536, shared=29499392, text=3883008, lib=0, data=121475072, dirty=0)
+2019-12-22 18:04:53,430 INFO CPU used percentage: 99.8
+2019-12-22 18:04:57,738 INFO Memory infos: pmem(rss=72654848, vms=476225536, shared=29499392, text=3883008, lib=0, data=121475072, dirty=0)
+2019-12-22 18:04:57,739 INFO CPU used percentage: 99.8
+2019-12-22 18:05:02,915 INFO Memory infos: pmem(rss=72654848, vms=476225536, shared=29499392, text=3883008, lib=0, data=121475072, dirty=0)
+2019-12-22 18:05:02,915 INFO CPU used percentage: 94.1
+2019-12-22 18:05:06,945 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-22 18:05:06,945 INFO MESH GENERATED WITH 234 POINTS
+2019-12-22 18:05:06,946 INFO  Process  3211  terminates: user CPU time 38.0, system cpu time 0.34
+2019-12-22 18:13:11,201 INFO Current Process with pid 3282 with status running launched by the user ezafati
+2019-12-22 18:13:14,138 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-22 18:13:14,138 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
+2019-12-22 18:13:29,091 INFO Current Process with pid 3302 with status running launched by the user ezafati
+2019-12-22 18:13:30,165 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-22 18:13:30,165 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
+2019-12-22 18:13:30,166 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,167 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,167 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,168 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,169 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,170 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,171 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,173 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,174 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,175 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,176 INFO CPU used percentage for initial constrained mesh: 817.2
+2019-12-22 18:13:30,177 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,178 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,179 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,180 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,182 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,184 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,186 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,190 INFO CPU used percentage for initial constrained mesh: 242.4
+2019-12-22 18:13:30,193 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,196 INFO CPU used percentage for initial constrained mesh: 337.0
+2019-12-22 18:13:30,201 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,204 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,208 INFO CPU used percentage for initial constrained mesh: 272.5
+2019-12-22 18:13:30,211 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,214 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,217 INFO CPU used percentage for initial constrained mesh: 351.5
+2019-12-22 18:13:30,219 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,222 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,223 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,225 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,227 INFO CPU used percentage for initial constrained mesh: 580.6
+2019-12-22 18:13:30,228 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,230 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,233 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,235 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,236 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,238 INFO CPU used percentage for initial constrained mesh: 493.8
+2019-12-22 18:13:30,240 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,243 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,245 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,247 INFO CPU used percentage for initial constrained mesh: 484.0
+2019-12-22 18:13:30,250 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,253 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,256 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,260 INFO CPU used percentage for initial constrained mesh: 250.1
+2019-12-22 18:13:30,264 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,267 INFO CPU used percentage for initial constrained mesh: 298.7
+2019-12-22 18:13:30,272 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,276 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,281 INFO CPU used percentage for initial constrained mesh: 217.8
+2019-12-22 18:13:30,287 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,292 INFO CPU used percentage for initial constrained mesh: 169.0
+2019-12-22 18:13:30,300 INFO CPU used percentage for initial constrained mesh: 133.8
+2019-12-22 18:13:30,307 INFO CPU used percentage for initial constrained mesh: 149.4
+2019-12-22 18:13:30,314 INFO CPU used percentage for initial constrained mesh: 132.0
+2019-12-22 18:13:30,321 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,328 INFO CPU used percentage for initial constrained mesh: 136.8
+2019-12-22 18:13:30,334 INFO CPU used percentage for initial constrained mesh: 160.9
+2019-12-22 18:13:30,340 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,347 INFO CPU used percentage for initial constrained mesh: 146.3
+2019-12-22 18:13:30,352 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,358 INFO CPU used percentage for initial constrained mesh: 175.3
+2019-12-22 18:13:30,365 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,371 INFO CPU used percentage for initial constrained mesh: 176.0
+2019-12-22 18:13:30,377 INFO CPU used percentage for initial constrained mesh: 155.5
+2019-12-22 18:13:30,383 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,389 INFO CPU used percentage for initial constrained mesh: 167.2
+2019-12-22 18:13:30,395 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,400 INFO CPU used percentage for initial constrained mesh: 180.6
+2019-12-22 18:13:30,406 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,412 INFO CPU used percentage for initial constrained mesh: 155.7
+2019-12-22 18:13:30,418 INFO CPU used percentage for initial constrained mesh: 191.3
+2019-12-22 18:13:30,424 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,429 INFO CPU used percentage for initial constrained mesh: 195.6
+2019-12-22 18:13:30,434 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,440 INFO CPU used percentage for initial constrained mesh: 174.9
+2019-12-22 18:13:30,446 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,450 INFO CPU used percentage for initial constrained mesh: 183.4
+2019-12-22 18:13:30,454 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,457 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,460 INFO CPU used percentage for initial constrained mesh: 390.9
+2019-12-22 18:13:30,462 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,463 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,466 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,468 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,469 INFO CPU used percentage for initial constrained mesh: 720.9
+2019-12-22 18:13:30,470 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,475 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,480 INFO CPU used percentage for initial constrained mesh: 181.2
+2019-12-22 18:13:30,486 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,491 INFO CPU used percentage for initial constrained mesh: 190.5
+2019-12-22 18:13:30,496 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,501 INFO CPU used percentage for initial constrained mesh: 191.7
+2019-12-22 18:13:30,506 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,510 INFO CPU used percentage for initial constrained mesh: 237.7
+2019-12-22 18:13:30,514 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:13:30,681 INFO Memory infos: pmem(rss=72499200, vms=475652096, shared=29884416, text=3883008, lib=0, data=120901632, dirty=0)
+2019-12-22 18:13:30,682 INFO CPU used percentage: 95.2
+2019-12-22 18:13:30,974 INFO Memory infos: pmem(rss=72499200, vms=475652096, shared=29884416, text=3883008, lib=0, data=120901632, dirty=0)
+2019-12-22 18:13:30,974 INFO CPU used percentage: 92.2
+2019-12-22 18:13:31,281 INFO Memory infos: pmem(rss=72773632, vms=475914240, shared=29884416, text=3883008, lib=0, data=121163776, dirty=0)
+2019-12-22 18:13:31,281 INFO CPU used percentage: 88.0
+2019-12-22 18:13:31,727 INFO Memory infos: pmem(rss=72773632, vms=475914240, shared=29884416, text=3883008, lib=0, data=121163776, dirty=0)
+2019-12-22 18:13:31,727 INFO CPU used percentage: 96.4
+2019-12-22 18:13:32,215 INFO Memory infos: pmem(rss=72773632, vms=475914240, shared=29884416, text=3883008, lib=0, data=121163776, dirty=0)
+2019-12-22 18:13:32,216 INFO CPU used percentage: 94.2
+2019-12-22 18:13:32,712 INFO Memory infos: pmem(rss=72773632, vms=475914240, shared=29884416, text=3883008, lib=0, data=121163776, dirty=0)
+2019-12-22 18:13:32,713 INFO CPU used percentage: 96.5
+2019-12-22 18:13:34,872 INFO Memory infos: pmem(rss=72773632, vms=475914240, shared=29884416, text=3883008, lib=0, data=121163776, dirty=0)
+2019-12-22 18:13:34,872 INFO CPU used percentage: 97.2
+2019-12-22 18:13:39,117 INFO Memory infos: pmem(rss=72773632, vms=475914240, shared=29884416, text=3883008, lib=0, data=121163776, dirty=0)
+2019-12-22 18:13:39,118 INFO CPU used percentage: 95.6
+2019-12-22 18:13:42,385 INFO Memory infos: pmem(rss=72773632, vms=475914240, shared=29884416, text=3883008, lib=0, data=121163776, dirty=0)
+2019-12-22 18:13:42,386 INFO CPU used percentage: 96.1
+2019-12-22 18:13:45,732 INFO Memory infos: pmem(rss=72773632, vms=475914240, shared=29884416, text=3883008, lib=0, data=121163776, dirty=0)
+2019-12-22 18:13:45,733 INFO CPU used percentage: 96.8
+2019-12-22 18:13:49,098 INFO Memory infos: pmem(rss=72773632, vms=475914240, shared=29884416, text=3883008, lib=0, data=121163776, dirty=0)
+2019-12-22 18:13:49,099 INFO CPU used percentage: 98.0
+2019-12-22 18:13:52,958 INFO Memory infos: pmem(rss=72773632, vms=475914240, shared=29884416, text=3883008, lib=0, data=121163776, dirty=0)
+2019-12-22 18:13:52,958 INFO CPU used percentage: 96.6
+2019-12-22 18:13:58,132 INFO Memory infos: pmem(rss=73039872, vms=476176384, shared=29884416, text=3883008, lib=0, data=121425920, dirty=0)
+2019-12-22 18:13:58,133 INFO CPU used percentage: 89.9
+2019-12-22 18:14:03,721 INFO Memory infos: pmem(rss=73039872, vms=476176384, shared=29884416, text=3883008, lib=0, data=121425920, dirty=0)
+2019-12-22 18:14:03,721 INFO CPU used percentage: 96.4
+2019-12-22 18:14:07,803 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-22 18:14:07,804 INFO MESH GENERATED WITH 234 POINTS
+2019-12-22 18:14:07,805 INFO  Process  3302  terminates: user CPU time 36.58, system cpu time 0.68
+2019-12-22 18:18:53,739 INFO Current Process with pid 3369 with status running launched by the user ezafati
+2019-12-22 18:18:56,805 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-22 18:18:56,806 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
+2019-12-22 18:18:56,807 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:18:56,817 INFO children : []
+2019-12-22 18:18:56,819 INFO CPU used percentage for initial constrained mesh: 91.3
+2019-12-22 18:18:56,830 INFO children : []
+2019-12-22 18:18:56,831 INFO CPU used percentage for initial constrained mesh: 78.2
+2019-12-22 18:18:56,842 INFO children : []
+2019-12-22 18:18:56,843 INFO CPU used percentage for initial constrained mesh: 79.3
+2019-12-22 18:18:56,853 INFO children : []
+2019-12-22 18:18:56,854 INFO CPU used percentage for initial constrained mesh: 180.4
+2019-12-22 18:18:56,866 INFO children : []
+2019-12-22 18:18:56,867 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:18:56,878 INFO children : []
+2019-12-22 18:18:56,879 INFO CPU used percentage for initial constrained mesh: 85.5
+2019-12-22 18:18:56,890 INFO children : []
+2019-12-22 18:18:56,891 INFO CPU used percentage for initial constrained mesh: 81.4
+2019-12-22 18:18:56,903 INFO children : []
+2019-12-22 18:18:56,906 INFO CPU used percentage for initial constrained mesh: 139.1
+2019-12-22 18:18:56,917 INFO children : []
+2019-12-22 18:18:56,918 INFO CPU used percentage for initial constrained mesh: 164.3
+2019-12-22 18:18:56,929 INFO children : []
+2019-12-22 18:18:56,930 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:18:56,942 INFO children : []
+2019-12-22 18:18:56,944 INFO CPU used percentage for initial constrained mesh: 151.8
+2019-12-22 18:18:56,955 INFO children : []
+2019-12-22 18:18:56,956 INFO CPU used percentage for initial constrained mesh: 79.7
+2019-12-22 18:18:56,967 INFO children : []
+2019-12-22 18:18:56,969 INFO CPU used percentage for initial constrained mesh: 75.5
+2019-12-22 18:18:56,980 INFO children : []
+2019-12-22 18:18:56,982 INFO CPU used percentage for initial constrained mesh: 77.5
+2019-12-22 18:18:56,994 INFO children : []
+2019-12-22 18:18:56,997 INFO CPU used percentage for initial constrained mesh: 67.6
+2019-12-22 18:18:57,007 INFO children : []
+2019-12-22 18:18:57,011 INFO CPU used percentage for initial constrained mesh: 143.4
+2019-12-22 18:18:57,023 INFO children : []
+2019-12-22 18:18:57,027 INFO CPU used percentage for initial constrained mesh: 61.4
+2019-12-22 18:18:57,037 INFO children : []
+2019-12-22 18:18:57,040 INFO CPU used percentage for initial constrained mesh: 152.1
+2019-12-22 18:18:57,051 INFO children : []
+2019-12-22 18:18:57,054 INFO CPU used percentage for initial constrained mesh: 72.4
+2019-12-22 18:18:57,066 INFO children : []
+2019-12-22 18:18:57,071 INFO CPU used percentage for initial constrained mesh: 114.2
+2019-12-22 18:18:57,086 INFO children : []
+2019-12-22 18:18:57,092 INFO CPU used percentage for initial constrained mesh: 49.4
+2019-12-22 18:18:57,118 INFO children : []
+2019-12-22 18:18:57,127 INFO CPU used percentage for initial constrained mesh: 86.4
+2019-12-22 18:18:57,149 INFO children : []
+2019-12-22 18:18:57,161 INFO CPU used percentage for initial constrained mesh: 58.1
+2019-12-22 18:18:57,176 INFO children : []
+2019-12-22 18:18:57,180 INFO CPU used percentage for initial constrained mesh: 103.8
+2019-12-22 18:18:57,193 INFO children : []
+2019-12-22 18:18:57,196 INFO CPU used percentage for initial constrained mesh: 121.9
+2019-12-22 18:18:57,209 INFO children : []
+2019-12-22 18:18:57,213 INFO CPU used percentage for initial constrained mesh: 117.9
+2019-12-22 18:18:57,226 INFO children : []
+2019-12-22 18:18:57,231 INFO CPU used percentage for initial constrained mesh: 57.7
+2019-12-22 18:18:57,245 INFO children : []
+2019-12-22 18:18:57,248 INFO CPU used percentage for initial constrained mesh: 118.4
+2019-12-22 18:18:57,259 INFO children : []
+2019-12-22 18:18:57,261 INFO CPU used percentage for initial constrained mesh: 73.6
+2019-12-22 18:18:57,274 INFO children : []
+2019-12-22 18:18:57,276 INFO CPU used percentage for initial constrained mesh: 68.0
+2019-12-22 18:18:57,287 INFO children : []
+2019-12-22 18:18:57,290 INFO CPU used percentage for initial constrained mesh: 75.2
+2019-12-22 18:18:57,305 INFO children : []
+2019-12-22 18:18:57,309 INFO CPU used percentage for initial constrained mesh: 149.9
+2019-12-22 18:18:57,321 INFO children : []
+2019-12-22 18:18:57,325 INFO CPU used percentage for initial constrained mesh: 65.1
+2019-12-22 18:18:57,337 INFO children : []
+2019-12-22 18:18:57,340 INFO CPU used percentage for initial constrained mesh: 65.6
+2019-12-22 18:18:57,353 INFO children : []
+2019-12-22 18:18:57,356 INFO CPU used percentage for initial constrained mesh: 63.6
+2019-12-22 18:18:57,368 INFO children : []
+2019-12-22 18:18:57,371 INFO CPU used percentage for initial constrained mesh: 190.5
+2019-12-22 18:18:57,383 INFO children : []
+2019-12-22 18:18:57,386 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:18:57,397 INFO children : []
+2019-12-22 18:18:57,400 INFO CPU used percentage for initial constrained mesh: 149.5
+2019-12-22 18:18:57,410 INFO children : []
+2019-12-22 18:18:57,421 INFO CPU used percentage for initial constrained mesh: 95.4
+2019-12-22 18:18:57,451 INFO children : []
+2019-12-22 18:18:57,455 INFO CPU used percentage for initial constrained mesh: 29.3
+2019-12-22 18:18:57,474 INFO children : []
+2019-12-22 18:18:57,477 INFO CPU used percentage for initial constrained mesh: 91.9
+2019-12-22 18:18:57,487 INFO children : []
+2019-12-22 18:18:57,490 INFO CPU used percentage for initial constrained mesh: 149.7
+2019-12-22 18:18:57,499 INFO children : []
+2019-12-22 18:18:57,502 INFO CPU used percentage for initial constrained mesh: 85.2
+2019-12-22 18:18:57,513 INFO children : []
+2019-12-22 18:18:57,517 INFO CPU used percentage for initial constrained mesh: 66.7
+2019-12-22 18:18:57,526 INFO children : []
+2019-12-22 18:18:57,530 INFO CPU used percentage for initial constrained mesh: 75.0
+2019-12-22 18:18:57,539 INFO children : []
+2019-12-22 18:18:57,544 INFO CPU used percentage for initial constrained mesh: 145.3
+2019-12-22 18:18:57,553 INFO children : []
+2019-12-22 18:18:57,557 INFO CPU used percentage for initial constrained mesh: 150.6
+2019-12-22 18:18:57,569 INFO children : []
+2019-12-22 18:18:57,575 INFO CPU used percentage for initial constrained mesh: 56.3
+2019-12-22 18:18:57,586 INFO children : []
+2019-12-22 18:18:57,590 INFO CPU used percentage for initial constrained mesh: 127.9
+2019-12-22 18:18:57,600 INFO children : []
+2019-12-22 18:18:57,606 INFO CPU used percentage for initial constrained mesh: 63.0
+2019-12-22 18:18:57,616 INFO children : []
+2019-12-22 18:18:57,623 INFO CPU used percentage for initial constrained mesh: 120.3
+2019-12-22 18:18:57,632 INFO children : []
+2019-12-22 18:18:57,639 INFO CPU used percentage for initial constrained mesh: 63.5
+2019-12-22 18:18:57,649 INFO children : []
+2019-12-22 18:18:57,656 INFO CPU used percentage for initial constrained mesh: 57.5
+2019-12-22 18:18:57,668 INFO children : []
+2019-12-22 18:18:57,677 INFO CPU used percentage for initial constrained mesh: 143.4
+2019-12-22 18:18:57,692 INFO children : []
+2019-12-22 18:18:57,706 INFO CPU used percentage for initial constrained mesh: 104.5
+2019-12-22 18:18:57,722 INFO children : []
+2019-12-22 18:18:57,735 INFO CPU used percentage for initial constrained mesh: 68.1
+2019-12-22 18:18:57,752 INFO children : []
+2019-12-22 18:18:57,765 INFO CPU used percentage for initial constrained mesh: 104.3
+2019-12-22 18:18:57,776 INFO children : []
+2019-12-22 18:18:57,786 INFO CPU used percentage for initial constrained mesh: 91.4
+2019-12-22 18:18:57,794 INFO children : []
+2019-12-22 18:18:57,802 INFO CPU used percentage for initial constrained mesh: 61.0
+2019-12-22 18:18:57,811 INFO children : []
+2019-12-22 18:18:57,819 INFO CPU used percentage for initial constrained mesh: 175.3
+2019-12-22 18:18:57,829 INFO children : []
+2019-12-22 18:18:57,836 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:18:57,853 INFO children : []
+2019-12-22 18:18:57,859 INFO CPU used percentage for initial constrained mesh: 126.7
+2019-12-22 18:18:57,869 INFO children : []
+2019-12-22 18:18:57,875 INFO CPU used percentage for initial constrained mesh: 123.9
+2019-12-22 18:18:57,886 INFO children : []
+2019-12-22 18:18:57,894 INFO CPU used percentage for initial constrained mesh: 111.2
+2019-12-22 18:18:57,905 INFO children : []
+2019-12-22 18:18:57,911 INFO CPU used percentage for initial constrained mesh: 55.3
+2019-12-22 18:18:57,922 INFO children : []
+2019-12-22 18:18:57,928 INFO CPU used percentage for initial constrained mesh: 58.9
+2019-12-22 18:18:57,938 INFO children : []
+2019-12-22 18:18:57,949 INFO CPU used percentage for initial constrained mesh: 99.2
+2019-12-22 18:18:57,958 INFO children : []
+2019-12-22 18:18:57,967 INFO CPU used percentage for initial constrained mesh: 111.1
+2019-12-22 18:18:57,980 INFO children : []
+2019-12-22 18:18:57,988 INFO CPU used percentage for initial constrained mesh: 138.7
+2019-12-22 18:18:58,001 INFO children : []
+2019-12-22 18:18:58,010 INFO CPU used percentage for initial constrained mesh: 46.6
+2019-12-22 18:18:58,023 INFO children : []
+2019-12-22 18:18:58,032 INFO CPU used percentage for initial constrained mesh: 90.9
+2019-12-22 18:18:58,044 INFO children : []
+2019-12-22 18:18:58,052 INFO CPU used percentage for initial constrained mesh: 98.0
+2019-12-22 18:18:58,062 INFO children : []
+2019-12-22 18:18:58,070 INFO CPU used percentage for initial constrained mesh: 116.0
+2019-12-22 18:18:58,078 INFO children : []
+2019-12-22 18:18:58,085 INFO CPU used percentage for initial constrained mesh: 130.3
+2019-12-22 18:18:58,093 INFO children : []
+2019-12-22 18:18:58,099 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:18:58,111 INFO children : []
+2019-12-22 18:18:58,117 INFO CPU used percentage for initial constrained mesh: 171.0
+2019-12-22 18:18:58,126 INFO children : []
+2019-12-22 18:18:58,133 INFO CPU used percentage for initial constrained mesh: 60.6
+2019-12-22 18:18:58,142 INFO children : []
+2019-12-22 18:18:58,149 INFO CPU used percentage for initial constrained mesh: 63.0
+2019-12-22 18:18:58,157 INFO children : []
+2019-12-22 18:18:58,161 INFO CPU used percentage for initial constrained mesh: 78.7
+2019-12-22 18:18:58,173 INFO children : []
+2019-12-22 18:18:58,176 INFO CPU used percentage for initial constrained mesh: 132.8
+2019-12-22 18:18:58,188 INFO children : []
+2019-12-22 18:18:58,191 INFO CPU used percentage for initial constrained mesh: 138.0
+2019-12-22 18:18:58,200 INFO children : []
+2019-12-22 18:18:58,203 INFO CPU used percentage for initial constrained mesh: 85.3
+2019-12-22 18:18:58,214 INFO children : []
+2019-12-22 18:18:58,216 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:18:58,226 INFO children : []
+2019-12-22 18:18:58,228 INFO CPU used percentage for initial constrained mesh: 170.1
+2019-12-22 18:18:58,238 INFO children : []
+2019-12-22 18:18:58,240 INFO CPU used percentage for initial constrained mesh: 85.1
+2019-12-22 18:18:58,252 INFO children : []
+2019-12-22 18:18:58,255 INFO CPU used percentage for initial constrained mesh: 67.1
+2019-12-22 18:18:58,266 INFO children : []
+2019-12-22 18:18:58,267 INFO CPU used percentage for initial constrained mesh: 158.1
+2019-12-22 18:18:58,280 INFO children : []
+2019-12-22 18:18:58,288 INFO CPU used percentage for initial constrained mesh: 94.3
+2019-12-22 18:18:58,301 INFO children : []
+2019-12-22 18:18:58,311 INFO CPU used percentage for initial constrained mesh: 88.4
+2019-12-22 18:18:58,325 INFO children : []
+2019-12-22 18:18:58,334 INFO CPU used percentage for initial constrained mesh: 85.7
+2019-12-22 18:18:58,346 INFO children : []
+2019-12-22 18:18:58,354 INFO CPU used percentage for initial constrained mesh: 101.0
+2019-12-22 18:18:58,365 INFO children : []
+2019-12-22 18:18:58,372 INFO CPU used percentage for initial constrained mesh: 111.3
+2019-12-22 18:18:58,381 INFO children : []
+2019-12-22 18:18:58,388 INFO CPU used percentage for initial constrained mesh: 129.3
+2019-12-22 18:18:58,397 INFO children : []
+2019-12-22 18:18:58,403 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:18:58,412 INFO children : []
+2019-12-22 18:18:58,417 INFO CPU used percentage for initial constrained mesh: 216.5
+2019-12-22 18:18:58,427 INFO children : []
+2019-12-22 18:18:58,432 INFO CPU used percentage for initial constrained mesh: 66.2
+2019-12-22 18:18:58,439 INFO children : []
+2019-12-22 18:18:58,598 INFO Memory infos: pmem(rss=72142848, vms=475787264, shared=29503488, text=3883008, lib=0, data=121036800, dirty=0)
+2019-12-22 18:18:58,599 INFO CPU used percentage: 89.9
+2019-12-22 18:18:58,870 INFO Memory infos: pmem(rss=72142848, vms=475787264, shared=29503488, text=3883008, lib=0, data=121036800, dirty=0)
+2019-12-22 18:18:58,871 INFO CPU used percentage: 95.5
+2019-12-22 18:18:59,280 INFO Memory infos: pmem(rss=72396800, vms=476049408, shared=29503488, text=3883008, lib=0, data=121298944, dirty=0)
+2019-12-22 18:18:59,280 INFO CPU used percentage: 92.9
+2019-12-22 18:18:59,665 INFO Memory infos: pmem(rss=72396800, vms=476049408, shared=29503488, text=3883008, lib=0, data=121298944, dirty=0)
+2019-12-22 18:18:59,665 INFO CPU used percentage: 93.5
+2019-12-22 18:19:00,154 INFO Memory infos: pmem(rss=72396800, vms=476049408, shared=29503488, text=3883008, lib=0, data=121298944, dirty=0)
+2019-12-22 18:19:00,154 INFO CPU used percentage: 96.0
+2019-12-22 18:19:00,647 INFO Memory infos: pmem(rss=72396800, vms=476049408, shared=29503488, text=3883008, lib=0, data=121298944, dirty=0)
+2019-12-22 18:19:00,647 INFO CPU used percentage: 99.5
+2019-12-22 18:19:02,475 INFO Memory infos: pmem(rss=72396800, vms=476049408, shared=29503488, text=3883008, lib=0, data=121298944, dirty=0)
+2019-12-22 18:19:02,475 INFO CPU used percentage: 99.6
+2019-12-22 18:19:04,983 INFO Memory infos: pmem(rss=72396800, vms=476049408, shared=29503488, text=3883008, lib=0, data=121298944, dirty=0)
+2019-12-22 18:19:04,983 INFO CPU used percentage: 96.1
+2019-12-22 18:19:07,612 INFO Memory infos: pmem(rss=72396800, vms=476049408, shared=29503488, text=3883008, lib=0, data=121298944, dirty=0)
+2019-12-22 18:19:07,612 INFO CPU used percentage: 97.8
+2019-12-22 18:19:10,828 INFO Memory infos: pmem(rss=72396800, vms=476049408, shared=29503488, text=3883008, lib=0, data=121298944, dirty=0)
+2019-12-22 18:19:10,828 INFO CPU used percentage: 94.5
+2019-12-22 18:19:13,969 INFO Memory infos: pmem(rss=72396800, vms=476049408, shared=29503488, text=3883008, lib=0, data=121298944, dirty=0)
+2019-12-22 18:19:13,969 INFO CPU used percentage: 96.8
+2019-12-22 18:19:17,315 INFO Memory infos: pmem(rss=72396800, vms=476049408, shared=29503488, text=3883008, lib=0, data=121298944, dirty=0)
+2019-12-22 18:19:17,315 INFO CPU used percentage: 96.8
+2019-12-22 18:19:21,016 INFO Memory infos: pmem(rss=72679424, vms=476311552, shared=29503488, text=3883008, lib=0, data=121561088, dirty=0)
+2019-12-22 18:19:21,018 INFO CPU used percentage: 95.1
+2019-12-22 18:19:24,737 INFO Memory infos: pmem(rss=72679424, vms=476311552, shared=29503488, text=3883008, lib=0, data=121561088, dirty=0)
+2019-12-22 18:19:24,737 INFO CPU used percentage: 98.7
+2019-12-22 18:19:27,768 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-22 18:19:27,768 INFO MESH GENERATED WITH 234 POINTS
+2019-12-22 18:19:27,769 INFO  Process  3369  terminates: user CPU time 30.37, system cpu time 0.82
+2019-12-22 18:21:12,337 INFO Current Process with pid 3665 with status running launched by the user ezafati
+2019-12-22 18:21:15,523 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-22 18:21:15,524 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
+2019-12-22 18:21:15,525 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:21:15,574 INFO children : []
+2019-12-22 18:21:15,575 INFO CPU used percentage for initial constrained mesh: 19.8
+2019-12-22 18:21:15,640 INFO children : []
+2019-12-22 18:21:15,641 INFO CPU used percentage for initial constrained mesh: 15.2
+2019-12-22 18:21:15,677 INFO children : []
+2019-12-22 18:21:15,680 INFO CPU used percentage for initial constrained mesh: 25.8
+2019-12-22 18:21:15,719 INFO children : []
+2019-12-22 18:21:15,720 INFO CPU used percentage for initial constrained mesh: 50.4
+2019-12-22 18:21:15,763 INFO children : []
+2019-12-22 18:21:15,765 INFO CPU used percentage for initial constrained mesh: 21.8
+2019-12-22 18:21:15,804 INFO children : []
+2019-12-22 18:21:15,811 INFO CPU used percentage for initial constrained mesh: 43.7
+2019-12-22 18:21:15,844 INFO children : []
+2019-12-22 18:21:15,850 INFO CPU used percentage for initial constrained mesh: 26.0
+2019-12-22 18:21:15,875 INFO children : []
+2019-12-22 18:21:15,878 INFO CPU used percentage for initial constrained mesh: 70.5
+2019-12-22 18:21:15,905 INFO children : []
+2019-12-22 18:21:15,909 INFO CPU used percentage for initial constrained mesh: 32.5
+2019-12-22 18:21:15,938 INFO children : []
+2019-12-22 18:21:15,945 INFO CPU used percentage for initial constrained mesh: 58.1
+2019-12-22 18:21:15,992 INFO children : []
+2019-12-22 18:21:15,995 INFO CPU used percentage for initial constrained mesh: 0.0
+2019-12-22 18:21:16,039 INFO children : []
+2019-12-22 18:21:16,047 INFO CPU used percentage for initial constrained mesh: 37.9
+2019-12-22 18:21:16,089 INFO children : []
+2019-12-22 18:21:16,095 INFO CPU used percentage for initial constrained mesh: 41.8
+2019-12-22 18:21:16,157 INFO children : []
+2019-12-22 18:21:16,161 INFO CPU used percentage for initial constrained mesh: 15.3
+2019-12-22 18:21:16,211 INFO children : []
+2019-12-22 18:21:16,230 INFO CPU used percentage for initial constrained mesh: 14.7
+2019-12-22 18:21:16,263 INFO children : []
+2019-12-22 18:21:16,276 INFO CPU used percentage for initial constrained mesh: 42.4
+2019-12-22 18:21:16,333 INFO children : []
+2019-12-22 18:21:16,336 INFO CPU used percentage for initial constrained mesh: 33.1
+2019-12-22 18:21:16,366 INFO children : []
+2019-12-22 18:21:16,370 INFO CPU used percentage for initial constrained mesh: 30.1
+2019-12-22 18:21:16,382 INFO children : []
+2019-12-22 18:21:16,388 INFO CPU used percentage for initial constrained mesh: 111.3
+2019-12-22 18:21:16,399 INFO children : []
+2019-12-22 18:21:16,405 INFO CPU used percentage for initial constrained mesh: 116.4
+2019-12-22 18:21:16,416 INFO children : []
+2019-12-22 18:21:16,424 INFO CPU used percentage for initial constrained mesh: 107.0
+2019-12-22 18:21:16,436 INFO children : []
+2019-12-22 18:21:16,441 INFO CPU used percentage for initial constrained mesh: 57.0
+2019-12-22 18:21:16,455 INFO children : []
+2019-12-22 18:21:16,463 INFO CPU used percentage for initial constrained mesh: 92.6
+2019-12-22 18:21:16,475 INFO children : []
+2019-12-22 18:21:16,479 INFO CPU used percentage for initial constrained mesh: 124.7
+2019-12-22 18:21:16,490 INFO children : []
+2019-12-22 18:21:16,494 INFO CPU used percentage for initial constrained mesh: 65.7
+2019-12-22 18:21:16,506 INFO children : []
+2019-12-22 18:21:16,509 INFO CPU used percentage for initial constrained mesh: 134.6
+2019-12-22 18:21:16,520 INFO children : []
+2019-12-22 18:21:16,524 INFO CPU used percentage for initial constrained mesh: 129.0
+2019-12-22 18:21:16,536 INFO children : []
+2019-12-22 18:21:16,540 INFO CPU used percentage for initial constrained mesh: 63.3
+2019-12-22 18:21:16,568 INFO children : []
+2019-12-22 18:21:16,597 INFO CPU used percentage for initial constrained mesh: 35.3
+2019-12-22 18:21:16,650 INFO children : []
+2019-12-22 18:21:16,678 INFO CPU used percentage for initial constrained mesh: 12.3
+2019-12-22 18:21:16,742 INFO children : []
+2019-12-22 18:21:16,753 INFO CPU used percentage for initial constrained mesh: 26.7
+2019-12-22 18:21:16,807 INFO children : []
+2019-12-22 18:21:16,826 INFO CPU used percentage for initial constrained mesh: 13.6
+2019-12-22 18:21:16,868 INFO children : []
+2019-12-22 18:21:16,883 INFO CPU used percentage for initial constrained mesh: 17.5
+2019-12-22 18:21:16,934 INFO children : []
+2019-12-22 18:21:16,959 INFO CPU used percentage for initial constrained mesh: 52.8
+2019-12-22 18:21:16,999 INFO children : []
+2019-12-22 18:21:17,014 INFO CPU used percentage for initial constrained mesh: 36.6
+2019-12-22 18:21:17,058 INFO children : []
+2019-12-22 18:21:17,064 INFO CPU used percentage for initial constrained mesh: 19.9
+2019-12-22 18:21:17,095 INFO children : []
+2019-12-22 18:21:17,097 INFO CPU used percentage for initial constrained mesh: 29.9
+2019-12-22 18:21:17,114 INFO children : []
+2019-12-22 18:21:17,132 INFO CPU used percentage for initial constrained mesh: 28.6
+2019-12-22 18:21:17,159 INFO children : []
+2019-12-22 18:21:17,167 INFO CPU used percentage for initial constrained mesh: 57.0
+2019-12-22 18:21:17,205 INFO children : []
+2019-12-22 18:21:17,221 INFO CPU used percentage for initial constrained mesh: 37.1
+2019-12-22 18:21:17,261 INFO children : []
+2019-12-22 18:21:17,264 INFO CPU used percentage for initial constrained mesh: 46.4
+2019-12-22 18:21:17,312 INFO children : []
+2019-12-22 18:21:17,316 INFO CPU used percentage for initial constrained mesh: 19.3
+2019-12-22 18:21:17,344 INFO children : []
+2019-12-22 18:21:17,353 INFO CPU used percentage for initial constrained mesh: 54.0
+2019-12-22 18:21:17,365 INFO children : []
+2019-12-22 18:21:17,370 INFO CPU used percentage for initial constrained mesh: 120.2
+2019-12-22 18:21:17,381 INFO children : []
+2019-12-22 18:21:17,387 INFO CPU used percentage for initial constrained mesh: 58.6
+2019-12-22 18:21:17,397 INFO children : []
+2019-12-22 18:21:17,402 INFO CPU used percentage for initial constrained mesh: 133.8
+2019-12-22 18:21:17,448 INFO children : []
+2019-12-22 18:21:17,467 INFO CPU used percentage for initial constrained mesh: 15.3
+2019-12-22 18:21:17,523 INFO children : []
+2019-12-22 18:21:17,561 INFO CPU used percentage for initial constrained mesh: 42.7
+2019-12-22 18:21:17,612 INFO children : []
+2019-12-22 18:21:17,626 INFO CPU used percentage for initial constrained mesh: 30.7
+2019-12-22 18:21:17,664 INFO children : []
+2019-12-22 18:21:17,703 INFO CPU used percentage for initial constrained mesh: 52.3
+2019-12-22 18:21:17,790 INFO children : []
+2019-12-22 18:21:17,826 INFO CPU used percentage for initial constrained mesh: 40.6
+2019-12-22 18:21:17,863 INFO children : []
+2019-12-22 18:21:17,891 INFO CPU used percentage for initial constrained mesh: 61.3
+2019-12-22 18:21:17,921 INFO children : []
+2019-12-22 18:21:17,986 INFO CPU used percentage for initial constrained mesh: 42.1
+2019-12-22 18:21:18,037 INFO children : []
+2019-12-22 18:21:18,069 INFO CPU used percentage for initial constrained mesh: 36.4
+2019-12-22 18:21:18,109 INFO children : []
+2019-12-22 18:21:18,156 INFO CPU used percentage for initial constrained mesh: 27.1
+2019-12-22 18:21:18,228 INFO children : []
+2019-12-22 18:21:18,251 INFO CPU used percentage for initial constrained mesh: 27.6
+2019-12-22 18:21:18,293 INFO children : []
+2019-12-22 18:21:18,319 INFO CPU used percentage for initial constrained mesh: 29.1
+2019-12-22 18:21:18,349 INFO children : []
+2019-12-22 18:21:18,372 INFO CPU used percentage for initial constrained mesh: 56.7
+2019-12-22 18:21:18,402 INFO children : []
+2019-12-22 18:21:18,413 INFO CPU used percentage for initial constrained mesh: 50.5
+2019-12-22 18:21:18,429 INFO children : []
+2019-12-22 18:21:18,442 INFO CPU used percentage for initial constrained mesh: 100.1
+2019-12-22 18:21:18,458 INFO children : []
+2019-12-22 18:21:18,505 INFO CPU used percentage for initial constrained mesh: 31.9
+2019-12-22 18:21:18,530 INFO children : []
+2019-12-22 18:21:18,558 INFO CPU used percentage for initial constrained mesh: 59.9
+2019-12-22 18:21:18,584 INFO children : []
+2019-12-22 18:21:18,604 INFO CPU used percentage for initial constrained mesh: 40.6
+2019-12-22 18:21:18,628 INFO children : []
+2019-12-22 18:21:18,641 INFO CPU used percentage for initial constrained mesh: 27.6
+2019-12-22 18:21:18,671 INFO children : []
+2019-12-22 18:21:18,691 INFO CPU used percentage for initial constrained mesh: 39.0
+2019-12-22 18:21:18,715 INFO children : []
+2019-12-22 18:21:18,743 INFO CPU used percentage for initial constrained mesh: 62.5
+2019-12-22 18:21:18,789 INFO children : []
+2019-12-22 18:21:18,814 INFO CPU used percentage for initial constrained mesh: 26.6
+2019-12-22 18:21:18,861 INFO children : []
+2019-12-22 18:21:18,886 INFO CPU used percentage for initial constrained mesh: 41.9
+2019-12-22 18:21:18,929 INFO children : []
+2019-12-22 18:21:18,966 INFO CPU used percentage for initial constrained mesh: 54.3
+2019-12-22 18:21:19,004 INFO children : []
+2019-12-22 18:21:19,030 INFO CPU used percentage for initial constrained mesh: 42.9
+2019-12-22 18:21:19,066 INFO children : []
+2019-12-22 18:21:19,091 INFO CPU used percentage for initial constrained mesh: 49.5
+2019-12-22 18:21:19,129 INFO children : []
+2019-12-22 18:21:19,148 INFO CPU used percentage for initial constrained mesh: 52.3
+2019-12-22 18:21:19,181 INFO children : []
+2019-12-22 18:21:19,205 INFO CPU used percentage for initial constrained mesh: 35.3
+2019-12-22 18:21:19,239 INFO children : []
+2019-12-22 18:21:19,261 INFO CPU used percentage for initial constrained mesh: 53.8
+2019-12-22 18:21:19,302 INFO children : []
+2019-12-22 18:21:19,339 INFO CPU used percentage for initial constrained mesh: 38.3
+2019-12-22 18:21:19,375 INFO children : []
+2019-12-22 18:21:19,402 INFO CPU used percentage for initial constrained mesh: 62.8
+2019-12-22 18:21:19,438 INFO children : []
+2019-12-22 18:21:19,461 INFO CPU used percentage for initial constrained mesh: 34.1
+2019-12-22 18:21:19,514 INFO children : []
+2019-12-22 18:21:19,544 INFO CPU used percentage for initial constrained mesh: 47.8
+2019-12-22 18:21:19,595 INFO children : []
+2019-12-22 18:21:19,610 INFO CPU used percentage for initial constrained mesh: 30.3
+2019-12-22 18:21:19,647 INFO children : []
+2019-12-22 18:21:19,658 INFO CPU used percentage for initial constrained mesh: 41.8
+2019-12-22 18:21:19,687 INFO children : []
+2019-12-22 18:21:19,696 INFO CPU used percentage for initial constrained mesh: 52.5
+2019-12-22 18:21:19,726 INFO children : []
+2019-12-22 18:21:19,729 INFO CPU used percentage for initial constrained mesh: 30.5
+2019-12-22 18:21:19,776 INFO children : []
+2019-12-22 18:21:19,778 INFO CPU used percentage for initial constrained mesh: 40.8
+2019-12-22 18:21:19,825 INFO children : []
+2019-12-22 18:21:19,842 INFO CPU used percentage for initial constrained mesh: 31.7
+2019-12-22 18:21:19,894 INFO children : []
+2019-12-22 18:21:19,904 INFO CPU used percentage for initial constrained mesh: 48.2
+2019-12-22 18:21:19,976 INFO children : []
+2019-12-22 18:21:19,994 INFO CPU used percentage for initial constrained mesh: 33.3
+2019-12-22 18:21:20,025 INFO children : []
+2019-12-22 18:21:20,027 INFO CPU used percentage for initial constrained mesh: 29.9
+2019-12-22 18:21:20,063 INFO children : []
+2019-12-22 18:21:20,086 INFO CPU used percentage for initial constrained mesh: 51.2
+2019-12-22 18:21:20,130 INFO children : []
+2019-12-22 18:21:20,161 INFO CPU used percentage for initial constrained mesh: 53.3
+2019-12-22 18:21:20,212 INFO children : []
+2019-12-22 18:21:20,238 INFO CPU used percentage for initial constrained mesh: 26.0
+2019-12-22 18:21:20,273 INFO children : []
+2019-12-22 18:21:20,314 INFO CPU used percentage for initial constrained mesh: 52.8
+2019-12-22 18:21:20,349 INFO children : []
+2019-12-22 18:21:20,369 INFO CPU used percentage for initial constrained mesh: 36.3
+2019-12-22 18:21:20,401 INFO children : []
+2019-12-22 18:21:20,431 INFO CPU used percentage for initial constrained mesh: 48.1
+2019-12-22 18:21:20,454 INFO children : []
+2019-12-22 18:21:20,471 INFO CPU used percentage for initial constrained mesh: 75.0
+2019-12-22 18:21:20,507 INFO children : []
+2019-12-22 18:21:20,527 INFO CPU used percentage for initial constrained mesh: 53.8
+2019-12-22 18:21:20,574 INFO children : []
+2019-12-22 18:21:20,596 INFO CPU used percentage for initial constrained mesh: 29.1
+2019-12-22 18:21:20,648 INFO children : []
+2019-12-22 18:21:21,249 INFO Memory infos: pmem(rss=72458240, vms=475705344, shared=29818880, text=3883008, lib=0, data=120954880, dirty=0)
+2019-12-22 18:21:21,249 INFO CPU used percentage: 41.3
+2019-12-22 18:21:22,067 INFO Memory infos: pmem(rss=72458240, vms=475705344, shared=29818880, text=3883008, lib=0, data=120954880, dirty=0)
+2019-12-22 18:21:22,067 INFO CPU used percentage: 46.4
+2019-12-22 18:21:22,806 INFO Memory infos: pmem(rss=72732672, vms=475967488, shared=29818880, text=3883008, lib=0, data=121217024, dirty=0)
+2019-12-22 18:21:22,808 INFO CPU used percentage: 56.7
+2019-12-22 18:21:23,406 INFO Memory infos: pmem(rss=72732672, vms=475967488, shared=29818880, text=3883008, lib=0, data=121217024, dirty=0)
+2019-12-22 18:21:23,407 INFO CPU used percentage: 85.1
+2019-12-22 18:21:24,755 INFO Memory infos: pmem(rss=72732672, vms=475967488, shared=29818880, text=3883008, lib=0, data=121217024, dirty=0)
+2019-12-22 18:21:24,763 INFO CPU used percentage: 44.5
+2019-12-22 18:21:26,740 INFO Memory infos: pmem(rss=72732672, vms=475967488, shared=29818880, text=3883008, lib=0, data=121217024, dirty=0)
+2019-12-22 18:21:26,741 INFO CPU used percentage: 38.8
+2019-12-22 18:21:32,127 INFO Memory infos: pmem(rss=72732672, vms=475967488, shared=29818880, text=3883008, lib=0, data=121217024, dirty=0)
+2019-12-22 18:21:32,129 INFO CPU used percentage: 50.9
+2019-12-22 18:21:35,611 INFO Memory infos: pmem(rss=72732672, vms=475967488, shared=29818880, text=3883008, lib=0, data=121217024, dirty=0)
+2019-12-22 18:21:35,611 INFO CPU used percentage: 85.3
+2019-12-22 18:21:38,532 INFO Memory infos: pmem(rss=72732672, vms=475967488, shared=29818880, text=3883008, lib=0, data=121217024, dirty=0)
+2019-12-22 18:21:38,532 INFO CPU used percentage: 99.3
+2019-12-22 18:21:42,241 INFO Memory infos: pmem(rss=72732672, vms=475967488, shared=29818880, text=3883008, lib=0, data=121217024, dirty=0)
+2019-12-22 18:21:42,241 INFO CPU used percentage: 95.2
+2019-12-22 18:21:49,037 INFO Memory infos: pmem(rss=72732672, vms=475967488, shared=29818880, text=3883008, lib=0, data=121217024, dirty=0)
+2019-12-22 18:21:49,037 INFO CPU used percentage: 55.5
+2019-12-22 18:21:54,933 INFO Memory infos: pmem(rss=72732672, vms=475967488, shared=29818880, text=3883008, lib=0, data=121217024, dirty=0)
+2019-12-22 18:21:54,940 INFO CPU used percentage: 68.7
+2019-12-22 18:22:00,329 INFO Memory infos: pmem(rss=72994816, vms=476229632, shared=29818880, text=3883008, lib=0, data=121479168, dirty=0)
+2019-12-22 18:22:00,329 INFO CPU used percentage: 77.1
+2019-12-22 18:22:05,707 INFO Memory infos: pmem(rss=72994816, vms=476229632, shared=29818880, text=3883008, lib=0, data=121479168, dirty=0)
+2019-12-22 18:22:05,709 INFO CPU used percentage: 75.3
+2019-12-22 18:22:10,245 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-22 18:22:10,245 INFO MESH GENERATED WITH 234 POINTS
+2019-12-22 18:22:10,246 INFO  Process  3665  terminates: user CPU time 36.69, system cpu time 1.31
+2019-12-22 18:23:16,421 INFO Current Process with pid 3685 with status running launched by the user ezafati
+2019-12-22 18:23:18,214 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-22 18:23:18,215 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
+2019-12-22 18:23:57,889 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-22 18:23:57,890 INFO MESH GENERATED WITH 234 POINTS
+2019-12-22 18:23:57,890 INFO  Process  3685  terminates: user CPU time 37.48, system cpu time 0.53
+2019-12-22 22:12:09,936 INFO Current Process with pid 2994 with status running launched by the user ezafati
+2019-12-22 22:12:11,240 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-22 22:12:11,240 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
+2019-12-22 22:12:33,235 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-22 22:12:33,236 INFO MESH GENERATED WITH 234 POINTS
+2019-12-22 22:12:36,524 INFO  Process  2994  terminates: user CPU time 16.9, system cpu time 0.66
+2019-12-23 20:50:45,096 INFO Current Process with pid 2960 with status running launched by the user ezafati
+2019-12-23 20:50:46,319 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-23 20:50:46,319 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
+2019-12-23 20:51:03,241 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-23 20:51:03,241 INFO MESH GENERATED WITH 234 POINTS
+2019-12-23 20:51:31,387 INFO  Process  2960  terminates: user CPU time 17.32, system cpu time 0.48

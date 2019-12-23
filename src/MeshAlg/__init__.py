@@ -1,2 +1,6 @@
-from . import DT_prim, insert_point_algorithms
-__all__ = [DT_prim, insert_point_algorithms]
+import MeshAlg.chew_insert_algorithm
+import MeshAlg.global_DT
+
+
+__all__ = [chew_insert_algorithm, global_DT]
+
