@@ -31,9 +31,9 @@ def dt_global(vmesh, process):
     # initialize Tree
     Tree = TriangleTree(Triangle())
     Tree.root.childs = Tree.root.childs + [T1, T2]
-    Tree.get_initial_constrained_mesh(boundary, plist, nl, process)
+    Tree._get_initial_constrained_mesh(boundary, plist, nl, process)
     del plist[nl:]
-    TreeRefinement = TriangleTree().triangle_tree_refinement(Tree)
+    TreeRefinement = TriangleTree()._triangle_tree_refinement(Tree)
     plist = [plist[p].postscale(xmin, ymin, dmax) for p in range(nl)]
     del Tree
     count = 0

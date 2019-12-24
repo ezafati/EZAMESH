@@ -1,3 +1,4 @@
+
 from __future__ import division
 
 import itertools
@@ -185,7 +186,7 @@ class TriangleTree:
         self.terminate = False
 
     @classmethod
-    def triangle_tree_refinement(cls, tree):
+    def _triangle_tree_refinement(cls, tree):
         tree_tmp = cls(Triangle())
         for child in tree.root.childs:
             tree_tmp._add_child(child)
@@ -208,18 +209,18 @@ class TriangleTree:
             plot_triangle(child, plist, ax)
         plt.show()
 
-    def search_triangle(self, fcond, *args):
+    def _search_triangle(self, fcond, *args):
         for child in self.root.childs:
-            check = self.check_in_triangle(child, fcond, *args)
+            check = self._check_in_triangle(child, fcond, *args)
             if check:
                 return check
             else:
                 continue
 
-    def check_in_triangle(self, tr, fcond, *args):
+    def _check_in_triangle(self, tr, fcond, *args):
         if tr.childs:
             for child in tr.childs:
-                check = self.check_in_triangle(child, fcond, *args)
+                check = self._check_in_triangle(child, fcond, *args)
                 if check:
                     return check
                 else:
@@ -229,13 +230,13 @@ class TriangleTree:
         else:
             pass
 
-    def get_initial_constrained_mesh(self, boundary, plist, n, process):
+    def _get_initial_constrained_mesh(self, boundary, plist, n, process):
         for p in range(n):
             pt = plist[p]
-            tr = self.search_triangle(point_in, pt, plist)
+            tr = self._search_triangle(point_in, pt, plist)
             insert_point(p, plist, tr)
-        self.enforce_boundary(boundary, plist)
-        tr = self.search_triangle(out_domain, n)
+        self._enforce_boundary(boundary, plist)
+        tr = self._search_triangle(out_domain, n)
         tr.childs.append(-1)
         list_tmp = tr.adjacent.copy()
         while list_tmp:
@@ -246,21 +247,21 @@ class TriangleTree:
                     tr_tmp.childs.append(-1)
                     list_tmp = list_tmp.union({m for m in tr_tmp.adjacent if -1 not in m.childs})
                     break
-        self.eliminate_extra_triangles(self.root)
+        self._eliminate_extra_triangles(self.root)
 
-    def eliminate_extra_triangles(self, tr):
+    def _eliminate_extra_triangles(self, tr):
         if tr.childs:
             for child in tr.childs:
                 if isinstance(child, Triangle):
-                    self.eliminate_extra_triangles(child)
+                    self._eliminate_extra_triangles(child)
                 else:
                     for adj in tr.adjacent:
                         adj.adjacent.remove(tr)
 
-    def enforce_boundary(self, boundary, plist):
+    def _enforce_boundary(self, boundary, plist):
         for bound in boundary:
             bound_coord = [plist[p] for p in bound]
-            tr1 = self.search_triangle(bound_condition, bound, plist)
+            tr1 = self._search_triangle(bound_condition, bound, plist)
             if tr1:
                 pt = set(tr1.points).intersection(bound)
                 tr2 = tr1

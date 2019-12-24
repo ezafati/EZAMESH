@@ -1,0 +1,5 @@
+pathos
+psutil
+numpy
+matplotlib
+scipy

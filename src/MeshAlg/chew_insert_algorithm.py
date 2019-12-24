@@ -90,10 +90,10 @@ def replace_vertex(p, index, tr, list_tr):
 def chew_add_point(tree, plist, nl):
     """Chew method to add a new point in the domain"""
     l_tr = [0, 0]
-    tree.search_triangle(is_well_shaped, plist, l_tr)
+    tree._search_triangle(is_well_shaped, plist, l_tr)
     tr = l_tr[1]
     if not tr:
-        tree.search_triangle(is_well_sized, plist, l_tr, nl)
+        tree._search_triangle(is_well_sized, plist, l_tr, nl)
         tr = l_tr[1]
     if tr:
         pt = circumcircle_center(tr, plist)
