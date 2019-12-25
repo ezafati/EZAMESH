@@ -163,15 +163,18 @@ def insert_point(p, plist, tr):
     list_tr = list(list_tr)
     tr.childs.extend(list_tr)
     for tri in list_tr:
+        tri.parent = tr
         tri.adjacent, = [set(l) for l in itertools.combinations(list_tr, 2) if tri not in l]
     for adj in tr.adjacent:
         remove_triangle(adj, tr)
-        for child in tr.childs:
+        for child in list_tr:
             if len(set(child.points).intersection(set(adj.points))) > 1:
                 child.adjacent.add(adj)
                 adj.adjacent.add(child)
                 break
     list_tmp = tr.adjacent
+    tr.parent.childs.extend(list_tr)
+    tr.parent.childs.remove(tr)
     while list_tmp:
         tr_tmp = list_tmp.pop()
         if check_in_disc(pt, [plist[m] for m in tr_tmp.points]):

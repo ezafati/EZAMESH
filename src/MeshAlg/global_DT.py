@@ -31,6 +31,8 @@ def dt_global(vmesh, process):
     # initialize Tree
     Tree = TriangleTree(Triangle())
     Tree.root.childs = Tree.root.childs + [T1, T2]
+    for tr in Tree.root.childs:
+        tr.parent = Tree.root
     Tree._get_initial_constrained_mesh(boundary, plist, nl, process)
     del plist[nl:]
     TreeRefinement = TriangleTree()._triangle_tree_refinement(Tree)

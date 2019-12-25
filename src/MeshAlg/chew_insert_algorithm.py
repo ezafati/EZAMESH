@@ -4,53 +4,18 @@ from MeshObjects.GeObjects import *
 import logging
 
 
-def insert_midpoint(p, tr, seg):
-    """function that insert the midpoint in the mesh"""
-    list_tr = map(lambda l: Triangle([p, l[0], l[1]]), itertools.combinations(tr.points, 2))
-    list_tr = list(list_tr)
-    tr.childs.extend(list_tr)
-    for tri in list_tr:
-        tri.parent = tr
-        tri.adjacent, = [set(l) for l in itertools.combinations(list_tr, 2) if tri not in l]
-    for adj in tr.adjacent:
-        remove_triangle(adj, tr)
-        for child in tr.childs:
-            if len(set(child.points).intersection(set(adj.points))) > 1:
-                child.adjacent.add(adj)
-                adj.adjacent.add(child)
-                break
-    for adj in tr.adjacent:
-        try:
-            tr_to_swap, = [p for p in adj.adjacent if seg.issubset(set(p.points))]
-            swap_tr(adj, tr_to_swap)
-        except ValueError:
-            pass
-
-
-def seek_triangle(tr, seg, plist, list_check):
-    """ seek for the triangle used to link midpoint and
-    the deleted point"""
-    for adj in tr.adjacent:
-        if adj not in list_check:
-            list_check.append(adj)
-            if bound_condition(adj, seg, plist) or seg.issubset(set(adj.points)):
-                return seg
-            else:
-                seek_triangle(adj, seg, plist, list_check)
-
-
-def enforce_segment(tr, index, p, plist):
+def enforce_segment(list_tr, index, p, plist):
     """Enforce the segment linking the midpoint and a deleted point seen from
     the first one"""
     seg = {p, index}
     tr1 = False
-    for child in tr.childs:
+    for child in list_tr:
         if bound_condition(child, seg, plist) or seg.issubset(set(child.points)):
             tr1 = child
             break
     if not tr1:
         list_check = list()
-        for child in tr.childs:
+        for child in list_tr:
             check = seek_triangle(child, seg, plist, list_check)
             if check:
                 tr1 = check
@@ -74,6 +39,43 @@ def enforce_segment(tr, index, p, plist):
     except AttributeError:
         logging.error('FATAL ERROR ! Maybe the triangle has an empty child list')
         sys.exit('EXIT WITH ERROR: SEE THE LOG FILE')
+
+
+def insert_midpoint(p, tr, seg):
+    """function that insert the midpoint in the mesh"""
+    list_tr = map(lambda l: Triangle([p, l[0], l[1]]), itertools.combinations(tr.points, 2))
+    list_tr = list(list_tr)
+    for tri in list_tr:
+        tri.parent = tr.parent
+        tri.adjacent, = [set(l) for l in itertools.combinations(list_tr, 2) if tri not in l]
+    for adj in tr.adjacent:
+        remove_triangle(adj, tr)
+        for child in list_tr:
+            if len(set(child.points).intersection(set(adj.points))) > 1:
+                child.adjacent.add(adj)
+                adj.adjacent.add(child)
+                break
+    for adj in tr.adjacent:
+        try:
+            tr_to_swap, = [p for p in adj.adjacent if seg.issubset(set(p.points))]
+            swap_tr(adj, tr_to_swap)
+        except ValueError:
+            pass
+    tr.parent.childs.extend(list_tr)
+    tr.parent.childs.remove(tr)
+    return list_tr
+
+
+def seek_triangle(tr, seg, plist, list_check):
+    """ seek for the triangle used to link midpoint and
+    the deleted point"""
+    for adj in tr.adjacent:
+        if adj not in list_check:
+            list_check.append(adj)
+            if bound_condition(adj, seg, plist) or seg.issubset(set(adj.points)):
+                return seg
+            else:
+                seek_triangle(adj, seg, plist, list_check)
 
 
 def replace_vertex(p, index, tr, list_tr):
@@ -108,11 +110,11 @@ def chew_add_point(tree, plist, nl):
             radius = length_segment(pm, p1)
             list_tmp = collect_points(tr, seg, radius, pm, plist, nl)
             index = len(plist) - 1
-            insert_midpoint(index, tr1, seg)
+            list_tr = insert_midpoint(index, tr1, seg)
             if list_tmp:
                 for p in list_tmp:
                     list_new_tris = set()
-                    list_tri_elim = enforce_segment(tr1, index, p, plist)
+                    list_tri_elim = enforce_segment(list_tr, index, p, plist)
                     for tri in list_tri_elim:
                         replace_vertex(p, index, tri, list_new_tris)
                     for tri in list_tri_elim:
@@ -173,7 +175,7 @@ def find_segment(tr, pt, plist):
             seg_tmp, = filter(lambda seg: check_intersection((plist[seg[0]], plist[seg[1]]), segt),
                               itertools.combinations(adj.points, 2))
             if len(set(tr.points).intersection(set(seg_tmp))) > 1:
-                pass
+                continue
             else:
                 return seg_tmp, adj
         except ValueError:
