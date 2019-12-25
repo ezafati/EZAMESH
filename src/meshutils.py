@@ -1,3 +1,7 @@
+import logging
+import traceback
+
+
 class LogWrite:
     def __init__(self, level):
         self.level = level
@@ -8,6 +12,22 @@ class LogWrite:
 
     def flush(self):
         pass
+
+
+def exception_logging(exctype, value, tb):
+    """
+    Log exception by using the root logger.
+
+    Parameters
+    ----------
+    exctype : type
+    value : NameError
+    tb : traceback
+    """
+    write_val = {'exception_type': str(exctype),
+                 'message': str(traceback.format_tb(tb, 10))}
+    #print(write_val)
+    logging.exception(str(write_val))
 
 
 class TaskProcess:
