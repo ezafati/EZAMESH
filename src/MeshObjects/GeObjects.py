@@ -161,9 +161,8 @@ def insert_point(p, plist, tr):
     pt = plist[p]
     list_tr = map(lambda l: Triangle([p, l[0], l[1]]), itertools.combinations(tr.points, 2))
     list_tr = list(list_tr)
-    tr.childs.extend(list_tr)
     for tri in list_tr:
-        tri.parent = tr
+        tri.parent = tr.parent
         tri.adjacent, = [set(l) for l in itertools.combinations(list_tr, 2) if tri not in l]
     for adj in tr.adjacent:
         remove_triangle(adj, tr)

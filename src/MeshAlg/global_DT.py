@@ -47,4 +47,4 @@ def dt_global(vmesh, process):
         refinement_method(TreeRefinement, plist, nl)
         count += 1
     logging.info(f'MESH GENERATED WITH {len(plist)} POINTS')
-    TreeRefinement.plot_mesh(plist)
+    #TreeRefinement.plot_mesh(plist)
