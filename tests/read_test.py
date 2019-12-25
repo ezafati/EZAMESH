@@ -21,6 +21,6 @@ logging.info(f'Current Process with pid {p.pid} with status {p.status()} launche
 from read_data import *
 
 print('BEGIN OF THE PROGRAM')
-read_file("maillage5.txt", p)
+read_file("maillage2.txt", p)
 
 logging.info(f' Process  {p.pid}  terminates: user CPU time {p.cpu_times().user}, system cpu time {p.cpu_times().system}')

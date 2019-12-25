@@ -1,5 +1,7 @@
 import matplotlib
 import importlib
+
+import module_var
 from MeshObjects.GeObjects import Point, Triangle, TriangleTree
 from module_var import dispatcher
 import logging
@@ -35,16 +37,17 @@ def dt_global(vmesh, process):
         tr.parent = Tree.root
     Tree._get_initial_constrained_mesh(boundary, plist, nl, process)
     del plist[nl:]
-    TreeRefinement = TriangleTree()._triangle_tree_refinement(Tree)
+    module_var.tree_refinement = TriangleTree()._triangle_tree_refinement(Tree)
     plist = [plist[p].postscale(xmin, ymin, dmax) for p in range(nl)]
+    vmesh.listpoint = plist
     del Tree
     count = 0
-    while not TreeRefinement.terminate:
+    while not module_var.tree_refinement.terminate:
         if count % 10 == 0:
             #logging.info(f'Memory infos: {process.memory_info()}')
             #logging.info(f'CPU used percentage: {process.cpu_percent()}')
             pass
-        refinement_method(TreeRefinement, plist, nl)
+        refinement_method(module_var.tree_refinement, plist, nl)
         count += 1
     logging.info(f'MESH GENERATED WITH {len(plist)} POINTS')
-    #TreeRefinement.plot_mesh(plist)
+    module_var.tree_refinement.plot_mesh(plist)
