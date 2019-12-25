@@ -25,3 +25,35 @@
 2019-12-25 00:18:35,966 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
 2019-12-25 00:18:35,966 INFO MESH GENERATED WITH 234 POINTS
 2019-12-25 00:18:43,380 INFO  Process  5599  terminates: user CPU time 17.0, system cpu time 0.4
+2019-12-25 19:51:14,109 INFO Current Process with pid 27253 with status running launched by the user ezafati
+2019-12-25 19:51:14,622 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-25 19:51:14,622 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2019-12-25 19:51:14,672 INFO Memory infos: pmem(rss=72183808, vms=476110848, shared=29065216, text=3883008, lib=0, data=121360384, dirty=0)
+2019-12-25 19:51:14,673 INFO CPU used percentage: 0.0
+2019-12-25 19:51:14,861 INFO Memory infos: pmem(rss=72507392, vms=480350208, shared=29356032, text=3883008, lib=0, data=121368576, dirty=0)
+2019-12-25 19:51:14,861 INFO CPU used percentage: 37.1
+2019-12-25 19:51:15,110 INFO Memory infos: pmem(rss=72507392, vms=480350208, shared=29356032, text=3883008, lib=0, data=121368576, dirty=0)
+2019-12-25 19:51:15,110 INFO CPU used percentage: 28.2
+2019-12-25 19:51:15,515 INFO Memory infos: pmem(rss=72507392, vms=480350208, shared=29356032, text=3883008, lib=0, data=121368576, dirty=0)
+2019-12-25 19:51:15,515 INFO CPU used percentage: 24.7
+2019-12-25 19:51:15,960 INFO Memory infos: pmem(rss=72507392, vms=480350208, shared=29356032, text=3883008, lib=0, data=121368576, dirty=0)
+2019-12-25 19:51:15,961 INFO CPU used percentage: 24.7
+2019-12-25 19:51:16,153 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-25 19:51:16,154 INFO MESH GENERATED WITH 83 POINTS
+2019-12-25 19:51:19,116 INFO  Process  27253  terminates: user CPU time 1.04, system cpu time 0.46
+2019-12-25 19:52:17,727 INFO Current Process with pid 27568 with status running launched by the user ezafati
+2019-12-25 19:52:18,239 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-25 19:52:18,239 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2019-12-25 19:52:18,298 INFO Memory infos: pmem(rss=71364608, vms=475389952, shared=28864512, text=3883008, lib=0, data=120639488, dirty=0)
+2019-12-25 19:52:18,298 INFO CPU used percentage: 0.0
+2019-12-25 19:52:18,465 INFO Memory infos: pmem(rss=72085504, vms=480047104, shared=29220864, text=3883008, lib=0, data=121065472, dirty=0)
+2019-12-25 19:52:18,465 INFO CPU used percentage: 42.0
+2019-12-25 19:52:18,696 INFO Memory infos: pmem(rss=72110080, vms=480047104, shared=29220864, text=3883008, lib=0, data=121065472, dirty=0)
+2019-12-25 19:52:18,697 INFO CPU used percentage: 25.9
+2019-12-25 19:52:19,092 INFO Memory infos: pmem(rss=72142848, vms=480047104, shared=29220864, text=3883008, lib=0, data=121065472, dirty=0)
+2019-12-25 19:52:19,093 INFO CPU used percentage: 27.8
+2019-12-25 19:52:19,556 INFO Memory infos: pmem(rss=72155136, vms=480047104, shared=29220864, text=3883008, lib=0, data=121065472, dirty=0)
+2019-12-25 19:52:19,556 INFO CPU used percentage: 21.6
+2019-12-25 19:52:19,739 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-25 19:52:19,739 INFO MESH GENERATED WITH 83 POINTS
+2019-12-25 19:52:22,096 INFO  Process  27568  terminates: user CPU time 1.07, system cpu time 0.37

@@ -1,11 +1,13 @@
 import logging
-import sys
+import sys, os.path
 
 import psutil
 import meshutils
 # sys.path.append('/home/ezafati/mesh_project/src/')
 
-FILE_LOG_PATH = 'mesh.log'
+path1, *_ = os.path.split(os.path.abspath('./'))
+
+FILE_LOG_PATH = os.path.join(path1, 'src/log/mesh.log')
 try:
     logging.basicConfig(filename=FILE_LOG_PATH, level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 except FileNotFoundError:

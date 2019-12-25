@@ -1,3 +1,6 @@
+""" Second Chew algorithm implementation
+Copyright (c) 2019-2020, E Zafati
+ All rights reserved"""
 import itertools
 from functools import reduce
 from MeshObjects.GeObjects import *
@@ -243,7 +246,7 @@ def circumcircle_radius(tr, plist):
 
 def size_function(pt, plist, nl):
     """evaluate the size function at the point pt"""
-    g = 0.1
+    g = 0.05
     size = min([plist[l].size + g * length_segment(pt, plist[l]) for l in range(nl)])
     return size
 

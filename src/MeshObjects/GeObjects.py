@@ -1,4 +1,6 @@
-
+""" Geometry Objects
+Copyright (c) 2019-2020, E Zafati
+ All rights reserved"""
 from __future__ import division
 
 import itertools
