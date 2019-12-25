@@ -1,12 +1,10 @@
 """ Second Chew algorithm implementation
 Copyright (c) 2019-2020, E Zafati
  All rights reserved"""
-import itertools
-from functools import reduce
-from MeshObjects.GeObjects import *
-import logging
-import module_var
 from multiprocessing import Process, Value
+
+import module_var
+from MeshObjects.GeObjects import *
 
 
 def enforce_segment(list_tr, index, p, plist):
@@ -134,8 +132,8 @@ def chew_add_point(tree, plist, nl):
             plist.append(pm)
             seg = set(seg)
             p1, *_ = [plist[p] for p in seg]
-            pm.x = 1 / 2 * reduce(lambda l, m: l + m, [plist[q].x for q in seg])
-            pm.y = 1 / 2 * reduce(lambda l, m: l + m, [plist[q].y for q in seg])
+            pm.x = 1 / 2 * sum([plist[q].x for q in seg])
+            pm.y = 1 / 2 * sum([plist[q].y for q in seg])
             radius = length_segment(pm, p1)
             list_tmp = collect_points(tr, seg, radius, pm, plist, nl)
             index = len(plist) - 1
@@ -196,8 +194,8 @@ def find_segment(tr, pt, plist):
     """Find the segment separating the circumcenter and
     the failed triangle (poorly sized or poorly shaped)"""
     mass_cent = Point()
-    mass_cent.x = 1 / 3 * reduce(lambda l, m: l + m, [plist[q].x for q in tr.points])
-    mass_cent.y = 1 / 3 * reduce(lambda l, m: l + m, [plist[q].x for q in tr.points])
+    mass_cent.x = 1 / 3 * sum([plist[q].x for q in tr.points])
+    mass_cent.y = 1 / 3 * sum([plist[q].y for q in tr.points])
     segt = [mass_cent, pt]
     for adj in tr.adjacent:
         try:
