@@ -244,7 +244,7 @@ def circumcircle_radius(tr, plist):
 
 def size_function(pt, plist, nl):
     """evaluate the size function at the point pt"""
-    g = 0.05
+    g = 0.1
     size = min([plist[l].size + g * length_segment(pt, plist[l]) for l in range(nl)])
     return size
 

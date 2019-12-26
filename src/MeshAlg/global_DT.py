@@ -2,9 +2,9 @@ import matplotlib
 import importlib
 
 import module_var
-from MeshObjects.GeObjects import Point, Triangle, TriangleTree
+from MeshObjects.GeObjects import *
 from module_var import dispatcher
-import logging
+
 
 matplotlib.use("TkAgg")
 
@@ -44,8 +44,8 @@ def dt_global(vmesh, process):
     count = 0
     while not module_var.tree_refinement.terminate:
         if count % 10 == 0:
-            logging.info(f'Memory infos: {process.memory_info()}')
-            logging.info(f'CPU used percentage: {process.cpu_percent()}')
+            #logging.info(f'Memory infos: {process.memory_info()}')
+            #logging.info(f'CPU used percentage: {process.cpu_percent()}')
             pass
         refinement_method(module_var.tree_refinement, plist, nl)
         count += 1
