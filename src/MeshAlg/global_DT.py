@@ -4,7 +4,8 @@ import importlib
 import module_var
 from MeshObjects.GeObjects import *
 from module_var import dispatcher
-
+from MeshAlg.smoothing_mesh import optmize_mesh_lsq
+from MeshAlg.chew_insert_algorithm import size_function  # temporary waiting to change
 
 matplotlib.use("TkAgg")
 
@@ -44,8 +45,8 @@ def dt_global(vmesh, process):
     count = 0
     while not module_var.tree_refinement.terminate:
         if count % 10 == 0:
-            #logging.info(f'Memory infos: {process.memory_info()}')
-            #logging.info(f'CPU used percentage: {process.cpu_percent()}')
+            # logging.info(f'Memory infos: {process.memory_info()}')
+            # logging.info(f'CPU used percentage: {process.cpu_percent()}')
             pass
         refinement_method(module_var.tree_refinement, plist, nl)
         count += 1

@@ -15,9 +15,9 @@ except FileNotFoundError:
 
 log = logging.getLogger('mesh_log')
 
-sys.stdout = meshutils.LogWrite(log.info)
-sys.stderr = meshutils.LogWrite(log.error)
-sys.excepthook=meshutils.exception_logging
+#sys.stdout = meshutils.LogWrite(log.info)
+#sys.stderr = meshutils.LogWrite(log.error)
+#sys.excepthook = meshutils.exception_logging
 
 
 p = psutil.Process()

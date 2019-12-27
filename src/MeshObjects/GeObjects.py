@@ -21,7 +21,7 @@ def prim_spline(A, B, C):
     nv1 = v1.x * v1.x + v1.y * v1.y
     nv2 = v2.x * v2.x + v2.y * v2.y
     dtv1v2 = v1.x * v2.x + v1.y * v2.y
-    return lambda x: 2*sqrt((1 - x)**2 * nv1 + x**2 * nv2 + 2 * x * (1 - x) * dtv1v2)
+    return lambda x: 2 * sqrt((1 - x) ** 2 * nv1 + x ** 2 * nv2 + 2 * x * (1 - x) * dtv1v2)
 
 
 def len_spline(t, a, b, c):
@@ -303,6 +303,24 @@ class Point(object):
         self.y = dmax * self.y + ymin
         return self
 
+    def __add__(self, other):
+        if isinstance(other, Point):
+            return Point(self.x + other.x, self.y + other.y)
+        else:
+            raise TypeError('The two instances should be the type Point')
+
+    def __sub__(self, other):
+        if isinstance(other, Point):
+            return Point(self.x - other.x, self.y - other.y)
+        else:
+            raise TypeError('The two instances should be the type Point')
+
+    def __mul__(self, other):
+        if isinstance(other, (int, float)):
+            return Point(other * self.x, other * self.y)
+        else:
+            raise TypeError('One of the  instances should be of the type int or float')
+
 
 class Triangle(object):
     def __init__(self, x=None, y=None, z=None, par=None):
@@ -339,7 +357,7 @@ class Mesh(object):
             x = []
         self.boundary = x
         self.boundarylabels = slabel
-        self.nnodes = nnodes
+        self.nbnodes = nnodes
         self.listpoint = polist
         self.pointlabel = llist
         self.triangle_list = ltri
@@ -372,7 +390,7 @@ class Mesh(object):
             raise ValueError()
         count = 1
         while count < nsteps[1]:
-            self.nnodes += 1
+            self.nbnodes += 1
             C = Point()
             theta_M = (count * l1 + count * (count - 1) * step / 2) / radius * copysign(1, theta)
             C.x = center.x + cos(theta_M) * (A.x - center.x) - sin(theta_M) * (A.y - center.y)
@@ -380,12 +398,12 @@ class Mesh(object):
             C.size = l1 + (count - 1) * step
             self.listpoint.append(C)
             if count == 1:
-                self.boundary.append({NA - 1, self.nnodes - 1})
+                self.boundary.append({NA - 1, self.nbnodes - 1})
             elif count == nsteps[1] - 1:
-                self.boundary.append({self.nnodes - 1, NB - 1})
-                self.boundary.append({(self.nnodes - 1) - 1, self.nnodes - 1})
+                self.boundary.append({self.nbnodes - 1, NB - 1})
+                self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
             else:
-                self.boundary.append({(self.nnodes - 1) - 1, self.nnodes - 1})
+                self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
             count += 1
 
     def add_line(self, fields, n_line):
@@ -405,19 +423,19 @@ class Mesh(object):
             raise ValueError(f"The densities specified in {n_line} are too large for the boundary length {slen}")
         count = 1
         while count < nsteps[1]:
-            self.nnodes += 1
+            self.nbnodes += 1
             C = Point()
             C.x = A.x + (B.x - A.x) / slen * (count * l1 + count * (count - 1) * step / 2)
             C.y = A.y + (B.y - A.y) / slen * (count * l1 + count * (count - 1) * step / 2)
             C.size = l1 + (count - 1) * step
             self.listpoint.append(C)
             if count == 1:
-                self.boundary.append({NA - 1, self.nnodes - 1})
+                self.boundary.append({NA - 1, self.nbnodes - 1})
             elif count == nsteps[1] - 1:
-                self.boundary.append({self.nnodes - 1, NB - 1})
-                self.boundary.append({(self.nnodes - 1) - 1, self.nnodes - 1})
+                self.boundary.append({self.nbnodes - 1, NB - 1})
+                self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
             else:
-                self.boundary.append({(self.nnodes - 1) - 1, self.nnodes - 1})
+                self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
             count += 1
 
     def add_spline(self, fields, n_line):
@@ -442,7 +460,7 @@ class Mesh(object):
             raise ValueError()
         count = 1
         while count < nsteps[1]:
-            self.nnodes += 1
+            self.nbnodes += 1
             C = Point()
             target = (count * l1 + count * (count - 1) * step / 2)
             rt = scipy.optimize.newton(lambda x: len_spline(x, A, B, cpt) - target, 0, fprime=fprim)
@@ -453,19 +471,19 @@ class Mesh(object):
             C.size = l1 + (count - 1) * step
             self.listpoint.append(C)
             if count == 1:
-                self.boundary.append({NA - 1, self.nnodes - 1})
+                self.boundary.append({NA - 1, self.nbnodes - 1})
             elif count == nsteps[1] - 1:
-                self.boundary.append({self.nnodes - 1, NB - 1})
-                self.boundary.append({(self.nnodes - 1) - 1, self.nnodes - 1})
+                self.boundary.append({self.nbnodes - 1, NB - 1})
+                self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
             else:
-                self.boundary.append({(self.nnodes - 1) - 1, self.nnodes - 1})
+                self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
             count += 1
 
     def add_point(self, fields):
         if len(fields) == 2:
-            self.nnodes += 1
+            self.nbnodes += 1
             self.listpoint.append(Point(fields[0], fields[1]))
         else:
-            self.nnodes += 1
+            self.nbnodes += 1
             self.listpoint.append(Point(float(fields[3]), float(fields[4])))
-            self.pointlabel[fields[0]] = self.nnodes
+            self.pointlabel[fields[0]] = self.nbnodes

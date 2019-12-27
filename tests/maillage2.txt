@@ -4,8 +4,8 @@ C = POINT 1 1
 D = POINT 0 1
 
 L1 = LINE A B 0.1 0.1
-L2 = LINE B C 0.1 0.1
+L2 = LINE B C  0.1 0.1
 L3 = LINE C D 0.1 0.1
-L4 = LINE D A 0.1 0.1
+L4 = LINE D A  0.1 0.1
 
 
