@@ -387,13 +387,25 @@ class Mesh(object):
             NA, NB = NB, NA
             theta = -1 * theta
         ratio = slen / (l1 + (l2 - l1) / 2)
-        nsteps = modf(ratio)
-        step = (l2 - l1) / nsteps[1]
-        if nsteps[1] <= 1:
-            logging.error(f"The densities specified in {n_line} are too large for the boundary length {slen}")
-            raise ValueError()
+        if ratio < 1:
+            raise ValueError(f"The densities specified in {n_line} are too large for the boundary length {slen}")
+        estep = modf(ratio)
+        if estep[0] > 0.5:  # add correction to l1 and l2 for better subdivision
+            corr = 1 / 2 * (l1 + l2 - 2 * slen / (estep[1] + 1))
+            l1 -= corr
+            l2 -= corr
+            tsteps = estep[1] + 1
+        else:
+            corr = 1 / 2 * (2 * slen / estep[1] - l1 - l2)
+            l1 += corr
+            l2 += corr
+            tsteps = estep[1]
+        if tsteps == 1:  # no points to add
+            self.boundary.append({NA - 1, NB - 1})
+            return 1
+        step = (l2 - l1) / estep[1]
         count = 1
-        while count < nsteps[1]:
+        while count < tsteps:
             self.nbnodes += 1
             C = Point()
             theta_M = (count * l1 + count * (count - 1) * step / 2) / radius * copysign(1, theta)
@@ -401,11 +413,14 @@ class Mesh(object):
             C.y = center.y + sin(theta_M) * (A.x - center.x) + cos(theta_M) * (A.y - center.y)
             C.size = l1 + (count - 1) * step
             self.listpoint.append(C)
-            if count == 1:
-                self.boundary.append({NA - 1, self.nbnodes - 1})
-            elif count == nsteps[1] - 1:
+            if count == tsteps - 1:
                 self.boundary.append({self.nbnodes - 1, NB - 1})
-                self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
+                if count == 1:
+                    self.boundary.append({NA - 1, self.nbnodes - 1})
+                else:
+                    self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
+            elif count == 1:
+                self.boundary.append({NA - 1, self.nbnodes - 1})
             else:
                 self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
             count += 1
@@ -473,13 +488,25 @@ class Mesh(object):
         slen = len_spline(1, A, B, cpt)
         fprim = prim_spline(A, B, cpt)
         ratio = slen / (l1 + (l2 - l1) / 2)
-        nsteps = modf(ratio)
-        step = (l2 - l1) / nsteps[1]
-        if nsteps[1] <= 1:
-            logging.error(f"The densities specified in {n_line} are too large for the boundary length {slen}")
-            raise ValueError()
+        if ratio < 1:
+            raise ValueError(f"The densities specified in {n_line} are too large for the boundary length {slen}")
+        estep = modf(ratio)
+        if estep[0] > 0.5:  # add correction to l1 and l2 for better subdivision
+            corr = 1 / 2 * (l1 + l2 - 2 * slen / (estep[1] + 1))
+            l1 -= corr
+            l2 -= corr
+            tsteps = estep[1] + 1
+        else:
+            corr = 1 / 2 * (2 * slen / estep[1] - l1 - l2)
+            l1 += corr
+            l2 += corr
+            tsteps = estep[1]
+        if tsteps == 1:  # no points to add
+            self.boundary.append({NA - 1, NB - 1})
+            return 1
+        step = (l2 - l1) / estep[1]
         count = 1
-        while count < nsteps[1]:
+        while count < tsteps:
             self.nbnodes += 1
             C = Point()
             target = (count * l1 + count * (count - 1) * step / 2)
@@ -490,11 +517,14 @@ class Mesh(object):
             C.y = (1 - rt) * p11.y + rt * p21.y
             C.size = l1 + (count - 1) * step
             self.listpoint.append(C)
-            if count == 1:
-                self.boundary.append({NA - 1, self.nbnodes - 1})
-            elif count == nsteps[1] - 1:
+            if count == tsteps - 1:
                 self.boundary.append({self.nbnodes - 1, NB - 1})
-                self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
+                if count == 1:
+                    self.boundary.append({NA - 1, self.nbnodes - 1})
+                else:
+                    self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
+            elif count == 1:
+                self.boundary.append({NA - 1, self.nbnodes - 1})
             else:
                 self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
             count += 1
