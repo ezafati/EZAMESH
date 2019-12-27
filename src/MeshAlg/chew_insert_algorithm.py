@@ -95,7 +95,7 @@ def replace_vertex(p, index, tr, list_tr):
 def chew_add_point(tree, plist, nl):
     """Chew method to add a new point in the domain"""
     list_process = []
-    sp = 4
+    sp = 2
     step = Value('i', sp)
     ratio = Value('d', 0.0)
     num = Value('i', len(tree.root.childs))

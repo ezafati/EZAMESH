@@ -288,6 +288,8 @@ class Vector(object):
 
 
 class Point(object):
+    __slots__ = ('x', 'y', 'size')
+
     def __init__(self, x=None, y=None, size=None):
         self.x = x
         self.y = y
@@ -323,6 +325,8 @@ class Point(object):
 
 
 class Triangle(object):
+    __slots__ = ('points', 'childs', 'adjacent', 'parent')
+
     def __init__(self, x=None, y=None, z=None, par=None):
         if x is None:
             x = []
@@ -364,7 +368,7 @@ class Mesh(object):
         self.meshstrategy = strat
 
     def close_check(self):
-        pass
+        print('To be implemented')
 
     def add_arc(self, fields, n_line):
         self.boundarylabels.append(fields[0])
@@ -417,23 +421,39 @@ class Mesh(object):
         A.size, B.size = l1, l2
         slen = sqrt(pow(A.x - B.x, 2) + pow(A.y - B.y, 2))
         ratio = slen / (l1 + (l2 - l1) / 2)
-        nsteps = modf(ratio)
-        step = (l2 - l1) / nsteps[1]
-        if nsteps[1] <= 1:
+        if ratio < 1:
             raise ValueError(f"The densities specified in {n_line} are too large for the boundary length {slen}")
+        estep = modf(ratio)
+        if estep[0] > 0.5:  # add correction to l1 and l2 for better subdivision
+            corr = 1 / 2 * (l1 + l2 - 2 * slen / (estep[1] + 1))
+            l1 -= corr
+            l2 -= corr
+            tsteps = estep[1] + 1
+        else:
+            corr = 1 / 2 * (2 * slen / estep[1] - l1 - l2)
+            l1 += corr
+            l2 += corr
+            tsteps = estep[1]
+        if tsteps == 1:  # no points to add
+            self.boundary.append({NA - 1, NB - 1})
+            return 1
+        step = (l2 - l1) / estep[1]
         count = 1
-        while count < nsteps[1]:
+        while count < tsteps:
             self.nbnodes += 1
             C = Point()
             C.x = A.x + (B.x - A.x) / slen * (count * l1 + count * (count - 1) * step / 2)
             C.y = A.y + (B.y - A.y) / slen * (count * l1 + count * (count - 1) * step / 2)
             C.size = l1 + (count - 1) * step
             self.listpoint.append(C)
-            if count == 1:
-                self.boundary.append({NA - 1, self.nbnodes - 1})
-            elif count == nsteps[1] - 1:
+            if count == tsteps - 1:
                 self.boundary.append({self.nbnodes - 1, NB - 1})
-                self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
+                if count == 1:
+                    self.boundary.append({NA - 1, self.nbnodes - 1})
+                else:
+                    self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
+            elif count == 1:
+                self.boundary.append({NA - 1, self.nbnodes - 1})
             else:
                 self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
             count += 1
