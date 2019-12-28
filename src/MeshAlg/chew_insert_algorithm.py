@@ -95,7 +95,7 @@ def replace_vertex(p, index, tr, list_tr):
 def chew_add_point(tree, plist, nl):
     """Chew method to add a new point in the domain"""
     list_process = []
-    sp = 2
+    sp = 4
     step = Value('i', sp)
     ratio = Value('d', 0.0)
     num = Value('i', len(tree.root.childs))
@@ -254,7 +254,7 @@ def is_well_shaped(step, start, ratio, num):
     respect to the previous tested one r_tr[1] """
     len_tree = len(module_var.tree_refinement.root.childs)
     plist = module_var.gmesh.listpoint
-    cst = 1 * sqrt(2)
+    cst = 1. * sqrt(2)
     for k in range(start.value, len_tree, step.value):
         tr = module_var.tree_refinement.root.childs[k]
         list_tmp = [plist[p] for p in tr.points]

@@ -5,6 +5,7 @@ from __future__ import division
 
 import itertools
 
+from collections import deque
 import matplotlib.pyplot as plt
 import numpy as np
 from math import sqrt, acos, modf, sin, cos, copysign
@@ -173,13 +174,15 @@ def insert_point(p, plist, tr):
                 child.adjacent.add(adj)
                 adj.adjacent.add(child)
                 break
-    list_tmp = tr.adjacent
+    dq = deque(tr.adjacent)
     tr.parent.childs.extend(list_tr)
     tr.parent.childs.remove(tr)
-    while list_tmp:
-        tr_tmp = list_tmp.pop()
+    while dq:
+        tr_tmp = dq.pop()
         if check_in_disc(pt, [plist[m] for m in tr_tmp.points]):
-            list_tmp = list_tmp.union(tr_tmp.adjacent)
+            for tri in tr_tmp.adjacent:
+                if tri not in dq:
+                    dq.append(tri)
             tr_to_swap, = [m for m in tr_tmp.adjacent if p in m.points]
             swap_tr(tr_tmp, tr_to_swap)
 
@@ -439,7 +442,7 @@ class Mesh(object):
         if ratio < 1:
             raise ValueError(f"The densities specified in {n_line} are too large for the boundary length {slen}")
         estep = modf(ratio)
-        if estep[0] > 0.5:  # add correction to l1 and l2 for better subdivision
+        if estep[0] > 0.5:  # add correction to l1 and l2 for get a better subdivision
             corr = 1 / 2 * (l1 + l2 - 2 * slen / (estep[1] + 1))
             l1 -= corr
             l2 -= corr

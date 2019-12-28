@@ -4,8 +4,7 @@ import importlib
 import module_var
 from MeshObjects.GeObjects import *
 from module_var import dispatcher
-from MeshAlg.smoothing_mesh import optmize_mesh_lsq
-from MeshAlg.chew_insert_algorithm import size_function  # temporary waiting to change
+from multiprocessing import Process, Queue
 
 matplotlib.use("TkAgg")
 
