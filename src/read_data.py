@@ -10,7 +10,7 @@ except ImportError:
 import sys
 
 import logging
-from MeshAlg.global_DT import dt_global
+from MeshAlg.global_DT import run_tri_mesh
 
 
 def read_file(meshfile, process):
@@ -34,7 +34,7 @@ def read_file(meshfile, process):
         sys.exit()
     except StopIteration as e:
         logging.info("############### END READ MESH FILE WITH SUCCESS   ###########################")
-        dt_global(module_var.gmesh, process)
+        run_tri_mesh(module_var.gmesh, process)
 
 
 def switch_case(fields, n_line, meshfile):

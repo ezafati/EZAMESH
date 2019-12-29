@@ -7,7 +7,7 @@ from meshutils import launch_processes, worker
 from module_var import dispatcher
 
 
-def dt_global(vmesh, process):
+def run_tri_mesh(vmesh, process):
     _module = importlib.import_module(f"MeshAlg.{dispatcher[vmesh.meshstrategy].module_name}")
     refinement_method = _module.__dict__[dispatcher[vmesh.meshstrategy].mesh_func]
     plist = vmesh.listpoint
@@ -57,4 +57,4 @@ def dt_global(vmesh, process):
             for index in range(len(params)):
                 params[index].value = cache_value[index]
         logging.info(f'MESH GENERATED WITH {len(plist)} POINTS')
-        #module_var.tree_refinement.plot_mesh(plist)
+        module_var.tree_refinement.plot_mesh(plist)

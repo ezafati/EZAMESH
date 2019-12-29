@@ -1,9 +1,10 @@
 import logging
-import sys, os.path
+import os.path
+import sys
 import time
 
 import psutil
-import meshutils
+
 # sys.path.append('/home/ezafati/mesh_project/src/')
 
 path1, *_ = os.path.split(os.path.abspath('./'))
