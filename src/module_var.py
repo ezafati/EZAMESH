@@ -4,6 +4,11 @@ from collections import namedtuple
 gmesh = Mesh()
 tree_refinement = None
 
-method_properties = namedtuple('method_properties', ('module_name', 'mesh_func'))
+method_properties = namedtuple('method_properties', ('module_name', 'mesh_func', 'init_params'))
 
-dispatcher = {'default': method_properties('chew_insert_algorithm', 'chew_add_point')}
+ini_val = [{'type': 'd', 'val': 0.0},
+           {'type': 'i', 'val': int(1e9)}]
+
+dispatcher = {'default': method_properties('chew_insert_algorithm', 'chew_add_point', ini_val)}
+
+

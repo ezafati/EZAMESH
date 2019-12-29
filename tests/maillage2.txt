@@ -1,6 +1,6 @@
 A = POINT 0 0
-B = POINT 1 0
-C = POINT 1 1
+B = POINT 3 0
+C = POINT 3 1
 D = POINT 0 1
 
 L1 = LINE A B 0.1 0.1

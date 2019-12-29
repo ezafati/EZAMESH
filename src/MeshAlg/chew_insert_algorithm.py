@@ -1,8 +1,6 @@
 """ Second Chew algorithm implementation
 Copyright (c) 2019-2020, E Zafati
  All rights reserved"""
-import time
-from multiprocessing import Process, Value
 
 import module_var
 from MeshObjects.GeObjects import *
@@ -93,7 +91,7 @@ def replace_vertex(p, index, tr, list_tr):
             replace_vertex(p, index, adj, list_tr)
 
 
-def chew_add_point(tree, plist, nl, task_queue, num):
+def chew_add_point(tree, plist, nl, task_queue, ratio, num):
     """Chew method to add a new point in the domain"""
     for p in range(len(tree.root.childs)):
         task_queue.put_nowait((is_well_shaped, {'kel': p}))

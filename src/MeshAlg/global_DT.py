@@ -1,13 +1,10 @@
-import time
-
-import matplotlib
 import importlib
+from multiprocessing import JoinableQueue, Value
 
 import module_var
 from MeshObjects.GeObjects import *
-from module_var import dispatcher
-from multiprocessing import Process, JoinableQueue, Value
 from meshutils import launch_processes, worker
+from module_var import dispatcher
 
 
 def dt_global(vmesh, process):
@@ -44,18 +41,20 @@ def dt_global(vmesh, process):
     del Tree
     count = 0
     if __name__ == 'MeshAlg.global_DT':
-        ratio = Value('d', 0.0, lock=False)
-        num = Value('i', len(module_var.tree_refinement.root.childs), lock=False)
+        params, cache_value = list(), list()
+        for param in dispatcher[vmesh.meshstrategy].init_params:
+            params.append(Value(param['type'], param['val'], lock=False))
+            cache_value.append(param['val'])
         while not module_var.tree_refinement.terminate:
             task_queue = JoinableQueue()
-            with launch_processes(task_queue, worker, ratio, num):
+            with launch_processes(task_queue, worker, *params):
                 if count % 10 == 0:
                     # logging.info(f'Memory infos: {process.memory_info()}')
                     # logging.info(f'CPU used percentage: {process.cpu_percent()}')
                     pass
-                refinement_method(module_var.tree_refinement, plist, nl, task_queue, num)
+                refinement_method(module_var.tree_refinement, plist, nl, task_queue, *params)
                 count += 1
-            num.value = len(module_var.tree_refinement.root.childs)
-            ratio.value = 0.0
+            for index in range(len(params)):
+                params[index].value = cache_value[index]
         logging.info(f'MESH GENERATED WITH {len(plist)} POINTS')
-        module_var.tree_refinement.plot_mesh(plist)
+        #module_var.tree_refinement.plot_mesh(plist)

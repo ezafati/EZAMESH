@@ -23,11 +23,13 @@ log = logging.getLogger('mesh_log')
 
 p = psutil.Process()
 logging.info(f'Current Process with pid {p.pid} with status {p.status()} launched by the user {p.username()}')
-from read_data import *
+from read_data import read_file
+
+os.nice(20)
 
 print('BEGIN OF THE PROGRAM')
 t1 = time.time()
-read_file("maillage5.txt", p)
+read_file("maillage3.txt", p)
 t2 = time.time()
 print(t2-t1)
 
