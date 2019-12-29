@@ -1,5 +1,6 @@
 import logging
 import sys, os.path
+import time
 
 import psutil
 import meshutils
@@ -25,6 +26,9 @@ logging.info(f'Current Process with pid {p.pid} with status {p.status()} launche
 from read_data import *
 
 print('BEGIN OF THE PROGRAM')
+t1 = time.time()
 read_file("maillage5.txt", p)
+t2 = time.time()
+print(t2-t1)
 
 logging.info(f' Process  {p.pid}  terminates: user CPU time {p.cpu_times().user}, system cpu time {p.cpu_times().system}')

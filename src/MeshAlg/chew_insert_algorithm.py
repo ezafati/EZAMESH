@@ -1,6 +1,7 @@
 """ Second Chew algorithm implementation
 Copyright (c) 2019-2020, E Zafati
  All rights reserved"""
+import time
 from multiprocessing import Process, Value
 
 import module_var
@@ -92,34 +93,19 @@ def replace_vertex(p, index, tr, list_tr):
             replace_vertex(p, index, adj, list_tr)
 
 
-def chew_add_point(tree, plist, nl):
+def chew_add_point(tree, plist, nl, task_queue, num):
     """Chew method to add a new point in the domain"""
-    list_process = []
-    sp = 4
-    step = Value('i', sp)
-    ratio = Value('d', 0.0)
-    num = Value('i', len(tree.root.childs))
-    if __name__ == 'MeshAlg.chew_insert_algorithm':
-        for ctr in range(sp):
-            start = Value('i', ctr)
-            list_process.append(Process(target=is_well_shaped, args=(step, start, ratio, num)))
-            list_process[ctr].start()
-            list_process[ctr].join()
-            list_process[ctr].terminate()
+    for p in range(len(tree.root.childs)):
+        task_queue.put_nowait((is_well_shaped_bak, (p,)))
+    task_queue.join()
     try:
         tr = tree.root.childs[num.value]
     except IndexError:
         tr = None
     if not tr:
-        list_process = []
-        nb = Value('i', nl)
-        if __name__ == 'MeshAlg.chew_insert_algorithm':
-            for ctr in range(sp):
-                start = Value('i', ctr)
-                list_process.append(Process(target=is_well_sized, args=(step, start, nb, ratio, num)))
-                list_process[ctr].start()
-                list_process[ctr].join()
-                list_process[ctr].terminate()
+        for p in range(len(tree.root.childs)):
+            task_queue.put_nowait((is_well_sized_bak, (p, nl)))
+        task_queue.join()
     try:
         tr = tree.root.childs[num.value]
     except IndexError:
@@ -288,3 +274,117 @@ def is_well_sized(step, start, nb, ratio, num):
                 ratio.value, num.value = ratio_, k
         except TypeError:
             pass
+
+
+def worker(task_que, ratio, num):
+    for func, args in iter(task_que.get, 'STOP'):
+        func(ratio, num, task_que, *args)
+
+
+def is_well_shaped_bak(ratio, num, que, k):
+    """This function check if the current triangle is well shaped with
+    respect to the previous tested one r_tr[1] """
+    plist = module_var.gmesh.listpoint
+    cst = 1. * sqrt(2)
+    tr = module_var.tree_refinement.root.childs[k]
+    list_tmp = [plist[p] for p in tr.points]
+    lmin = min([length_segment(p, q) for p, q in itertools.combinations(list_tmp, 2)])
+    radius = circumcircle_radius(tr, plist)
+    try:
+        test_ratio = radius / lmin
+        pt = circumcircle_center(tr, plist)
+        booli = find_segment(tr, pt, plist) or point_in_adjacent(tr, pt, plist)
+        if test_ratio >= cst and booli and radius > ratio.value:
+            ratio.value, num.value = radius, k
+    except TypeError:
+        pass
+    que.task_done()
+
+
+def is_well_sized_bak(ratio, num, que, k, nl):
+    """This function check if the current triangle is well shaped with
+    respect to the previous tested one ratio_tr[1] """
+    plist = module_var.gmesh.listpoint
+    tr = module_var.tree_refinement.root.childs[k]
+    radius = circumcircle_radius(tr, plist)
+    pt = circumcircle_center(tr, plist)
+    h = size_function(pt, plist, nl)
+    try:
+        booli = find_segment(tr, pt, plist) or point_in_adjacent(tr, pt, plist)
+        ratio_ = radius / h
+        if radius > h and booli and ratio_ > ratio.value:
+            ratio.value, num.value = ratio_, k
+    except TypeError:
+        pass
+    que.task_done()
+
+
+def chew_add_point_bak(tree, plist, nl):
+    """Chew method to add a new point in the domain"""
+    list_process = []
+    sp = 4
+    step = Value('i', sp)
+    ratio = Value('d', 0.0)
+    num = Value('i', len(tree.root.childs))
+    if __name__ == 'MeshAlg.chew_insert_algorithm':
+        for ctr in range(sp):
+            start = Value('i', ctr)
+            list_process.append(Process(target=is_well_shaped, args=(step, start, ratio, num)))
+            list_process[ctr].start()
+            list_process[ctr].join()
+            list_process[ctr].terminate()
+    try:
+        tr = tree.root.childs[num.value]
+    except IndexError:
+        tr = None
+    if not tr:
+        list_process = []
+        nb = Value('i', nl)
+        if __name__ == 'MeshAlg.chew_insert_algorithm':
+            for ctr in range(sp):
+                start = Value('i', ctr)
+                list_process.append(Process(target=is_well_sized, args=(step, start, nb, ratio, num)))
+                list_process[ctr].start()
+                list_process[ctr].join()
+                list_process[ctr].terminate()
+    try:
+        tr = tree.root.childs[num.value]
+    except IndexError:
+        tr = None
+    if tr:
+        pt = circumcircle_center(tr, plist)
+        if not point_in_adjacent(tr, pt, plist):
+            seg, tr1 = find_segment(tr, pt, plist)
+            pm = Point()
+            plist.append(pm)
+            seg = set(seg)
+            p1, *_ = [plist[p] for p in seg]
+            pm.x = 1 / 2 * sum([plist[q].x for q in seg])
+            pm.y = 1 / 2 * sum([plist[q].y for q in seg])
+            radius = length_segment(pm, p1)
+            list_tmp = collect_points(tr, seg, radius, pm, plist, nl)
+            index = len(plist) - 1
+            list_tr = insert_midpoint(index, tr1, seg)
+            if list_tmp:
+                for p in list_tmp:
+                    list_new_tris = set()
+                    list_tri_elim = enforce_segment(list_tr, index, p, plist)
+                    for tri in list_tri_elim:
+                        replace_vertex(p, index, tri, list_new_tris)
+                    for tri in list_tri_elim:
+                        tri.parent.childs.remove(tri)
+                        for adj in tri.adjacent:
+                            adj.adjacent.remove(tri)
+                    adj_triangles = [pl for pl in itertools.combinations(list_new_tris, 2) if
+                                     len(set(pl[0].points).intersection(pl[1].points)) > 1]
+                    for trk, trj in adj_triangles:
+                        if trk not in trj.adjacent:
+                            trk.adjacent.add(trj)
+                            trj.adjacent.add(trk)
+        else:
+            plist.append(pt)
+            adj = point_in_adjacent(tr, pt, plist)
+            insert_point(len(plist) - 1, plist, adj)
+    else:
+        tree.terminate = True
+        logging.info('PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE')

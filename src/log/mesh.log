@@ -1,948 +1,289 @@
-2019-12-25 20:16:55,127 INFO Current Process with pid 32301 with status running launched by the user ezafati
-2019-12-25 20:16:55,593 ERROR {'exception_type': "<class 'NameError'>", 'message': '[\'  File "/home/ezafati/mesh_project/meshproject/tests/read_test.py", line 28, in <module>\\n    read_file("maillage5.txt", p)\\n\']'}
-NoneType: None
-2019-12-25 20:19:22,161 INFO Current Process with pid 32333 with status running launched by the user ezafati
-2019-12-25 20:19:22,693 ERROR {'exception_type': "<class 'NameError'>", 'message': '[\'  File "/home/ezafati/mesh_project/meshproject/tests/read_test.py", line 28, in <module>\\n    read_file("maillage5.txt", p)\\n\']'}
-NoneType: None
-2019-12-25 20:23:03,384 INFO Current Process with pid 32380 with status running launched by the user ezafati
-2019-12-25 20:23:27,693 INFO Current Process with pid 32396 with status running launched by the user ezafati
-2019-12-25 20:24:07,388 INFO Current Process with pid 32419 with status running launched by the user ezafati
-2019-12-25 20:24:07,866 INFO B
-E
-G
-I
-N
- 
-O
-F
- 
-T
-H
-E
- 
-P
-R
-O
-G
-R
-A
-M
-2019-12-25 20:24:07,936 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-25 20:24:07,937 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
-2019-12-25 20:24:08,274 INFO Memory infos: pmem(rss=72781824, vms=475709440, shared=30150656, text=3883008, lib=0, data=120958976, dirty=0)
-2019-12-25 20:24:08,275 INFO CPU used percentage: 0.0
-2019-12-25 20:24:08,585 INFO Memory infos: pmem(rss=73244672, vms=480210944, shared=30187520, text=3883008, lib=0, data=121229312, dirty=0)
-2019-12-25 20:24:08,585 INFO CPU used percentage: 22.5
-2019-12-25 20:24:08,930 INFO Memory infos: pmem(rss=73281536, vms=480210944, shared=30187520, text=3883008, lib=0, data=121229312, dirty=0)
-2019-12-25 20:24:08,930 INFO CPU used percentage: 20.3
-2019-12-25 20:24:09,299 INFO Memory infos: pmem(rss=73297920, vms=480210944, shared=30187520, text=3883008, lib=0, data=121229312, dirty=0)
-2019-12-25 20:24:09,299 INFO CPU used percentage: 13.6
-2019-12-25 20:24:09,700 INFO Memory infos: pmem(rss=73322496, vms=480210944, shared=30187520, text=3883008, lib=0, data=121229312, dirty=0)
-2019-12-25 20:24:09,700 INFO CPU used percentage: 17.4
-2019-12-25 20:24:10,135 INFO Memory infos: pmem(rss=73342976, vms=480210944, shared=30187520, text=3883008, lib=0, data=121229312, dirty=0)
-2019-12-25 20:24:10,135 INFO CPU used percentage: 11.5
-2019-12-25 20:24:11,459 INFO Memory infos: pmem(rss=73375744, vms=480210944, shared=30187520, text=3883008, lib=0, data=121229312, dirty=0)
-2019-12-25 20:24:11,459 INFO CPU used percentage: 8.3
-2019-12-25 20:24:13,130 INFO Memory infos: pmem(rss=73396224, vms=480210944, shared=30187520, text=3883008, lib=0, data=121229312, dirty=0)
-2019-12-25 20:24:13,130 INFO CPU used percentage: 6.0
-2019-12-25 20:24:14,954 INFO Memory infos: pmem(rss=73416704, vms=480210944, shared=30187520, text=3883008, lib=0, data=121229312, dirty=0)
-2019-12-25 20:24:14,954 INFO CPU used percentage: 6.6
-2019-12-25 20:24:17,140 INFO Memory infos: pmem(rss=73433088, vms=480473088, shared=30187520, text=3883008, lib=0, data=121491456, dirty=0)
-2019-12-25 20:24:17,140 INFO CPU used percentage: 5.0
-2019-12-25 20:24:19,185 INFO Memory infos: pmem(rss=73453568, vms=480473088, shared=30187520, text=3883008, lib=0, data=121491456, dirty=0)
-2019-12-25 20:24:19,185 INFO CPU used percentage: 5.4
-2019-12-25 20:24:21,361 INFO Memory infos: pmem(rss=73469952, vms=480473088, shared=30187520, text=3883008, lib=0, data=121491456, dirty=0)
-2019-12-25 20:24:21,361 INFO CPU used percentage: 5.5
-2019-12-25 20:24:24,018 INFO Memory infos: pmem(rss=73490432, vms=480473088, shared=30187520, text=3883008, lib=0, data=121491456, dirty=0)
-2019-12-25 20:24:24,018 INFO CPU used percentage: 4.5
-2019-12-25 20:24:26,508 INFO Memory infos: pmem(rss=73515008, vms=480473088, shared=30187520, text=3883008, lib=0, data=121491456, dirty=0)
-2019-12-25 20:24:26,508 INFO CPU used percentage: 4.4
-2019-12-25 20:24:29,247 INFO Memory infos: pmem(rss=73535488, vms=480473088, shared=30187520, text=3883008, lib=0, data=121491456, dirty=0)
-2019-12-25 20:24:29,248 INFO CPU used percentage: 4.4
-2019-12-25 20:24:31,932 INFO Memory infos: pmem(rss=73551872, vms=480473088, shared=30187520, text=3883008, lib=0, data=121491456, dirty=0)
-2019-12-25 20:24:31,933 INFO CPU used percentage: 4.1
-2019-12-25 20:24:34,783 INFO Memory infos: pmem(rss=73572352, vms=480473088, shared=30187520, text=3883008, lib=0, data=121491456, dirty=0)
-2019-12-25 20:24:34,783 INFO CPU used percentage: 4.2
-2019-12-25 20:24:37,854 INFO Memory infos: pmem(rss=73592832, vms=480473088, shared=30187520, text=3883008, lib=0, data=121491456, dirty=0)
-2019-12-25 20:24:37,854 INFO CPU used percentage: 3.6
-2019-12-25 20:24:42,876 INFO Memory infos: pmem(rss=73605120, vms=480473088, shared=30187520, text=3883008, lib=0, data=121491456, dirty=0)
-2019-12-25 20:24:42,876 INFO CPU used percentage: 2.4
-2019-12-25 20:24:44,511 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-25 20:24:44,511 INFO MESH GENERATED WITH 281 POINTS
-2019-12-25 20:24:47,289 INFO  Process  32419  terminates: user CPU time 2.56, system cpu time 1.32
-2019-12-25 20:24:55,669 INFO Current Process with pid 1341 with status running launched by the user ezafati
-2019-12-25 20:24:56,169 INFO BEGIN OF THE PROGRAM
-2019-12-25 20:24:56,239 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-25 20:24:56,239 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
-2019-12-25 20:24:56,571 INFO Memory infos: pmem(rss=72585216, vms=475652096, shared=29929472, text=3883008, lib=0, data=120901632, dirty=0)
-2019-12-25 20:24:56,571 INFO CPU used percentage: 0.0
-2019-12-25 20:24:56,896 INFO Memory infos: pmem(rss=73023488, vms=480317440, shared=29966336, text=3883008, lib=0, data=121335808, dirty=0)
-2019-12-25 20:24:56,897 INFO CPU used percentage: 24.5
-2019-12-25 20:24:57,242 INFO Memory infos: pmem(rss=73056256, vms=480317440, shared=29966336, text=3883008, lib=0, data=121335808, dirty=0)
-2019-12-25 20:24:57,242 INFO CPU used percentage: 14.5
-2019-12-25 20:24:57,629 INFO Memory infos: pmem(rss=73080832, vms=480317440, shared=29966336, text=3883008, lib=0, data=121335808, dirty=0)
-2019-12-25 20:24:57,630 INFO CPU used percentage: 18.1
-2019-12-25 20:24:58,031 INFO Memory infos: pmem(rss=73101312, vms=480317440, shared=29966336, text=3883008, lib=0, data=121335808, dirty=0)
-2019-12-25 20:24:58,031 INFO CPU used percentage: 14.9
-2019-12-25 20:24:58,464 INFO Memory infos: pmem(rss=73121792, vms=480317440, shared=29966336, text=3883008, lib=0, data=121335808, dirty=0)
-2019-12-25 20:24:58,465 INFO CPU used percentage: 13.8
-2019-12-25 20:25:00,022 INFO Memory infos: pmem(rss=73150464, vms=480317440, shared=29966336, text=3883008, lib=0, data=121335808, dirty=0)
-2019-12-25 20:25:00,022 INFO CPU used percentage: 7.1
-2019-12-25 20:25:01,882 INFO Memory infos: pmem(rss=73175040, vms=480317440, shared=29966336, text=3883008, lib=0, data=121335808, dirty=0)
-2019-12-25 20:25:01,882 INFO CPU used percentage: 6.5
-2019-12-25 20:25:03,698 INFO Memory infos: pmem(rss=73187328, vms=480317440, shared=29966336, text=3883008, lib=0, data=121335808, dirty=0)
-2019-12-25 20:25:03,699 INFO CPU used percentage: 6.1
-2019-12-25 20:25:05,588 INFO Memory infos: pmem(rss=73203712, vms=480579584, shared=29966336, text=3883008, lib=0, data=121597952, dirty=0)
-2019-12-25 20:25:05,588 INFO CPU used percentage: 5.8
-2019-12-25 20:25:07,762 INFO Memory infos: pmem(rss=73232384, vms=480579584, shared=29966336, text=3883008, lib=0, data=121597952, dirty=0)
-2019-12-25 20:25:07,762 INFO CPU used percentage: 5.5
-2019-12-25 20:25:09,996 INFO Memory infos: pmem(rss=73252864, vms=480579584, shared=29966336, text=3883008, lib=0, data=121597952, dirty=0)
-2019-12-25 20:25:09,996 INFO CPU used percentage: 4.9
-2019-12-25 20:25:12,347 INFO Memory infos: pmem(rss=73265152, vms=480579584, shared=29966336, text=3883008, lib=0, data=121597952, dirty=0)
-2019-12-25 20:25:12,347 INFO CPU used percentage: 5.1
-2019-12-25 20:25:14,961 INFO Memory infos: pmem(rss=73297920, vms=480579584, shared=29966336, text=3883008, lib=0, data=121597952, dirty=0)
-2019-12-25 20:25:14,961 INFO CPU used percentage: 4.6
-2019-12-25 20:25:17,662 INFO Memory infos: pmem(rss=73310208, vms=480579584, shared=29966336, text=3883008, lib=0, data=121597952, dirty=0)
-2019-12-25 20:25:17,663 INFO CPU used percentage: 4.1
-2019-12-25 20:25:21,272 INFO Memory infos: pmem(rss=73334784, vms=480579584, shared=29966336, text=3883008, lib=0, data=121597952, dirty=0)
-2019-12-25 20:25:21,272 INFO CPU used percentage: 3.0
-2019-12-25 20:25:24,169 INFO Memory infos: pmem(rss=73351168, vms=480579584, shared=29966336, text=3883008, lib=0, data=121597952, dirty=0)
-2019-12-25 20:25:24,170 INFO CPU used percentage: 4.5
-2019-12-25 20:25:27,213 INFO Memory infos: pmem(rss=73371648, vms=480579584, shared=29966336, text=3883008, lib=0, data=121597952, dirty=0)
-2019-12-25 20:25:27,213 INFO CPU used percentage: 3.6
-2019-12-25 20:25:30,366 INFO Memory infos: pmem(rss=73383936, vms=480579584, shared=29966336, text=3883008, lib=0, data=121597952, dirty=0)
-2019-12-25 20:25:30,366 INFO CPU used percentage: 3.5
-2019-12-25 20:25:32,216 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-25 20:25:32,216 INFO MESH GENERATED WITH 281 POINTS
-2019-12-25 20:25:58,733 INFO  Process  1341  terminates: user CPU time 2.58, system cpu time 1.45
-2019-12-25 20:26:07,558 INFO Current Process with pid 3106 with status running launched by the user ezafati
-2019-12-25 20:26:08,002 INFO BEGIN OF THE PROGRAM
-2019-12-25 20:26:08,068 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-25 20:26:08,068 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
-2019-12-25 20:26:08,375 INFO Memory infos: pmem(rss=72519680, vms=475701248, shared=29888512, text=3883008, lib=0, data=120950784, dirty=0)
-2019-12-25 20:26:08,376 INFO CPU used percentage: 0.0
-2019-12-25 20:26:08,681 INFO Memory infos: pmem(rss=72982528, vms=480206848, shared=29925376, text=3883008, lib=0, data=121225216, dirty=0)
-2019-12-25 20:26:08,681 INFO CPU used percentage: 22.9
-2019-12-25 20:26:09,012 INFO Memory infos: pmem(rss=73011200, vms=480206848, shared=29925376, text=3883008, lib=0, data=121225216, dirty=0)
-2019-12-25 20:26:09,013 INFO CPU used percentage: 18.1
-2019-12-25 20:26:09,408 INFO Memory infos: pmem(rss=73031680, vms=480206848, shared=29925376, text=3883008, lib=0, data=121225216, dirty=0)
-2019-12-25 20:26:09,408 INFO CPU used percentage: 15.2
-2019-12-25 20:26:09,821 INFO Memory infos: pmem(rss=73056256, vms=480206848, shared=29925376, text=3883008, lib=0, data=121225216, dirty=0)
-2019-12-25 20:26:09,821 INFO CPU used percentage: 14.5
-2019-12-25 20:26:10,260 INFO Memory infos: pmem(rss=73080832, vms=480206848, shared=29925376, text=3883008, lib=0, data=121225216, dirty=0)
-2019-12-25 20:26:10,260 INFO CPU used percentage: 13.7
-2019-12-25 20:26:11,598 INFO Memory infos: pmem(rss=73109504, vms=480206848, shared=29925376, text=3883008, lib=0, data=121225216, dirty=0)
-2019-12-25 20:26:11,598 INFO CPU used percentage: 6.7
-2019-12-25 20:26:13,327 INFO Memory infos: pmem(rss=73134080, vms=480206848, shared=29925376, text=3883008, lib=0, data=121225216, dirty=0)
-2019-12-25 20:26:13,328 INFO CPU used percentage: 6.9
-2019-12-25 20:26:15,197 INFO Memory infos: pmem(rss=73146368, vms=480206848, shared=29925376, text=3883008, lib=0, data=121225216, dirty=0)
-2019-12-25 20:26:15,197 INFO CPU used percentage: 5.9
-2019-12-25 20:26:17,389 INFO Memory infos: pmem(rss=73166848, vms=480206848, shared=29925376, text=3883008, lib=0, data=121225216, dirty=0)
-2019-12-25 20:26:17,390 INFO CPU used percentage: 5.5
-2019-12-25 20:26:19,791 INFO Memory infos: pmem(rss=73191424, vms=480468992, shared=29925376, text=3883008, lib=0, data=121487360, dirty=0)
-2019-12-25 20:26:19,791 INFO CPU used percentage: 5.0
-2019-12-25 20:26:22,067 INFO Memory infos: pmem(rss=73216000, vms=480468992, shared=29925376, text=3883008, lib=0, data=121487360, dirty=0)
-2019-12-25 20:26:22,067 INFO CPU used percentage: 5.3
-2019-12-25 20:26:24,435 INFO Memory infos: pmem(rss=73232384, vms=480468992, shared=29925376, text=3883008, lib=0, data=121487360, dirty=0)
-2019-12-25 20:26:24,435 INFO CPU used percentage: 4.6
-2019-12-25 20:26:26,912 INFO Memory infos: pmem(rss=73256960, vms=480468992, shared=29925376, text=3883008, lib=0, data=121487360, dirty=0)
-2019-12-25 20:26:26,912 INFO CPU used percentage: 4.0
-2019-12-25 20:26:29,548 INFO Memory infos: pmem(rss=73277440, vms=480468992, shared=29925376, text=3883008, lib=0, data=121487360, dirty=0)
-2019-12-25 20:26:29,549 INFO CPU used percentage: 4.6
-2019-12-25 20:26:32,415 INFO Memory infos: pmem(rss=73297920, vms=480468992, shared=29925376, text=3883008, lib=0, data=121487360, dirty=0)
-2019-12-25 20:26:32,415 INFO CPU used percentage: 3.5
-2019-12-25 20:26:35,439 INFO Memory infos: pmem(rss=73318400, vms=480468992, shared=29925376, text=3883008, lib=0, data=121487360, dirty=0)
-2019-12-25 20:26:35,440 INFO CPU used percentage: 4.0
-2019-12-25 20:26:38,675 INFO Memory infos: pmem(rss=73334784, vms=480468992, shared=29925376, text=3883008, lib=0, data=121487360, dirty=0)
-2019-12-25 20:26:38,676 INFO CPU used percentage: 3.4
-2019-12-25 20:26:42,285 INFO Memory infos: pmem(rss=73351168, vms=480468992, shared=29925376, text=3883008, lib=0, data=121487360, dirty=0)
-2019-12-25 20:26:42,286 INFO CPU used percentage: 3.3
-2019-12-25 20:26:43,952 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-25 20:26:43,952 INFO MESH GENERATED WITH 281 POINTS
-2019-12-25 20:26:46,761 INFO  Process  3106  terminates: user CPU time 2.61, system cpu time 1.31
-2019-12-25 20:38:06,690 INFO Current Process with pid 4655 with status running launched by the user ezafati
-2019-12-25 20:38:07,142 INFO BEGIN OF THE PROGRAM
-2019-12-25 20:38:07,209 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-25 20:38:07,210 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
-2019-12-25 20:38:07,520 INFO Memory infos: pmem(rss=72556544, vms=475701248, shared=29945856, text=3883008, lib=0, data=120950784, dirty=0)
-2019-12-25 20:38:07,521 INFO CPU used percentage: 0.0
-2019-12-25 20:38:07,840 INFO Memory infos: pmem(rss=73039872, vms=480202752, shared=29982720, text=3883008, lib=0, data=121221120, dirty=0)
-2019-12-25 20:38:07,840 INFO CPU used percentage: 25.1
-2019-12-25 20:38:08,247 INFO Memory infos: pmem(rss=73072640, vms=480202752, shared=29982720, text=3883008, lib=0, data=121221120, dirty=0)
-2019-12-25 20:38:08,248 INFO CPU used percentage: 14.7
-2019-12-25 20:38:08,695 INFO Memory infos: pmem(rss=73097216, vms=480202752, shared=29982720, text=3883008, lib=0, data=121221120, dirty=0)
-2019-12-25 20:38:08,695 INFO CPU used percentage: 17.9
-2019-12-25 20:38:09,156 INFO Memory infos: pmem(rss=73117696, vms=480202752, shared=29982720, text=3883008, lib=0, data=121221120, dirty=0)
-2019-12-25 20:38:09,157 INFO CPU used percentage: 10.8
-2019-12-25 20:38:09,725 INFO Memory infos: pmem(rss=73142272, vms=480202752, shared=29982720, text=3883008, lib=0, data=121221120, dirty=0)
-2019-12-25 20:38:09,725 INFO CPU used percentage: 12.3
-2019-12-25 20:38:11,274 INFO Memory infos: pmem(rss=73162752, vms=480202752, shared=29982720, text=3883008, lib=0, data=121221120, dirty=0)
-2019-12-25 20:38:11,274 INFO CPU used percentage: 7.1
-2019-12-25 20:38:13,111 INFO Memory infos: pmem(rss=73191424, vms=480202752, shared=29982720, text=3883008, lib=0, data=121221120, dirty=0)
-2019-12-25 20:38:13,111 INFO CPU used percentage: 6.0
-2019-12-25 20:38:14,942 INFO Memory infos: pmem(rss=73203712, vms=480202752, shared=29982720, text=3883008, lib=0, data=121221120, dirty=0)
-2019-12-25 20:38:14,943 INFO CPU used percentage: 6.0
-2019-12-25 20:38:16,924 INFO Memory infos: pmem(rss=73220096, vms=480464896, shared=29982720, text=3883008, lib=0, data=121483264, dirty=0)
-2019-12-25 20:38:16,924 INFO CPU used percentage: 5.6
-2019-12-25 20:38:19,161 INFO Memory infos: pmem(rss=73248768, vms=480464896, shared=29982720, text=3883008, lib=0, data=121483264, dirty=0)
-2019-12-25 20:38:19,161 INFO CPU used percentage: 4.9
-2019-12-25 20:38:21,486 INFO Memory infos: pmem(rss=73269248, vms=480464896, shared=29982720, text=3883008, lib=0, data=121483264, dirty=0)
-2019-12-25 20:38:21,486 INFO CPU used percentage: 5.2
-2019-12-25 20:38:23,948 INFO Memory infos: pmem(rss=73285632, vms=480464896, shared=29982720, text=3883008, lib=0, data=121483264, dirty=0)
-2019-12-25 20:38:23,949 INFO CPU used percentage: 4.9
-2019-12-25 20:38:26,647 INFO Memory infos: pmem(rss=73302016, vms=480464896, shared=29982720, text=3883008, lib=0, data=121483264, dirty=0)
-2019-12-25 20:38:26,647 INFO CPU used percentage: 4.8
-2019-12-25 20:38:29,387 INFO Memory infos: pmem(rss=73330688, vms=480464896, shared=29982720, text=3883008, lib=0, data=121483264, dirty=0)
-2019-12-25 20:38:29,388 INFO CPU used percentage: 4.4
-2019-12-25 20:38:32,730 INFO Memory infos: pmem(rss=73351168, vms=480464896, shared=29982720, text=3883008, lib=0, data=121483264, dirty=0)
-2019-12-25 20:38:32,730 INFO CPU used percentage: 3.3
-2019-12-25 20:38:35,659 INFO Memory infos: pmem(rss=73367552, vms=480464896, shared=29982720, text=3883008, lib=0, data=121483264, dirty=0)
-2019-12-25 20:38:35,659 INFO CPU used percentage: 4.4
-2019-12-25 20:38:38,885 INFO Memory infos: pmem(rss=73392128, vms=480464896, shared=29982720, text=3883008, lib=0, data=121483264, dirty=0)
-2019-12-25 20:38:38,885 INFO CPU used percentage: 3.7
-2019-12-25 20:38:43,856 INFO Memory infos: pmem(rss=73404416, vms=480464896, shared=29982720, text=3883008, lib=0, data=121483264, dirty=0)
-2019-12-25 20:38:43,856 INFO CPU used percentage: 2.0
-2019-12-25 20:38:45,495 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-25 20:38:45,495 INFO MESH GENERATED WITH 281 POINTS
-2019-12-25 20:38:48,307 INFO  Process  4655  terminates: user CPU time 2.77, system cpu time 1.3
-2019-12-25 20:41:04,033 INFO Current Process with pid 5991 with status running launched by the user ezafati
-2019-12-25 20:41:04,495 INFO True
-2019-12-25 20:41:04,495 INFO BEGIN OF THE PROGRAM
-2019-12-25 20:41:04,495 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-25 20:41:04,495 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-25 20:41:04,549 INFO Memory infos: pmem(rss=72237056, vms=476102656, shared=29102080, text=3883008, lib=0, data=121352192, dirty=0)
-2019-12-25 20:41:04,549 INFO CPU used percentage: 0.0
-2019-12-25 20:41:04,740 INFO Memory infos: pmem(rss=72617984, vms=480342016, shared=29454336, text=3883008, lib=0, data=121360384, dirty=0)
-2019-12-25 20:41:04,740 INFO CPU used percentage: 36.6
-2019-12-25 20:41:04,991 INFO Memory infos: pmem(rss=72617984, vms=480342016, shared=29454336, text=3883008, lib=0, data=121360384, dirty=0)
-2019-12-25 20:41:04,991 INFO CPU used percentage: 23.9
-2019-12-25 20:41:05,403 INFO Memory infos: pmem(rss=72617984, vms=480342016, shared=29454336, text=3883008, lib=0, data=121360384, dirty=0)
-2019-12-25 20:41:05,403 INFO CPU used percentage: 24.3
-2019-12-25 20:41:05,845 INFO Memory infos: pmem(rss=72617984, vms=480342016, shared=29454336, text=3883008, lib=0, data=121360384, dirty=0)
-2019-12-25 20:41:05,845 INFO CPU used percentage: 24.9
-2019-12-25 20:41:06,029 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-25 20:41:06,029 INFO MESH GENERATED WITH 83 POINTS
-2019-12-25 20:41:08,564 INFO  Process  5991  terminates: user CPU time 1.03, system cpu time 0.43
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        2019-12-26 11:03:21,211 INFO Current Process with pid 3598 with status running launched by the user ezafati
-2019-12-26 11:03:22,443 INFO BEGIN OF THE PROGRAM
-2019-12-26 11:03:22,444 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 11:03:22,444 INFO DOMAIN WITH 64 POINTS IN BOUNDARY
-2019-12-26 11:03:22,543 INFO Memory infos: pmem(rss=71294976, vms=475652096, shared=28672000, text=3883008, lib=0, data=120901632, dirty=0)
-2019-12-26 11:03:22,543 INFO CPU used percentage: 0.0
-2019-12-26 11:03:22,768 INFO Memory infos: pmem(rss=71716864, vms=480051200, shared=28774400, text=3883008, lib=0, data=121069568, dirty=0)
-2019-12-26 11:03:22,768 INFO CPU used percentage: 35.6
-2019-12-26 11:03:22,960 INFO Memory infos: pmem(rss=71737344, vms=480051200, shared=28774400, text=3883008, lib=0, data=121069568, dirty=0)
-2019-12-26 11:03:22,960 INFO CPU used percentage: 26.1
-2019-12-26 11:03:23,162 INFO Memory infos: pmem(rss=71766016, vms=480313344, shared=28774400, text=3883008, lib=0, data=121331712, dirty=0)
-2019-12-26 11:03:23,162 INFO CPU used percentage: 24.7
-2019-12-26 11:03:23,681 INFO Memory infos: pmem(rss=71790592, vms=480313344, shared=28774400, text=3883008, lib=0, data=121331712, dirty=0)
-2019-12-26 11:03:23,681 INFO CPU used percentage: 19.3
-2019-12-26 11:03:24,266 INFO Memory infos: pmem(rss=71819264, vms=480313344, shared=28774400, text=3883008, lib=0, data=121331712, dirty=0)
-2019-12-26 11:03:24,266 INFO CPU used percentage: 17.1
-2019-12-26 11:03:24,943 INFO Memory infos: pmem(rss=71839744, vms=480313344, shared=28774400, text=3883008, lib=0, data=121331712, dirty=0)
-2019-12-26 11:03:24,944 INFO CPU used percentage: 16.2
-2019-12-26 11:03:25,638 INFO Memory infos: pmem(rss=71856128, vms=480313344, shared=28774400, text=3883008, lib=0, data=121331712, dirty=0)
-2019-12-26 11:03:25,638 INFO CPU used percentage: 14.4
-2019-12-26 11:03:26,549 INFO Memory infos: pmem(rss=71876608, vms=480313344, shared=28774400, text=3883008, lib=0, data=121331712, dirty=0)
-2019-12-26 11:03:26,550 INFO CPU used percentage: 16.5
-2019-12-26 11:03:27,432 INFO Memory infos: pmem(rss=71897088, vms=480313344, shared=28774400, text=3883008, lib=0, data=121331712, dirty=0)
-2019-12-26 11:03:27,432 INFO CPU used percentage: 13.6
-2019-12-26 11:03:28,374 INFO Memory infos: pmem(rss=71917568, vms=480313344, shared=28774400, text=3883008, lib=0, data=121331712, dirty=0)
-2019-12-26 11:03:28,374 INFO CPU used percentage: 12.7
-2019-12-26 11:03:29,314 INFO Memory infos: pmem(rss=71929856, vms=480313344, shared=28774400, text=3883008, lib=0, data=121331712, dirty=0)
-2019-12-26 11:03:29,315 INFO CPU used percentage: 13.8
-2019-12-26 11:03:30,322 INFO Memory infos: pmem(rss=71950336, vms=480313344, shared=28774400, text=3883008, lib=0, data=121331712, dirty=0)
-2019-12-26 11:03:30,322 INFO CPU used percentage: 11.9
-2019-12-26 11:03:31,357 INFO Memory infos: pmem(rss=71974912, vms=480313344, shared=28774400, text=3883008, lib=0, data=121331712, dirty=0)
-2019-12-26 11:03:31,357 INFO CPU used percentage: 9.7
-2019-12-26 11:03:32,434 INFO Memory infos: pmem(rss=71991296, vms=480313344, shared=28774400, text=3883008, lib=0, data=121331712, dirty=0)
-2019-12-26 11:03:32,434 INFO CPU used percentage: 11.1
-2019-12-26 11:03:33,559 INFO Memory infos: pmem(rss=72007680, vms=480575488, shared=28774400, text=3883008, lib=0, data=121593856, dirty=0)
-2019-12-26 11:03:33,559 INFO CPU used percentage: 10.7
-2019-12-26 11:03:34,721 INFO Memory infos: pmem(rss=72028160, vms=480575488, shared=28774400, text=3883008, lib=0, data=121593856, dirty=0)
-2019-12-26 11:03:34,721 INFO CPU used percentage: 10.3
-2019-12-26 11:03:35,927 INFO Memory infos: pmem(rss=72044544, vms=480575488, shared=28774400, text=3883008, lib=0, data=121593856, dirty=0)
-2019-12-26 11:03:35,928 INFO CPU used percentage: 9.9
-2019-12-26 11:03:37,184 INFO Memory infos: pmem(rss=72065024, vms=480575488, shared=28774400, text=3883008, lib=0, data=121593856, dirty=0)
-2019-12-26 11:03:37,185 INFO CPU used percentage: 8.8
-2019-12-26 11:03:38,470 INFO Memory infos: pmem(rss=72089600, vms=480575488, shared=28774400, text=3883008, lib=0, data=121593856, dirty=0)
-2019-12-26 11:03:38,470 INFO CPU used percentage: 8.6
-2019-12-26 11:03:39,812 INFO Memory infos: pmem(rss=72101888, vms=480575488, shared=28774400, text=3883008, lib=0, data=121593856, dirty=0)
-2019-12-26 11:03:39,813 INFO CPU used percentage: 8.9
-2019-12-26 11:03:41,207 INFO Memory infos: pmem(rss=72122368, vms=480575488, shared=28774400, text=3883008, lib=0, data=121593856, dirty=0)
-2019-12-26 11:03:41,207 INFO CPU used percentage: 9.3
-2019-12-26 11:03:42,664 INFO Memory infos: pmem(rss=72146944, vms=480575488, shared=28774400, text=3883008, lib=0, data=121593856, dirty=0)
-2019-12-26 11:03:42,665 INFO CPU used percentage: 7.5
-2019-12-26 11:03:44,159 INFO Memory infos: pmem(rss=72163328, vms=480575488, shared=28774400, text=3883008, lib=0, data=121593856, dirty=0)
-2019-12-26 11:03:44,160 INFO CPU used percentage: 8.0
-2019-12-26 11:03:45,705 INFO Memory infos: pmem(rss=72183808, vms=480575488, shared=28774400, text=3883008, lib=0, data=121593856, dirty=0)
-2019-12-26 11:03:45,706 INFO CPU used percentage: 7.8
-2019-12-26 11:03:47,278 INFO Memory infos: pmem(rss=72200192, vms=480575488, shared=28774400, text=3883008, lib=0, data=121593856, dirty=0)
-2019-12-26 11:03:47,279 INFO CPU used percentage: 7.6
-2019-12-26 11:03:48,916 INFO Memory infos: pmem(rss=72224768, vms=480575488, shared=28774400, text=3883008, lib=0, data=121593856, dirty=0)
-2019-12-26 11:03:48,917 INFO CPU used percentage: 7.9
-2019-12-26 11:03:50,603 INFO Memory infos: pmem(rss=72241152, vms=480575488, shared=28774400, text=3883008, lib=0, data=121593856, dirty=0)
-2019-12-26 11:03:50,603 INFO CPU used percentage: 6.5
-2019-12-26 11:03:52,334 INFO Memory infos: pmem(rss=72261632, vms=480575488, shared=28774400, text=3883008, lib=0, data=121593856, dirty=0)
-2019-12-26 11:03:52,335 INFO CPU used percentage: 6.9
-2019-12-26 11:03:54,123 INFO Memory infos: pmem(rss=72286208, vms=480837632, shared=28774400, text=3883008, lib=0, data=121856000, dirty=0)
-2019-12-26 11:03:54,124 INFO CPU used percentage: 6.7
-2019-12-26 11:03:56,083 INFO Memory infos: pmem(rss=72306688, vms=480837632, shared=28774400, text=3883008, lib=0, data=121856000, dirty=0)
-2019-12-26 11:03:56,084 INFO CPU used percentage: 5.6
-2019-12-26 11:03:58,127 INFO Memory infos: pmem(rss=72318976, vms=480837632, shared=28774400, text=3883008, lib=0, data=121856000, dirty=0)
-2019-12-26 11:03:58,128 INFO CPU used percentage: 6.4
-2019-12-26 11:04:01,888 INFO Memory infos: pmem(rss=72343552, vms=480837632, shared=28774400, text=3883008, lib=0, data=121856000, dirty=0)
-2019-12-26 11:04:01,889 INFO CPU used percentage: 3.5
-2019-12-26 11:04:03,979 INFO Memory infos: pmem(rss=72355840, vms=480837632, shared=28774400, text=3883008, lib=0, data=121856000, dirty=0)
-2019-12-26 11:04:03,980 INFO CPU used percentage: 6.2
-2019-12-26 11:04:06,071 INFO Memory infos: pmem(rss=72376320, vms=480837632, shared=28774400, text=3883008, lib=0, data=121856000, dirty=0)
-2019-12-26 11:04:06,071 INFO CPU used percentage: 5.3
-2019-12-26 11:04:08,229 INFO Memory infos: pmem(rss=72392704, vms=480837632, shared=28774400, text=3883008, lib=0, data=121856000, dirty=0)
-2019-12-26 11:04:08,229 INFO CPU used percentage: 5.6
-2019-12-26 11:04:10,403 INFO Memory infos: pmem(rss=72404992, vms=480837632, shared=28774400, text=3883008, lib=0, data=121856000, dirty=0)
-2019-12-26 11:04:10,403 INFO CPU used percentage: 5.5
-2019-12-26 11:04:12,758 INFO Memory infos: pmem(rss=72433664, vms=480837632, shared=28774400, text=3883008, lib=0, data=121856000, dirty=0)
-2019-12-26 11:04:12,759 INFO CPU used percentage: 5.1
-2019-12-26 11:04:14,979 INFO Memory infos: pmem(rss=72454144, vms=480837632, shared=28774400, text=3883008, lib=0, data=121856000, dirty=0)
-2019-12-26 11:04:14,979 INFO CPU used percentage: 5.9
-2019-12-26 11:04:17,256 INFO Memory infos: pmem(rss=72482816, vms=480837632, shared=28774400, text=3883008, lib=0, data=121856000, dirty=0)
-2019-12-26 11:04:17,256 INFO CPU used percentage: 5.3
-2019-12-26 11:04:20,539 INFO Memory infos: pmem(rss=72499200, vms=480837632, shared=28774400, text=3883008, lib=0, data=121856000, dirty=0)
-2019-12-26 11:04:20,539 INFO CPU used percentage: 4.0
-2019-12-26 11:04:23,696 INFO Memory infos: pmem(rss=72515584, vms=480837632, shared=28774400, text=3883008, lib=0, data=121856000, dirty=0)
-2019-12-26 11:04:23,697 INFO CPU used percentage: 3.8
-2019-12-26 11:04:26,320 INFO Memory infos: pmem(rss=72544256, vms=481099776, shared=28774400, text=3883008, lib=0, data=122118144, dirty=0)
-2019-12-26 11:04:26,320 INFO CPU used percentage: 5.0
-2019-12-26 11:04:29,162 INFO Memory infos: pmem(rss=72560640, vms=481099776, shared=28774400, text=3883008, lib=0, data=122118144, dirty=0)
-2019-12-26 11:04:29,162 INFO CPU used percentage: 4.6
-2019-12-26 11:04:31,619 INFO Memory infos: pmem(rss=72577024, vms=481099776, shared=28774400, text=3883008, lib=0, data=122118144, dirty=0)
-2019-12-26 11:04:31,620 INFO CPU used percentage: 4.9
-2019-12-26 11:04:34,188 INFO Memory infos: pmem(rss=72597504, vms=481099776, shared=28774400, text=3883008, lib=0, data=122118144, dirty=0)
-2019-12-26 11:04:34,188 INFO CPU used percentage: 3.9
-2019-12-26 11:04:36,798 INFO Memory infos: pmem(rss=72613888, vms=481099776, shared=28774400, text=3883008, lib=0, data=122118144, dirty=0)
-2019-12-26 11:04:36,798 INFO CPU used percentage: 4.6
-2019-12-26 11:04:39,017 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 11:04:39,018 INFO MESH GENERATED WITH 531 POINTS
-2019-12-26 11:05:56,934 INFO  Process  3598  terminates: user CPU time 9.24, system cpu time 5.16
-2019-12-26 11:05:58,843 INFO Current Process with pid 7272 with status running launched by the user ezafati
-2019-12-26 11:06:00,492 INFO BEGIN OF THE PROGRAM
-2019-12-26 11:06:00,494 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 11:06:00,494 INFO DOMAIN WITH 64 POINTS IN BOUNDARY
-2019-12-26 11:06:17,847 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 11:06:17,851 INFO MESH GENERATED WITH 239 POINTS
-2019-12-26 11:06:54,215 INFO  Process  7272  terminates: user CPU time 2.83, system cpu time 1.68
-2019-12-26 11:07:11,536 INFO Current Process with pid 8587 with status running launched by the user ezafati
-2019-12-26 11:07:12,201 INFO BEGIN OF THE PROGRAM
-2019-12-26 11:07:12,202 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 11:07:12,202 INFO DOMAIN WITH 65 POINTS IN BOUNDARY
-2019-12-26 11:07:25,926 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 11:07:25,926 INFO MESH GENERATED WITH 236 POINTS
-2019-12-26 12:14:57,905 INFO  Process  8587  terminates: user CPU time 3.55, system cpu time 1.86
-2019-12-26 12:15:06,048 INFO Current Process with pid 9956 with status running launched by the user ezafati
-2019-12-26 12:15:06,693 INFO BEGIN OF THE PROGRAM
-2019-12-26 12:15:06,708 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 12:15:06,712 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 12:15:07,997 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 12:15:07,997 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 12:15:17,181 INFO  Process  9956  terminates: user CPU time 1.29, system cpu time 0.62
-2019-12-26 12:36:38,678 INFO Current Process with pid 10287 with status running launched by the user ezafati
-2019-12-26 12:36:40,006 INFO BEGIN OF THE PROGRAM
-2019-12-26 12:36:40,007 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 12:36:40,007 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 12:36:41,243 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 12:36:41,243 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 12:36:43,587 INFO  Process  10287  terminates: user CPU time 0.98, system cpu time 0.32
-2019-12-26 12:37:12,756 INFO Current Process with pid 10532 with status running launched by the user ezafati
-2019-12-26 12:37:13,916 INFO BEGIN OF THE PROGRAM
-2019-12-26 12:37:13,916 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 12:37:13,916 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 12:37:15,114 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 12:37:15,114 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 12:37:18,041 INFO  Process  10532  terminates: user CPU time 1.09, system cpu time 0.39
-2019-12-26 12:37:28,017 INFO Current Process with pid 10768 with status running launched by the user ezafati
-2019-12-26 12:37:29,377 INFO BEGIN OF THE PROGRAM
-2019-12-26 12:37:29,377 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 12:37:29,385 ERROR {'exception_type': "<class 'KeyError'>", 'message': '[\'  File "/home/ezafati/mesh_project/meshproject/tests/read_test.py", line 28, in <module>\\n    read_file("maillage2.txt", p)\\n\', \'  File "/home/ezafati/mesh_project/meshproject/src/read_data.py", line 37, in read_file\\n    dt_global(module_var.gmesh, process)\\n\', \'  File "/home/ezafati/mesh_project/meshproject/src/MeshAlg/global_DT.py", line 14, in dt_global\\n    refinement_method = _module.__dict__[dispatcher[vmesh.meshstrategy][1]]\\n\']'}
-NoneType: None
-2019-12-26 12:39:42,858 INFO Current Process with pid 10794 with status running launched by the user ezafati
-2019-12-26 12:39:43,401 INFO BEGIN OF THE PROGRAM
-2019-12-26 12:39:43,402 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 12:39:43,402 ERROR {'exception_type': "<class 'KeyError'>", 'message': '[\'  File "/home/ezafati/mesh_project/meshproject/tests/read_test.py", line 28, in <module>\\n    read_file("maillage2.txt", p)\\n\']'}
-NoneType: None
-2019-12-26 15:16:24,308 INFO Current Process with pid 2865 with status running launched by the user ezafati
-2019-12-26 15:16:27,091 INFO BEGIN OF THE PROGRAM
-2019-12-26 15:16:27,100 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 15:16:27,100 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 15:16:30,917 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 15:16:30,918 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 15:17:04,493 INFO  Process  2865  terminates: user CPU time 2.63, system cpu time 1.24
-2019-12-26 15:17:20,162 INFO Current Process with pid 3111 with status running launched by the user ezafati
-2019-12-26 15:17:21,552 INFO BEGIN OF THE PROGRAM
-2019-12-26 15:17:21,554 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 15:17:21,555 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 15:17:25,072 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 15:17:25,073 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 15:17:32,451 INFO  Process  3111  terminates: user CPU time 2.54, system cpu time 0.95
-2019-12-26 15:18:34,093 INFO Current Process with pid 3363 with status running launched by the user ezafati
-2019-12-26 15:18:35,312 INFO BEGIN OF THE PROGRAM
-2019-12-26 15:18:35,313 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 15:18:35,313 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 15:18:38,859 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 15:18:38,860 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 15:18:42,601 INFO  Process  3363  terminates: user CPU time 2.32, system cpu time 0.79
-2019-12-26 15:19:37,939 INFO Current Process with pid 3647 with status running launched by the user ezafati
-2019-12-26 15:19:39,994 INFO BEGIN OF THE PROGRAM
-2019-12-26 15:19:39,995 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 15:19:39,995 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 15:19:49,133 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 15:19:49,135 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 15:19:54,851 INFO  Process  3647  terminates: user CPU time 2.59, system cpu time 1.23
-2019-12-26 15:44:33,403 INFO Current Process with pid 4477 with status running launched by the user ezafati
-2019-12-26 15:44:34,224 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 15:44:34,224 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 15:44:37,245 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 15:44:37,246 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 15:46:06,380 INFO Current Process with pid 4718 with status running launched by the user ezafati
-2019-12-26 15:46:07,295 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 15:46:07,296 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 15:46:10,627 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 15:46:10,628 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 15:46:55,420 INFO Current Process with pid 4961 with status running launched by the user ezafati
-2019-12-26 15:46:56,250 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 15:46:56,251 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 15:46:59,809 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 15:46:59,811 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 15:49:27,463 INFO Current Process with pid 5215 with status running launched by the user ezafati
-2019-12-26 15:49:28,244 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 15:49:28,244 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 15:49:32,063 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 15:49:32,065 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 15:50:55,625 INFO Current Process with pid 5469 with status running launched by the user ezafati
-2019-12-26 15:50:56,543 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 15:50:56,543 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 15:50:59,944 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 15:50:59,945 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 15:51:28,547 INFO Current Process with pid 5714 with status running launched by the user ezafati
-2019-12-26 15:51:29,439 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 15:51:29,439 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 15:51:33,008 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 15:51:33,009 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 15:53:54,387 INFO Current Process with pid 5970 with status running launched by the user ezafati
-2019-12-26 15:53:55,525 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 15:53:55,525 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 15:53:58,567 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 15:53:58,570 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 15:54:12,414 INFO Current Process with pid 6212 with status running launched by the user ezafati
-2019-12-26 15:54:13,454 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 15:54:13,454 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 15:54:16,412 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 15:54:16,414 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 15:57:32,200 INFO Current Process with pid 6460 with status running launched by the user ezafati
-2019-12-26 15:57:33,306 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 15:57:33,307 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 15:57:36,593 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 15:57:36,594 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 15:59:07,214 INFO Current Process with pid 6721 with status running launched by the user ezafati
-2019-12-26 15:59:08,141 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 15:59:08,142 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 15:59:11,561 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 15:59:11,562 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 15:59:31,313 INFO Current Process with pid 6965 with status running launched by the user ezafati
-2019-12-26 15:59:32,307 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 15:59:32,307 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 15:59:35,540 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 15:59:35,541 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 16:01:39,326 INFO Current Process with pid 7207 with status running launched by the user ezafati
-2019-12-26 16:01:40,091 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 16:01:40,091 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 16:01:43,459 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 16:01:43,460 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 16:03:24,808 INFO Current Process with pid 7449 with status running launched by the user ezafati
-2019-12-26 16:03:25,610 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 16:03:25,610 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 16:03:29,045 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 16:03:29,046 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 16:04:27,843 INFO  Process  7449  terminates: user CPU time 37.48, system cpu time 1.02
-2019-12-26 16:15:56,487 INFO Current Process with pid 7766 with status running launched by the user ezafati
-2019-12-26 16:15:57,299 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 16:15:57,299 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 16:16:00,856 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 16:16:00,858 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 16:17:33,044 INFO Current Process with pid 8015 with status running launched by the user ezafati
-2019-12-26 16:17:33,968 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 16:17:33,968 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 16:17:37,424 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 16:17:37,426 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 16:19:16,995 INFO Current Process with pid 8260 with status running launched by the user ezafati
-2019-12-26 16:19:18,077 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 16:19:18,078 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 16:19:21,027 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 16:19:21,027 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 16:23:27,878 INFO Current Process with pid 8557 with status running launched by the user ezafati
-2019-12-26 16:23:28,864 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 16:23:28,864 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 16:23:31,092 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 16:23:31,093 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 16:29:13,794 INFO Current Process with pid 8820 with status running launched by the user ezafati
-2019-12-26 16:29:15,541 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 16:29:15,541 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 16:29:18,859 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 16:29:18,860 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 16:29:23,536 INFO  Process  8820  terminates: user CPU time 2.35, system cpu time 0.87
-2019-12-26 16:36:05,057 INFO Current Process with pid 9106 with status running launched by the user ezafati
-2019-12-26 16:36:05,994 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 16:36:05,994 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 16:36:59,504 INFO Current Process with pid 9319 with status running launched by the user ezafati
-2019-12-26 16:37:00,557 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 16:37:00,558 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 16:37:03,383 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 16:37:03,383 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 16:38:13,462 INFO Current Process with pid 9570 with status running launched by the user ezafati
-2019-12-26 16:38:14,316 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 16:38:14,316 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 16:38:17,611 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 16:38:17,612 INFO MESH GENERATED WITH 75 POINTS
-2019-12-26 16:39:32,953 INFO Current Process with pid 9828 with status running launched by the user ezafati
-2019-12-26 16:39:33,819 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 16:39:33,820 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 16:39:38,744 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 16:39:38,745 INFO MESH GENERATED WITH 86 POINTS
-2019-12-26 17:11:55,593 INFO Current Process with pid 10469 with status running launched by the user ezafati
-2019-12-26 17:11:56,602 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-26 17:11:56,602 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-26 17:11:59,696 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-26 17:11:59,696 INFO MESH GENERATED WITH 75 POINTS
-2019-12-27 11:43:21,868 INFO Current Process with pid 2481 with status running launched by the user ezafati
-2019-12-27 11:43:24,593 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 11:43:24,594 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-27 11:43:27,799 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 11:43:27,799 INFO MESH GENERATED WITH 75 POINTS
-2019-12-27 11:43:50,839 INFO Current Process with pid 2716 with status running launched by the user ezafati
-2019-12-27 11:43:52,549 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 11:43:52,549 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-27 11:43:55,540 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 11:43:55,541 INFO MESH GENERATED WITH 75 POINTS
-2019-12-27 11:49:46,356 INFO Current Process with pid 2954 with status running launched by the user ezafati
-2019-12-27 11:49:47,432 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 11:49:47,432 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-27 11:49:49,564 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 11:49:49,565 INFO MESH GENERATED WITH 75 POINTS
-2019-12-27 11:50:56,941 INFO Current Process with pid 3196 with status running launched by the user ezafati
-2019-12-27 11:50:57,958 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 11:50:57,959 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-27 11:51:00,094 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 11:51:00,095 INFO MESH GENERATED WITH 75 POINTS
-2019-12-27 11:53:26,016 INFO Current Process with pid 3440 with status running launched by the user ezafati
-2019-12-27 11:53:26,907 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 11:53:26,908 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-27 11:53:29,073 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 11:53:29,073 INFO MESH GENERATED WITH 75 POINTS
-2019-12-27 11:56:10,620 INFO  Process  3440  terminates: user CPU time 3.17, system cpu time 1.89
-2019-12-27 11:56:12,696 INFO Current Process with pid 3703 with status running launched by the user ezafati
-2019-12-27 11:56:43,901 INFO Current Process with pid 3709 with status running launched by the user ezafati
-2019-12-27 11:56:44,699 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 11:56:44,700 INFO DOMAIN WITH 8 POINTS IN BOUNDARY
-2019-12-27 11:56:44,779 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 11:56:44,779 INFO MESH GENERATED WITH 8 POINTS
-2019-12-27 11:56:48,570 INFO  Process  3709  terminates: user CPU time 1.03, system cpu time 0.25
-2019-12-27 11:57:05,672 INFO Current Process with pid 3729 with status running launched by the user ezafati
-2019-12-27 11:57:06,455 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 11:57:06,455 INFO DOMAIN WITH 12 POINTS IN BOUNDARY
-2019-12-27 11:57:08,778 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 11:57:08,779 INFO MESH GENERATED WITH 52 POINTS
-2019-12-27 11:57:23,633 INFO  Process  3729  terminates: user CPU time 1.96, system cpu time 0.91
-2019-12-27 11:57:41,980 INFO Current Process with pid 4040 with status running launched by the user ezafati
-2019-12-27 11:57:42,769 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 11:57:42,769 INFO DOMAIN WITH 8 POINTS IN BOUNDARY
-2019-12-27 11:57:42,818 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 11:57:42,819 INFO MESH GENERATED WITH 8 POINTS
-2019-12-27 11:57:45,668 INFO  Process  4040  terminates: user CPU time 1.27, system cpu time 0.29
-2019-12-27 11:57:55,313 INFO Current Process with pid 4062 with status running launched by the user ezafati
-2019-12-27 11:57:56,268 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 11:57:56,268 INFO DOMAIN WITH 8 POINTS IN BOUNDARY
-2019-12-27 11:57:56,319 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 11:57:56,319 INFO MESH GENERATED WITH 8 POINTS
-2019-12-27 11:58:00,136 INFO  Process  4062  terminates: user CPU time 1.11, system cpu time 0.2
-2019-12-27 11:58:13,189 INFO Current Process with pid 4082 with status running launched by the user ezafati
-2019-12-27 11:58:14,022 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 11:58:14,023 INFO DOMAIN WITH 8 POINTS IN BOUNDARY
-2019-12-27 11:58:14,076 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 11:58:14,077 INFO MESH GENERATED WITH 8 POINTS
-2019-12-27 11:58:16,554 INFO  Process  4082  terminates: user CPU time 1.04, system cpu time 0.22
-2019-12-27 11:58:32,440 INFO Current Process with pid 4104 with status running launched by the user ezafati
-2019-12-27 11:58:33,227 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 11:58:33,228 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 11:58:33,632 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 11:58:33,633 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 11:58:39,188 INFO  Process  4104  terminates: user CPU time 1.35, system cpu time 0.36
-2019-12-27 11:58:59,753 INFO Current Process with pid 4182 with status running launched by the user ezafati
-2019-12-27 11:59:02,311 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 11:59:02,311 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 11:59:02,819 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 11:59:02,819 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 11:59:12,135 INFO Current Process with pid 4253 with status running launched by the user ezafati
-2019-12-27 11:59:13,033 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 11:59:13,033 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 11:59:13,447 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 11:59:13,448 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 11:59:57,039 INFO Current Process with pid 4327 with status running launched by the user ezafati
-2019-12-27 11:59:57,746 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 11:59:57,747 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 11:59:58,228 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 11:59:58,228 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:04:05,625 INFO Current Process with pid 4416 with status running launched by the user ezafati
-2019-12-27 12:04:06,509 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:04:06,510 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:04:06,964 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:04:06,965 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:05:34,349 INFO Current Process with pid 4494 with status running launched by the user ezafati
-2019-12-27 12:05:35,328 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:05:35,328 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:05:35,811 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:05:35,812 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:07:17,640 INFO Current Process with pid 4577 with status running launched by the user ezafati
-2019-12-27 12:07:18,481 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:07:18,482 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:07:18,949 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:07:18,949 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:07:22,878 INFO  Process  4577  terminates: user CPU time 1.38, system cpu time 0.3
-2019-12-27 12:09:19,183 INFO Current Process with pid 4661 with status running launched by the user ezafati
-2019-12-27 12:09:20,158 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:09:20,158 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:09:20,592 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:09:20,593 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:09:23,487 INFO  Process  4661  terminates: user CPU time 1.45, system cpu time 0.45
-2019-12-27 12:10:10,830 INFO Current Process with pid 4742 with status running launched by the user ezafati
-2019-12-27 12:10:11,697 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:10:11,698 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:10:12,141 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:10:12,142 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:10:15,528 INFO  Process  4742  terminates: user CPU time 1.41, system cpu time 0.33
-2019-12-27 12:10:46,294 INFO Current Process with pid 4814 with status running launched by the user ezafati
-2019-12-27 12:10:47,151 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:10:47,152 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:10:47,642 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:10:47,643 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:10:51,954 INFO  Process  4814  terminates: user CPU time 1.4, system cpu time 0.3
-2019-12-27 12:11:34,687 INFO Current Process with pid 4889 with status running launched by the user ezafati
-2019-12-27 12:11:35,485 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:11:35,486 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:11:35,919 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:11:35,920 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:11:39,022 INFO  Process  4889  terminates: user CPU time 1.38, system cpu time 0.27
-2019-12-27 12:12:15,557 INFO Current Process with pid 4963 with status running launched by the user ezafati
-2019-12-27 12:12:16,378 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:12:16,378 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:12:16,846 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:12:16,846 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:12:19,543 INFO  Process  4963  terminates: user CPU time 1.53, system cpu time 0.39
-2019-12-27 12:13:07,560 INFO Current Process with pid 5038 with status running launched by the user ezafati
-2019-12-27 12:13:08,380 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:13:08,380 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:13:08,790 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:13:08,790 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:13:11,113 INFO  Process  5038  terminates: user CPU time 1.41, system cpu time 0.39
-2019-12-27 12:14:18,843 INFO Current Process with pid 5117 with status running launched by the user ezafati
-2019-12-27 12:14:19,656 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:14:19,656 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:14:20,088 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:14:20,089 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:14:23,013 INFO  Process  5117  terminates: user CPU time 1.38, system cpu time 0.31
-2019-12-27 12:14:29,364 INFO Current Process with pid 5194 with status running launched by the user ezafati
-2019-12-27 12:14:30,333 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:14:30,333 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:14:30,821 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:14:30,822 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:14:37,970 INFO  Process  5194  terminates: user CPU time 1.38, system cpu time 0.24
-2019-12-27 12:14:51,211 INFO Current Process with pid 5267 with status running launched by the user ezafati
-2019-12-27 12:14:52,049 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:14:52,049 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:14:52,442 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:14:52,442 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:15:10,467 INFO Current Process with pid 5338 with status running launched by the user ezafati
-2019-12-27 12:15:11,380 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:15:11,380 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:15:11,857 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:15:11,859 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:15:36,925 INFO  Process  5338  terminates: user CPU time 23.42, system cpu time 2.31
-2019-12-27 12:16:21,234 INFO Current Process with pid 5413 with status running launched by the user ezafati
-2019-12-27 12:16:22,062 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:16:22,062 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:16:22,466 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:16:22,466 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:16:47,864 INFO  Process  5413  terminates: user CPU time 23.11, system cpu time 2.3
-2019-12-27 12:21:04,899 INFO Current Process with pid 5504 with status running launched by the user ezafati
-2019-12-27 12:21:05,637 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:21:05,637 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:21:06,099 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:21:06,100 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:21:17,864 INFO  Process  5504  terminates: user CPU time 7.76, system cpu time 0.98
-2019-12-27 12:25:45,538 INFO Current Process with pid 5604 with status running launched by the user ezafati
-2019-12-27 12:25:46,364 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:25:46,364 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:25:46,826 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:25:46,827 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:26:09,422 INFO Current Process with pid 5686 with status running launched by the user ezafati
-2019-12-27 12:26:10,264 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:26:10,265 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:26:10,715 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:26:10,716 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:29:05,053 INFO Current Process with pid 5767 with status running launched by the user ezafati
-2019-12-27 12:29:05,991 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:29:05,991 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:29:06,452 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:29:06,452 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:29:42,356 INFO Current Process with pid 5842 with status running launched by the user ezafati
-2019-12-27 12:29:43,321 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:29:43,321 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:29:43,810 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:29:43,810 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:31:08,945 INFO Current Process with pid 5917 with status running launched by the user ezafati
-2019-12-27 12:31:09,747 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:31:09,747 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:31:10,135 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:31:10,135 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:31:54,347 INFO Current Process with pid 5996 with status running launched by the user ezafati
-2019-12-27 12:31:55,238 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:31:55,238 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:31:55,653 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:31:55,654 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:32:12,485 INFO  Process  5996  terminates: user CPU time 7.84, system cpu time 0.94
-2019-12-27 12:32:16,216 INFO Current Process with pid 6070 with status running launched by the user ezafati
-2019-12-27 12:32:16,920 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:32:16,920 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:32:17,331 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:32:17,332 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:33:00,344 INFO  Process  6070  terminates: user CPU time 7.88, system cpu time 1.44
-2019-12-27 12:33:02,244 INFO Current Process with pid 6148 with status running launched by the user ezafati
-2019-12-27 12:33:02,973 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:33:02,974 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
-2019-12-27 12:33:03,408 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:33:03,408 INFO MESH GENERATED WITH 29 POINTS
-2019-12-27 12:34:02,129 INFO  Process  6148  terminates: user CPU time 1.33, system cpu time 0.51
-2019-12-27 12:35:00,754 INFO Current Process with pid 6256 with status running launched by the user ezafati
-2019-12-27 12:35:01,524 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:35:01,524 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-27 12:35:03,413 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:35:03,414 INFO MESH GENERATED WITH 75 POINTS
-2019-12-27 12:38:35,913 INFO Current Process with pid 6503 with status running launched by the user ezafati
-2019-12-27 12:38:36,717 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:38:36,717 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-27 12:38:38,618 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:38:38,619 INFO MESH GENERATED WITH 75 POINTS
-2019-12-27 12:40:53,116 INFO Current Process with pid 6740 with status running launched by the user ezafati
-2019-12-27 12:40:53,997 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:40:53,998 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-27 12:40:56,286 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:40:56,287 INFO MESH GENERATED WITH 75 POINTS
-2019-12-27 12:42:31,132 INFO Current Process with pid 6979 with status running launched by the user ezafati
-2019-12-27 12:42:32,188 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:42:32,188 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-27 12:42:35,131 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:42:35,132 INFO MESH GENERATED WITH 75 POINTS
-2019-12-27 12:46:33,436 INFO Current Process with pid 7244 with status running launched by the user ezafati
-2019-12-27 12:46:34,561 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:46:34,562 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-27 12:46:37,742 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:46:37,743 INFO MESH GENERATED WITH 75 POINTS
-2019-12-27 12:49:56,705 INFO Current Process with pid 7488 with status running launched by the user ezafati
-2019-12-27 12:49:58,151 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 12:49:58,151 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-27 12:50:00,444 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 12:50:00,445 INFO MESH GENERATED WITH 75 POINTS
-2019-12-27 12:50:05,101 INFO  Process  7488  terminates: user CPU time 1.87, system cpu time 0.53
-2019-12-27 13:08:53,328 INFO Current Process with pid 7998 with status running launched by the user ezafati
-2019-12-27 13:08:54,111 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 13:08:54,111 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-27 13:08:55,952 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 13:08:55,953 INFO MESH GENERATED WITH 75 POINTS
-2019-12-27 13:09:05,876 INFO  Process  7998  terminates: user CPU time 1.7, system cpu time 0.49
-2019-12-27 15:44:46,728 INFO Current Process with pid 2478 with status running launched by the user ezafati
-2019-12-27 15:44:48,120 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 15:44:48,120 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-27 15:44:49,271 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 15:44:49,271 INFO MESH GENERATED WITH 75 POINTS
-2019-12-27 15:44:53,423 INFO  Process  2478  terminates: user CPU time 1.02, system cpu time 0.52
-2019-12-27 15:47:37,387 INFO Current Process with pid 2753 with status running launched by the user ezafati
-2019-12-27 15:47:38,090 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 15:47:38,090 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
-2019-12-27 15:47:39,241 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 15:47:39,242 INFO MESH GENERATED WITH 75 POINTS
-2019-12-27 15:47:41,801 INFO  Process  2753  terminates: user CPU time 1.0, system cpu time 0.32
-2019-12-27 15:47:51,973 INFO Current Process with pid 2997 with status running launched by the user ezafati
-2019-12-27 15:47:52,675 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 15:47:52,676 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
-2019-12-27 15:48:13,434 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 15:48:13,434 INFO MESH GENERATED WITH 234 POINTS
-2019-12-27 15:48:33,403 INFO  Process  2997  terminates: user CPU time 3.05, system cpu time 1.19
-2019-12-27 15:50:33,745 INFO Current Process with pid 3954 with status running launched by the user ezafati
-2019-12-27 15:50:34,952 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 15:50:34,952 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
-2019-12-27 15:50:54,512 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 15:50:54,512 INFO MESH GENERATED WITH 234 POINTS
-2019-12-27 15:51:39,340 INFO  Process  3954  terminates: user CPU time 2.99, system cpu time 0.85
-2019-12-27 16:22:01,566 INFO Current Process with pid 4606 with status running launched by the user ezafati
-2019-12-27 16:22:02,255 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 16:22:02,256 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
-2019-12-27 16:22:21,866 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 16:22:21,867 INFO MESH GENERATED WITH 234 POINTS
-2019-12-27 16:25:18,873 INFO  Process  4606  terminates: user CPU time 3.26, system cpu time 1.24
-2019-12-27 20:04:44,376 INFO Current Process with pid 2769 with status running launched by the user ezafati
-2019-12-27 20:04:46,061 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 20:04:46,062 INFO DOMAIN WITH 44 POINTS IN BOUNDARY
-2019-12-27 20:04:47,161 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 20:04:47,161 INFO MESH GENERATED WITH 86 POINTS
-2019-12-27 20:04:54,551 INFO  Process  2769  terminates: user CPU time 0.99, system cpu time 0.48
-2019-12-27 20:05:11,654 INFO Current Process with pid 2931 with status running launched by the user ezafati
-2019-12-27 20:05:12,286 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 20:05:12,286 INFO DOMAIN WITH 36 POINTS IN BOUNDARY
-2019-12-27 20:05:13,293 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 20:05:13,294 INFO MESH GENERATED WITH 77 POINTS
-2019-12-27 20:05:30,201 INFO  Process  2931  terminates: user CPU time 0.99, system cpu time 0.29
-2019-12-27 20:08:21,180 INFO Current Process with pid 3096 with status running launched by the user ezafati
-2019-12-27 20:08:22,310 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 20:08:22,310 INFO DOMAIN WITH 32 POINTS IN BOUNDARY
-2019-12-27 20:08:22,366 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 20:08:22,367 INFO MESH GENERATED WITH 32 POINTS
-2019-12-27 20:08:33,131 INFO  Process  3096  terminates: user CPU time 0.76, system cpu time 0.22
-2019-12-27 20:08:41,523 INFO Current Process with pid 3119 with status running launched by the user ezafati
-2019-12-27 20:08:41,973 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 20:08:41,973 INFO DOMAIN WITH 32 POINTS IN BOUNDARY
-2019-12-27 20:08:42,019 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 20:08:42,019 INFO MESH GENERATED WITH 32 POINTS
-2019-12-27 20:08:44,002 INFO  Process  3119  terminates: user CPU time 0.72, system cpu time 0.18
-2019-12-27 20:13:54,802 INFO Current Process with pid 3159 with status running launched by the user ezafati
-2019-12-27 20:13:55,467 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 20:13:55,467 INFO DOMAIN WITH 32 POINTS IN BOUNDARY
-2019-12-27 20:13:55,515 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 20:13:55,516 INFO MESH GENERATED WITH 32 POINTS
-2019-12-27 20:13:57,613 INFO  Process  3159  terminates: user CPU time 0.71, system cpu time 0.09
-2019-12-27 20:16:51,833 INFO Current Process with pid 3184 with status running launched by the user ezafati
-2019-12-27 20:16:52,297 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 20:16:52,297 INFO DOMAIN WITH 32 POINTS IN BOUNDARY
-2019-12-27 20:16:52,342 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 20:16:52,343 INFO MESH GENERATED WITH 32 POINTS
-2019-12-27 20:16:54,232 INFO  Process  3184  terminates: user CPU time 0.71, system cpu time 0.2
-2019-12-27 20:17:51,932 INFO Current Process with pid 3241 with status running launched by the user ezafati
-2019-12-27 20:17:52,621 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 20:17:52,621 INFO DOMAIN WITH 32 POINTS IN BOUNDARY
-2019-12-27 20:17:52,668 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 20:17:52,669 INFO MESH GENERATED WITH 32 POINTS
-2019-12-27 20:19:23,832 INFO  Process  3241  terminates: user CPU time 0.73, system cpu time 0.28
-2019-12-27 20:19:25,285 INFO Current Process with pid 3273 with status running launched by the user ezafati
-2019-12-27 20:19:26,231 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 20:19:26,232 INFO DOMAIN WITH 32 POINTS IN BOUNDARY
-2019-12-27 20:19:26,255 ERROR EXIT WITH ERROR IN BOUNDARY
-2019-12-27 20:23:44,258 INFO Current Process with pid 3303 with status running launched by the user ezafati
-2019-12-27 20:23:44,809 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 20:23:44,809 INFO DOMAIN WITH 32 POINTS IN BOUNDARY
-2019-12-27 20:23:45,602 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 20:23:45,602 INFO MESH GENERATED WITH 67 POINTS
-2019-12-27 20:23:49,788 INFO  Process  3303  terminates: user CPU time 1.01, system cpu time 0.28
-2019-12-27 20:23:51,885 INFO Current Process with pid 3436 with status running launched by the user ezafati
-2019-12-27 20:23:52,903 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 20:23:52,904 INFO DOMAIN WITH 32 POINTS IN BOUNDARY
-2019-12-27 20:23:53,774 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 20:23:53,775 INFO MESH GENERATED WITH 67 POINTS
-2019-12-27 20:23:55,360 INFO  Process  3436  terminates: user CPU time 1.04, system cpu time 0.25
-2019-12-27 20:24:10,497 INFO Current Process with pid 3566 with status running launched by the user ezafati
-2019-12-27 20:24:11,092 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 20:24:11,092 INFO DOMAIN WITH 32 POINTS IN BOUNDARY
-2019-12-27 20:24:11,835 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 20:24:11,835 INFO MESH GENERATED WITH 66 POINTS
-2019-12-27 20:24:18,690 INFO  Process  3566  terminates: user CPU time 1.22, system cpu time 0.37
-2019-12-27 20:24:30,338 INFO Current Process with pid 3698 with status running launched by the user ezafati
-2019-12-27 20:24:30,797 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 20:24:30,797 INFO DOMAIN WITH 37 POINTS IN BOUNDARY
-2019-12-27 20:24:31,616 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 20:24:31,616 INFO MESH GENERATED WITH 71 POINTS
-2019-12-27 20:24:55,749 INFO  Process  3698  terminates: user CPU time 1.84, system cpu time 0.84
-2019-12-27 20:29:49,476 INFO Current Process with pid 4041 with status running launched by the user ezafati
-2019-12-27 20:29:50,109 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 20:29:50,114 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
-2019-12-27 20:30:11,910 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 20:30:11,910 INFO MESH GENERATED WITH 237 POINTS
-2019-12-27 20:30:49,499 INFO  Process  4041  terminates: user CPU time 2.92, system cpu time 0.82
-2019-12-27 20:32:55,061 INFO Current Process with pid 4698 with status running launched by the user ezafati
-2019-12-27 20:32:55,591 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 20:32:55,593 INFO DOMAIN WITH 66 POINTS IN BOUNDARY
-2019-12-27 20:33:06,617 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 20:33:06,618 INFO MESH GENERATED WITH 235 POINTS
-2019-12-27 20:39:51,162 INFO  Process  4698  terminates: user CPU time 5.06, system cpu time 2.14
-2019-12-27 21:12:52,078 INFO Current Process with pid 5527 with status running launched by the user ezafati
-2019-12-27 21:12:52,571 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 21:12:52,571 INFO DOMAIN WITH 66 POINTS IN BOUNDARY
-2019-12-27 21:13:03,993 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 21:13:03,993 INFO MESH GENERATED WITH 235 POINTS
-2019-12-27 21:13:08,282 INFO  Process  5527  terminates: user CPU time 1.93, system cpu time 0.68
-2019-12-27 21:13:33,943 INFO Current Process with pid 6167 with status running launched by the user ezafati
-2019-12-27 21:13:34,424 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 21:13:34,424 INFO DOMAIN WITH 66 POINTS IN BOUNDARY
-2019-12-27 21:13:48,079 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 21:13:48,079 INFO MESH GENERATED WITH 235 POINTS
-2019-12-27 21:13:55,242 INFO  Process  6167  terminates: user CPU time 2.25, system cpu time 0.74
-2019-12-27 22:26:06,697 INFO Current Process with pid 7109 with status running launched by the user ezafati
-2019-12-27 22:26:07,196 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 22:26:07,197 INFO DOMAIN WITH 37 POINTS IN BOUNDARY
-2019-12-27 22:26:08,014 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 22:26:08,014 INFO MESH GENERATED WITH 71 POINTS
-2019-12-27 22:26:12,120 INFO  Process  7109  terminates: user CPU time 0.97, system cpu time 0.29
-2019-12-27 22:26:13,432 INFO Current Process with pid 7235 with status running launched by the user ezafati
-2019-12-27 22:26:13,886 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 22:26:13,887 INFO DOMAIN WITH 37 POINTS IN BOUNDARY
-2019-12-27 22:26:14,655 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 22:26:14,656 INFO MESH GENERATED WITH 71 POINTS
-2019-12-27 22:26:16,312 INFO  Process  7235  terminates: user CPU time 0.98, system cpu time 0.28
-2019-12-27 22:26:20,047 INFO Current Process with pid 7358 with status running launched by the user ezafati
-2019-12-27 22:26:20,518 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 22:26:20,519 INFO DOMAIN WITH 66 POINTS IN BOUNDARY
-2019-12-27 22:26:31,153 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 22:26:31,153 INFO MESH GENERATED WITH 235 POINTS
-2019-12-27 22:26:35,599 INFO  Process  7358  terminates: user CPU time 2.23, system cpu time 0.78
-2019-12-27 22:26:55,281 INFO Current Process with pid 8003 with status running launched by the user ezafati
-2019-12-27 22:26:55,801 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 22:26:55,801 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
-2019-12-27 22:27:17,385 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 22:27:17,386 INFO MESH GENERATED WITH 237 POINTS
-2019-12-27 22:27:22,970 INFO  Process  8003  terminates: user CPU time 2.29, system cpu time 0.69
-2019-12-27 22:27:37,371 INFO Current Process with pid 8469 with status running launched by the user ezafati
-2019-12-27 22:27:38,382 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 22:27:38,382 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
-2019-12-27 22:28:01,280 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 22:28:01,280 INFO MESH GENERATED WITH 237 POINTS
-2019-12-27 22:28:04,210 INFO  Process  8469  terminates: user CPU time 2.03, system cpu time 0.52
-2019-12-27 22:28:26,963 INFO Current Process with pid 8947 with status running launched by the user ezafati
-2019-12-27 22:28:27,606 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-27 22:28:27,606 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
-2019-12-27 22:28:48,492 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-27 22:28:48,492 INFO MESH GENERATED WITH 237 POINTS
-2019-12-27 22:28:50,950 INFO  Process  8947  terminates: user CPU time 2.14, system cpu time 0.94
-2019-12-28 01:38:16,396 INFO Current Process with pid 10407 with status running launched by the user ezafati
-2019-12-28 01:38:16,947 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-28 01:38:16,948 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
-2019-12-28 01:38:40,958 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-28 01:38:40,959 INFO MESH GENERATED WITH 237 POINTS
-2019-12-28 01:40:33,614 INFO  Process  10407  terminates: user CPU time 4.12, system cpu time 2.33
-2019-12-28 01:41:12,777 INFO Current Process with pid 11403 with status running launched by the user ezafati
-2019-12-28 01:41:13,387 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-28 01:41:13,387 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
-2019-12-28 01:41:36,198 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-28 01:41:36,199 INFO MESH GENERATED WITH 234 POINTS
-2019-12-28 01:42:13,582 INFO  Process  11403  terminates: user CPU time 3.03, system cpu time 1.47
-2019-12-28 01:42:19,510 INFO Current Process with pid 12360 with status running launched by the user ezafati
-2019-12-28 01:42:20,120 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-28 01:42:20,120 INFO DOMAIN WITH 97 POINTS IN BOUNDARY
-2019-12-28 01:42:42,231 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-28 01:42:42,231 INFO MESH GENERATED WITH 237 POINTS
-2019-12-28 01:43:34,152 INFO  Process  12360  terminates: user CPU time 3.16, system cpu time 1.63
-2019-12-28 01:44:00,750 INFO Current Process with pid 13288 with status running launched by the user ezafati
-2019-12-28 01:44:01,363 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-28 01:44:01,364 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
-2019-12-28 01:44:21,857 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-28 01:44:21,858 INFO MESH GENERATED WITH 237 POINTS
-                                                                                                   2019-12-28 12:35:36,669 INFO Current Process with pid 3617 with status running launched by the user ezafati
-2019-12-28 12:35:37,586 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
-2019-12-28 12:35:37,586 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
-2019-12-28 12:35:59,061 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
-2019-12-28 12:35:59,061 INFO MESH GENERATED WITH 237 POINTS
-2019-12-28 12:36:52,999 INFO  Process  3617  terminates: user CPU time 2.8, system cpu time 1.34
+2019-12-28 17:22:46,098 INFO Current Process with pid 10094 with status running launched by the user ezafati
+2019-12-28 17:22:47,495 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:22:47,496 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 17:23:06,744 INFO Current Process with pid 10489 with status running launched by the user ezafati
+2019-12-28 17:23:10,242 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:23:10,243 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 17:23:43,841 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 17:23:43,842 INFO MESH GENERATED WITH 237 POINTS
+2019-12-28 17:23:53,609 INFO  Process  10489  terminates: user CPU time 7.67, system cpu time 3.4
+2019-12-28 17:23:59,855 INFO Current Process with pid 11182 with status running launched by the user ezafati
+2019-12-28 17:24:01,501 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:24:01,501 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 17:24:42,654 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 17:24:42,656 INFO MESH GENERATED WITH 237 POINTS
+2019-12-28 17:24:52,647 INFO  Process  11182  terminates: user CPU time 7.78, system cpu time 6.02
+2019-12-28 17:24:57,205 INFO Current Process with pid 12687 with status running launched by the user ezafati
+2019-12-28 17:24:58,664 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:24:58,664 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 17:25:37,514 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 17:25:37,516 INFO MESH GENERATED WITH 237 POINTS
+2019-12-28 17:25:44,219 INFO  Process  12687  terminates: user CPU time 7.79, system cpu time 5.59
+2019-12-28 17:25:48,397 INFO Current Process with pid 14186 with status running launched by the user ezafati
+2019-12-28 17:25:49,797 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:25:49,798 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 17:26:21,520 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 17:26:21,520 INFO MESH GENERATED WITH 237 POINTS
+2019-12-28 17:26:27,039 INFO  Process  14186  terminates: user CPU time 6.5, system cpu time 4.95
+2019-12-28 17:32:27,799 INFO Current Process with pid 15741 with status running launched by the user ezafati
+2019-12-28 17:32:29,641 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:32:29,641 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 17:33:11,667 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 17:33:11,668 INFO MESH GENERATED WITH 237 POINTS
+2019-12-28 17:33:22,044 INFO  Process  15741  terminates: user CPU time 8.2, system cpu time 6.12
+2019-12-28 17:34:40,908 INFO Current Process with pid 17260 with status running launched by the user ezafati
+2019-12-28 17:34:42,482 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:34:42,483 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 17:35:25,837 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 17:35:25,838 INFO MESH GENERATED WITH 237 POINTS
+2019-12-28 17:35:30,269 INFO  Process  17260  terminates: user CPU time 8.21, system cpu time 5.9
+2019-12-28 17:35:53,980 INFO Current Process with pid 18772 with status running launched by the user ezafati
+2019-12-28 17:35:55,654 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:35:55,655 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 17:36:31,828 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 17:36:31,829 INFO MESH GENERATED WITH 237 POINTS
+2019-12-28 17:36:36,375 INFO  Process  18772  terminates: user CPU time 8.29, system cpu time 2.43
+2019-12-28 17:36:41,598 INFO Current Process with pid 19199 with status running launched by the user ezafati
+2019-12-28 17:36:42,904 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:36:42,904 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 17:38:24,080 INFO Current Process with pid 19438 with status running launched by the user ezafati
+2019-12-28 17:38:24,879 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:38:24,879 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 17:39:01,784 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 17:39:01,784 INFO MESH GENERATED WITH 237 POINTS
+2019-12-28 17:39:05,760 INFO  Process  19438  terminates: user CPU time 4.99, system cpu time 1.39
+2019-12-28 17:39:26,349 INFO Current Process with pid 19732 with status running launched by the user ezafati
+2019-12-28 17:39:27,333 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:39:27,333 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 17:39:49,791 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 17:39:49,791 INFO MESH GENERATED WITH 237 POINTS
+2019-12-28 17:39:53,154 INFO  Process  19732  terminates: user CPU time 5.25, system cpu time 1.68
+2019-12-28 17:40:28,573 INFO Current Process with pid 20153 with status running launched by the user ezafati
+2019-12-28 17:40:29,557 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:40:29,558 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 17:40:52,968 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 17:40:52,969 INFO MESH GENERATED WITH 237 POINTS
+2019-12-28 17:40:57,468 INFO  Process  20153  terminates: user CPU time 5.52, system cpu time 2.34
+2019-12-28 17:41:03,939 INFO Current Process with pid 20846 with status running launched by the user ezafati
+2019-12-28 17:41:04,880 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:41:04,881 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 17:41:42,550 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 17:41:42,551 INFO MESH GENERATED WITH 237 POINTS
+2019-12-28 17:41:45,768 INFO  Process  20846  terminates: user CPU time 5.74, system cpu time 1.37
+2019-12-28 17:41:52,186 INFO Current Process with pid 21131 with status running launched by the user ezafati
+2019-12-28 17:41:53,111 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:41:53,112 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 17:42:17,069 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 17:42:17,069 INFO MESH GENERATED WITH 237 POINTS
+2019-12-28 17:42:23,101 INFO  Process  21131  terminates: user CPU time 5.37, system cpu time 2.34
+2019-12-28 17:43:06,261 INFO Current Process with pid 21823 with status running launched by the user ezafati
+2019-12-28 17:43:07,339 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:43:07,339 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 17:43:44,627 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 17:43:44,628 INFO MESH GENERATED WITH 237 POINTS
+2019-12-28 17:43:48,569 INFO  Process  21823  terminates: user CPU time 5.46, system cpu time 1.39
+2019-12-28 17:44:16,379 INFO Current Process with pid 22115 with status running launched by the user ezafati
+2019-12-28 17:44:17,307 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:44:17,308 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 17:44:40,742 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 17:44:40,742 INFO MESH GENERATED WITH 237 POINTS
+2019-12-28 17:44:44,229 INFO  Process  22115  terminates: user CPU time 5.14, system cpu time 2.21
+2019-12-28 17:45:06,268 INFO Current Process with pid 22816 with status running launched by the user ezafati
+2019-12-28 17:45:07,409 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:45:07,410 INFO DOMAIN WITH 121 POINTS IN BOUNDARY
+2019-12-28 17:46:05,007 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 17:46:05,007 INFO MESH GENERATED WITH 327 POINTS
+2019-12-28 17:46:17,598 INFO  Process  22816  terminates: user CPU time 9.55, system cpu time 4.24
+2019-12-28 17:46:26,270 INFO Current Process with pid 23882 with status running launched by the user ezafati
+2019-12-28 17:46:27,365 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:46:27,367 INFO DOMAIN WITH 121 POINTS IN BOUNDARY
+2019-12-28 17:48:13,339 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 17:48:13,340 INFO MESH GENERATED WITH 327 POINTS
+2019-12-28 17:48:19,672 INFO  Process  23882  terminates: user CPU time 11.17, system cpu time 2.93
+2019-12-28 17:50:19,427 INFO Current Process with pid 24342 with status running launched by the user ezafati
+2019-12-28 17:50:21,054 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:50:21,056 INFO DOMAIN WITH 121 POINTS IN BOUNDARY
+2019-12-28 17:51:51,997 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 17:51:51,999 INFO MESH GENERATED WITH 327 POINTS
+2019-12-28 17:52:07,757 INFO  Process  24342  terminates: user CPU time 13.7, system cpu time 9.25
+2019-12-28 17:52:17,705 INFO Current Process with pid 26647 with status running launched by the user ezafati
+2019-12-28 17:52:18,718 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:52:18,718 INFO DOMAIN WITH 121 POINTS IN BOUNDARY
+2019-12-28 17:53:36,717 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 17:53:36,726 INFO MESH GENERATED WITH 327 POINTS
+2019-12-28 17:53:36,727 INFO  Process  26647  terminates: user CPU time 8.39, system cpu time 7.81
+2019-12-28 17:53:49,829 INFO Current Process with pid 28951 with status running launched by the user ezafati
+2019-12-28 17:53:51,358 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:53:51,358 INFO DOMAIN WITH 121 POINTS IN BOUNDARY
+2019-12-28 17:55:48,252 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 17:55:48,253 INFO MESH GENERATED WITH 327 POINTS
+2019-12-28 17:55:48,255 INFO  Process  28951  terminates: user CPU time 10.35, system cpu time 3.11
+2019-12-28 17:56:48,747 INFO Current Process with pid 29393 with status running launched by the user ezafati
+2019-12-28 17:56:50,357 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:56:50,358 INFO DOMAIN WITH 121 POINTS IN BOUNDARY
+2019-12-28 17:57:56,969 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 17:57:56,969 INFO MESH GENERATED WITH 327 POINTS
+2019-12-28 17:57:56,971 INFO  Process  29393  terminates: user CPU time 9.42, system cpu time 4.65
+2019-12-28 17:58:24,117 INFO Current Process with pid 30450 with status running launched by the user ezafati
+2019-12-28 17:58:25,425 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 17:58:25,426 INFO DOMAIN WITH 121 POINTS IN BOUNDARY
+2019-12-28 17:59:29,650 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 17:59:29,651 INFO MESH GENERATED WITH 327 POINTS
+2019-12-28 17:59:29,652 INFO  Process  30450  terminates: user CPU time 8.78, system cpu time 3.66
+2019-12-28 19:56:45,312 INFO Current Process with pid 2398 with status running launched by the user ezafati
+2019-12-28 19:56:46,703 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 19:56:46,703 INFO DOMAIN WITH 121 POINTS IN BOUNDARY
+2019-12-28 19:57:14,245 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 19:57:14,246 INFO MESH GENERATED WITH 327 POINTS
+2019-12-28 19:57:14,247 INFO  Process  2398  terminates: user CPU time 3.33, system cpu time 1.76
+2019-12-28 19:57:25,160 INFO Current Process with pid 3035 with status running launched by the user ezafati
+2019-12-28 19:57:25,793 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 19:57:25,793 INFO DOMAIN WITH 121 POINTS IN BOUNDARY
+2019-12-28 19:57:57,182 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 19:57:57,182 INFO MESH GENERATED WITH 327 POINTS
+2019-12-28 19:57:57,183 INFO  Process  3035  terminates: user CPU time 3.15, system cpu time 3.81
+2019-12-28 19:58:03,078 INFO Current Process with pid 5325 with status running launched by the user ezafati
+2019-12-28 19:58:03,751 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 19:58:03,751 INFO DOMAIN WITH 121 POINTS IN BOUNDARY
+2019-12-28 19:58:34,360 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 19:58:34,362 INFO MESH GENERATED WITH 327 POINTS
+2019-12-28 19:58:34,363 INFO  Process  5325  terminates: user CPU time 3.48, system cpu time 2.62
+2019-12-28 19:58:41,168 INFO Current Process with pid 6581 with status running launched by the user ezafati
+2019-12-28 19:58:41,873 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 19:58:41,873 INFO DOMAIN WITH 121 POINTS IN BOUNDARY
+2019-12-28 19:59:10,447 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 19:59:10,447 INFO MESH GENERATED WITH 327 POINTS
+2019-12-28 19:59:10,449 INFO  Process  6581  terminates: user CPU time 3.62, system cpu time 1.98
+2019-12-28 19:59:29,292 INFO Current Process with pid 7424 with status running launched by the user ezafati
+2019-12-28 19:59:29,873 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 19:59:29,876 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 19:59:45,101 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 19:59:45,101 INFO MESH GENERATED WITH 237 POINTS
+2019-12-28 19:59:45,102 INFO  Process  7424  terminates: user CPU time 2.09, system cpu time 1.28
+2019-12-28 19:59:54,230 INFO Current Process with pid 7976 with status running launched by the user ezafati
+2019-12-28 19:59:55,011 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 19:59:55,011 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 20:00:07,332 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 20:00:07,332 INFO MESH GENERATED WITH 237 POINTS
+2019-12-28 20:00:51,363 INFO  Process  7976  terminates: user CPU time 4.15, system cpu time 1.68
+2019-12-28 20:01:14,740 INFO Current Process with pid 8537 with status running launched by the user ezafati
+2019-12-28 20:01:15,425 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 20:01:15,425 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 20:01:27,324 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 20:01:27,324 INFO MESH GENERATED WITH 237 POINTS
+2019-12-28 20:01:27,325 INFO  Process  8537  terminates: user CPU time 2.14, system cpu time 1.06
+2019-12-28 20:03:55,095 INFO Current Process with pid 8959 with status running launched by the user ezafati
+2019-12-28 20:03:55,717 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 20:03:55,717 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 20:04:07,297 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 20:04:07,297 INFO MESH GENERATED WITH 237 POINTS
+2019-12-28 20:04:07,297 INFO  Process  8959  terminates: user CPU time 2.05, system cpu time 1.05
+2019-12-28 20:04:14,238 INFO Current Process with pid 9384 with status running launched by the user ezafati
+2019-12-28 20:04:14,984 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 20:04:14,984 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 20:04:26,799 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 20:04:26,800 INFO MESH GENERATED WITH 237 POINTS
+2019-12-28 20:04:51,691 INFO  Process  9384  terminates: user CPU time 3.33, system cpu time 1.29
+2019-12-28 20:06:35,248 INFO Current Process with pid 9811 with status running launched by the user ezafati
+2019-12-28 20:06:35,773 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 20:06:35,773 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 20:06:47,500 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 20:06:47,500 INFO MESH GENERATED WITH 237 POINTS
+2019-12-28 20:07:21,521 INFO  Process  9811  terminates: user CPU time 3.77, system cpu time 1.28
+2019-12-28 20:07:23,716 INFO Current Process with pid 10240 with status running launched by the user ezafati
+2019-12-28 20:07:24,328 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 20:07:24,328 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-28 20:07:36,288 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 20:07:36,289 INFO MESH GENERATED WITH 237 POINTS
+2019-12-28 20:07:44,129 INFO  Process  10240  terminates: user CPU time 3.13, system cpu time 1.11
+2019-12-28 20:08:01,688 INFO Current Process with pid 10666 with status running launched by the user ezafati
+2019-12-28 20:08:02,303 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 20:08:02,303 INFO DOMAIN WITH 66 POINTS IN BOUNDARY
+2019-12-28 20:08:11,484 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 20:08:11,485 INFO MESH GENERATED WITH 235 POINTS
+2019-12-28 22:48:04,650 INFO  Process  10666  terminates: user CPU time 4.98, system cpu time 2.54
+2019-12-28 22:48:07,481 INFO Current Process with pid 11435 with status running launched by the user ezafati
+2019-12-28 22:48:08,017 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-28 22:48:08,018 INFO DOMAIN WITH 66 POINTS IN BOUNDARY
+2019-12-28 22:48:16,962 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-28 22:48:16,962 INFO MESH GENERATED WITH 235 POINTS
+2019-12-28 22:48:23,566 INFO  Process  11435  terminates: user CPU time 3.36, system cpu time 1.66
+2019-12-29 10:53:48,889 INFO Current Process with pid 2657 with status running launched by the user ezafati
+2019-12-29 10:53:50,627 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-29 10:53:50,627 INFO DOMAIN WITH 66 POINTS IN BOUNDARY
+2019-12-29 10:54:05,880 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-29 10:54:05,881 INFO MESH GENERATED WITH 234 POINTS
+2019-12-29 10:54:09,758 INFO  Process  2657  terminates: user CPU time 3.28, system cpu time 2.0
+2019-12-29 12:21:13,298 INFO Current Process with pid 3481 with status running launched by the user ezafati
+2019-12-29 12:21:39,781 INFO Current Process with pid 3502 with status running launched by the user ezafati
+2019-12-29 12:21:40,416 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-29 12:21:40,416 INFO DOMAIN WITH 66 POINTS IN BOUNDARY
+2019-12-29 12:21:49,504 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-29 12:21:49,504 INFO MESH GENERATED WITH 235 POINTS
+2019-12-29 12:21:57,002 INFO  Process  3502  terminates: user CPU time 3.33, system cpu time 1.64
+2019-12-29 12:22:22,674 INFO Current Process with pid 4029 with status running launched by the user ezafati
+2019-12-29 12:22:23,244 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-29 12:22:23,244 INFO DOMAIN WITH 66 POINTS IN BOUNDARY
+2019-12-29 12:22:32,756 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-29 12:22:32,756 INFO MESH GENERATED WITH 235 POINTS
+2019-12-29 12:22:37,357 INFO  Process  4029  terminates: user CPU time 3.43, system cpu time 1.81
+2019-12-29 12:22:54,307 INFO Current Process with pid 4555 with status running launched by the user ezafati
+2019-12-29 12:22:54,816 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-29 12:22:54,816 INFO DOMAIN WITH 66 POINTS IN BOUNDARY
+2019-12-29 12:23:07,477 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-29 12:23:07,478 INFO MESH GENERATED WITH 235 POINTS
+2019-12-29 12:23:33,169 INFO  Process  4555  terminates: user CPU time 3.31, system cpu time 1.59
+2019-12-29 12:23:44,208 INFO Current Process with pid 5084 with status running launched by the user ezafati
+2019-12-29 12:23:44,857 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-29 12:23:44,857 INFO DOMAIN WITH 37 POINTS IN BOUNDARY
+2019-12-29 12:23:45,575 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-29 12:23:45,576 INFO MESH GENERATED WITH 71 POINTS
+2019-12-29 12:23:53,633 INFO  Process  5084  terminates: user CPU time 1.15, system cpu time 0.49
+2019-12-29 12:24:03,296 INFO Current Process with pid 5210 with status running launched by the user ezafati
+2019-12-29 12:24:03,848 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-29 12:24:03,848 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2019-12-29 12:24:04,718 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-29 12:24:04,718 INFO MESH GENERATED WITH 75 POINTS
+2019-12-29 12:24:14,963 INFO  Process  5210  terminates: user CPU time 1.37, system cpu time 0.6
+2019-12-29 12:24:30,937 INFO Current Process with pid 5334 with status running launched by the user ezafati
+2019-12-29 12:24:31,416 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-29 12:24:31,417 INFO DOMAIN WITH 20 POINTS IN BOUNDARY
+2019-12-29 12:24:31,598 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-29 12:24:31,599 INFO MESH GENERATED WITH 28 POINTS
+2019-12-29 12:24:37,158 INFO  Process  5334  terminates: user CPU time 0.96, system cpu time 0.28
+2019-12-29 12:24:49,504 INFO Current Process with pid 5377 with status running launched by the user ezafati
+2019-12-29 12:24:50,040 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-29 12:24:50,040 INFO DOMAIN WITH 200 POINTS IN BOUNDARY
+2019-12-29 12:26:45,376 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-29 12:26:45,376 INFO MESH GENERATED WITH 769 POINTS
+2019-12-29 12:27:32,077 INFO  Process  5377  terminates: user CPU time 22.53, system cpu time 9.9
+2019-12-29 12:36:05,395 INFO Current Process with pid 7209 with status running launched by the user ezafati
+2019-12-29 12:36:05,918 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-29 12:36:05,918 INFO DOMAIN WITH 66 POINTS IN BOUNDARY
+2019-12-29 12:36:15,547 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-29 12:36:15,547 INFO MESH GENERATED WITH 235 POINTS
+2019-12-29 12:36:18,607 INFO  Process  7209  terminates: user CPU time 2.98, system cpu time 1.61
+2019-12-29 12:37:11,138 INFO Current Process with pid 7746 with status running launched by the user ezafati
+2019-12-29 12:37:11,679 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-29 12:37:11,679 INFO DOMAIN WITH 66 POINTS IN BOUNDARY
+2019-12-29 12:37:21,539 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-29 12:37:21,539 INFO MESH GENERATED WITH 235 POINTS
+2019-12-29 12:37:26,099 INFO  Process  7746  terminates: user CPU time 2.97, system cpu time 1.66
+2019-12-29 12:37:44,261 INFO Current Process with pid 8278 with status running launched by the user ezafati
+2019-12-29 12:37:44,923 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-29 12:37:44,923 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-29 12:37:56,916 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-29 12:37:56,916 INFO MESH GENERATED WITH 237 POINTS
+2019-12-29 12:38:00,216 INFO  Process  8278  terminates: user CPU time 2.88, system cpu time 1.2
+2019-12-29 12:38:26,675 INFO Current Process with pid 8702 with status running launched by the user ezafati
+2019-12-29 12:38:27,254 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-29 12:38:27,254 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-29 12:38:39,733 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-29 12:38:39,734 INFO MESH GENERATED WITH 237 POINTS
+2019-12-29 12:38:42,774 INFO  Process  8702  terminates: user CPU time 2.84, system cpu time 1.46
+2019-12-29 12:39:23,162 INFO Current Process with pid 9401 with status running launched by the user ezafati
+2019-12-29 12:39:23,715 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2019-12-29 12:39:23,715 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2019-12-29 12:39:36,163 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2019-12-29 12:39:36,163 INFO MESH GENERATED WITH 236 POINTS
+2019-12-29 12:39:38,419 INFO  Process  9401  terminates: user CPU time 2.94, system cpu time 1.12
