@@ -235,8 +235,6 @@ def size_function(pt, plist, nl):
     return size
 
 
-
-
 def is_well_shaped(que, ratio, num, kel):
     """This function check if the current triangle is well shaped with
     respect to the previous tested one r_tr[1] """

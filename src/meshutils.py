@@ -2,7 +2,6 @@ import logging
 import traceback
 
 from contextlib import contextmanager
-from multiprocessing import Process
 import multiprocessing
 
 
@@ -24,19 +23,12 @@ def exception_logging(exctype, value, tb):
     logging.exception(str(write_val))
 
 
-class TaskProcess:
-    def __init__(self, tr=None, fcond=None, args=None):
-        self.root_tr = tr
-        self.func = fcond
-        self.extra = args
-
-
 @contextmanager
 def launch_processes(task_queue, func, *args):
     npr = multiprocessing.cpu_count()
     try:
         for _ in range(npr):
-            Process(target=func, args=(task_queue, *args)).start()
+            multiprocessing.Process(target=func, args=(task_queue, *args)).start()
         yield
     finally:
         for _ in range(npr):

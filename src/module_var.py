@@ -1,10 +1,9 @@
-from MeshObjects.GeObjects import Mesh, TriangleTree
+from MeshObjects.GeObjects import Mesh
 from collections import namedtuple
 
 gmesh = Mesh()
 tree_refinement = None
 
-method_properties = namedtuple('method_properties', ('module_name', 'mesh_func', 'proc_prop'))
+method_properties = namedtuple('method_properties', ('module_name', 'mesh_func'))
 
-dispatcher = {'default': method_properties('chew_insert_algorithm', 'chew_add_point', ({'type': 'd', 'init': 0.0},
-                                                                                       {'type': 'i', 'init': 0}))}
+dispatcher = {'default': method_properties('chew_insert_algorithm', 'chew_add_point')}
