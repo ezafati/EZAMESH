@@ -7,8 +7,7 @@ import module_var
 from MeshObjects.GeObjects import *
 from module_var import dispatcher
 from multiprocessing import Process, JoinableQueue, Value
-
-from MeshAlg.chew_insert_algorithm import worker
+from meshutils import launch_processes, worker
 
 
 def dt_global(vmesh, process):
@@ -47,19 +46,15 @@ def dt_global(vmesh, process):
     if __name__ == 'MeshAlg.global_DT':
         ratio = Value('d', 0.0, lock=False)
         num = Value('i', len(module_var.tree_refinement.root.childs), lock=False)
-        nbprocess = 2
         while not module_var.tree_refinement.terminate:
             task_queue = JoinableQueue()
-            for _ in range(nbprocess):
-                Process(target=worker, args=(task_queue,  ratio, num)).start()
-            if count % 10 == 0:
-                # logging.info(f'Memory infos: {process.memory_info()}')
-                # logging.info(f'CPU used percentage: {process.cpu_percent()}')
-                pass
-            refinement_method(module_var.tree_refinement, plist, nl, task_queue, num)
-            count += 1
-            for _ in range(nbprocess):
-                task_queue.put('STOP')
+            with launch_processes(task_queue, worker, ratio, num):
+                if count % 10 == 0:
+                    # logging.info(f'Memory infos: {process.memory_info()}')
+                    # logging.info(f'CPU used percentage: {process.cpu_percent()}')
+                    pass
+                refinement_method(module_var.tree_refinement, plist, nl, task_queue, num)
+                count += 1
             num.value = len(module_var.tree_refinement.root.childs)
             ratio.value = 0.0
         logging.info(f'MESH GENERATED WITH {len(plist)} POINTS')

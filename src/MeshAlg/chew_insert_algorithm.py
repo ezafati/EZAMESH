@@ -96,7 +96,7 @@ def replace_vertex(p, index, tr, list_tr):
 def chew_add_point(tree, plist, nl, task_queue, num):
     """Chew method to add a new point in the domain"""
     for p in range(len(tree.root.childs)):
-        task_queue.put_nowait((is_well_shaped, (p,)))
+        task_queue.put_nowait((is_well_shaped, {'kel': p}))
     task_queue.join()
     try:
         tr = tree.root.childs[num.value]
@@ -104,7 +104,7 @@ def chew_add_point(tree, plist, nl, task_queue, num):
         tr = None
     if not tr:
         for p in range(len(tree.root.childs)):
-            task_queue.put_nowait((is_well_sized, (p, nl)))
+            task_queue.put_nowait((is_well_sized, {'kel': p, 'nb': nl}))
         task_queue.join()
     try:
         tr = tree.root.childs[num.value]
@@ -235,17 +235,14 @@ def size_function(pt, plist, nl):
     return size
 
 
-def worker(task_que, ratio, num):
-    for func, args in iter(task_que.get, 'STOP'):
-        func(ratio, num, task_que, *args)
 
 
-def is_well_shaped(ratio, num, que, k):
+def is_well_shaped(que, ratio, num, kel):
     """This function check if the current triangle is well shaped with
     respect to the previous tested one r_tr[1] """
     plist = module_var.gmesh.listpoint
     cst = 1. * sqrt(2)
-    tr = module_var.tree_refinement.root.childs[k]
+    tr = module_var.tree_refinement.root.childs[kel]
     list_tmp = [plist[p] for p in tr.points]
     lmin = min([length_segment(p, q) for p, q in itertools.combinations(list_tmp, 2)])
     radius = circumcircle_radius(tr, plist)
@@ -254,25 +251,25 @@ def is_well_shaped(ratio, num, que, k):
         pt = circumcircle_center(tr, plist)
         booli = find_segment(tr, pt, plist) or point_in_adjacent(tr, pt, plist)
         if test_ratio >= cst and booli and radius > ratio.value:
-            ratio.value, num.value = radius, k
+            ratio.value, num.value = radius, kel
     except TypeError:
         pass
     que.task_done()
 
 
-def is_well_sized(ratio, num, que, k, nl):
+def is_well_sized(que, ratio, num, kel, nb):
     """This function check if the current triangle is well shaped with
     respect to the previous tested one ratio_tr[1] """
     plist = module_var.gmesh.listpoint
-    tr = module_var.tree_refinement.root.childs[k]
+    tr = module_var.tree_refinement.root.childs[kel]
     radius = circumcircle_radius(tr, plist)
     pt = circumcircle_center(tr, plist)
-    h = size_function(pt, plist, nl)
+    h = size_function(pt, plist, nb)
     try:
         booli = find_segment(tr, pt, plist) or point_in_adjacent(tr, pt, plist)
         ratio_ = radius / h
         if radius > h and booli and ratio_ > ratio.value:
-            ratio.value, num.value = ratio_, k
+            ratio.value, num.value = ratio_, kel
     except TypeError:
         pass
     que.task_done()

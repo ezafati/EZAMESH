@@ -32,17 +32,17 @@ class TaskProcess:
 
 
 @contextmanager
-def launch_processes(task_queue, *args):
+def launch_processes(task_queue, func, *args):
     npr = multiprocessing.cpu_count()
     try:
         for _ in range(npr):
-            Process(target=worker_test, args=(task_queue, *args)).start()
+            Process(target=func, args=(task_queue, *args)).start()
         yield
     finally:
         for _ in range(npr):
             task_queue.put('STOP')
 
 
-def worker_test(task_que, *args):
+def worker(task_que, *args):
     for func, kwargs in iter(task_que.get, 'STOP'):
         func(task_que, *args, **kwargs)
