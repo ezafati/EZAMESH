@@ -284,10 +284,25 @@ class TriangleTree:
                     swap_tr(tr1, tr2)
 
 
+class ParseMeshFile(object):
+    def __init__(self):
+        self.points = []
+        self.segemnts = []
+        self.parts = [0]
+
+
 class Vector(object):
     def __init__(self, x=None, y=None):
         self.x = x
         self.y = y
+
+
+class Segment(object):
+    def __init__(self, x=0, y=0):
+        self.extrA = x
+        self.extrB = y
+        self.sizA = 0
+        self.sizB = 0
 
 
 class Point(object):
@@ -326,6 +341,9 @@ class Point(object):
         else:
             raise TypeError('One of the  instances should be of the type int or float')
 
+    def __rmul__(self, other):
+        return self * other
+
 
 class Triangle(object):
     __slots__ = ('points', 'childs', 'adjacent', 'parent')
@@ -341,13 +359,6 @@ class Triangle(object):
         self.childs = y
         self.adjacent = z
         self.parent = par
-
-
-class Segment(object):
-    def __init__(self, x=0, y=0, dens=0):
-        self.extrA = x
-        self.extrB = y
-        self.dens = dens
 
 
 class Mesh(object):
@@ -369,9 +380,6 @@ class Mesh(object):
         self.pointlabel = llist
         self.triangle_list = ltri
         self.meshstrategy = strat
-
-    def close_check(self):
-        print('To be implemented')
 
     def add_arc(self, fields, n_line):
         self.boundarylabels.append(fields[0])

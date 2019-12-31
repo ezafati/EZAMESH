@@ -23,6 +23,16 @@ def exception_logging(exctype, value, tb):
     logging.exception(str(write_val))
 
 
+class NotApproValueError(Exception):
+    """error raised when the input value is not
+    appropriate """
+
+
+class AlreadyExistError(Exception):
+    """error raised when the object is already
+     provided with the same label for instance"""
+
+
 @contextmanager
 def launch_processes(task_queue, func, *args):
     npr = multiprocessing.cpu_count()

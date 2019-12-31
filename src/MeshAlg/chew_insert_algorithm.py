@@ -31,12 +31,10 @@ def enforce_segment(list_tr, index, p, plist):
                 seg2_coord = [plist[p] for p in seg2]
                 if check_intersection(seg_coord, seg2_coord):
                     tr1, tr2 = tr2, tr1
-                else:
-                    sys.exit('FATAL ERROR!')
-                tr2, = [tri for tri in tr1.adjacent if len(seg2.intersection(set(tri.points))) > 1]
+                tr2, = [tri for tri in tr1.adjacent if len(seg2 & set(tri.points)) > 1]
                 swap_tr(tr1, tr2)
         else:
-            tr2, = [tri for tri in tr1.adjacent if len(seg.intersection(set(tri.points))) > 1]
+            tr2, = [tri for tri in tr1.adjacent if len(seg & set(tri.points)) > 1]
         return tr1, tr2
     except AttributeError:
         logging.error('FATAL ERROR ! Maybe the triangle has an empty child list')
@@ -53,7 +51,7 @@ def insert_midpoint(p, tr, seg):
     for adj in tr.adjacent:
         remove_triangle(adj, tr)
         for child in list_tr:
-            if len(set(child.points).intersection(set(adj.points))) > 1:
+            if len(set(child.points) & set(adj.points)) > 1:
                 child.adjacent.add(adj)
                 adj.adjacent.add(child)
                 break
@@ -133,7 +131,7 @@ def chew_add_point(tree, plist, nl, task_queue, ratio, num):
                         for adj in tri.adjacent:
                             adj.adjacent.remove(tri)
                     adj_triangles = [pl for pl in itertools.combinations(list_new_tris, 2) if
-                                     len(set(pl[0].points).intersection(pl[1].points)) > 1]
+                                     len(set(pl[0].points) & set(pl[1].points)) > 1]
                     for trk, trj in adj_triangles:
                         if trk not in trj.adjacent:
                             trk.adjacent.add(trj)
@@ -160,17 +158,17 @@ def point_in_adjacent(tr, pt, plist):
 def collect_points(tr1, seg, r, pm, plist, n):
     """Collect the set of points seen from
     the circumcenter added as the midpoint"""
-    tr2, = filter(lambda tr: len(seg.intersection(set(tr.points))) > 1, tuple(tr1.adjacent))
+    tr2, = filter(lambda tr: len(seg & set(tr.points)) > 1, tuple(tr1.adjacent))
     ps = [set(tr.points).difference(seg).pop() for tr in (tr1, tr2)]
     list_points = set([p for p in ps if length_segment(plist[p], pm) < r and p >= n])
-    adj = tr1.adjacent.union(tr2.adjacent).difference({tr1, tr2})
+    adj = (tr1.adjacent | tr2.adjacent) - {tr1, tr2}
     while adj:
         tr = adj.pop()
-        p = set(tr.points).difference(seg)
+        p = set(tr.points)-seg
         for pt in p:
             if length_segment(plist[pt], pm) < r and pt >= n and pt not in list_points:
                 list_points.add(pt)
-                adj = adj.union(tr.adjacent)
+                adj = adj | tr.adjacent
     return list_points
 
 
@@ -185,7 +183,7 @@ def find_segment(tr, pt, plist):
         try:
             seg_tmp, = filter(lambda seg: check_intersection((plist[seg[0]], plist[seg[1]]), segt),
                               itertools.combinations(adj.points, 2))
-            if len(set(tr.points).intersection(set(seg_tmp))) > 1:
+            if len(set(tr.points) & set(seg_tmp)) > 1:
                 continue
             else:
                 return seg_tmp, adj
