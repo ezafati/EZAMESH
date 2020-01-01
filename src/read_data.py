@@ -18,7 +18,6 @@ def read_file(meshfile, process):
         with open(meshfile, 'r') as f:
             if f.readline() == "":
                 logging.error(f'FILE {os.path.abspath(meshfile)} EMPTY')
-                sys.exit(f'SEE LOG FILE {os.path.abspath(FILE_LOG_PATH)}')
             else:
                 f.seek(0, 0)
                 line = next(f)
@@ -48,5 +47,20 @@ def switch_case(fields, n_line, meshfile):
     if switcher.get(fields[2], 'INVALID') == 'INVALID':
         logging.error(
             f'IN LINE {n_line} IN FILE {os.path.abspath(meshfile)}: THE OPTION ({fields[2]}) IS NOT EXPECTED ')
-        sys.exit(f'SEE LOG FILE {os.path.abspath(FILE_LOG_PATH)}')
     switcher.get(fields[2])(fields)
+
+
+def switch_demo(fields, n_line, meshfile):
+    switcher = {
+        'POINT': lambda fields: module_var.parsefile.add_point(fields),
+        'LINE': lambda fields: module_var.parsefile.add_bound(fields, n_line),
+        'ARC': lambda fields: module_var.parsefile.add_bound(fields, n_line),
+        'SPLINE': lambda fields: module_var.parsefile.add_bound(fields, n_line),
+        'PART': lambda fields: module_var.parsefile.add_part(fields, n_line)
+    }
+    try:
+        assert switcher.get(fields[2], 'INVALID') != 'INVALID'
+        switcher.get(fields[2])(fields)
+    except Exception:
+        raise SyntaxError(f'IN LINE {n_line} IN FILE {os.path.abspath(meshfile)}: THE OPTION ({fields[2]}) IS NOT '
+                          f'EXPECTED ')

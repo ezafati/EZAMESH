@@ -6,6 +6,7 @@ import module_var
 from MeshObjects.GeObjects import *
 
 
+
 def enforce_segment(list_tr, index, p, plist):
     """Enforce the segment linking the midpoint and a deleted point seen from
     the first one"""

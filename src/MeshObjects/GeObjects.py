@@ -15,6 +15,8 @@ import logging
 import scipy.integrate
 import scipy.optimize
 
+from systemutils import AlreadyExistError, NotApproValueError
+
 
 def prim_spline(A, B, C):
     v1 = Vector(C.x - A.x, C.y - A.y)
@@ -286,9 +288,64 @@ class TriangleTree:
 
 class ParseMeshFile(object):
     def __init__(self):
-        self.points = []
-        self.segemnts = []
-        self.parts = [0]
+        self.points = dict()
+        self.segments = dict()
+        self.parts = dict()
+
+    def add_part(self, fields, n_line):
+        label = fields[0]
+        try:
+            assert label not in self.parts
+        except Exception:
+            raise AlreadyExistError(f'The label {label} is provided more than once')
+        part = Part()
+        part.name = label
+        part.listboundary = fields[3:]
+
+    def add_point(self, fields, n_line):
+        label = fields[0]
+        try:
+            assert label not in self.points
+        except Exception:
+            raise AlreadyExistError(f'The label {label} is provided more than once')
+        try:
+            pt = Point(float(fields[2]), float(fields[3]))
+        except ValueError:
+            raise ValueError(f'the entries in line {n_line} should be flaots ')
+        self.points[label] = pt
+
+    def add_bound(self, fields, n_line):
+        label = fields[0]
+        try:
+            assert label not in self.segments
+        except Exception:
+            raise AlreadyExistError(f'The label {label} is provided more than once')
+        boundtype = fields[2]
+        bound = BoundElement()
+        try:
+            bound.type = boundtype
+            try:
+                assert fields[3] in self.points and fields[4] in self.points
+                bound.extrA = fields[3]
+                bound.extrB = fields[4]
+            except SyntaxError:
+                raise SyntaxError(f'At least one point is not defined  in line {n_line}')
+            bound.sizA = float(fields[5])
+            bound.sizeB = float(fields[6])
+        except (IndexError, ValueError) as e:
+            print(e)
+        try:
+            bound.extrargs = fields[7:]
+        except IndexError:
+            pass
+        self.segments[label] = bound
+
+
+class Part(object):
+    def __init__(self):
+        self.name = None
+        self.listboundary = None
+        self.create = False
 
 
 class Vector(object):
@@ -297,12 +354,14 @@ class Vector(object):
         self.y = y
 
 
-class Segment(object):
-    def __init__(self, x=0, y=0):
+class BoundElement(object):
+    def __init__(self, x=None, y=None):
+        self.type = None
         self.extrA = x
         self.extrB = y
         self.sizA = 0
         self.sizB = 0
+        self.extrargs = None
 
 
 class Point(object):
