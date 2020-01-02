@@ -6,6 +6,8 @@ from __future__ import division
 import itertools
 
 from collections import deque
+from functools import reduce
+
 import matplotlib.pyplot as plt
 import numpy as np
 from math import sqrt, acos, modf, sin, cos, copysign
@@ -300,7 +302,8 @@ class ParseMeshFile(object):
             raise AlreadyExistError(f'The label {label} is provided more than once')
         part = Part()
         part.name = label
-        part.listboundary = fields[3:]
+        part.listboundary = fields[3:-1]
+        self.parts[label] = part
 
     def add_point(self, fields, n_line):
         label = fields[0]
@@ -326,16 +329,14 @@ class ParseMeshFile(object):
             bound.type = boundtype
             try:
                 assert fields[3] in self.points and fields[4] in self.points
-                bound.extrA = fields[3]
-                bound.extrB = fields[4]
+                bound.extr = (fields[3], fields[4])
             except SyntaxError:
                 raise SyntaxError(f'At least one point is not defined  in line {n_line}')
-            bound.sizA = float(fields[5])
-            bound.sizeB = float(fields[6])
+            bound.sizes = (float(fields[5]), float(fields[6]))
         except (IndexError, ValueError) as e:
             print(e)
         try:
-            bound.extrargs = fields[7:]
+            bound.extrargs = fields[7:-1]
         except IndexError:
             pass
         self.segments[label] = bound
@@ -347,6 +348,12 @@ class Part(object):
         self.listboundary = None
         self.create = False
 
+    def create_mesh(self, parserfile):
+        mesh = Mesh()
+        ptlist = reduce(lambda p, q: p | q, (set(parserfile.segments[label].extr) for label in self.listboundary))
+        mesh.add_point(ptlist, parserfile.points) #add points
+
+
 
 class Vector(object):
     def __init__(self, x=None, y=None):
@@ -355,12 +362,10 @@ class Vector(object):
 
 
 class BoundElement(object):
-    def __init__(self, x=None, y=None):
+    def __init__(self):
         self.type = None
-        self.extrA = x
-        self.extrB = y
-        self.sizA = 0
-        self.sizB = 0
+        self.extr = None
+        self.sizes = None
         self.extrargs = None
 
 
@@ -607,3 +612,189 @@ class Mesh(object):
             self.nbnodes += 1
             self.listpoint.append(Point(float(fields[3]), float(fields[4])))
             self.pointlabel[fields[0]] = self.nbnodes
+
+
+class Mesh_bak(object):
+    def __init__(self, x=None, slabel=None, nnodes=0, polist=None, llist=None, ltri=None, strat='default'):
+        if ltri is None:
+            ltri = []
+        if llist is None:
+            llist = {}
+        if polist is None:
+            polist = []
+        if slabel is None:
+            slabel = []
+        if x is None:
+            x = []
+        self.boundary = x
+        self.boundarylabels = slabel
+        self.nbnodes = nnodes
+        self.listpoint = polist
+        self.pointlabel = llist
+        self.triangle_list = ltri
+        self.meshstrategy = strat
+
+    def add_arc(self, fields, n_line):
+        self.boundarylabels.append(fields[0])
+        NA, NB = [self.pointlabel[fields[p]] for p in (3, 4)]
+        l1, l2 = [float(fields[p]) for p in (5, 6)]
+        A, B = [self.listpoint[p - 1] for p in (NA, NB)]
+        point_list = [A, B]
+        radius = float(fields[7])
+        center = get_center(point_list, radius)
+        scalar_product = (A.x - center.x) * (B.x - center.x) + (A.y - center.y) * (B.y - center.y)
+        theta = acos((scalar_product / radius ** 2))
+        slen = radius * theta
+        if l1 > l2:
+            l1, l2 = l2, l1
+            A, B = B, A
+            NA, NB = NB, NA
+            theta = -1 * theta
+        ratio = slen / (l1 + (l2 - l1) / 2)
+        if ratio < 1:
+            raise ValueError(f"The densities specified in {n_line} are too large for the boundary length {slen}")
+        estep = modf(ratio)
+        if estep[0] > 0.5:  # add correction to l1 and l2 for better subdivision
+            corr = 1 / 2 * (l1 + l2 - 2 * slen / (estep[1] + 1))
+            l1 -= corr
+            l2 -= corr
+            tsteps = estep[1] + 1
+        else:
+            corr = 1 / 2 * (2 * slen / estep[1] - l1 - l2)
+            l1 += corr
+            l2 += corr
+            tsteps = estep[1]
+        if tsteps == 1:  # no points to add
+            self.boundary.append({NA - 1, NB - 1})
+            return 1
+        step = (l2 - l1) / estep[1]
+        count = 1
+        while count < tsteps:
+            self.nbnodes += 1
+            C = Point()
+            theta_M = (count * l1 + count * (count - 1) * step / 2) / radius * copysign(1, theta)
+            C.x = center.x + cos(theta_M) * (A.x - center.x) - sin(theta_M) * (A.y - center.y)
+            C.y = center.y + sin(theta_M) * (A.x - center.x) + cos(theta_M) * (A.y - center.y)
+            C.size = l1 + (count - 1) * step
+            self.listpoint.append(C)
+            if count == tsteps - 1:
+                self.boundary.append({self.nbnodes - 1, NB - 1})
+                if count == 1:
+                    self.boundary.append({NA - 1, self.nbnodes - 1})
+                else:
+                    self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
+            elif count == 1:
+                self.boundary.append({NA - 1, self.nbnodes - 1})
+            else:
+                self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
+            count += 1
+
+    def add_line(self, fields, n_line):
+        self.boundarylabels.append(fields[0])
+        NA, NB = [self.pointlabel[fields[p]] for p in (3, 4)]
+        l1, l2 = [float(fields[p]) for p in (5, 6)]
+        if l1 > l2:
+            NA, NB = NB, NA
+            l1, l2 = l2, l1
+        A, B = [self.listpoint[p - 1] for p in (NA, NB)]
+        A.size, B.size = l1, l2
+        slen = sqrt(pow(A.x - B.x, 2) + pow(A.y - B.y, 2))
+        ratio = slen / (l1 + (l2 - l1) / 2)
+        if ratio < 1:
+            raise ValueError(f"The densities specified in {n_line} are too large for the boundary length {slen}")
+        estep = modf(ratio)
+        if estep[0] > 0.5:  # add correction to l1 and l2 for get a better subdivision
+            corr = 1 / 2 * (l1 + l2 - 2 * slen / (estep[1] + 1))
+            l1 -= corr
+            l2 -= corr
+            tsteps = estep[1] + 1
+        else:
+            corr = 1 / 2 * (2 * slen / estep[1] - l1 - l2)
+            l1 += corr
+            l2 += corr
+            tsteps = estep[1]
+        if tsteps == 1:  # no points to add
+            self.boundary.append({NA - 1, NB - 1})
+            return 1
+        step = (l2 - l1) / estep[1]
+        count = 1
+        while count < tsteps:
+            self.nbnodes += 1
+            C = Point()
+            C.x = A.x + (B.x - A.x) / slen * (count * l1 + count * (count - 1) * step / 2)
+            C.y = A.y + (B.y - A.y) / slen * (count * l1 + count * (count - 1) * step / 2)
+            C.size = l1 + (count - 1) * step
+            self.listpoint.append(C)
+            if count == tsteps - 1:
+                self.boundary.append({self.nbnodes - 1, NB - 1})
+                if count == 1:
+                    self.boundary.append({NA - 1, self.nbnodes - 1})
+                else:
+                    self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
+            elif count == 1:
+                self.boundary.append({NA - 1, self.nbnodes - 1})
+            else:
+                self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
+            count += 1
+
+    def add_spline(self, fields, n_line):
+        self.boundarylabels.append(fields[0])
+        NA, NB = [self.pointlabel[fields[p]] for p in (3, 4)]
+        l1, l2 = [float(fields[p]) for p in (5, 6)]
+        cpt = Point()
+        cpt.x, cpt.y = [float(fields[p]) for p in (7, 8)]
+        A, B = [self.listpoint[p - 1] for p in (NA, NB)]
+        A.size, B.size = l1, l2
+        if l2 < l1:
+            NA, NB = NB, NA
+            A, B = B, A
+            l1, l2 = l2, l1
+        slen = len_spline(1, A, B, cpt)
+        fprim = prim_spline(A, B, cpt)
+        ratio = slen / (l1 + (l2 - l1) / 2)
+        if ratio < 1:
+            raise ValueError(f"The densities specified in {n_line} are too large for the boundary length {slen}")
+        estep = modf(ratio)
+        if estep[0] > 0.5:  # add correction to l1 and l2 for better subdivision
+            corr = 1 / 2 * (l1 + l2 - 2 * slen / (estep[1] + 1))
+            l1 -= corr
+            l2 -= corr
+            tsteps = estep[1] + 1
+        else:
+            corr = 1 / 2 * (2 * slen / estep[1] - l1 - l2)
+            l1 += corr
+            l2 += corr
+            tsteps = estep[1]
+        if tsteps == 1:  # no points to add
+            self.boundary.append({NA - 1, NB - 1})
+            return 1
+        step = (l2 - l1) / estep[1]
+        count = 1
+        while count < tsteps:
+            self.nbnodes += 1
+            C = Point()
+            target = (count * l1 + count * (count - 1) * step / 2)
+            rt = scipy.optimize.newton(lambda x: len_spline(x, A, B, cpt) - target, 0, fprime=fprim)
+            p11 = Point((1 - rt) * A.x + rt * cpt.x, (1 - rt) * A.y + rt * cpt.y)
+            p21 = Point((1 - rt) * cpt.x + rt * B.x, (1 - rt) * cpt.y + rt * B.y)
+            C.x = (1 - rt) * p11.x + rt * p21.x
+            C.y = (1 - rt) * p11.y + rt * p21.y
+            C.size = l1 + (count - 1) * step
+            self.listpoint.append(C)
+            if count == tsteps - 1:
+                self.boundary.append({self.nbnodes - 1, NB - 1})
+                if count == 1:
+                    self.boundary.append({NA - 1, self.nbnodes - 1})
+                else:
+                    self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
+            elif count == 1:
+                self.boundary.append({NA - 1, self.nbnodes - 1})
+            else:
+                self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
+            count += 1
+
+    def add_point(self, list_pt, parsefilepts):
+        for label in list_pt:
+            self.nbnodes += 1
+            self.listpoint.append(parsefilepts[label])
+            #self.pointlabel[fields[0]] = self.nbnodes
