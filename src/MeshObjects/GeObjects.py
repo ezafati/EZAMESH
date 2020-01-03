@@ -1,4 +1,4 @@
-""" Geometry Objects
+""" Geometry and mesh Objects
 Copyright (c) 2019-2020, E Zafati
  All rights reserved"""
 from __future__ import division
@@ -17,7 +17,7 @@ import logging
 import scipy.integrate
 import scipy.optimize
 
-from systemutils import AlreadyExistError, NotApproValueError
+from systemutils import AlreadyExistError, NotApproValueError, UnknownElementError
 
 
 def prim_spline(A, B, C):
@@ -288,13 +288,21 @@ class TriangleTree:
                     swap_tr(tr1, tr2)
 
 
-class ParseMeshFile(object):
+class FileParser(object):
     def __init__(self):
         self.points = dict()
         self.segments = dict()
         self.parts = dict()
 
-    def add_part(self, fields, n_line):
+    def make_mesh(self, fields, n_line):
+        label = fields[3]
+        try:
+            assert label in self.parts
+        except UnknownElementError:
+            raise UnknownElementError(f'Element {label} provided in line {n_line} is not defined')
+        self.parts[label].create = True
+
+    def make_part(self, fields, n_line):
         label = fields[0]
         try:
             assert label not in self.parts
@@ -302,31 +310,30 @@ class ParseMeshFile(object):
             raise AlreadyExistError(f'The label {label} is provided more than once')
         part = Part()
         part.name = label
-        part.listboundary = fields[3:-1]
+        part.listboundary = fields[3:]
         self.parts[label] = part
 
-    def add_point(self, fields, n_line):
+    def make_point(self, fields, n_line):
         label = fields[0]
         try:
             assert label not in self.points
         except Exception:
             raise AlreadyExistError(f'The label {label} is provided more than once')
         try:
-            pt = Point(float(fields[2]), float(fields[3]))
+            pt = Point(float(fields[3]), float(fields[4]))
         except ValueError:
             raise ValueError(f'the entries in line {n_line} should be flaots ')
         self.points[label] = pt
 
-    def add_bound(self, fields, n_line):
+    def make_boundary(self, fields, n_line):
         label = fields[0]
         try:
             assert label not in self.segments
         except Exception:
             raise AlreadyExistError(f'The label {label} is provided more than once')
-        boundtype = fields[2]
         bound = BoundElement()
         try:
-            bound.type = boundtype
+            bound.type = fields[2]
             try:
                 assert fields[3] in self.points and fields[4] in self.points
                 bound.extr = (fields[3], fields[4])
@@ -351,8 +358,11 @@ class Part(object):
     def create_mesh(self, parserfile):
         mesh = Mesh()
         ptlist = reduce(lambda p, q: p | q, (set(parserfile.segments[label].extr) for label in self.listboundary))
-        mesh.add_point(ptlist, parserfile.points) #add points
-
+        mesh.add_point(ptlist, parserfile.points)
+        for label in self.listboundary:
+            seg = parserfile.segments[label]
+            eval(f'mesh.add_{seg.type}'.lower() + f'(seg)')
+        return mesh
 
 
 class Vector(object):
@@ -426,32 +436,32 @@ class Triangle(object):
 
 
 class Mesh(object):
-    def __init__(self, x=None, slabel=None, nnodes=0, polist=None, llist=None, ltri=None, strat='default'):
-        if ltri is None:
-            ltri = []
-        if llist is None:
-            llist = {}
-        if polist is None:
-            polist = []
-        if slabel is None:
-            slabel = []
-        if x is None:
-            x = []
-        self.boundary = x
-        self.boundarylabels = slabel
-        self.nbnodes = nnodes
-        self.listpoint = polist
-        self.pointlabel = llist
-        self.triangle_list = ltri
-        self.meshstrategy = strat
+    def __init__(self):
+        """constructor with initial attribute values:
+        self.boundary = [] (all the boundray elements)
+        self.nbnodes = 0   (total of the boundray points)
+        self.listpoint = None  (mesh point list)
+        self.pointlabel = dict()  (dict mapping label to a point object)
+        self.triangle_list = []  (list contains tuples NA,NB,NC)
+        self.meshstrategy = 'default' (mesh strategy default==second Chew algorithm)"""
+        self.boundary = []
+        self.nbnodes = 0
+        self.listpoint = list()
+        self.pointlabel = dict()
+        self.triangle_list = []
+        self.meshstrategy = 'default'
 
-    def add_arc(self, fields, n_line):
-        self.boundarylabels.append(fields[0])
-        NA, NB = [self.pointlabel[fields[p]] for p in (3, 4)]
-        l1, l2 = [float(fields[p]) for p in (5, 6)]
+    def add_arc(self, seg: 'BoundElement object'):
+        """add_spline(obj, seg) add a discretized
+        circle arc boundary to the mesh"""
+        NA, NB = [self.pointlabel[p] for p in seg.extr]
+        l1, l2 = [dens for dens in seg.sizes]
         A, B = [self.listpoint[p - 1] for p in (NA, NB)]
         point_list = [A, B]
-        radius = float(fields[7])
+        try:
+            radius = float(seg.extrargs[0])
+        except (IndexError, ValueError) as e:
+            raise Exception()
         center = get_center(point_list, radius)
         scalar_product = (A.x - center.x) * (B.x - center.x) + (A.y - center.y) * (B.y - center.y)
         theta = acos((scalar_product / radius ** 2))
@@ -463,7 +473,8 @@ class Mesh(object):
             theta = -1 * theta
         ratio = slen / (l1 + (l2 - l1) / 2)
         if ratio < 1:
-            raise ValueError(f"The densities specified in {n_line} are too large for the boundary length {slen}")
+            raise ValueError(
+                f"The densities specified for the arc {seg.extr} are too large for the boundary length {slen}")
         estep = modf(ratio)
         if estep[0] > 0.5:  # add correction to l1 and l2 for better subdivision
             corr = 1 / 2 * (l1 + l2 - 2 * slen / (estep[1] + 1))
@@ -500,10 +511,11 @@ class Mesh(object):
                 self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
             count += 1
 
-    def add_line(self, fields, n_line):
-        self.boundarylabels.append(fields[0])
-        NA, NB = [self.pointlabel[fields[p]] for p in (3, 4)]
-        l1, l2 = [float(fields[p]) for p in (5, 6)]
+    def add_line(self, seg: 'BoundElement object'):
+        """add_spline(obj, seg) add a discretized
+        line or a segment boundary to the mesh"""
+        NA, NB = [self.pointlabel[p] for p in seg.extr]
+        l1, l2 = [dens for dens in seg.sizes]
         if l1 > l2:
             NA, NB = NB, NA
             l1, l2 = l2, l1
@@ -512,7 +524,8 @@ class Mesh(object):
         slen = sqrt(pow(A.x - B.x, 2) + pow(A.y - B.y, 2))
         ratio = slen / (l1 + (l2 - l1) / 2)
         if ratio < 1:
-            raise ValueError(f"The densities specified in {n_line} are too large for the boundary length {slen}")
+            raise ValueError(
+                f"The densities specified for the line {seg.extr} are too large for the boundary length {slen}")
         estep = modf(ratio)
         if estep[0] > 0.5:  # add correction to l1 and l2 for get a better subdivision
             corr = 1 / 2 * (l1 + l2 - 2 * slen / (estep[1] + 1))
@@ -548,12 +561,16 @@ class Mesh(object):
                 self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
             count += 1
 
-    def add_spline(self, fields, n_line):
-        self.boundarylabels.append(fields[0])
-        NA, NB = [self.pointlabel[fields[p]] for p in (3, 4)]
-        l1, l2 = [float(fields[p]) for p in (5, 6)]
+    def add_spline(self, seg: 'BoundElement Object'):
+        """add_spline(obj, seg) add a discretized
+        spline boundary to the mesh"""
+        NA, NB = [self.pointlabel[p] for p in seg.extr]
+        l1, l2 = [dens for dens in seg.sizes]
         cpt = Point()
-        cpt.x, cpt.y = [float(fields[p]) for p in (7, 8)]
+        try:
+            cpt.x, cpt.y = [float(p) for p in seg[0:2]]
+        except (IndexError, ValueError) as e:
+            print(e)
         A, B = [self.listpoint[p - 1] for p in (NA, NB)]
         A.size, B.size = l1, l2
         if l2 < l1:
@@ -564,7 +581,8 @@ class Mesh(object):
         fprim = prim_spline(A, B, cpt)
         ratio = slen / (l1 + (l2 - l1) / 2)
         if ratio < 1:
-            raise ValueError(f"The densities specified in {n_line} are too large for the boundary length {slen}")
+            raise ValueError(
+                f"The densities specified ifor the spline {seg.extr} are too large for the boundary length {slen}")
         estep = modf(ratio)
         if estep[0] > 0.5:  # add correction to l1 and l2 for better subdivision
             corr = 1 / 2 * (l1 + l2 - 2 * slen / (estep[1] + 1))
@@ -604,197 +622,8 @@ class Mesh(object):
                 self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
             count += 1
 
-    def add_point(self, fields):
-        if len(fields) == 2:
+    def add_point(self, label_pts, list_pts):
+        for label in label_pts:
             self.nbnodes += 1
-            self.listpoint.append(Point(fields[0], fields[1]))
-        else:
-            self.nbnodes += 1
-            self.listpoint.append(Point(float(fields[3]), float(fields[4])))
-            self.pointlabel[fields[0]] = self.nbnodes
-
-
-class Mesh_bak(object):
-    def __init__(self, x=None, slabel=None, nnodes=0, polist=None, llist=None, ltri=None, strat='default'):
-        if ltri is None:
-            ltri = []
-        if llist is None:
-            llist = {}
-        if polist is None:
-            polist = []
-        if slabel is None:
-            slabel = []
-        if x is None:
-            x = []
-        self.boundary = x
-        self.boundarylabels = slabel
-        self.nbnodes = nnodes
-        self.listpoint = polist
-        self.pointlabel = llist
-        self.triangle_list = ltri
-        self.meshstrategy = strat
-
-    def add_arc(self, fields, n_line):
-        self.boundarylabels.append(fields[0])
-        NA, NB = [self.pointlabel[fields[p]] for p in (3, 4)]
-        l1, l2 = [float(fields[p]) for p in (5, 6)]
-        A, B = [self.listpoint[p - 1] for p in (NA, NB)]
-        point_list = [A, B]
-        radius = float(fields[7])
-        center = get_center(point_list, radius)
-        scalar_product = (A.x - center.x) * (B.x - center.x) + (A.y - center.y) * (B.y - center.y)
-        theta = acos((scalar_product / radius ** 2))
-        slen = radius * theta
-        if l1 > l2:
-            l1, l2 = l2, l1
-            A, B = B, A
-            NA, NB = NB, NA
-            theta = -1 * theta
-        ratio = slen / (l1 + (l2 - l1) / 2)
-        if ratio < 1:
-            raise ValueError(f"The densities specified in {n_line} are too large for the boundary length {slen}")
-        estep = modf(ratio)
-        if estep[0] > 0.5:  # add correction to l1 and l2 for better subdivision
-            corr = 1 / 2 * (l1 + l2 - 2 * slen / (estep[1] + 1))
-            l1 -= corr
-            l2 -= corr
-            tsteps = estep[1] + 1
-        else:
-            corr = 1 / 2 * (2 * slen / estep[1] - l1 - l2)
-            l1 += corr
-            l2 += corr
-            tsteps = estep[1]
-        if tsteps == 1:  # no points to add
-            self.boundary.append({NA - 1, NB - 1})
-            return 1
-        step = (l2 - l1) / estep[1]
-        count = 1
-        while count < tsteps:
-            self.nbnodes += 1
-            C = Point()
-            theta_M = (count * l1 + count * (count - 1) * step / 2) / radius * copysign(1, theta)
-            C.x = center.x + cos(theta_M) * (A.x - center.x) - sin(theta_M) * (A.y - center.y)
-            C.y = center.y + sin(theta_M) * (A.x - center.x) + cos(theta_M) * (A.y - center.y)
-            C.size = l1 + (count - 1) * step
-            self.listpoint.append(C)
-            if count == tsteps - 1:
-                self.boundary.append({self.nbnodes - 1, NB - 1})
-                if count == 1:
-                    self.boundary.append({NA - 1, self.nbnodes - 1})
-                else:
-                    self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
-            elif count == 1:
-                self.boundary.append({NA - 1, self.nbnodes - 1})
-            else:
-                self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
-            count += 1
-
-    def add_line(self, fields, n_line):
-        self.boundarylabels.append(fields[0])
-        NA, NB = [self.pointlabel[fields[p]] for p in (3, 4)]
-        l1, l2 = [float(fields[p]) for p in (5, 6)]
-        if l1 > l2:
-            NA, NB = NB, NA
-            l1, l2 = l2, l1
-        A, B = [self.listpoint[p - 1] for p in (NA, NB)]
-        A.size, B.size = l1, l2
-        slen = sqrt(pow(A.x - B.x, 2) + pow(A.y - B.y, 2))
-        ratio = slen / (l1 + (l2 - l1) / 2)
-        if ratio < 1:
-            raise ValueError(f"The densities specified in {n_line} are too large for the boundary length {slen}")
-        estep = modf(ratio)
-        if estep[0] > 0.5:  # add correction to l1 and l2 for get a better subdivision
-            corr = 1 / 2 * (l1 + l2 - 2 * slen / (estep[1] + 1))
-            l1 -= corr
-            l2 -= corr
-            tsteps = estep[1] + 1
-        else:
-            corr = 1 / 2 * (2 * slen / estep[1] - l1 - l2)
-            l1 += corr
-            l2 += corr
-            tsteps = estep[1]
-        if tsteps == 1:  # no points to add
-            self.boundary.append({NA - 1, NB - 1})
-            return 1
-        step = (l2 - l1) / estep[1]
-        count = 1
-        while count < tsteps:
-            self.nbnodes += 1
-            C = Point()
-            C.x = A.x + (B.x - A.x) / slen * (count * l1 + count * (count - 1) * step / 2)
-            C.y = A.y + (B.y - A.y) / slen * (count * l1 + count * (count - 1) * step / 2)
-            C.size = l1 + (count - 1) * step
-            self.listpoint.append(C)
-            if count == tsteps - 1:
-                self.boundary.append({self.nbnodes - 1, NB - 1})
-                if count == 1:
-                    self.boundary.append({NA - 1, self.nbnodes - 1})
-                else:
-                    self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
-            elif count == 1:
-                self.boundary.append({NA - 1, self.nbnodes - 1})
-            else:
-                self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
-            count += 1
-
-    def add_spline(self, fields, n_line):
-        self.boundarylabels.append(fields[0])
-        NA, NB = [self.pointlabel[fields[p]] for p in (3, 4)]
-        l1, l2 = [float(fields[p]) for p in (5, 6)]
-        cpt = Point()
-        cpt.x, cpt.y = [float(fields[p]) for p in (7, 8)]
-        A, B = [self.listpoint[p - 1] for p in (NA, NB)]
-        A.size, B.size = l1, l2
-        if l2 < l1:
-            NA, NB = NB, NA
-            A, B = B, A
-            l1, l2 = l2, l1
-        slen = len_spline(1, A, B, cpt)
-        fprim = prim_spline(A, B, cpt)
-        ratio = slen / (l1 + (l2 - l1) / 2)
-        if ratio < 1:
-            raise ValueError(f"The densities specified in {n_line} are too large for the boundary length {slen}")
-        estep = modf(ratio)
-        if estep[0] > 0.5:  # add correction to l1 and l2 for better subdivision
-            corr = 1 / 2 * (l1 + l2 - 2 * slen / (estep[1] + 1))
-            l1 -= corr
-            l2 -= corr
-            tsteps = estep[1] + 1
-        else:
-            corr = 1 / 2 * (2 * slen / estep[1] - l1 - l2)
-            l1 += corr
-            l2 += corr
-            tsteps = estep[1]
-        if tsteps == 1:  # no points to add
-            self.boundary.append({NA - 1, NB - 1})
-            return 1
-        step = (l2 - l1) / estep[1]
-        count = 1
-        while count < tsteps:
-            self.nbnodes += 1
-            C = Point()
-            target = (count * l1 + count * (count - 1) * step / 2)
-            rt = scipy.optimize.newton(lambda x: len_spline(x, A, B, cpt) - target, 0, fprime=fprim)
-            p11 = Point((1 - rt) * A.x + rt * cpt.x, (1 - rt) * A.y + rt * cpt.y)
-            p21 = Point((1 - rt) * cpt.x + rt * B.x, (1 - rt) * cpt.y + rt * B.y)
-            C.x = (1 - rt) * p11.x + rt * p21.x
-            C.y = (1 - rt) * p11.y + rt * p21.y
-            C.size = l1 + (count - 1) * step
-            self.listpoint.append(C)
-            if count == tsteps - 1:
-                self.boundary.append({self.nbnodes - 1, NB - 1})
-                if count == 1:
-                    self.boundary.append({NA - 1, self.nbnodes - 1})
-                else:
-                    self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
-            elif count == 1:
-                self.boundary.append({NA - 1, self.nbnodes - 1})
-            else:
-                self.boundary.append({(self.nbnodes - 1) - 1, self.nbnodes - 1})
-            count += 1
-
-    def add_point(self, list_pt, parsefilepts):
-        for label in list_pt:
-            self.nbnodes += 1
-            self.listpoint.append(parsefilepts[label])
-            #self.pointlabel[fields[0]] = self.nbnodes
+            self.listpoint.append(list_pts[label])
+            self.pointlabel[label] = self.nbnodes

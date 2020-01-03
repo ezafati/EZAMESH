@@ -6,9 +6,9 @@ import numpy as np
 
 
 def optmize_mesh(func, *args):
-    nnodes = len(module_var.gmesh.listpoint)
+    nnodes = len(module_var.partmesh.listpoint)
     xinit = np.ndarray(shape=(2 * nnodes,))
-    plist = module_var.gmesh.listpoint
+    plist = module_var.partmesh.listpoint
     for l in range(nnodes):
         xinit[2 * l] = plist[l].x
         xinit[2 * l + 1] = plist[l].y
@@ -20,9 +20,9 @@ def optmize_mesh(func, *args):
 
 
 def optmize_mesh_lsq(func, *args):
-    nnodes = len(module_var.gmesh.listpoint)
+    nnodes = len(module_var.partmesh.listpoint)
     xinit = np.ndarray(shape=(2 * nnodes,))
-    plist = module_var.gmesh.listpoint
+    plist = module_var.partmesh.listpoint
     for l in range(nnodes):
         xinit[2 * l] = plist[l].x
         xinit[2 * l + 1] = plist[l].y
@@ -32,14 +32,14 @@ def optmize_mesh_lsq(func, *args):
 
 def energy_based_func_lsq(xlist, func, plist, *args):
     ntr = len(module_var.tree_refinement.root.childs)
-    nnodes = len(module_var.gmesh.listpoint)
+    nnodes = len(module_var.partmesh.listpoint)
     nedges = ntr + nnodes - 1
-    shape = nedges - module_var.gmesh.nbnodes
+    shape = nedges - module_var.partmesh.nbnodes
     vect = np.ndarray(shape=(2 * shape,))
     count = 0
     for tr in module_var.tree_refinement.root.childs:
         for seg in itertools.combinations(tr.points, 2):
-            if set(seg) not in module_var.gmesh.boundary:
+            if set(seg) not in module_var.partmesh.boundary:
                 p1, p2 = [Point(xlist[2 * l], xlist[2 * l + 1]) for l in seg]
                 pt = p1 - p2
                 pm = (p1 + p2) * 0.5
@@ -55,7 +55,7 @@ def energy_based_func(xlist, func, plist, *args):
             p1, p2 = [Point(xlist[2 * l], xlist[2 * l + 1]) for l in seg]
             pt = p1 - p2
             pm = (p1 + p2) * 0.5
-            if set(seg) in module_var.gmesh.boundary:
+            if set(seg) in module_var.partmesh.boundary:
                 energy += 2 * (pt.x ** 2 + pt.y ** 2 - func(pm, plist, *args) ** 2) ** 2
             else:
                 energy += (pt.x ** 2 + pt.y ** 2 - func(pm, plist, *args) ** 2) ** 2
@@ -63,8 +63,8 @@ def energy_based_func(xlist, func, plist, *args):
 
 
 def constr_func(xlist):
-    nbnodes = module_var.gmesh.nbnodes
-    plist = module_var.gmesh.listpoint
+    nbnodes = module_var.partmesh.nbnodes
+    plist = module_var.partmesh.listpoint
     constr_sum = 0
     for l in range(nbnodes):
         constr_sum += (xlist[2 * l] - plist[l].x) ** 2 + (xlist[2 * l + 1] - plist[l].y) ** 2

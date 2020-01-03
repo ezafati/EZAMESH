@@ -6,7 +6,6 @@ import module_var
 from MeshObjects.GeObjects import *
 
 
-
 def enforce_segment(list_tr, index, p, plist):
     """Enforce the segment linking the midpoint and a deleted point seen from
     the first one"""
@@ -165,7 +164,7 @@ def collect_points(tr1, seg, r, pm, plist, n):
     adj = (tr1.adjacent | tr2.adjacent) - {tr1, tr2}
     while adj:
         tr = adj.pop()
-        p = set(tr.points)-seg
+        p = set(tr.points) - seg
         for pt in p:
             if length_segment(plist[pt], pm) < r and pt >= n and pt not in list_points:
                 list_points.add(pt)
@@ -235,7 +234,7 @@ def size_function(pt, plist, nl):
 def is_well_shaped(que, ratio, num, kel):
     """This function check if the current triangle is well shaped with
     respect to the previous tested one r_tr[1] """
-    plist = module_var.gmesh.listpoint
+    plist = module_var.partmesh.listpoint
     cst = 1. * sqrt(2)
     tr = module_var.tree_refinement.root.childs[kel]
     list_tmp = [plist[p] for p in tr.points]
@@ -255,7 +254,7 @@ def is_well_shaped(que, ratio, num, kel):
 def is_well_sized(que, ratio, num, kel, nb):
     """This function check if the current triangle is well shaped with
     respect to the previous tested one ratio_tr[1] """
-    plist = module_var.gmesh.listpoint
+    plist = module_var.partmesh.listpoint
     tr = module_var.tree_refinement.root.childs[kel]
     radius = circumcircle_radius(tr, plist)
     pt = circumcircle_center(tr, plist)

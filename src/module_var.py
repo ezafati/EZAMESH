@@ -1,9 +1,9 @@
-from MeshObjects.GeObjects import Mesh, ParseMeshFile
+from MeshObjects.GeObjects import Mesh, FileParser
 from collections import namedtuple
 
-gmesh = Mesh()
-allmesh = list()
-parsefile = ParseMeshFile()
+partmesh = Mesh()
+globalmesh = list()
+parsefile = FileParser()
 tree_refinement = None
 
 method_properties = namedtuple('method_properties', ('module_name', 'mesh_func', 'init_params'))

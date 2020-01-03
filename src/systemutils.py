@@ -33,6 +33,11 @@ class AlreadyExistError(Exception):
      provided with the same label for instance"""
 
 
+class UnknownElementError(Exception):
+    """error raised when the provided element
+    is unkown or undefined """
+
+
 @contextmanager
 def launch_processes(task_queue, func, *args):
     npr = multiprocessing.cpu_count()

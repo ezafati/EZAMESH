@@ -33,30 +33,20 @@ def read_file(meshfile, process):
         sys.exit()
     except StopIteration as e:
         logging.info("############### END READ MESH FILE WITH SUCCESS   ###########################")
-        run_tri_mesh(module_var.gmesh, process)
+        for part in module_var.parsefile.parts.values():
+            mesh = part.create_mesh(module_var.parsefile)
+            module_var.partmesh = mesh
+        run_tri_mesh(module_var.partmesh, process)
 
 
 def switch_case(fields, n_line, meshfile):
     switcher = {
-        'POINT': lambda fields: module_var.gmesh.add_point(fields),
-        'LINE': lambda fields: module_var.gmesh.add_line(fields, n_line),
-        'ARC': lambda fields: module_var.gmesh.add_arc(fields, n_line),
-        'SPLINE': lambda fields: module_var.gmesh.add_spline(fields, n_line),
-        'PART': lambda fields: module_var.gmesh.close_check(fields, n_line)
-    }
-    if switcher.get(fields[2], 'INVALID') == 'INVALID':
-        logging.error(
-            f'IN LINE {n_line} IN FILE {os.path.abspath(meshfile)}: THE OPTION ({fields[2]}) IS NOT EXPECTED ')
-    switcher.get(fields[2])(fields)
-
-
-def switch_demo(fields, n_line, meshfile):
-    switcher = {
-        'POINT': lambda fields: module_var.parsefile.add_point(fields),
-        'LINE': lambda fields: module_var.parsefile.add_bound(fields, n_line),
-        'ARC': lambda fields: module_var.parsefile.add_bound(fields, n_line),
-        'SPLINE': lambda fields: module_var.parsefile.add_bound(fields, n_line),
-        'PART': lambda fields: module_var.parsefile.add_part(fields, n_line)
+        'POINT': lambda fields: module_var.parsefile.make_point(fields, n_line),
+        'LINE': lambda fields: module_var.parsefile.make_boundary(fields, n_line),
+        'ARC': lambda fields: module_var.parsefile.make_boundary(fields, n_line),
+        'SPLINE': lambda fields: module_var.parsefile.make_boundary(fields, n_line),
+        'PART': lambda fields: module_var.parsefile.make_part(fields, n_line),
+        'MAKEMESH': lambda fields: module_var.parsefile.make_mesh(fields, n_line)
     }
     try:
         assert switcher.get(fields[2], 'INVALID') != 'INVALID'
