@@ -343,7 +343,7 @@ class FileParser(object):
         except (IndexError, ValueError) as e:
             print(e)
         try:
-            bound.extrargs = fields[7:-1]
+            bound.extrargs = fields[7:]
         except IndexError:
             pass
         self.segments[label] = bound
@@ -568,7 +568,7 @@ class Mesh(object):
         l1, l2 = [dens for dens in seg.sizes]
         cpt = Point()
         try:
-            cpt.x, cpt.y = [float(p) for p in seg[0:2]]
+            cpt.x, cpt.y = [float(p) for p in seg.extrargs[0:2]]
         except (IndexError, ValueError) as e:
             print(e)
         A, B = [self.listpoint[p - 1] for p in (NA, NB)]
