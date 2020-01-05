@@ -51,6 +51,6 @@ def switch_case(fields, n_line, meshfile):
     try:
         assert switcher.get(fields[2], 'INVALID') != 'INVALID'
         switcher.get(fields[2])(fields)
-    except Exception:
+    except AssertionError:
         raise SyntaxError(f'IN LINE {n_line} IN FILE {os.path.abspath(meshfile)}: THE OPTION ({fields[2]}) IS NOT '
                           f'EXPECTED ')

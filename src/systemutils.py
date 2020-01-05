@@ -19,7 +19,7 @@ class LogWrite:
 
 def exception_logging(exctype, value, tb):
     write_val = {'exception_type': str(exctype),
-                 'message': str(traceback.format_tb(tb, 10))}
+                 'message': str(traceback.format_tb(tb, 10)) + str(value)}
     logging.exception(str(write_val))
 
 
