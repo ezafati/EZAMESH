@@ -7,7 +7,7 @@ from systemutils import launch_processes, worker
 from module_var import dispatcher
 
 
-def run_tri_mesh(vmesh, process):
+def run_tri_mesh(vmesh: 'Mesh', process: 'Process'):
     _module = importlib.import_module(f"MeshAlg.{dispatcher[vmesh.meshstrategy].module_name}")
     refinement_method = _module.__dict__[dispatcher[vmesh.meshstrategy].mesh_func]
     plist = vmesh.listpoint
