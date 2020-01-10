@@ -38,7 +38,7 @@ def enforce_segment(list_tr, index, p, plist):
         return tr1, tr2
     except AttributeError:
         logging.error('FATAL ERROR ! Maybe the triangle has an empty child list')
-        sys.exit('EXIT WITH ERROR: SEE THE LOG FILE')
+        raise Exception('EXIT WITH ERROR: SEE THE LOG FILE')
 
 
 def insert_midpoint(p, tr, seg):
@@ -226,7 +226,7 @@ def circumcircle_radius(tr, plist):
 
 def size_function(pt, plist, nl):
     """evaluate the size function at the point pt"""
-    g = 0.07
+    g = 0.1
     size = min([plist[l].size + g * length_segment(pt, plist[l]) for l in range(nl)])
     return size
 

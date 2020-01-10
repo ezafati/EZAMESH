@@ -7,7 +7,6 @@ try:
 except ImportError:
     pass
 
-import sys
 
 import logging
 from MeshAlg.global_DT import run_tri_mesh
@@ -30,13 +29,12 @@ def read_file(meshfile, process):
                     n_line += 1
     except (FileNotFoundError, PermissionError) as e:
         logging.error(f" IN FILE {os.path.abspath(meshfile)}:  {e}")
-        sys.exit()
+        raise Exception()
     except StopIteration as e:
         logging.info("############### END READ MESH FILE WITH SUCCESS   ###########################")
         for part in module_var.parsefile.parts.values():
-            mesh = part.create_mesh(module_var.parsefile)
-            module_var.partmesh = mesh
-        run_tri_mesh(module_var.partmesh, process)
+            module_var.partmesh = part.create_mesh(module_var.parsefile)
+            run_tri_mesh(module_var.partmesh, process)
 
 
 def switch_case(fields, n_line, meshfile):

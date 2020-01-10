@@ -2,7 +2,6 @@ from MeshObjects.GeObjects import Mesh, FileParser
 from collections import namedtuple
 
 partmesh = Mesh()
-globalmesh = list()
 parsefile = FileParser()
 tree_refinement = None
 

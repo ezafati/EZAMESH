@@ -25,3 +25,62 @@ NoneType: None
 2020-01-05 10:24:52,904 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
 2020-01-05 10:24:52,904 INFO MESH GENERATED WITH 263 POINTS
 2020-01-05 10:25:12,841 INFO  Process  3818  terminates: user CPU time 3.94, system cpu time 1.49
+2020-01-07 18:16:10,094 INFO Current Process with pid 3938 with status running launched by the user ezafati
+2020-01-07 18:16:11,393 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-07 18:16:11,498 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-07 18:16:42,825 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-07 18:16:42,826 INFO MESH GENERATED WITH 263 POINTS
+2020-01-07 18:16:49,957 INFO  Process  3938  terminates: user CPU time 5.86, system cpu time 1.8
+2020-01-07 18:18:19,115 INFO Current Process with pid 4464 with status running launched by the user ezafati
+2020-01-07 18:18:19,926 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-07 18:18:20,037 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-07 18:19:03,042 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-07 18:19:03,043 INFO MESH GENERATED WITH 263 POINTS
+2020-01-07 18:19:07,547 INFO  Process  4464  terminates: user CPU time 5.97, system cpu time 1.81
+2020-01-07 18:22:12,845 INFO Current Process with pid 5015 with status running launched by the user ezafati
+2020-01-07 18:22:14,369 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-07 18:22:14,513 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-07 18:22:35,926 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-07 18:22:35,927 INFO MESH GENERATED WITH 237 POINTS
+2020-01-07 18:22:39,039 INFO  Process  5015  terminates: user CPU time 4.6, system cpu time 1.4
+2020-01-07 18:48:32,254 INFO Current Process with pid 5634 with status running launched by the user ezafati
+2020-01-07 18:48:33,644 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-07 18:48:33,795 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-07 18:48:49,111 ERROR {'exception_type': "<class 'KeyboardInterrupt'>", 'message': '[\'  File "/home/ezafati/mesh_project/meshproject/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage5.txt", p)\\n\', \'  File "/home/ezafati/mesh_project/meshproject/src/read_data.py", line 37, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/mesh_project/meshproject/src/MeshAlg/global_DT.py", line 55, in run_tri_mesh\\n    refinement_method(module_var.tree_refinement, plist, nl, task_queue, *params)\\n\', \'  File "/home/ezafati/mesh_project/meshproject/src/MeshAlg/chew_insert_algorithm.py", line 104, in chew_add_point\\n    task_queue.join()\\n\', \'  File "/usr/lib/python3.6/multiprocessing/queues.py", line 305, in join\\n    self._cond.wait()\\n\', \'  File "/usr/lib/python3.6/multiprocessing/synchronize.py", line 261, in wait\\n    return self._wait_semaphore.acquire(True, timeout)\\n\']'}
+NoneType: None
+2020-01-07 18:48:55,959 INFO Current Process with pid 5983 with status running launched by the user ezafati
+2020-01-07 18:48:57,342 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-07 18:48:57,449 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-07 18:49:18,981 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-07 18:49:18,981 INFO MESH GENERATED WITH 237 POINTS
+2020-01-07 18:49:18,987 INFO  Process  5983  terminates: user CPU time 3.58, system cpu time 1.4
+2020-01-07 18:52:56,805 INFO Current Process with pid 6429 with status running launched by the user ezafati
+2020-01-07 18:52:57,705 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-07 18:52:57,821 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-07 18:53:18,899 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-07 18:53:18,900 INFO MESH GENERATED WITH 237 POINTS
+2020-01-07 18:53:18,908 INFO  Process  6429  terminates: user CPU time 3.53, system cpu time 1.32
+2020-01-08 18:29:52,514 INFO Current Process with pid 2685 with status running launched by the user ezafati
+2020-01-08 18:29:55,347 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-08 18:29:55,530 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-08 18:30:29,323 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-08 18:30:29,324 INFO MESH GENERATED WITH 237 POINTS
+2020-01-08 18:30:29,341 ERROR {'exception_type': "<class 'AttributeError'>", 'message': '[\'  File "/home/ezafati/mesh_project/meshproject/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage5.txt", p)\\n\', \'  File "/home/ezafati/mesh_project/meshproject/src/read_data.py", line 37, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/mesh_project/meshproject/src/MeshAlg/global_DT.py", line 68, in run_tri_mesh\\n    tr.visited = True\\n\']\'list\' object has no attribute \'visited\''}
+NoneType: None
+2020-01-08 18:34:10,499 INFO Current Process with pid 3169 with status running launched by the user ezafati
+2020-01-08 18:34:11,749 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-08 18:34:11,885 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-08 18:34:14,431 ERROR {'exception_type': "<class 'KeyboardInterrupt'>", 'message': '[\'  File "/home/ezafati/mesh_project/meshproject/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage5.txt", p)\\n\', \'  File "/home/ezafati/mesh_project/meshproject/src/read_data.py", line 37, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/mesh_project/meshproject/src/MeshAlg/global_DT.py", line 58, in run_tri_mesh\\n    refinement_method(module_var.tree_refinement, plist, nl, task_queue, *params)\\n\', \'  File "/home/ezafati/mesh_project/meshproject/src/MeshAlg/chew_insert_algorithm.py", line 95, in chew_add_point\\n    task_queue.put_nowait((is_well_shaped, {\\\'kel\\\': p}))\\n\', \'  File "/usr/lib/python3.6/multiprocessing/queues.py", line 129, in put_nowait\\n    return self.put(obj, False)\\n\']'}
+NoneType: None
+2020-01-08 18:34:46,098 INFO Current Process with pid 3273 with status running launched by the user ezafati
+2020-01-08 18:34:47,132 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-08 18:34:47,258 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-08 18:35:13,199 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-08 18:35:13,201 INFO MESH GENERATED WITH 237 POINTS
+2020-01-08 18:35:13,249 INFO  Process  3273  terminates: user CPU time 4.18, system cpu time 1.67
+2020-01-10 17:56:25,011 INFO Current Process with pid 2206 with status running launched by the user ezafati
+2020-01-10 17:56:32,860 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-10 17:56:35,872 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-10 17:57:12,338 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-10 17:57:12,339 INFO MESH GENERATED WITH 237 POINTS
+2020-01-10 17:57:12,360 INFO  Process  2206  terminates: user CPU time 4.03, system cpu time 1.53

@@ -1,4 +1,5 @@
 import logging
+import sys
 import traceback
 
 from contextlib import contextmanager
@@ -21,6 +22,7 @@ def exception_logging(exctype, value, tb):
     write_val = {'exception_type': str(exctype),
                  'message': str(traceback.format_tb(tb, 10)) + str(value)}
     logging.exception(str(write_val))
+    sys.exit('MESH CREATION FAILED: SEE LOG FILE')
 
 
 class NotApproValueError(Exception):

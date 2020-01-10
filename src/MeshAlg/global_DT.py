@@ -1,6 +1,7 @@
 import importlib
 from multiprocessing import JoinableQueue, Value
 
+
 import module_var
 from MeshObjects.GeObjects import *
 from systemutils import launch_processes, worker
@@ -57,4 +58,16 @@ def run_tri_mesh(vmesh: 'Mesh', process: 'Process'):
             for index in range(len(params)):
                 params[index].value = cache_value[index]
         logging.info(f'MESH GENERATED WITH {len(plist)} POINTS')
-        module_var.tree_refinement.plot_mesh(plist)
+        if module_var.partmesh.save:
+            with open(module_var.partmesh.savefile, 'w') as f:
+                f.write('%%%%%%%%%%%%%%%%%% POINT LIST %%%%%%%%%%%%%%%\n\n')
+                for l in range(len(plist)):
+                    f.write('{ct:d} {px:3f} {py:3f} \n'.format(ct=l, px=plist[l].x, py=plist[l].y))
+                f.write('\n%%%%%%%%%%%% TOPOLOGY %%%%%%%%%%%%%%%%\n\n')
+                count = 1
+                for tr in module_var.tree_refinement.root.childs:
+                    f.write('{ct:d} {p1:d} {p2:d} {p3:d} \n'.format(ct=count, p1=tr.points[0], p2=tr.points[1],
+                                                                    p3=tr.points[2]))
+                    count += 1
+            pass
+        # module_var.tree_refinement.plot_mesh(plist)

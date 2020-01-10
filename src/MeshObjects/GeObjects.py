@@ -7,7 +7,7 @@ import itertools
 
 from collections import deque
 from functools import reduce
-from typing import Type, Dict, List, Set, Callable
+from typing import Type, Dict, List, Set, Callable, Iterable
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -61,7 +61,7 @@ def get_center(seg: List['Point'], radius: float) -> 'Point':
     return center
 
 
-def check_intersection(seg1: List['Point'], seg2: List['Point']) -> bool:
+def check_intersection(seg1: Iterable['Point'], seg2: Iterable['Point']) -> bool:
     A, B = [p for p in seg1]
     C, D = [p for p in seg2]
     det = (A.x - B.x) * (D.y - C.y) - (D.x - C.x) * (A.y - B.y)
@@ -110,7 +110,7 @@ def point_in(tr: 'Triangle', pt: 'Point', plist: List['Point']) -> bool:
                    pt.x * u3.x + pt.y * u3.y <= B.x * u3.x + B.y * u3.y + eps)
 
 
-def check_in_disc(pt: 'Point', lpt: 'Point') ->  bool:
+def check_in_disc(pt: 'Point', lpt: Iterable['Point']) -> bool:
     A, B, C = lpt
     a = np.array(([B.x - A.x, C.x - A.x], [B.y - A.y, C.y - A.y]))
     array1 = [A.x - pt.x, A.y - pt.y, pow(A.x - pt.x, 2) + pow(A.y - pt.y, 2)]
@@ -165,7 +165,7 @@ def plot_triangle(tr: 'Triangle', plist: 'List[Point]', ax: 'AxesSubplot'):
                 plot_triangle(child, plist, ax)
 
 
-def insert_point(p: 'Point', plist: 'List[Point]', tr: 'Triangle'):
+def insert_point(p: int, plist: List[int], tr: 'Triangle'):
     pt = plist[p]
     list_tr = map(lambda l: Triangle([p, l[0], l[1]]), itertools.combinations(tr.points, 2))
     list_tr = list(list_tr)
@@ -284,7 +284,7 @@ class TriangleTree:
                         tr1, tr2 = tr2, tr1
                     else:
                         logging.error('EXIT WITH ERROR IN BOUNDARY')
-                        sys.exit('FATAL ERROR!')
+                        raise Exception('FATAL ERROR!')
                     tr2, = [tr for tr in tr1.adjacent if len(seg.intersection(set(tr.points))) > 1]
                     swap_tr(tr1, tr2)
 
@@ -421,9 +421,9 @@ class Point(object):
 
 
 class Triangle(object):
-    __slots__ = ('points', 'childs', 'adjacent', 'parent')
+    __slots__ = ('points', 'childs', 'adjacent', 'parent', 'visited')
 
-    def __init__(self, x=None, y=None, z=None, par=None):
+    def __init__(self, x=None, y=None, z=None, par=None, vis=False):
         if x is None:
             x = []
         if y is None:
@@ -434,6 +434,7 @@ class Triangle(object):
         self.childs = y
         self.adjacent = z
         self.parent = par
+        self.visited = vis
 
 
 class Mesh(object):
@@ -451,6 +452,8 @@ class Mesh(object):
         self.pointlabel = dict()
         self.triangle_list = []
         self.meshstrategy = 'default'
+        self.save = True
+        self.savefile = 'test.txt'
 
     def add_arc(self, seg: Type[BoundElement]):
         """add_spline(obj, seg) add a discretized
