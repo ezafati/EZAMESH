@@ -1,15 +1,16 @@
-import matplotlib
 import importlib
-from MeshObjects.GeObjects import Point, Triangle, TriangleTree
+from multiprocessing import JoinableQueue, Value
+
+
+import module_var
+from MeshObjects.GeObjects import *
+from systemutils import launch_processes, worker
 from module_var import dispatcher
-import logging
-
-matplotlib.use("TkAgg")
 
 
-def dt_global(vmesh, process):
-    _module = importlib.import_module(f"MeshAlg.{dispatcher[vmesh.meshstrategy][0]}")
-    refinement_method = _module.__dict__[dispatcher[vmesh.meshstrategy][1]]
+def run_tri_mesh(vmesh: 'Mesh', process: 'Process'):
+    _module = importlib.import_module(f"MeshAlg.{dispatcher[vmesh.meshstrategy].module_name}")
+    refinement_method = _module.__dict__[dispatcher[vmesh.meshstrategy].mesh_func]
     plist = vmesh.listpoint
     boundary = vmesh.boundary
     nl = len(plist)
@@ -31,18 +32,42 @@ def dt_global(vmesh, process):
     # initialize Tree
     Tree = TriangleTree(Triangle())
     Tree.root.childs = Tree.root.childs + [T1, T2]
-    Tree.get_initial_constrained_mesh(boundary, plist, nl, process)
+    for tr in Tree.root.childs:
+        tr.parent = Tree.root
+    Tree._get_initial_constrained_mesh(boundary, plist, nl, process)
     del plist[nl:]
-    TreeRefinement = TriangleTree().triangle_tree_refinement(Tree)
+    module_var.tree_refinement = TriangleTree()._triangle_tree_refinement(Tree)
     plist = [plist[p].postscale(xmin, ymin, dmax) for p in range(nl)]
+    vmesh.listpoint = plist
     del Tree
     count = 0
-    while not TreeRefinement.terminate:
-        if count % 10 == 0:
-            #logging.info(f'Memory infos: {process.memory_info()}')
-            #logging.info(f'CPU used percentage: {process.cpu_percent()}')
+    if __name__ == 'MeshAlg.global_DT':
+        params, cache_value = list(), list()
+        for param in dispatcher[vmesh.meshstrategy].init_params:
+            params.append(Value(param['type'], param['val'], lock=False))
+            cache_value.append(param['val'])
+        while not module_var.tree_refinement.terminate:
+            task_queue = JoinableQueue()
+            with launch_processes(task_queue, worker, *params):
+                if count % 10 == 0:
+                    # logging.info(f'Memory infos: {process.memory_info()}')
+                    # logging.info(f'CPU used percentage: {process.cpu_percent()}')
+                    pass
+                refinement_method(module_var.tree_refinement, plist, nl, task_queue, *params)
+                count += 1
+            for index in range(len(params)):
+                params[index].value = cache_value[index]
+        logging.info(f'MESH GENERATED WITH {len(plist)} POINTS')
+        if module_var.partmesh.save:
+            with open(module_var.partmesh.savefile, 'w') as f:
+                f.write('%%%%%%%%%%%%%%%%%% POINT LIST %%%%%%%%%%%%%%%\n\n')
+                for l in range(len(plist)):
+                    f.write('{ct:d} {px:3f} {py:3f} \n'.format(ct=l, px=plist[l].x, py=plist[l].y))
+                f.write('\n%%%%%%%%%%%% TOPOLOGY %%%%%%%%%%%%%%%%\n\n')
+                count = 1
+                for tr in module_var.tree_refinement.root.childs:
+                    f.write('{ct:d} {p1:d} {p2:d} {p3:d} \n'.format(ct=count, p1=tr.points[0], p2=tr.points[1],
+                                                                    p3=tr.points[2]))
+                    count += 1
             pass
-        refinement_method(TreeRefinement, plist, nl)
-        count += 1
-    logging.info(f'MESH GENERATED WITH {len(plist)} POINTS')
-    TreeRefinement.plot_mesh(plist)
+        # module_var.tree_refinement.plot_mesh(plist)

@@ -1,21 +1,57 @@
-import itertools
-from functools import reduce
+""" Second Chew algorithm implementation
+Copyright (c) 2019-2020, E Zafati
+ All rights reserved"""
+
+import module_var
 from MeshObjects.GeObjects import *
-import logging
+
+
+def enforce_segment(list_tr, index, p, plist):
+    """Enforce the segment linking the midpoint and a deleted point seen from
+    the first one"""
+    seg = {p, index}
+    tr1 = False
+    for child in list_tr:
+        if bound_condition(child, seg, plist) or seg.issubset(set(child.points)):
+            tr1 = child
+            break
+    if not tr1:
+        list_check = list()
+        for child in list_tr:
+            check = seek_triangle(child, seg, plist, list_check)
+            if check:
+                tr1 = check
+    try:
+        pt = set(tr1.points).intersection(seg)
+        if len(pt) == 1:
+            tr2 = tr1
+            seg_coord = [plist[p] for p in seg]
+            while seg != set(tr1.points).intersection(set(tr2.points)):
+                seg2 = set(tr2.points).difference(pt)
+                seg2_coord = [plist[p] for p in seg2]
+                if check_intersection(seg_coord, seg2_coord):
+                    tr1, tr2 = tr2, tr1
+                tr2, = [tri for tri in tr1.adjacent if len(seg2 & set(tri.points)) > 1]
+                swap_tr(tr1, tr2)
+        else:
+            tr2, = [tri for tri in tr1.adjacent if len(seg & set(tri.points)) > 1]
+        return tr1, tr2
+    except AttributeError:
+        logging.error('FATAL ERROR ! Maybe the triangle has an empty child list')
+        raise Exception('EXIT WITH ERROR: SEE THE LOG FILE')
 
 
 def insert_midpoint(p, tr, seg):
     """function that insert the midpoint in the mesh"""
     list_tr = map(lambda l: Triangle([p, l[0], l[1]]), itertools.combinations(tr.points, 2))
     list_tr = list(list_tr)
-    tr.childs.extend(list_tr)
     for tri in list_tr:
-        tri.parent = tr
+        tri.parent = tr.parent
         tri.adjacent, = [set(l) for l in itertools.combinations(list_tr, 2) if tri not in l]
     for adj in tr.adjacent:
         remove_triangle(adj, tr)
-        for child in tr.childs:
-            if len(set(child.points).intersection(set(adj.points))) > 1:
+        for child in list_tr:
+            if len(set(child.points) & set(adj.points)) > 1:
                 child.adjacent.add(adj)
                 adj.adjacent.add(child)
                 break
@@ -25,6 +61,9 @@ def insert_midpoint(p, tr, seg):
             swap_tr(adj, tr_to_swap)
         except ValueError:
             pass
+    tr.parent.childs.extend(list_tr)
+    tr.parent.childs.remove(tr)
+    return list_tr
 
 
 def seek_triangle(tr, seg, plist, list_check):
@@ -39,43 +78,6 @@ def seek_triangle(tr, seg, plist, list_check):
                 seek_triangle(adj, seg, plist, list_check)
 
 
-def enforce_segment(tr, index, p, plist):
-    """Enforce the segment linking the midpoint and a deleted point seen from
-    the first one"""
-    seg = {p, index}
-    tr1 = False
-    for child in tr.childs:
-        if bound_condition(child, seg, plist) or seg.issubset(set(child.points)):
-            tr1 = child
-            break
-    if not tr1:
-        list_check = list()
-        for child in tr.childs:
-            check = seek_triangle(child, seg, plist, list_check)
-            if check:
-                tr1 = check
-    try:
-        pt = set(tr1.points).intersection(seg)
-        if len(pt) == 1:
-            tr2 = tr1
-            seg_coord = [plist[p] for p in seg]
-            while seg != set(tr1.points).intersection(set(tr2.points)):
-                seg2 = set(tr2.points).difference(pt)
-                seg2_coord = [plist[p] for p in seg2]
-                if check_intersection(seg_coord, seg2_coord):
-                    tr1, tr2 = tr2, tr1
-                else:
-                    sys.exit('FATAL ERROR!')
-                tr2, = [tri for tri in tr1.adjacent if len(seg2.intersection(set(tri.points))) > 1]
-                swap_tr(tr1, tr2)
-        else:
-            tr2, = [tri for tri in tr1.adjacent if len(seg.intersection(set(tri.points))) > 1]
-        return tr1, tr2
-    except AttributeError:
-        logging.error('FATAL ERROR ! Maybe the triangle has an empty child list')
-        sys.exit('EXIT WITH ERROR: SEE THE LOG FILE')
-
-
 def replace_vertex(p, index, tr, list_tr):
     """replace each deleted vertex returned by
     collect_point method by the added midpoint"""
@@ -87,14 +89,23 @@ def replace_vertex(p, index, tr, list_tr):
             replace_vertex(p, index, adj, list_tr)
 
 
-def chew_add_point(tree, plist, nl):
+def chew_add_point(tree, plist, nl, task_queue, ratio, num):
     """Chew method to add a new point in the domain"""
-    l_tr = [0, 0]
-    tree.search_triangle(is_well_shaped, plist, l_tr)
-    tr = l_tr[1]
+    for p in range(len(tree.root.childs)):
+        task_queue.put_nowait((is_well_shaped, {'kel': p}))
+    task_queue.join()
+    try:
+        tr = tree.root.childs[num.value]
+    except IndexError:
+        tr = None
     if not tr:
-        tree.search_triangle(is_well_sized, plist, l_tr, nl)
-        tr = l_tr[1]
+        for p in range(len(tree.root.childs)):
+            task_queue.put_nowait((is_well_sized, {'kel': p, 'nb': nl}))
+        task_queue.join()
+    try:
+        tr = tree.root.childs[num.value]
+    except IndexError:
+        tr = None
     if tr:
         pt = circumcircle_center(tr, plist)
         if not point_in_adjacent(tr, pt, plist):
@@ -103,16 +114,16 @@ def chew_add_point(tree, plist, nl):
             plist.append(pm)
             seg = set(seg)
             p1, *_ = [plist[p] for p in seg]
-            pm.x = 1 / 2 * reduce(lambda l, m: l + m, [plist[q].x for q in seg])
-            pm.y = 1 / 2 * reduce(lambda l, m: l + m, [plist[q].y for q in seg])
+            pm.x = 1 / 2 * sum([plist[q].x for q in seg])
+            pm.y = 1 / 2 * sum([plist[q].y for q in seg])
             radius = length_segment(pm, p1)
             list_tmp = collect_points(tr, seg, radius, pm, plist, nl)
             index = len(plist) - 1
-            insert_midpoint(index, tr1, seg)
+            list_tr = insert_midpoint(index, tr1, seg)
             if list_tmp:
                 for p in list_tmp:
                     list_new_tris = set()
-                    list_tri_elim = enforce_segment(tr1, index, p, plist)
+                    list_tri_elim = enforce_segment(list_tr, index, p, plist)
                     for tri in list_tri_elim:
                         replace_vertex(p, index, tri, list_new_tris)
                     for tri in list_tri_elim:
@@ -120,7 +131,7 @@ def chew_add_point(tree, plist, nl):
                         for adj in tri.adjacent:
                             adj.adjacent.remove(tri)
                     adj_triangles = [pl for pl in itertools.combinations(list_new_tris, 2) if
-                                     len(set(pl[0].points).intersection(pl[1].points)) > 1]
+                                     len(set(pl[0].points) & set(pl[1].points)) > 1]
                     for trk, trj in adj_triangles:
                         if trk not in trj.adjacent:
                             trk.adjacent.add(trj)
@@ -147,17 +158,17 @@ def point_in_adjacent(tr, pt, plist):
 def collect_points(tr1, seg, r, pm, plist, n):
     """Collect the set of points seen from
     the circumcenter added as the midpoint"""
-    tr2, = filter(lambda tr: len(seg.intersection(set(tr.points))) > 1, tuple(tr1.adjacent))
+    tr2, = filter(lambda tr: len(seg & set(tr.points)) > 1, tuple(tr1.adjacent))
     ps = [set(tr.points).difference(seg).pop() for tr in (tr1, tr2)]
     list_points = set([p for p in ps if length_segment(plist[p], pm) < r and p >= n])
-    adj = tr1.adjacent.union(tr2.adjacent).difference({tr1, tr2})
+    adj = (tr1.adjacent | tr2.adjacent) - {tr1, tr2}
     while adj:
         tr = adj.pop()
-        p = set(tr.points).difference(seg)
+        p = set(tr.points) - seg
         for pt in p:
             if length_segment(plist[pt], pm) < r and pt >= n and pt not in list_points:
                 list_points.add(pt)
-                adj = adj.union(tr.adjacent)
+                adj = adj | tr.adjacent
     return list_points
 
 
@@ -165,15 +176,15 @@ def find_segment(tr, pt, plist):
     """Find the segment separating the circumcenter and
     the failed triangle (poorly sized or poorly shaped)"""
     mass_cent = Point()
-    mass_cent.x = 1 / 3 * reduce(lambda l, m: l + m, [plist[q].x for q in tr.points])
-    mass_cent.y = 1 / 3 * reduce(lambda l, m: l + m, [plist[q].x for q in tr.points])
+    mass_cent.x = 1 / 3 * sum([plist[q].x for q in tr.points])
+    mass_cent.y = 1 / 3 * sum([plist[q].y for q in tr.points])
     segt = [mass_cent, pt]
     for adj in tr.adjacent:
         try:
             seg_tmp, = filter(lambda seg: check_intersection((plist[seg[0]], plist[seg[1]]), segt),
                               itertools.combinations(adj.points, 2))
-            if len(set(tr.points).intersection(set(seg_tmp))) > 1:
-                pass
+            if len(set(tr.points) & set(seg_tmp)) > 1:
+                continue
             else:
                 return seg_tmp, adj
         except ValueError:
@@ -213,10 +224,19 @@ def circumcircle_radius(tr, plist):
         return None
 
 
-def is_well_shaped(tr, plist, r_tr):
+def size_function(pt, plist, nl):
+    """evaluate the size function at the point pt"""
+    g = 0.1
+    size = min([plist[l].size + g * length_segment(pt, plist[l]) for l in range(nl)])
+    return size
+
+
+def is_well_shaped(que, ratio, num, kel):
     """This function check if the current triangle is well shaped with
     respect to the previous tested one r_tr[1] """
-    cst = 1 * sqrt(2)
+    plist = module_var.partmesh.listpoint
+    cst = 1. * sqrt(2)
+    tr = module_var.tree_refinement.root.childs[kel]
     list_tmp = [plist[p] for p in tr.points]
     lmin = min([length_segment(p, q) for p, q in itertools.combinations(list_tmp, 2)])
     radius = circumcircle_radius(tr, plist)
@@ -224,29 +244,26 @@ def is_well_shaped(tr, plist, r_tr):
         test_ratio = radius / lmin
         pt = circumcircle_center(tr, plist)
         booli = find_segment(tr, pt, plist) or point_in_adjacent(tr, pt, plist)
-        if test_ratio >= cst and booli and radius > r_tr[0]:
-            r_tr[0], r_tr[1] = radius, tr
+        if test_ratio >= cst and booli and radius > ratio.value:
+            ratio.value, num.value = radius, kel
     except TypeError:
         pass
+    que.task_done()
 
 
-def is_well_sized(tr, plist, ratio_tr, nl):
+def is_well_sized(que, ratio, num, kel, nb):
     """This function check if the current triangle is well shaped with
     respect to the previous tested one ratio_tr[1] """
+    plist = module_var.partmesh.listpoint
+    tr = module_var.tree_refinement.root.childs[kel]
     radius = circumcircle_radius(tr, plist)
     pt = circumcircle_center(tr, plist)
-    h = size_function(pt, plist, nl)
+    h = size_function(pt, plist, nb)
     try:
         booli = find_segment(tr, pt, plist) or point_in_adjacent(tr, pt, plist)
-        ratio = radius / h
-        if radius > h and booli and ratio > ratio_tr[0]:
-            ratio_tr[0], ratio_tr[1] = ratio, tr
+        ratio_ = radius / h
+        if radius > h and booli and ratio_ > ratio.value:
+            ratio.value, num.value = ratio_, kel
     except TypeError:
         pass
-
-
-def size_function(pt, plist, nl):
-    """evaluate the size function at the point pt"""
-    g = 0.1
-    size = min([plist[l].size + g * length_segment(pt, plist[l]) for l in range(nl)])
-    return size
+    que.task_done()

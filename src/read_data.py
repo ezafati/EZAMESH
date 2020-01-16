@@ -7,10 +7,9 @@ try:
 except ImportError:
     pass
 
-import sys
 
 import logging
-from MeshAlg.global_DT import dt_global
+from MeshAlg.global_DT import run_tri_mesh
 
 
 def read_file(meshfile, process):
@@ -18,7 +17,6 @@ def read_file(meshfile, process):
         with open(meshfile, 'r') as f:
             if f.readline() == "":
                 logging.error(f'FILE {os.path.abspath(meshfile)} EMPTY')
-                sys.exit(f'SEE LOG FILE {os.path.abspath(FILE_LOG_PATH)}')
             else:
                 f.seek(0, 0)
                 line = next(f)
@@ -31,22 +29,26 @@ def read_file(meshfile, process):
                     n_line += 1
     except (FileNotFoundError, PermissionError) as e:
         logging.error(f" IN FILE {os.path.abspath(meshfile)}:  {e}")
-        sys.exit()
+        raise Exception()
     except StopIteration as e:
         logging.info("############### END READ MESH FILE WITH SUCCESS   ###########################")
-        dt_global(module_var.gmesh, process)
+        for part in module_var.parsefile.parts.values():
+            module_var.partmesh = part.create_mesh(module_var.parsefile)
+            run_tri_mesh(module_var.partmesh, process)
 
 
 def switch_case(fields, n_line, meshfile):
     switcher = {
-        'POINT': lambda fields: module_var.gmesh.add_point(fields),
-        'LINE': lambda fields: module_var.gmesh.add_line(fields, n_line),
-        'ARC': lambda fields: module_var.gmesh.add_arc(fields, n_line),
-        'SPLINE': lambda fields: module_var.gmesh.add_spline(fields, n_line),
-        'PART': lambda fields: module_var.gmesh.close_check(fields, n_line)
+        'POINT': lambda fields: module_var.parsefile.make_point(fields, n_line),
+        'LINE': lambda fields: module_var.parsefile.make_boundary(fields, n_line),
+        'ARC': lambda fields: module_var.parsefile.make_boundary(fields, n_line),
+        'SPLINE': lambda fields: module_var.parsefile.make_boundary(fields, n_line),
+        'PART': lambda fields: module_var.parsefile.make_part(fields, n_line),
+        'MAKEMESH': lambda fields: module_var.parsefile.make_mesh(fields, n_line)
     }
-    if switcher.get(fields[2], 'INVALID') == 'INVALID':
-        logging.error(
-            f'IN LINE {n_line} IN FILE {os.path.abspath(meshfile)}: THE OPTION ({fields[2]}) IS NOT EXPECTED ')
-        sys.exit(f'SEE LOG FILE {os.path.abspath(FILE_LOG_PATH)}')
-    switcher.get(fields[2])(fields)
+    try:
+        assert switcher.get(fields[2], 'INVALID') != 'INVALID'
+        switcher.get(fields[2])(fields)
+    except AssertionError:
+        raise SyntaxError(f'IN LINE {n_line} IN FILE {os.path.abspath(meshfile)}: THE OPTION ({fields[2]}) IS NOT '
+                          f'EXPECTED ')
