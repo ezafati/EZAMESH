@@ -358,6 +358,7 @@ class Part(object):
 
     def create_mesh(self, parserfile: Type[FileParser]):
         mesh = Mesh()
+        mesh.label = self.name
         ptlist = reduce(lambda p, q: p | q, (set(parserfile.segments[label].extr) for label in self.listboundary))
         mesh.add_point(ptlist, parserfile.points)
         for label in self.listboundary:
@@ -446,6 +447,7 @@ class Mesh(object):
         self.pointlabel = dict()  (dict mapping label to a point object)
         self.triangle_list = []  (list contains tuples NA,NB,NC)
         self.meshstrategy = 'default' (mesh strategy default==second Chew algorithm)"""
+        self.label = None
         self.boundary = []
         self.nbnodes = 0
         self.listpoint = list()

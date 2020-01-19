@@ -1,2 +1,3 @@
-from . import GeObjects
-__all__ = [GeObjects]
+from .GeObjects import *
+
+

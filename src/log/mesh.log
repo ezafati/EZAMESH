@@ -84,3 +84,74 @@ NoneType: None
 2020-01-10 17:57:12,338 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
 2020-01-10 17:57:12,339 INFO MESH GENERATED WITH 237 POINTS
 2020-01-10 17:57:12,360 INFO  Process  2206  terminates: user CPU time 4.03, system cpu time 1.53
+2020-01-19 20:14:09,287 INFO Current Process with pid 3409 with status running launched by the user ezafati
+2020-01-19 20:14:10,546 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-19 20:14:10,621 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-19 20:14:22,949 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-19 20:14:22,950 INFO MESH GENERATED WITH 237 POINTS
+2020-01-19 20:14:22,953 INFO  Process  3409  terminates: user CPU time 1.97, system cpu time 1.12
+2020-01-19 20:15:26,997 INFO Current Process with pid 3841 with status running launched by the user ezafati
+2020-01-19 20:15:27,633 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-19 20:15:27,711 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-19 20:15:40,274 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-19 20:15:40,275 INFO MESH GENERATED WITH 237 POINTS
+2020-01-19 20:15:40,277 INFO  Process  3841  terminates: user CPU time 1.93, system cpu time 0.86
+2020-01-19 20:15:49,049 INFO Current Process with pid 4313 with status running launched by the user ezafati
+2020-01-19 20:15:49,551 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-19 20:15:49,631 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-19 20:16:02,650 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-19 20:16:02,650 INFO MESH GENERATED WITH 237 POINTS
+2020-01-19 20:16:43,845 INFO  Process  4313  terminates: user CPU time 3.66, system cpu time 1.5
+2020-01-19 20:17:22,949 INFO Current Process with pid 4746 with status running launched by the user ezafati
+2020-01-19 20:17:23,522 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-19 20:17:23,600 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-19 20:17:40,637 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-19 20:17:40,637 INFO MESH GENERATED WITH 263 POINTS
+2020-01-19 20:17:48,194 INFO  Process  4746  terminates: user CPU time 3.38, system cpu time 1.36
+2020-01-19 20:28:53,919 INFO Current Process with pid 5329 with status running launched by the user ezafati
+2020-01-19 20:28:54,579 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-19 20:28:54,648 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-19 20:31:04,550 ERROR {'exception_type': "<class 'KeyboardInterrupt'>", 'message': '[\'  File "/home/ezafati/mesh_project/meshproject/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage5.txt", p)\\n\', \'  File "/home/ezafati/mesh_project/meshproject/src/read_data.py", line 36, in read_file\\n    run_tri_mesh(partmesh, process)\\n\', \'  File "/home/ezafati/mesh_project/meshproject/src/MeshAlg/global_DT.py", line 54, in run_tri_mesh\\n    refinement_method(module_var.tree_refinement, plist, nl, task_queue, *params)\\n\', \'  File "/home/ezafati/mesh_project/meshproject/src/MeshAlg/chew_insert_algorithm.py", line 96, in chew_add_point\\n    task_queue.join()\\n\', \'  File "/usr/lib/python3.6/multiprocessing/queues.py", line 305, in join\\n    self._cond.wait()\\n\', \'  File "/usr/lib/python3.6/multiprocessing/synchronize.py", line 261, in wait\\n    return self._wait_semaphore.acquire(True, timeout)\\n\']'}
+NoneType: None
+2020-01-19 20:32:07,810 INFO Current Process with pid 5658 with status running launched by the user ezafati
+2020-01-19 20:32:08,314 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-19 20:32:08,434 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-19 20:32:25,855 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-19 20:32:25,855 INFO MESH GENERATED WITH 263 POINTS
+2020-01-19 20:32:25,858 INFO  Process  5658  terminates: user CPU time 2.33, system cpu time 1.11
+2020-01-19 20:39:27,843 INFO Current Process with pid 6277 with status running launched by the user ezafati
+2020-01-19 20:39:28,433 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-19 20:39:28,503 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-19 20:39:44,203 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-19 20:39:44,203 INFO MESH GENERATED WITH 263 POINTS
+2020-01-19 20:39:44,206 INFO  Process  6277  terminates: user CPU time 2.28, system cpu time 1.13
+2020-01-19 20:44:41,537 INFO Current Process with pid 6834 with status running launched by the user ezafati
+2020-01-19 20:44:41,992 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-19 20:44:42,079 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-19 20:44:58,290 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-19 20:44:58,291 INFO MESH GENERATED WITH 263 POINTS
+2020-01-19 20:44:58,295 INFO  Process  6834  terminates: user CPU time 2.29, system cpu time 1.17
+2020-01-19 20:46:11,561 INFO Current Process with pid 7342 with status running launched by the user ezafati
+2020-01-19 20:46:12,095 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-19 20:46:12,191 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-19 20:46:28,941 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-19 20:46:28,941 INFO MESH GENERATED WITH 263 POINTS
+2020-01-19 20:46:28,945 INFO  Process  7342  terminates: user CPU time 2.22, system cpu time 1.21
+2020-01-19 20:48:37,105 INFO Current Process with pid 7867 with status running launched by the user ezafati
+2020-01-19 20:48:37,586 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-19 20:48:37,668 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-19 20:48:53,614 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-19 20:48:53,614 INFO MESH GENERATED WITH 263 POINTS
+2020-01-19 20:48:53,617 INFO  Process  7867  terminates: user CPU time 2.24, system cpu time 1.2
+2020-01-19 20:54:07,632 INFO Current Process with pid 8401 with status running launched by the user ezafati
+2020-01-19 20:54:08,111 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-19 20:54:08,187 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-19 20:54:24,069 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-19 20:54:24,069 INFO MESH GENERATED WITH 263 POINTS
+2020-01-19 20:54:24,073 INFO  Process  8401  terminates: user CPU time 2.26, system cpu time 1.2
+2020-01-19 20:56:10,262 INFO Current Process with pid 8963 with status running launched by the user ezafati
+2020-01-19 20:56:10,778 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-19 20:56:10,864 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-19 20:56:28,469 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-19 20:56:28,469 INFO MESH GENERATED WITH 263 POINTS
+2020-01-19 20:56:28,473 INFO  Process  8963  terminates: user CPU time 2.18, system cpu time 1.22

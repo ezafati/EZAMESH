@@ -1,9 +1,8 @@
 import importlib
 from multiprocessing import JoinableQueue, Value
 
-
-import module_var
-from MeshObjects.GeObjects import *
+from MeshObjects import *
+from post_traitement import *
 from systemutils import launch_processes, worker
 from module_var import dispatcher
 
@@ -29,8 +28,7 @@ def run_tri_mesh(vmesh: 'Mesh', process: 'Process'):
     T2 = Triangle([nl + 2, nl + 3, nl])
     T1.adjacent.add(T2)
     T2.adjacent.add(T1)
-    # initialize Tree
-    Tree = TriangleTree(Triangle())
+    Tree = TriangleTree(Triangle())     # initialize Tree
     Tree.root.childs = Tree.root.childs + [T1, T2]
     for tr in Tree.root.childs:
         tr.parent = Tree.root
@@ -59,15 +57,5 @@ def run_tri_mesh(vmesh: 'Mesh', process: 'Process'):
                 params[index].value = cache_value[index]
         logging.info(f'MESH GENERATED WITH {len(plist)} POINTS')
         if module_var.partmesh.save:
-            with open(module_var.partmesh.savefile, 'w') as f:
-                f.write('%%%%%%%%%%%%%%%%%% POINT LIST %%%%%%%%%%%%%%%\n\n')
-                for l in range(len(plist)):
-                    f.write('{ct:d} {px:3f} {py:3f} \n'.format(ct=l, px=plist[l].x, py=plist[l].y))
-                f.write('\n%%%%%%%%%%%% TOPOLOGY %%%%%%%%%%%%%%%%\n\n')
-                count = 1
-                for tr in module_var.tree_refinement.root.childs:
-                    f.write('{ct:d} {p1:d} {p2:d} {p3:d} \n'.format(ct=count, p1=tr.points[0], p2=tr.points[1],
-                                                                    p3=tr.points[2]))
-                    count += 1
-            pass
-        # module_var.tree_refinement.plot_mesh(plist)
+            save_ezamesh_file()
+    # module_var.tree_refinement.plot_mesh(plist)

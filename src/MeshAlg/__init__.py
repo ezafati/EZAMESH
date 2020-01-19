@@ -1,6 +1,5 @@
-import MeshAlg.chew_insert_algorithm
-import MeshAlg.global_DT
+from .chew_insert_algorithm import *
+from .global_DT import *
 
 
-__all__ = [chew_insert_algorithm, global_DT]
 

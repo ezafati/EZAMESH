@@ -7,7 +7,6 @@ try:
 except ImportError:
     pass
 
-
 import logging
 from MeshAlg.global_DT import run_tri_mesh
 
