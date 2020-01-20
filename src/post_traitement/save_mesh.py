@@ -32,6 +32,12 @@ def save_ezamesh_file():
         for kpt in module_var.partmesh.pointlabel:
             pt = module_var.partmesh.pointlabel[kpt]
             f.write(f'{kpt}  {pt-1}\n')
+        f.write(f'NAMED BOUNDARIES: \n')
+        for kbound in module_var.partmesh.mapboundpts:
+            ptlist = [str(p) for p in module_var.partmesh.mapboundpts[kbound]]
+            f.write(f'{kbound}\n')
+            sep = ','
+            f.write(f'{sep.join(ptlist)}\n')
         f.write(f'POINT LIST\n')
         f.write(f'TOTAL: {len(plist)}\n')
         for l in range(len(plist)):

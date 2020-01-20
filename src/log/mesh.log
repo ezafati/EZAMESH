@@ -155,3 +155,23 @@ NoneType: None
 2020-01-19 20:56:28,469 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
 2020-01-19 20:56:28,469 INFO MESH GENERATED WITH 263 POINTS
 2020-01-19 20:56:28,473 INFO  Process  8963  terminates: user CPU time 2.18, system cpu time 1.22
+2020-01-20 21:07:43,326 INFO Current Process with pid 3971 with status running launched by the user ezafati
+2020-01-20 21:07:44,651 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-20 21:07:44,730 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-20 21:08:01,356 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-20 21:08:01,356 INFO MESH GENERATED WITH 263 POINTS
+2020-01-20 21:08:01,366 ERROR {'exception_type': "<class 'TypeError'>", 'message': '[\'  File "/home/ezafati/mesh_project/meshproject/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage5.txt", p)\\n\', \'  File "/home/ezafati/mesh_project/meshproject/src/read_data.py", line 36, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/mesh_project/meshproject/src/MeshAlg/global_DT.py", line 60, in run_tri_mesh\\n    save_ezamesh_file()\\n\', \'  File "/home/ezafati/mesh_project/meshproject/src/post_traitement/save_mesh.py", line 37, in save_ezamesh_file\\n    ptlist = \\\',\\\'.join(module_var.partmesh.mapboundpts[kbound])\\n\']sequence item 0: expected str instance, int found'}
+NoneType: None
+2020-01-20 21:10:33,115 INFO Current Process with pid 4485 with status running launched by the user ezafati
+2020-01-20 21:10:33,814 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-20 21:10:33,888 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-20 21:10:50,600 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-20 21:10:50,600 INFO MESH GENERATED WITH 263 POINTS
+2020-01-20 21:10:50,601 ERROR {'exception_type': "<class 'TypeError'>", 'message': '[\'  File "/home/ezafati/mesh_project/meshproject/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage5.txt", p)\\n\', \'  File "/home/ezafati/mesh_project/meshproject/src/read_data.py", line 36, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/mesh_project/meshproject/src/MeshAlg/global_DT.py", line 60, in run_tri_mesh\\n    save_ezamesh_file()\\n\', \'  File "/home/ezafati/mesh_project/meshproject/src/post_traitement/save_mesh.py", line 38, in save_ezamesh_file\\n    ptlist = \\\',\\\'.join(module_var.partmesh.mapboundpts[kbound])\\n\']sequence item 0: expected str instance, int found'}
+NoneType: None
+2020-01-20 21:20:26,964 INFO Current Process with pid 5020 with status running launched by the user ezafati
+2020-01-20 21:20:27,469 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-01-20 21:20:27,567 INFO DOMAIN WITH 103 POINTS IN BOUNDARY
+2020-01-20 21:20:43,299 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-01-20 21:20:43,299 INFO MESH GENERATED WITH 263 POINTS
+2020-01-20 21:20:43,303 INFO  Process  5020  terminates: user CPU time 2.31, system cpu time 1.0
