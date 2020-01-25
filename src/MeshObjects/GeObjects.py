@@ -333,6 +333,7 @@ class FileParser(object):
         except:
             raise AlreadyExistError(f'The label {label} is provided more than once') from None
         bound = BoundElement()
+        bound.label = label
         try:
             bound.type = fields[2]
             try:
@@ -358,6 +359,7 @@ class Part(object):
 
     def create_mesh(self, parserfile: Type[FileParser]):
         mesh = Mesh()
+        mesh.label = self.name
         ptlist = reduce(lambda p, q: p | q, (set(parserfile.segments[label].extr) for label in self.listboundary))
         mesh.add_point(ptlist, parserfile.points)
         for label in self.listboundary:
@@ -374,6 +376,7 @@ class Vector(object):
 
 class BoundElement(object):
     def __init__(self):
+        self.label = None
         self.type = None
         self.extr = None
         self.sizes = None
@@ -439,18 +442,12 @@ class Triangle(object):
 
 class Mesh(object):
     def __init__(self):
-        """constructor with initial attribute values:
-        self.boundary = [] (all the boundray elements)
-        self.nbnodes = 0   (total of the boundray points)
-        self.listpoint = []  (mesh point list)
-        self.pointlabel = dict()  (dict mapping label to a point object)
-        self.triangle_list = []  (list contains tuples NA,NB,NC)
-        self.meshstrategy = 'default' (mesh strategy default==second Chew algorithm)"""
+        self.label = None
         self.boundary = []
         self.nbnodes = 0
         self.listpoint = list()
         self.pointlabel = dict()
-        self.triangle_list = []
+        self.mapboundpts = dict()
         self.meshstrategy = 'default'
         self.save = True
         self.savefile = 'test.txt'
@@ -458,7 +455,9 @@ class Mesh(object):
     def add_arc(self, seg: Type[BoundElement]):
         """add_spline(obj, seg) add a discretized
         circle arc boundary to the mesh"""
+        self.mapboundpts[seg.label] = list()
         NA, NB = [self.pointlabel[p] for p in seg.extr]
+        self.mapboundpts[seg.label].extend([NA - 1, NB - 1])
         l1, l2 = [dens for dens in seg.sizes]
         A, B = [self.listpoint[p - 1] for p in (NA, NB)]
         point_list = [A, B]
@@ -505,6 +504,7 @@ class Mesh(object):
             C.y = center.y + sin(theta_M) * (A.x - center.x) + cos(theta_M) * (A.y - center.y)
             C.size = l1 + (count - 1) * step
             self.listpoint.append(C)
+            self.mapboundpts[seg.label].append(self.nbnodes-1)
             if count == tsteps - 1:
                 self.boundary.append({self.nbnodes - 1, NB - 1})
                 if count == 1:
@@ -520,7 +520,9 @@ class Mesh(object):
     def add_line(self, seg: Type[BoundElement]):
         """add_spline(obj, seg) add a discretized
         line or a segment boundary to the mesh"""
+        self.mapboundpts[seg.label] = list()
         NA, NB = [self.pointlabel[p] for p in seg.extr]
+        self.mapboundpts[seg.label].extend([NA-1, NB-1])
         l1, l2 = [dens for dens in seg.sizes]
         if l1 > l2:
             NA, NB = NB, NA
@@ -556,6 +558,7 @@ class Mesh(object):
             C.y = A.y + (B.y - A.y) / slen * (count * l1 + count * (count - 1) * step / 2)
             C.size = l1 + (count - 1) * step
             self.listpoint.append(C)
+            self.mapboundpts[seg.label].append(self.nbnodes-1)
             if count == tsteps - 1:
                 self.boundary.append({self.nbnodes - 1, NB - 1})
                 if count == 1:
@@ -571,7 +574,9 @@ class Mesh(object):
     def add_spline(self, seg: Type[BoundElement]):
         """add_spline(obj, seg) add a discretized
         spline boundary to the mesh"""
+        self.mapboundpts[seg.label] = list()
         NA, NB = [self.pointlabel[p] for p in seg.extr]
+        self.mapboundpts[seg.label].extend([NA - 1, NB - 1])
         l1, l2 = [dens for dens in seg.sizes]
         cpt = Point()
         try:
@@ -618,6 +623,7 @@ class Mesh(object):
             C.y = (1 - rt) * p11.y + rt * p21.y
             C.size = l1 + (count - 1) * step
             self.listpoint.append(C)
+            self.mapboundpts[seg.label].append(self.nbnodes-1)
             if count == tsteps - 1:
                 self.boundary.append({self.nbnodes - 1, NB - 1})
                 if count == 1:
