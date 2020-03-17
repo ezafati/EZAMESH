@@ -31,7 +31,7 @@ os.nice(20)
 
 print('BEGIN OF THE PROGRAM')
 t1 = time.time()
-result = read_file("maillage5.txt", p)
+result = read_file("maillage9.txt", p)
 if result:
     print('mesh failed')
 t2 = time.time()

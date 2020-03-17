@@ -34,6 +34,7 @@ def read_file(meshfile, process):
         for part in module_var.parsefile.parts.values():
             module_var.partmesh = part.create_mesh(module_var.parsefile)
             run_tri_mesh(module_var.partmesh, process)
+            print(f'{part.name} end')
 
 
 def switch_case(fields, n_line, meshfile):

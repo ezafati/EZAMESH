@@ -12,7 +12,7 @@ from typing import Type, Dict, List, Set, Callable, Iterable
 import matplotlib.pyplot as plt
 import numpy as np
 from math import sqrt, acos, modf, sin, cos, copysign
-import sys
+from datetime import date
 import logging
 
 import scipy.integrate
@@ -450,7 +450,7 @@ class Mesh(object):
         self.mapboundpts = dict()
         self.meshstrategy = 'default'
         self.save = True
-        self.savefile = 'test.txt'
+        self.savefile = 'ezamesh_' + date.today().isoformat()
 
     def add_arc(self, seg: Type[BoundElement]):
         """add_spline(obj, seg) add a discretized

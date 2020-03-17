@@ -26,19 +26,19 @@ def sort_vtk_file(gmesh):
 
 def save_ezamesh_file():
     plist = module_var.partmesh.listpoint
-    with open(module_var.partmesh.savefile, 'w') as f:
-        f.write(f'PART NAME: {module_var.partmesh.label}\n')
-        f.write(f'NAMED POINTS: \n')
+    with open(module_var.partmesh.savefile, 'a+') as f:
+        f.write(f'PART_NAME  {module_var.partmesh.label}\n')
+        f.write(f'NAMED_POINTS \n')
         for kpt in module_var.partmesh.pointlabel:
             pt = module_var.partmesh.pointlabel[kpt]
             f.write(f'{kpt}  {pt-1}\n')
-        f.write(f'NAMED BOUNDARIES: \n')
+        f.write(f'NAMED_BOUNDARIES \n')
         for kbound in module_var.partmesh.mapboundpts:
             ptlist = [str(p) for p in module_var.partmesh.mapboundpts[kbound]]
             f.write(f'{kbound}\n')
             sep = ','
             f.write(f'{sep.join(ptlist)}\n')
-        f.write(f'POINT LIST\n')
+        f.write(f'POINT_LIST\n')
         f.write(f'TOTAL: {len(plist)}\n')
         for l in range(len(plist)):
             f.write('{ct:d} {px:3f} {py:3f} \n'.format(ct=l, px=plist[l].x, py=plist[l].y))
