@@ -285,3 +285,284 @@ NoneType: None
 2020-03-17 18:17:06,547 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
 2020-03-17 18:17:06,547 INFO MESH GENERATED WITH 77 POINTS
 2020-03-17 18:17:06,548 INFO  Process  13014  terminates: user CPU time 0.9, system cpu time 0.4
+2020-03-18 15:04:37,179 INFO Current Process with pid 17926 with status running launched by the user ezafati
+2020-03-18 15:04:38,356 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-18 15:04:38,356 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-18 15:04:39,085 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-18 15:04:39,085 INFO MESH GENERATED WITH 77 POINTS
+2020-03-18 15:04:39,094 ERROR {'exception_type': "<class 'AttributeError'>", 'message': '[\'  File "/home/ezafati/meshproject/EZAMESH/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage9.txt", p)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/read_data.py", line 36, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/MeshAlg/global_DT.py", line 60, in run_tri_mesh\\n    save_ezamesh_file()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 36, in save_ezamesh_file\\n    f.write(f\\\'TOTAL: {len(module_var.partmesh.mapboundpt)}\\\\n\\\')\\n\']\'Mesh\' object has no attribute \'mapboundpt\''}
+NoneType: None
+2020-03-18 15:05:14,793 INFO Current Process with pid 18067 with status running launched by the user ezafati
+2020-03-18 15:05:15,373 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-18 15:05:15,373 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-18 15:05:16,125 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-18 15:05:16,125 INFO MESH GENERATED WITH 77 POINTS
+2020-03-18 15:05:16,127 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-18 15:05:16,852 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-18 15:05:16,853 INFO MESH GENERATED WITH 77 POINTS
+2020-03-18 15:05:16,855 INFO  Process  18067  terminates: user CPU time 0.8, system cpu time 0.48
+2020-03-18 15:05:58,856 INFO Current Process with pid 18343 with status running launched by the user ezafati
+2020-03-18 15:05:59,544 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-18 15:05:59,544 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-18 15:06:00,318 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-18 15:06:00,318 INFO MESH GENERATED WITH 77 POINTS
+2020-03-18 15:06:00,320 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-18 15:06:01,054 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-18 15:06:01,054 INFO MESH GENERATED WITH 77 POINTS
+2020-03-18 15:06:01,055 INFO  Process  18343  terminates: user CPU time 0.85, system cpu time 0.46
+2020-03-18 16:44:29,817 INFO Current Process with pid 19223 with status running launched by the user ezafati
+2020-03-18 16:44:30,356 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-18 16:44:30,356 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-18 16:44:31,129 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-18 16:44:31,129 INFO MESH GENERATED WITH 77 POINTS
+2020-03-18 16:44:31,131 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-18 16:44:31,952 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-18 16:44:31,952 INFO MESH GENERATED WITH 77 POINTS
+2020-03-18 16:44:31,955 INFO  Process  19223  terminates: user CPU time 0.91, system cpu time 0.47
+2020-03-18 16:45:41,319 INFO Current Process with pid 19512 with status running launched by the user ezafati
+2020-03-18 16:45:41,781 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-18 16:45:41,782 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-18 16:45:42,571 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-18 16:45:42,571 INFO MESH GENERATED WITH 77 POINTS
+2020-03-18 16:45:42,573 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-18 16:45:43,334 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-18 16:45:43,335 INFO MESH GENERATED WITH 77 POINTS
+2020-03-18 16:45:43,336 INFO  Process  19512  terminates: user CPU time 0.87, system cpu time 0.5
+2020-03-18 16:45:52,527 INFO Current Process with pid 19747 with status running launched by the user ezafati
+2020-03-18 16:45:53,041 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-18 16:45:53,041 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-18 16:45:53,871 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-18 16:45:53,871 INFO MESH GENERATED WITH 77 POINTS
+2020-03-18 16:45:53,873 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-18 16:45:54,660 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-18 16:45:54,661 INFO MESH GENERATED WITH 77 POINTS
+2020-03-18 16:45:54,664 INFO  Process  19747  terminates: user CPU time 0.87, system cpu time 0.52
+2020-03-23 08:38:21,627 INFO Current Process with pid 5062 with status running launched by the user ezafati
+2020-03-23 08:38:22,632 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-23 08:38:22,632 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-23 08:38:23,421 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-23 08:38:23,422 INFO MESH GENERATED WITH 77 POINTS
+2020-03-23 08:38:23,423 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-23 08:38:24,397 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-23 08:38:24,398 INFO MESH GENERATED WITH 77 POINTS
+2020-03-23 08:38:24,399 INFO  Process  5062  terminates: user CPU time 0.84, system cpu time 0.74
+2020-03-26 08:49:55,413 INFO Current Process with pid 4500 with status running launched by the user ezafati
+2020-03-26 08:49:58,022 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-26 08:49:58,023 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-26 08:50:00,342 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-26 08:50:00,344 INFO MESH GENERATED WITH 77 POINTS
+2020-03-26 08:50:00,408 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-26 08:50:02,485 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-26 08:50:02,488 INFO MESH GENERATED WITH 77 POINTS
+2020-03-26 08:50:02,503 INFO  Process  4500  terminates: user CPU time 2.44, system cpu time 1.36
+2020-03-27 08:58:30,372 INFO Current Process with pid 7813 with status running launched by the user ezafati
+2020-03-27 08:58:33,128 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 08:58:33,129 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 08:58:34,837 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 08:58:34,838 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 08:58:34,841 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 08:58:36,257 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 08:58:36,257 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 08:58:36,260 INFO  Process  7813  terminates: user CPU time 2.04, system cpu time 0.95
+2020-03-27 13:16:38,285 INFO Current Process with pid 8615 with status running launched by the user ezafati
+2020-03-27 13:16:38,812 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 13:16:38,812 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 13:16:39,622 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 13:16:39,622 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 13:16:39,625 ERROR {'exception_type': "<class 'UnboundLocalError'>", 'message': '[\'  File "/home/ezafati/meshproject/EZAMESH/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage9.txt", p)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/read_data.py", line 36, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/MeshAlg/global_DT.py", line 60, in run_tri_mesh\\n    save_ezamesh_file()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 59, in save_ezamesh_file\\n    create_tri6_mesh()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 91, in create_tri6_mesh\\n    insert_mid_point(tr=init_tr, plist=plist)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 114, in insert_mid_point\\n    insert_mid_point_adj(tr=adj, seg=set(seg), npt=nbpt)\\n\']local variable \'nbpt\' referenced before assignment'}
+NoneType: None
+2020-03-27 13:18:42,788 INFO Current Process with pid 8771 with status running launched by the user ezafati
+2020-03-27 13:18:43,295 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 13:18:43,295 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 13:18:44,164 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 13:18:44,165 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 13:18:44,167 ERROR {'exception_type': "<class 'IndexError'>", 'message': '[\'  File "/home/ezafati/meshproject/EZAMESH/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage9.txt", p)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/read_data.py", line 36, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/MeshAlg/global_DT.py", line 60, in run_tri_mesh\\n    save_ezamesh_file()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 59, in save_ezamesh_file\\n    create_tri6_mesh()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 91, in create_tri6_mesh\\n    insert_mid_point(tr=init_tr, plist=plist)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 115, in insert_mid_point\\n    insert_mid_point(adj, plist)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 112, in insert_mid_point\\n    adj = [p for p in tr.adjacent if len(set(p.points) & set(seg)) > 1][0]\\n\']list index out of range'}
+NoneType: None
+2020-03-27 13:20:00,537 INFO Current Process with pid 8905 with status running launched by the user ezafati
+2020-03-27 13:20:01,104 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 13:20:01,104 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 13:20:02,003 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 13:20:02,003 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 13:20:02,006 ERROR {'exception_type': "<class 'IndexError'>", 'message': '[\'  File "/home/ezafati/meshproject/EZAMESH/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage9.txt", p)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/read_data.py", line 36, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/MeshAlg/global_DT.py", line 60, in run_tri_mesh\\n    save_ezamesh_file()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 59, in save_ezamesh_file\\n    create_tri6_mesh()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 91, in create_tri6_mesh\\n    insert_mid_point(tr=init_tr, plist=plist)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 116, in insert_mid_point\\n    insert_mid_point(adj, plist)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 113, in insert_mid_point\\n    adj = [p for p in tr.adjacent if len(set(p.points) & set(seg)) > 1][0]\\n\']list index out of range'}
+NoneType: None
+2020-03-27 13:20:18,848 INFO Current Process with pid 9033 with status running launched by the user ezafati
+2020-03-27 13:20:19,340 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 13:20:19,341 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 13:20:21,396 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 13:20:21,396 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 13:20:21,398 ERROR {'exception_type': "<class 'IndexError'>", 'message': '[\'  File "/home/ezafati/meshproject/EZAMESH/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage9.txt", p)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/read_data.py", line 36, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/MeshAlg/global_DT.py", line 60, in run_tri_mesh\\n    save_ezamesh_file()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 59, in save_ezamesh_file\\n    create_tri6_mesh()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 91, in create_tri6_mesh\\n    insert_mid_point(tr=init_tr, plist=plist)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 117, in insert_mid_point\\n    insert_mid_point(adj, plist)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 114, in insert_mid_point\\n    adj = [p for p in tr.adjacent if len(set(p.points) & set(seg)) > 1][0]\\n\']list index out of range'}
+NoneType: None
+2020-03-27 13:21:57,007 INFO Current Process with pid 9162 with status running launched by the user ezafati
+2020-03-27 13:21:57,484 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 13:21:57,485 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 13:21:58,249 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 13:21:58,250 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 13:21:58,288 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 13:21:59,101 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 13:21:59,102 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 13:21:59,131 INFO  Process  9162  terminates: user CPU time 0.88, system cpu time 0.46
+2020-03-27 13:22:18,165 INFO Current Process with pid 9408 with status running launched by the user ezafati
+2020-03-27 13:22:18,611 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 13:22:18,611 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 13:22:19,356 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 13:22:19,357 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 13:22:19,384 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 13:22:20,190 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 13:22:20,191 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 13:22:20,230 INFO  Process  9408  terminates: user CPU time 0.88, system cpu time 0.42
+2020-03-27 16:14:08,352 INFO Current Process with pid 10039 with status running launched by the user ezafati
+2020-03-27 16:14:08,875 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 16:14:08,875 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 16:14:09,624 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 16:14:09,624 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 16:14:09,638 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 16:14:10,407 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 16:14:10,407 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 16:14:10,422 INFO  Process  10039  terminates: user CPU time 0.85, system cpu time 0.44
+2020-03-27 16:16:17,815 INFO Current Process with pid 10304 with status running launched by the user ezafati
+2020-03-27 16:16:18,554 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 16:16:18,554 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 16:16:19,571 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 16:16:19,572 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 16:16:19,596 ERROR {'exception_type': "<class 'IndexError'>", 'message': '[\'  File "/home/ezafati/meshproject/EZAMESH/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage9.txt", p)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/read_data.py", line 36, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/MeshAlg/global_DT.py", line 60, in run_tri_mesh\\n    save_ezamesh_file()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 84, in save_ezamesh_file\\n    p3=tr.points[2], p4=tr.points[3]))\\n\']list index out of range'}
+NoneType: None
+2020-03-27 17:18:24,072 INFO Current Process with pid 10725 with status running launched by the user ezafati
+2020-03-27 17:18:24,579 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 17:18:24,579 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 17:18:25,401 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 17:18:25,401 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 17:18:25,404 ERROR {'exception_type': "<class 'IndexError'>", 'message': '[\'  File "/home/ezafati/meshproject/EZAMESH/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage9.txt", p)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/read_data.py", line 36, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/MeshAlg/global_DT.py", line 60, in run_tri_mesh\\n    save_ezamesh_file()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 59, in save_ezamesh_file\\n    create_tri6_mesh()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 91, in create_tri6_mesh\\n    insert_mid_point(tr=init_tr, plist=plist)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 122, in insert_mid_point\\n    insert_mid_point(tr=adj, plist=plist)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 111, in insert_mid_point\\n    adj = [p for p in tr.adjacent if len(set(p.points) & set(seg)) > 1][0]\\n\']list index out of range'}
+NoneType: None
+2020-03-27 17:20:54,830 INFO Current Process with pid 10867 with status running launched by the user ezafati
+2020-03-27 17:20:55,387 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 17:20:55,388 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 17:20:56,256 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 17:20:56,257 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 17:20:56,258 ERROR {'exception_type': "<class 'IndexError'>", 'message': '[\'  File "/home/ezafati/meshproject/EZAMESH/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage9.txt", p)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/read_data.py", line 36, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/MeshAlg/global_DT.py", line 60, in run_tri_mesh\\n    save_ezamesh_file()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 59, in save_ezamesh_file\\n    create_tri6_mesh()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 91, in create_tri6_mesh\\n    insert_mid_point(tr=init_tr, plist=plist)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 123, in insert_mid_point\\n    insert_mid_point(tr=adj, plist=plist)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 111, in insert_mid_point\\n    adj = [p for p in tr.adjacent if len(set(p.points) & set(seg)) > 1][0]\\n\']list index out of range'}
+NoneType: None
+2020-03-27 17:21:27,523 INFO Current Process with pid 10995 with status running launched by the user ezafati
+2020-03-27 17:21:28,057 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 17:21:28,057 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 17:21:28,852 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 17:21:28,852 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 17:21:28,855 ERROR {'exception_type': "<class 'IndexError'>", 'message': '[\'  File "/home/ezafati/meshproject/EZAMESH/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage9.txt", p)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/read_data.py", line 36, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/MeshAlg/global_DT.py", line 60, in run_tri_mesh\\n    save_ezamesh_file()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 59, in save_ezamesh_file\\n    create_tri6_mesh()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 91, in create_tri6_mesh\\n    insert_mid_point(tr=init_tr, plist=plist)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 124, in insert_mid_point\\n    insert_mid_point(tr=adj, plist=plist)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 111, in insert_mid_point\\n    adj = [p for p in tr.adjacent if len(set(p.points) & set(seg)) > 1][0]\\n\']list index out of range'}
+NoneType: None
+2020-03-27 17:22:44,252 INFO Current Process with pid 11121 with status running launched by the user ezafati
+2020-03-27 17:22:44,760 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 17:22:44,761 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 17:22:45,623 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 17:22:45,623 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 17:22:45,626 ERROR {'exception_type': "<class 'IndexError'>", 'message': '[\'  File "/home/ezafati/meshproject/EZAMESH/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage9.txt", p)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/read_data.py", line 36, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/MeshAlg/global_DT.py", line 60, in run_tri_mesh\\n    save_ezamesh_file()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 59, in save_ezamesh_file\\n    create_tri6_mesh()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 91, in create_tri6_mesh\\n    insert_mid_point(tr=init_tr, plist=plist)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 125, in insert_mid_point\\n    insert_mid_point(tr=adj, plist=plist)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 111, in insert_mid_point\\n    adj = [p for p in tr.adjacent if len(set(p.points) & set(seg)) > 1][0]\\n\']list index out of range'}
+NoneType: None
+2020-03-27 17:23:33,938 INFO Current Process with pid 11250 with status running launched by the user ezafati
+2020-03-27 17:23:34,618 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 17:23:34,619 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 17:23:35,431 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 17:23:35,431 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 17:23:35,432 ERROR {'exception_type': "<class 'IndexError'>", 'message': '[\'  File "/home/ezafati/meshproject/EZAMESH/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage9.txt", p)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/read_data.py", line 36, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/MeshAlg/global_DT.py", line 60, in run_tri_mesh\\n    save_ezamesh_file()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 59, in save_ezamesh_file\\n    create_tri6_mesh()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 91, in create_tri6_mesh\\n    insert_mid_point(tr=init_tr, plist=plist)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 123, in insert_mid_point\\n    insert_mid_point(tr=adj, plist=plist)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 112, in insert_mid_point\\n    adj = [p for p in tr.adjacent if len(set(p.points) & set(seg)) > 1][0]\\n\']list index out of range'}
+NoneType: None
+2020-03-27 17:23:51,088 INFO Current Process with pid 11373 with status running launched by the user ezafati
+2020-03-27 17:23:51,609 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 17:23:51,609 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 17:23:52,432 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 17:23:52,433 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 17:23:52,434 ERROR {'exception_type': "<class 'IndexError'>", 'message': '[\'  File "/home/ezafati/meshproject/EZAMESH/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage9.txt", p)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/read_data.py", line 36, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/MeshAlg/global_DT.py", line 60, in run_tri_mesh\\n    save_ezamesh_file()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 59, in save_ezamesh_file\\n    create_tri6_mesh()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 91, in create_tri6_mesh\\n    insert_mid_point(tr=init_tr, plist=plist)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 124, in insert_mid_point\\n    insert_mid_point(tr=adj, plist=plist)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 113, in insert_mid_point\\n    adj = [p for p in tr.adjacent if len(set(p.points) & set(seg)) > 1][0]\\n\']list index out of range'}
+NoneType: None
+2020-03-27 17:32:49,649 INFO Current Process with pid 11537 with status running launched by the user ezafati
+2020-03-27 17:32:50,266 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 17:32:50,267 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 17:32:51,177 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 17:32:51,178 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 17:32:51,181 ERROR {'exception_type': "<class 'IndexError'>", 'message': '[\'  File "/home/ezafati/meshproject/EZAMESH/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage9.txt", p)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/read_data.py", line 36, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/MeshAlg/global_DT.py", line 60, in run_tri_mesh\\n    save_ezamesh_file()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 58, in save_ezamesh_file\\n    create_tri6_mesh()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 90, in create_tri6_mesh\\n    insert_mid_point(tr=init_tr, plist=plist)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 104, in insert_mid_point\\n    seg_list.append((tr.points[0], tr.points[size]))\\n\']list index out of range'}
+NoneType: None
+2020-03-27 17:33:24,033 INFO Current Process with pid 11672 with status running launched by the user ezafati
+2020-03-27 17:33:24,573 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 17:33:24,573 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 17:33:25,470 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 17:33:25,471 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 17:33:25,472 ERROR {'exception_type': "<class 'IndexError'>", 'message': '[\'  File "/home/ezafati/meshproject/EZAMESH/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage9.txt", p)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/read_data.py", line 36, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/MeshAlg/global_DT.py", line 60, in run_tri_mesh\\n    save_ezamesh_file()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 58, in save_ezamesh_file\\n    create_tri6_mesh()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 90, in create_tri6_mesh\\n    insert_mid_point(tr=init_tr, plist=plist)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 104, in insert_mid_point\\n    seg_list.append((tr.points[0], tr.points[size]))\\n\']list index out of range'}
+NoneType: None
+2020-03-27 17:36:07,753 INFO Current Process with pid 11799 with status running launched by the user ezafati
+2020-03-27 17:36:08,256 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 17:36:08,257 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 17:36:09,046 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 17:36:09,047 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 17:36:09,080 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 17:36:09,881 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 17:36:09,881 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 17:36:09,898 INFO  Process  11799  terminates: user CPU time 0.89, system cpu time 0.44
+2020-03-27 17:37:55,380 INFO Current Process with pid 12067 with status running launched by the user ezafati
+2020-03-27 17:37:55,854 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 17:37:55,854 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 17:37:56,636 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 17:37:56,637 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 17:37:56,660 ERROR {'exception_type': "<class 'IndexError'>", 'message': '[\'  File "/home/ezafati/meshproject/EZAMESH/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage9.txt", p)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/read_data.py", line 36, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/MeshAlg/global_DT.py", line 60, in run_tri_mesh\\n    save_ezamesh_file()\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 86, in save_ezamesh_file\\n    p6=tr.points[5]))\\n\']list index out of range'}
+NoneType: None
+2020-03-27 17:40:05,971 INFO Current Process with pid 12205 with status running launched by the user ezafati
+2020-03-27 17:40:06,466 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 17:40:06,466 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 17:40:07,236 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 17:40:07,236 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 17:40:07,256 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 17:40:08,073 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 17:40:08,073 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 17:40:08,093 INFO  Process  12205  terminates: user CPU time 0.86, system cpu time 0.44
+2020-03-27 17:40:19,085 INFO Current Process with pid 12452 with status running launched by the user ezafati
+2020-03-27 17:40:19,556 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 17:40:19,558 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 17:40:20,250 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 17:40:20,251 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 17:40:20,267 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 17:40:21,101 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 17:40:21,102 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 17:40:21,118 INFO  Process  12452  terminates: user CPU time 0.85, system cpu time 0.45
+2020-03-27 17:44:47,877 INFO Current Process with pid 12705 with status running launched by the user ezafati
+2020-03-27 17:44:48,385 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 17:44:48,386 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 17:44:49,119 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 17:44:49,119 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 17:44:49,130 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 17:44:49,882 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 17:44:49,882 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 17:44:49,893 INFO  Process  12705  terminates: user CPU time 0.81, system cpu time 0.47
+2020-03-27 17:44:59,295 INFO Current Process with pid 12949 with status running launched by the user ezafati
+2020-03-27 17:44:59,965 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-27 17:44:59,966 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 17:45:00,795 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 17:45:00,796 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 17:45:00,804 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-27 17:45:01,557 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-27 17:45:01,558 INFO MESH GENERATED WITH 77 POINTS
+2020-03-27 17:45:01,566 INFO  Process  12949  terminates: user CPU time 0.89, system cpu time 0.41
+2020-03-29 19:39:00,468 INFO Current Process with pid 5794 with status running launched by the user ezafati
+2020-03-29 19:39:01,598 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-29 19:39:01,599 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-29 19:39:02,359 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-29 19:39:02,359 INFO MESH GENERATED WITH 77 POINTS
+2020-03-29 19:39:02,368 ERROR {'exception_type': "<class 'TypeError'>", 'message': '[\'  File "/home/ezafati/meshproject/EZAMESH/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage9.txt", p)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/read_data.py", line 36, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/MeshAlg/global_DT.py", line 60, in run_tri_mesh\\n    save_ezamesh_file()\\n\']save_ezamesh_file() missing 2 required positional arguments: \'partmesh\' and \'tree_refinement\''}
+NoneType: None
+2020-03-29 19:39:41,711 INFO Current Process with pid 5932 with status running launched by the user ezafati
+2020-03-29 19:39:42,295 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-29 19:39:42,295 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-29 19:39:43,153 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-29 19:39:43,154 INFO MESH GENERATED WITH 77 POINTS
+2020-03-29 19:39:43,155 ERROR {'exception_type': "<class 'TypeError'>", 'message': '[\'  File "/home/ezafati/meshproject/EZAMESH/tests/read_test.py", line 34, in <module>\\n    result = read_file("maillage9.txt", p)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/read_data.py", line 36, in read_file\\n    run_tri_mesh(module_var.partmesh, process)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/MeshAlg/global_DT.py", line 60, in run_tri_mesh\\n    save_ezamesh_file(partmesh=module_var.partmesh, tree_refinement=module_var.tree_refinement)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 58, in save_ezamesh_file\\n    create_tri6_mesh(partmesh=partmesh, tree_refinement=tree_refinement)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 93, in create_tri6_mesh\\n    insert_mid_point(tr=init_tr, plist=plist, partmesh=partmesh)\\n\', \'  File "/home/ezafati/meshproject/EZAMESH/src/post_traitement/save_mesh.py", line 129, in insert_mid_point\\n    insert_mid_point(tr=adj, plist=plist)\\n\']insert_mid_point() missing 1 required positional argument: \'partmesh\''}
+NoneType: None
+2020-03-29 19:41:28,756 INFO Current Process with pid 6117 with status running launched by the user ezafati
+2020-03-29 19:41:29,408 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-29 19:41:29,408 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-29 19:41:30,176 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-29 19:41:30,176 INFO MESH GENERATED WITH 77 POINTS
+2020-03-29 19:41:30,186 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-29 19:41:30,976 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-29 19:41:30,977 INFO MESH GENERATED WITH 77 POINTS
+2020-03-29 19:41:30,987 INFO  Process  6117  terminates: user CPU time 0.89, system cpu time 0.46
+2020-03-29 20:04:43,896 INFO Current Process with pid 6430 with status running launched by the user ezafati
+2020-03-29 20:04:44,484 INFO ############### END READ MESH FILE WITH SUCCESS   ###########################
+2020-03-29 20:04:44,485 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-29 20:04:45,318 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-29 20:04:45,319 INFO MESH GENERATED WITH 77 POINTS
+2020-03-29 20:04:45,328 INFO DOMAIN WITH 40 POINTS IN BOUNDARY
+2020-03-29 20:04:46,149 INFO PROCESS TERMINATES WITH NO MORE SKINNY TRIANGLE
+2020-03-29 20:04:46,150 INFO MESH GENERATED WITH 77 POINTS
+2020-03-29 20:04:46,158 INFO  Process  6430  terminates: user CPU time 0.91, system cpu time 0.38

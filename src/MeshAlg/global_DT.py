@@ -5,6 +5,7 @@ from MeshObjects import *
 from post_traitement import *
 from systemutils import launch_processes, worker
 from module_var import dispatcher
+import module_var
 
 
 def run_tri_mesh(vmesh: 'Mesh', process: 'Process'):
@@ -28,7 +29,7 @@ def run_tri_mesh(vmesh: 'Mesh', process: 'Process'):
     T2 = Triangle([nl + 2, nl + 3, nl])
     T1.adjacent.add(T2)
     T2.adjacent.add(T1)
-    Tree = TriangleTree(Triangle())     # initialize Tree
+    Tree = TriangleTree(Triangle())  # initialize Tree
     Tree.root.childs = Tree.root.childs + [T1, T2]
     for tr in Tree.root.childs:
         tr.parent = Tree.root
@@ -57,5 +58,5 @@ def run_tri_mesh(vmesh: 'Mesh', process: 'Process'):
                 params[index].value = cache_value[index]
         logging.info(f'MESH GENERATED WITH {len(plist)} POINTS')
         if module_var.partmesh.save:
-            save_ezamesh_file()
+            save_ezamesh_file(partmesh=module_var.partmesh, tree_refinement=module_var.tree_refinement)
     # module_var.tree_refinement.plot_mesh(plist)
